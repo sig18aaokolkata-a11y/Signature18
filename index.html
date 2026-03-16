@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Signature 18 – Association of Apartment Owners, Kasba, Kolkata</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    :root {
+      --navy:#0a1a3b; --navy-mid:#112354; --navy-light:#1c3470;
+      --gold:#c9a233; --gold-light:#e8c35a; --gold-pale:#f5e9c0;
+      --white:#ffffff; --off-white:#f8f6f0;
+      --text:#0a1a3b; --text-mid:#3a4f7a; --text-light:#7a8aaa;
+      --border:#d6deee; --red-accent:#c0392b;
+    }
+    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    html{scroll-behavior:smooth;}
+    body{font-family:'Outfit',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;}
+
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(10,26,59,0.97);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:68px;border-bottom:2px solid var(--gold);}
+    .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+    .nav-logo-icon{width:52px;height:38px;background:var(--gold);border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3px 6px;}
+    .nav-logo-icon .logo-s18{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--navy);line-height:1;}
+    .nav-logo-icon .logo-aao{font-size:0.45rem;font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:0.18em;color:var(--navy-mid);line-height:1;margin-top:2px;}
+    .nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--white);line-height:1.2;}
+    .nav-logo-text span{display:block;font-size:0.6rem;font-family:'Outfit',sans-serif;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:400;}
+    .nav-links{display:flex;gap:2rem;list-style:none;align-items:center;}
+    .nav-links a{text-decoration:none;color:rgba(255,255,255,0.75);font-size:0.82rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:500;transition:color 0.2s;}
+    .nav-links a:hover{color:var(--gold);}
+    .nav-links .nav-cta{background:var(--gold);color:var(--navy)!important;padding:0.45rem 1.1rem;border-radius:3px;font-weight:600;}
+    .nav-links .nav-cta:hover{background:var(--gold-light);}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+    .hamburger span{width:26px;height:2px;background:var(--gold);display:block;}
+
+    /* HERO */
+    #home{
+      min-height:100vh;
+      background-color:var(--navy-mid);
+      background-image:linear-gradient(135deg,rgba(10,26,59,0.78) 0%,rgba(17,35,84,0.68) 100%),url('building.png');
+      background-size:cover;
+      background-position:center;
+      display:flex;align-items:center;justify-content:center;padding:68px 5% 50px;position:relative;text-align:center;
+    }
+    .hero-left{max-width:780px;animation:fadeUp 0.9s ease both;display:flex;flex-direction:column;align-items:center;}
+    .hero-tag{display:inline-flex;align-items:center;gap:0.5rem;margin-bottom:1.2rem;}
+    .hero-tag-line{width:40px;height:1px;background:var(--gold);}
+    .hero-tag span{font-size:0.7rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);font-weight:500;}
+    .hero-left h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6vw,4.5rem);color:var(--white);line-height:1.08;margin-bottom:1rem;font-weight:400;}
+    .hero-left h1 em{color:var(--gold);font-style:italic;display:block;font-size:1.15em;}
+    .hero-left h1 .sub{font-size:0.45em;letter-spacing:0.22em;text-transform:uppercase;font-family:'Outfit',sans-serif;font-weight:300;color:rgba(255,255,255,0.7);display:block;margin-top:0.4rem;}
+    .hero-divider{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;width:100%;}
+    .hero-assoc{font-size:clamp(1.1rem,2.5vw,1.6rem);color:rgba(255,255,255,0.92);font-weight:300;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.2rem;}
+    .hero-divider-line{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(201,162,51,0.5),transparent);}
+    .hero-divider-diamond{width:8px;height:8px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;}
+    .hero-left p{color:rgba(255,255,255,0.8);font-size:0.95rem;line-height:1.9;font-weight:300;margin-bottom:2.5rem;max-width:500px;}
+    .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
+    .btn-gold{background:var(--gold);color:var(--navy);padding:0.85rem 2rem;border-radius:3px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:background 0.2s,transform 0.15s;}
+    .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
+    .btn-ghost{border:2px solid rgba(255,255,255,0.6);color:var(--white);padding:0.85rem 2rem;border-radius:3px;text-decoration:none;font-weight:500;font-size:0.9rem;transition:border-color 0.2s,transform 0.15s;}
+    .btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
+    .hero-badge{position:absolute;bottom:2.5rem;left:50%;transform:translateX(-50%);display:flex;gap:2px;}
+    /* SECTIONS */
+    section{padding:4rem 5%;}
+    .section-label{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.7rem;}
+    .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.2rem);color:var(--navy);line-height:1.15;margin-bottom:0.8rem;}
+    .section-sub{color:var(--text-mid);font-size:1rem;line-height:1.8;font-weight:300;max-width:560px;}
+    .gold-bar{width:48px;height:3px;background:linear-gradient(to right,var(--gold),var(--gold-light));border-radius:2px;margin:0.8rem 0 1.2rem;}
+
+    /* ABOUT */
+    #about{background:var(--off-white);}
+    .about-layout{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;max-width:1100px;margin:1.5rem 0 0;align-items:start;}
+    .about-text-block p{color:var(--text-mid);line-height:1.9;font-weight:300;margin-bottom:1rem;}
+    .about-amenities-label{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1rem;}
+    .amenity-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;}
+    .amenity-item{display:flex;align-items:center;gap:0.7rem;background:var(--white);border:1px solid var(--border);border-radius:6px;padding:0.65rem 1rem;font-size:0.85rem;font-weight:500;color:var(--navy);transition:border-color 0.2s,transform 0.15s;}
+    .amenity-item:hover{border-color:var(--gold);transform:translateY(-2px);}
+    .amenity-emoji{font-size:1.1rem;}
+    .about-stats{display:flex;align-items:center;max-width:1100px;background:var(--navy);border-radius:8px;overflow:hidden;}
+    .about-stat{flex:1;padding:1.8rem 2rem;text-align:center;}
+    .about-stat-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;color:var(--gold);line-height:1;font-weight:700;}
+    .about-stat-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:rgba(255,255,255,0.5);margin-top:0.3rem;}
+    .about-stat-divider{width:1px;height:50px;background:rgba(255,255,255,0.1);}
+    @media(max-width:768px){.about-layout{grid-template-columns:1fr;}.about-stats{flex-wrap:wrap;}.about-stat{min-width:50%;}.about-stat-divider{display:none;}}
+
+    /* NOTICES */
+    #news{background:var(--navy);}
+    #news .section-title{color:var(--white);}
+    #news .section-sub{color:rgba(255,255,255,0.6);}
+    .notice-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;margin-top:2rem;max-width:1100px;}
+    .notice-card{background:rgba(255,255,255,0.06);border:1px solid rgba(201,162,51,0.25);border-radius:4px;padding:1.8rem;position:relative;overflow:hidden;transition:background 0.2s,transform 0.2s;}
+    .notice-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);}
+    .notice-card:hover{background:rgba(255,255,255,0.09);transform:translateY(-3px);}
+    .notice-type{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.8rem;}
+    .notice-card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--white);margin-bottom:0.6rem;line-height:1.3;}
+    .notice-card p{font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.7;font-weight:300;}
+    .notice-date{font-size:0.75rem;color:rgba(255,255,255,0.38);margin-top:1.2rem;}
+    .notice-urgent::before{background:var(--red-accent);}
+    .notice-badge{position:absolute;top:1rem;right:1rem;background:var(--red-accent);color:white;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:2px;}
+
+    /* EVENTS */
+    #events{background:var(--off-white);}
+    .events-container{display:grid;grid-template-columns:2fr 1fr;gap:2rem;max-width:1100px;margin:1.5rem auto 0;align-items:start;}
+    .events-list{display:flex;flex-direction:column;gap:0.8rem;}
+    .event-row{display:flex;align-items:center;gap:1.5rem;background:var(--white);border:1px solid var(--border);border-radius:4px;padding:1.2rem 1.5rem;transition:box-shadow 0.2s,border-color 0.2s;}
+    .event-row:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(10,26,59,0.08);}
+    .ev-date{text-align:center;min-width:52px;}
+    .ev-day{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--navy);line-height:1;font-weight:700;}
+    .ev-mon{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-light);}
+    .ev-divider{width:1px;height:40px;background:var(--border);}
+    .ev-info h4{font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.2rem;}
+    .ev-info p{font-size:0.82rem;color:var(--text-light);}
+    .ev-tag{margin-left:auto;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:20px;white-space:nowrap;font-weight:600;}
+    .tag-meeting{background:#e8f0fe;color:#1a56c4;}
+    .tag-festival{background:#fef3e2;color:#b45309;}
+    .tag-maint{background:#fce4e4;color:#c0392b;}
+    .tag-social{background:#e6f7ee;color:#1a7a4a;}
+    .mini-cal{background:var(--navy);border-radius:6px;padding:1.8rem;}
+    .mini-cal h4{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold);margin-bottom:1.2rem;}
+    .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
+    .cal-day-name{font-size:0.65rem;text-align:center;color:rgba(255,255,255,0.4);text-transform:uppercase;padding-bottom:0.4rem;}
+    .cal-day{font-size:0.78rem;text-align:center;padding:0.35rem 0;border-radius:3px;color:rgba(255,255,255,0.65);}
+    .cal-day.has-event{background:rgba(201,162,51,0.25);color:var(--gold-light);font-weight:600;}
+    .cal-day.empty{opacity:0;pointer-events:none;}
+
+    /* GALLERY */
+    #gallery{background:var(--white);}
+    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:6px;margin-top:1.5rem;}
+    .g-item{overflow:hidden;border-radius:3px;}
+    .g-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s,filter 0.3s;filter:saturate(0.85);}
+    .g-item:hover img{transform:scale(1.06);filter:saturate(1.1);}
+    .g-item.wide{grid-column:span 2;}
+    .g-item.tall{grid-row:span 2;}
+
+    /* MEMBERS */
+    #members{background:var(--off-white);}
+    .members-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1.2rem;max-width:1100px;}
+    .doc-card{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:1.6rem;display:flex;flex-direction:column;gap:0.8rem;transition:border-color 0.2s,box-shadow 0.2s,transform 0.2s;}
+    .doc-card:hover{border-color:var(--gold);box-shadow:0 8px 24px rgba(10,26,59,0.08);transform:translateY(-3px);}
+    .doc-icon-wrap{width:44px;height:44px;background:var(--gold-pale);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;}
+    .doc-card h4{font-size:0.92rem;font-weight:600;color:var(--navy);}
+    .doc-card p{font-size:0.8rem;color:var(--text-light);line-height:1.5;flex:1;}
+    .doc-link{font-size:0.78rem;color:var(--gold);text-decoration:none;font-weight:600;}
+    .members-note{background:var(--navy);color:rgba(255,255,255,0.7);border-radius:4px;padding:0.8rem 1.2rem;font-size:0.82rem;display:flex;align-items:center;gap:0.6rem;margin-top:1rem;max-width:1100px;}
+
+    /* CONTACT */
+    #contact{background:var(--white);}
+    .contact-card{background:var(--navy);border-radius:6px;padding:1.8rem;width:100%;}
+    .contact-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--white);margin-bottom:1.2rem;}
+    .c-detail{display:flex;gap:1rem;margin-bottom:1rem;align-items:flex-start;}
+    .c-icon{width:38px;height:38px;background:rgba(201,162,51,0.15);border:1px solid rgba(201,162,51,0.3);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+    .c-detail h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);font-weight:600;margin-bottom:0.3rem;}
+    .c-detail p{font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.6;}
+
+    /* FOOTER */
+    footer{background:var(--navy);border-top:3px solid var(--gold);padding:2rem 5% 1.2rem;}
+    .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:1.5rem;}
+    .footer-brand p{font-size:0.82rem;color:rgba(255,255,255,0.5);margin-top:0.8rem;max-width:280px;line-height:1.7;}
+    .footer-col h5{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--gold);margin-bottom:1.2rem;font-weight:600;}
+    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+    .footer-col a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.85rem;transition:color 0.2s;}
+    .footer-col a:hover{color:var(--gold);}
+    .footer-icons{display:flex;flex-direction:column;gap:0.7rem;margin-top:0.2rem;}
+    .footer-icon-btn{display:flex;align-items:center;gap:0.6rem;text-decoration:none;color:rgba(255,255,255,0.6);font-size:0.85rem;transition:color 0.2s;}
+    .footer-icon-btn:hover{color:var(--gold);}
+    .fi-icon{width:28px;height:28px;background:rgba(201,162,51,0.15);border:1px solid rgba(201,162,51,0.3);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;}
+    .footer-rera{margin-top:0.8rem;padding-top:0.8rem;border-top:1px solid rgba(255,255,255,0.1);}
+    .rera-label{display:block;font-size:0.65rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.2rem;}
+    .rera-id{font-size:0.75rem;color:rgba(255,255,255,0.45);}
+    .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.2rem;display:flex;justify-content:space-between;flex-wrap:wrap;gap:0.5rem;font-size:0.78rem;color:rgba(255,255,255,0.35);}
+
+    @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
+    .reveal{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease;}
+    .reveal.visible{opacity:1;transform:translateY(0);}
+
+    @media(max-width:900px){
+      .events-container{grid-template-columns:1fr;gap:2.5rem;}
+      .gallery-grid{grid-template-columns:repeat(2,1fr);}
+      .g-item.wide{grid-column:span 2;}
+    }
+    @media(max-width:768px){
+      .nav-links{display:none;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--navy);padding:1.2rem 5%;border-top:1px solid rgba(201,162,51,0.3);gap:1rem;}
+      .nav-links.open{display:flex;}
+      .hamburger{display:flex;}
+      .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <div class="nav-logo-icon">
+      <span class="logo-s18">S·18</span>
+      <span class="logo-aao">AAO</span>
+    </div>
+    <div class="nav-logo-text">Signature 18 <span>Association of Apartment Owners</span></div>
+  </a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#news">Notices</a></li>
+    <li><a href="#members">For Members</a></li>
+    <li><a href="#events">Events</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+
+<!-- HERO -->
+<section id="home">
+  <div class="hero-left">
+    <h1>
+      <em>Signature 18</em>
+    </h1>
+    <div class="hero-assoc">Association of Apartment Owners</div>
+    <div class="hero-divider">
+      <div class="hero-divider-line"></div>
+      <div class="hero-divider-diamond"></div>
+      <div class="hero-divider-line"></div>
+    </div>
+    <p>Your official community platform for 69 families. Stay informed, stay connected, and build the neighbourhood you deserve.</p>
+    <div class="hero-btns">
+      <a href="#news" class="btn-gold">View Latest Notices</a>
+      <a href="#contact" class="btn-ghost">Contact Committee</a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <p class="section-label reveal">About Our Community</p>
+  <h2 class="section-title reveal">A Premium Residential Community in Kasba</h2>
+  <div class="gold-bar reveal"></div>
+
+  <div class="about-layout reveal">
+    <div class="about-text-block">
+      <p>Signature 18 Association of Apartment Owners is the elected governing body of the 69-apartment tower at 8, Bosepukur Road, Kasba, Kolkata. We manage day-to-day operations, maintenance, community events, and the welfare of all residents.</p>
+      <p>Our association is committed to maintaining the highest standards of living — ensuring every family experiences comfort, safety, and a strong sense of belonging.</p>
+    </div>
+    <div class="about-amenities-block">
+      <p class="about-amenities-label">Our Amenities</p>
+      <div class="amenity-grid">
+        <div class="amenity-item"><span class="amenity-emoji">🏊</span><span>Swimming Pool</span></div>
+        <div class="amenity-item"><span class="amenity-emoji">💪</span><span>Fitness Centre</span></div>
+        <div class="amenity-item"><span class="amenity-emoji">🏸</span><span>Badminton Court</span></div>
+        <div class="amenity-item"><span class="amenity-emoji">🎮</span><span>Game Room</span></div>
+        <div class="amenity-item"><span class="amenity-emoji">🌿</span><span>Roof Garden</span></div>
+        <div class="amenity-item"><span class="amenity-emoji">☀️</span><span>Sun Deck</span></div>
+        <div class="amenity-item"><span class="amenity-emoji">🅿️</span><span>Car Parking</span></div>
+        <div class="amenity-item"><span class="amenity-emoji">🏛️</span><span>Community Hall</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTICES -->
+<section id="news">
+  <p class="section-label reveal">Official Notices</p>
+  <h2 class="section-title reveal">Notice Board</h2>
+  <div class="gold-bar reveal"></div>
+  <p class="section-sub reveal" style="color:rgba(255,255,255,0.6);">Important announcements and updates from the Association.</p>
+  <div class="notice-grid">
+    <div class="notice-card notice-urgent reveal">
+      <div class="notice-badge">Urgent</div>
+      <p class="notice-type">⚠️ Maintenance</p>
+      <h3>Water Supply Interruption – Tank Cleaning</h3>
+      <p>Overhead water tank cleaning is scheduled for 28th March. Water supply will be interrupted from 9:00 AM to 1:00 PM. Kindly store water in advance.</p>
+      <p class="notice-date">📅 Posted: March 10, 2026</p>
+    </div>
+    <div class="notice-card reveal">
+      <p class="notice-type">📋 AGM Notice</p>
+      <h3>Annual General Meeting – April 12, 2026</h3>
+      <p>All resident members are invited to attend the AGM at the Community Hall, Ground Floor at 6:00 PM. Agenda: accounts review and committee elections.</p>
+      <p class="notice-date">📅 Posted: March 5, 2026</p>
+    </div>
+    <div class="notice-card reveal">
+      <p class="notice-type">💰 Finance</p>
+      <h3>Maintenance Dues – Q1 2026 Reminder</h3>
+      <p>Kindly clear all pending maintenance dues for Q1 2026 by March 31st to avoid late fees. Contact the secretary for payment details.</p>
+      <p class="notice-date">📅 Posted: March 1, 2026</p>
+    </div>
+    <div class="notice-card reveal">
+      <p class="notice-type">🌿 Community</p>
+      <h3>Terrace Garden Initiative – Join Us!</h3>
+      <p>We are launching a resident-managed terrace garden. Register to adopt a plant bed. Planting day is May 1st — limited spots available!</p>
+      <p class="notice-date">📅 Posted: February 20, 2026</p>
+    </div>
+    <div class="notice-card reveal">
+      <p class="notice-type">🔒 Security</p>
+      <h3>Updated Visitor Entry Protocol</h3>
+      <p>Effective April 1st, all visitors must register via the intercom system. Please inform the security desk in advance for guests.</p>
+      <p class="notice-date">📅 Posted: February 15, 2026</p>
+    </div>
+    <div class="notice-card reveal">
+      <p class="notice-type">📜 Circular</p>
+      <h3>Pet Policy Reminder</h3>
+      <p>All residents with pets are reminded to ensure pets are leashed in common areas and lifts. Full policy available in the Members section.</p>
+      <p class="notice-date">📅 Posted: February 10, 2026</p>
+    </div>
+  </div>
+</section>
+
+<!-- MEMBERS -->
+<section id="members">
+  <p class="section-label reveal">Residents Only</p>
+  <h2 class="section-title reveal">Members Section</h2>
+  <div class="gold-bar reveal"></div>
+  <p class="section-sub reveal">Access society documents, meeting records, and important information.</p>
+  <div class="members-grid">
+    <div class="doc-card reveal"><div class="doc-icon-wrap">📋</div><h4>Meeting Minutes</h4><p>AGM &amp; monthly committee meeting notes and resolutions</p><a href="#" class="doc-link">View →</a></div>
+    <div class="doc-card reveal"><div class="doc-icon-wrap">💰</div><h4>Society Documents</h4><p>Annual financial statements, budgets, and audit reports</p><a href="#" class="doc-link">View →</a></div>
+    <div class="doc-card reveal"><div class="doc-icon-wrap">📜</div><h4>Rules &amp; Bylaws</h4><p>Association rules, regulations, and resident guidelines</p><a href="#" class="doc-link">View →</a></div>
+    <div class="doc-card reveal"><div class="doc-icon-wrap">🔧</div><h4>Maintenance Log</h4><p>History of repair work orders and service records</p><a href="#" class="doc-link">View →</a></div>
+    <div class="doc-card reveal"><div class="doc-icon-wrap">📞</div><h4>Emergency Contacts</h4><p>Plumber, electrician, security, fire, and more</p><a href="#" class="doc-link">View →</a></div>
+    <div class="doc-card reveal"><div class="doc-icon-wrap">🗳️</div><h4>Committee Details</h4><p>Elected members, their roles and contact information</p><a href="#" class="doc-link">View →</a></div>
+    <div class="doc-card reveal"><div class="doc-icon-wrap">💳</div><h4>Pay Maintenance</h4><p>Bank details and UPI ID for dues payment</p><a href="#" class="doc-link">View →</a></div>
+    <div class="doc-card reveal"><div class="doc-icon-wrap">📝</div><h4>Contact the Association</h4><p>Submit complaints, requests or queries to the committee</p><a href="#contact" class="doc-link">Contact Us →</a></div>
+    <div class="doc-card reveal"><div class="doc-icon-wrap">👥</div><h4>Residents List</h4><p>Directory of all apartment owners and residents</p><a href="#" class="doc-link">Open →</a></div>
+  </div>
+  <div class="members-note reveal">🔒 Some documents are restricted to registered members only. Contact the secretary to register your access.</div>
+</section>
+
+<!-- EVENTS -->
+<section id="events">
+  <p class="section-label reveal">What's On</p>
+  <h2 class="section-title reveal">Upcoming Events</h2>
+  <div class="gold-bar reveal"></div>
+  <div class="events-container">
+    <div class="events-list">
+      <div class="event-row reveal">
+        <div class="ev-date"><div class="ev-day">28</div><div class="ev-mon">Mar</div></div>
+        <div class="ev-divider"></div>
+        <div class="ev-info"><h4>Water Tank Cleaning</h4><p>9:00 AM – 1:00 PM · Building-wide</p></div>
+        <span class="ev-tag tag-maint">Maintenance</span>
+      </div>
+      <div class="event-row reveal">
+        <div class="ev-date"><div class="ev-day">12</div><div class="ev-mon">Apr</div></div>
+        <div class="ev-divider"></div>
+        <div class="ev-info"><h4>Annual General Meeting (AGM)</h4><p>6:00 PM · Community Hall, Ground Floor</p></div>
+        <span class="ev-tag tag-meeting">Meeting</span>
+      </div>
+      <div class="event-row reveal">
+        <div class="ev-date"><div class="ev-day">14</div><div class="ev-mon">Apr</div></div>
+        <div class="ev-divider"></div>
+        <div class="ev-info"><h4>Pohela Boishakh Celebration 🎉</h4><p>5:00 PM onwards · Rooftop &amp; Common Area</p></div>
+        <span class="ev-tag tag-festival">Festival</span>
+      </div>
+      <div class="event-row reveal">
+        <div class="ev-date"><div class="ev-day">01</div><div class="ev-mon">May</div></div>
+        <div class="ev-divider"></div>
+        <div class="ev-info"><h4>Terrace Garden Planting Day 🌱</h4><p>8:00 AM – 11:00 AM · Rooftop Terrace</p></div>
+        <span class="ev-tag tag-social">Community</span>
+      </div>
+      <div class="event-row reveal">
+        <div class="ev-date"><div class="ev-day">20</div><div class="ev-mon">May</div></div>
+        <div class="ev-divider"></div>
+        <div class="ev-info"><h4>Pool Season Opening Day 🏊</h4><p>10:00 AM · Rooftop Pool</p></div>
+        <span class="ev-tag tag-social">Community</span>
+      </div>
+    </div>
+    <div class="mini-cal reveal">
+      <h4>📅 April 2026</h4>
+      <div class="cal-grid">
+        <div class="cal-day-name">S</div><div class="cal-day-name">M</div><div class="cal-day-name">T</div><div class="cal-day-name">W</div><div class="cal-day-name">T</div><div class="cal-day-name">F</div><div class="cal-day-name">S</div>
+        <div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div>
+        <div class="cal-day">6</div><div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day has-event">12</div>
+        <div class="cal-day">13</div><div class="cal-day has-event">14</div><div class="cal-day">15</div><div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day">19</div>
+        <div class="cal-day">20</div><div class="cal-day">21</div><div class="cal-day">22</div><div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div><div class="cal-day">26</div>
+        <div class="cal-day">27</div><div class="cal-day">28</div><div class="cal-day">29</div><div class="cal-day">30</div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div>
+      </div>
+      <div style="margin-top:1.2rem;font-size:0.75rem;color:rgba(255,255,255,0.4);display:flex;align-items:center;gap:0.5rem;">
+        <span style="width:10px;height:10px;background:rgba(201,162,51,0.25);border-radius:2px;display:inline-block;"></span> Event day
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery">
+  <p class="section-label reveal">Life at Signature 18</p>
+  <h2 class="section-title reveal">Gallery</h2>
+  <div class="gold-bar reveal"></div>
+  <div class="gallery-grid">
+    <div class="g-item wide tall"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="Building"/></div>
+    <div class="g-item"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Lobby"/></div>
+    <div class="g-item"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&q=80" alt="Pool"/></div>
+    <div class="g-item"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=400&q=80" alt="Terrace"/></div>
+    <div class="g-item"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80" alt="Gym"/></div>
+    <div class="g-item wide"><img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=800&q=80" alt="Community"/></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-label reveal">Reach Out</p>
+  <h2 class="section-title reveal">Get in Touch</h2>
+  <div class="gold-bar reveal"></div>
+  <div class="contact-card reveal">
+    <h3>Association Details</h3>
+    <div class="c-detail">
+      <div class="c-icon">📍</div>
+      <div><h4>Address</h4><p>8, Bosepukur Road, Kasba<br/>Kolkata – 700042, West Bengal</p></div>
+    </div>
+    <div class="c-detail">
+      <div class="c-icon">📧</div>
+      <div><h4>Email</h4><p>association@signature18kasba.in</p></div>
+    </div>
+    <div class="c-detail">
+      <div class="c-icon">📞</div>
+      <div><h4>Facility Manager Contact</h4><p>+91 98300 00000</p></div>
+    </div>
+    <div class="c-detail">
+      <div class="c-icon">🕐</div>
+      <div><h4>Office Hours</h4><p>Mon – Sat: 10:00 AM – 7:00 PM</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <div style="width:52px;height:38px;background:var(--gold);border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:3px 6px;">
+          <span style="font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--navy);line-height:1;">S·18</span>
+          <span style="font-size:0.45rem;font-family:'Outfit',sans-serif;font-weight:700;letter-spacing:0.18em;color:var(--navy-mid);line-height:1;margin-top:2px;">AAO</span>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:white;line-height:1.2;">Signature 18<span style="display:block;font-size:0.6rem;font-family:'Outfit',sans-serif;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:400;">Association of Apartment Owners</span></div>
+      </div>
+      <p>The official association at 8, Bosepukur Road, Kasba, Kolkata. Together we build a better community.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Quick Links</h5>
+      <ul>
+        <li><a href="#about">About Us</a></li>
+        <li><a href="#news">Notice Board</a></li>
+        <li><a href="#members">For Members</a></li>
+        <li><a href="#events">Events</a></li>
+        <li><a href="#gallery">Gallery</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Association</h5>
+      <ul>
+        <li><a href="#">Rules &amp; Bylaws</a></li>
+        <li><a href="#">Pay Maintenance</a></li>
+        <li><a href="#">Complaint Register</a></li>
+        <li><a href="#">Emergency Contacts</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Explore</h5>
+      <div class="footer-icons">
+        <a href="https://www.youtube.com/watch?v=_l8ESQoyBrs" target="_blank" class="footer-icon-btn">
+          <span class="fi-icon">▶</span>
+          <span>Building Tour</span>
+        </a>
+        <a href="https://maps.google.com/?q=8+Bosepukur+Road+Kasba+Kolkata+700042" target="_blank" class="footer-icon-btn">
+          <span class="fi-icon">📍</span>
+          <span>View on Map</span>
+        </a>
+        <div class="footer-rera">
+          <span class="rera-label">Association Registration No.</span>
+          <span class="rera-id">HIRA/P/KOL/2021/001245</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Signature 18 Association of Apartment Owners, Kasba, Kolkata. All rights reserved.</span>
+    <span>Built with ❤️ for our community</span>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('hamburger').addEventListener('click',()=>{
+    document.getElementById('navLinks').classList.toggle('open');
+  });
+  const obs=new IntersectionObserver((entries)=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);obs.unobserve(e.target);}
+    });
+  },{threshold:0.08});
+  document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+  const secs=document.querySelectorAll('section[id]');
+  window.addEventListener('scroll',()=>{
+    let cur='';
+    secs.forEach(s=>{if(window.scrollY>=s.offsetTop-90)cur=s.id;});
+    document.querySelectorAll('.nav-links a').forEach(a=>{
+      a.style.color=a.getAttribute('href')===`#${cur}`?'var(--gold)':'';
+    });
+  });
+</script>
+</body>
+</html>
