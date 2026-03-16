@@ -8,191 +8,178 @@
   <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <style>
-    :root {
-      --navy:#0a1a3b; --navy-mid:#112354; --navy-light:#1c3470;
-      --gold:#c9a233; --gold-light:#e8c35a; --gold-pale:#f5e9c0;
-      --white:#ffffff; --off-white:#f8f6f0;
-      --text:#0a1a3b; --text-mid:#3a4f7a; --text-light:#7a8aaa;
-      --border:#d6deee; --red-accent:#c0392b;
-    }
-    *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+    :root{--navy:#0a1a3b;--navy-mid:#112354;--gold:#c9a233;--gold-light:#e8c35a;--gold-pale:#f5e9c0;--white:#ffffff;--off-white:#f8f6f0;--text:#0a1a3b;--text-mid:#3a4f7a;--text-light:#7a8aaa;--border:#d6deee;--red:#c0392b;}
+    *{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
-    body{font-family:'Outfit',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;}
+    body{font-family:'Outfit',sans-serif;background:#fff;color:#0a1a3b;overflow-x:hidden;}
 
-    /* NAV */
-    nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(10,26,59,0.97);backdrop-filter:blur(12px);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:68px;border-bottom:2px solid var(--gold);}
-    .nav-logo{display:flex;align-items:center;text-decoration:none;}
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(10,26,59,0.97);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:68px;border-bottom:2px solid var(--gold);}
+    .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
+    .nav-logo-text{display:flex;flex-direction:column;}
+    .nav-logo-text strong{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:#fff;line-height:1.2;}
+    .nav-logo-text span{font-size:0.58rem;font-family:'Outfit',sans-serif;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);}
     .nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center;}
     .nav-links a{text-decoration:none;color:rgba(255,255,255,0.75);font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:500;transition:color 0.2s;}
     .nav-links a:hover{color:var(--gold);}
-    .nav-links .nav-cta{background:var(--gold);color:var(--navy)!important;padding:0.45rem 1.1rem;border-radius:3px;font-weight:600;}
-    .nav-links .nav-cta:hover{background:var(--gold-light);}
+    .nav-cta{background:var(--gold)!important;color:#0a1a3b!important;padding:0.45rem 1.1rem;border-radius:3px;font-weight:600!important;}
     .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
     .hamburger span{width:26px;height:2px;background:var(--gold);display:block;}
 
-    /* HERO */
-    #home{min-height:100vh;background-color:var(--navy-mid);background-image:linear-gradient(135deg,rgba(10,26,59,0.78) 0%,rgba(17,35,84,0.68) 100%),url('building.png');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;padding:68px 5% 50px;position:relative;text-align:center;}
-    .hero-left{max-width:780px;animation:fadeUp 0.9s ease both;display:flex;flex-direction:column;align-items:center;}
-    .hero-logo{width:200px;height:auto;margin-bottom:1.2rem;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.5));}
-    .hero-assoc{font-size:clamp(1.1rem,2.5vw,1.6rem);color:rgba(255,255,255,0.92);font-weight:300;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.2rem;}
+    #home{min-height:100vh;background-color:#112354;background-image:linear-gradient(135deg,rgba(10,26,59,0.80) 0%,rgba(17,35,84,0.70) 100%),url('building.png');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;padding:68px 5% 50px;text-align:center;}
+    .hero-inner{max-width:780px;display:flex;flex-direction:column;align-items:center;animation:fadeUp 0.9s ease both;}
+    .hero-logo{width:190px;height:auto;margin-bottom:1.2rem;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.5));}
+    .hero-assoc{font-size:clamp(1rem,2.5vw,1.5rem);color:rgba(255,255,255,0.95);font-weight:300;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.2rem;}
     .hero-divider{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;width:100%;}
-    .hero-divider-line{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(201,162,51,0.5),transparent);}
-    .hero-ethnic{color:var(--gold);font-size:1.4rem;line-height:1;flex-shrink:0;}
-    .hero-left p{color:rgba(255,255,255,0.85);font-size:0.95rem;line-height:1.9;font-weight:300;margin-bottom:2rem;max-width:500px;}
+    .hero-line{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(201,162,51,0.5),transparent);}
+    .hero-ornament{color:var(--gold);font-size:1.4rem;line-height:1;}
+    .hero-inner p{color:rgba(255,255,255,0.88);font-size:0.95rem;line-height:1.9;font-weight:300;margin-bottom:2rem;max-width:500px;}
     .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
-    .btn-gold{background:var(--gold);color:var(--navy);padding:0.85rem 2rem;border-radius:3px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:background 0.2s,transform 0.15s;}
+    .btn-gold{background:var(--gold);color:#0a1a3b;padding:0.85rem 2rem;border-radius:3px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:background 0.2s,transform 0.15s;}
     .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
-    .btn-ghost{border:2px solid rgba(255,255,255,0.6);color:var(--white);padding:0.85rem 2rem;border-radius:3px;text-decoration:none;font-weight:500;font-size:0.9rem;transition:border-color 0.2s,transform 0.15s;}
+    .btn-ghost{border:2px solid rgba(255,255,255,0.6);color:#fff;padding:0.85rem 2rem;border-radius:3px;text-decoration:none;font-weight:500;font-size:0.9rem;transition:border-color 0.2s,transform 0.15s;}
     .btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
 
-    /* SECTIONS */
     section{padding:4rem 5%;display:flex;flex-direction:column;align-items:center;}
-    .section-label{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.7rem;text-align:center;}
-    .section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2.2rem,4vw,3.2rem);color:var(--navy);line-height:1.15;margin-bottom:0.8rem;text-align:center;}
-    .section-sub{color:var(--text-mid);font-size:1rem;line-height:1.8;font-weight:300;max-width:560px;text-align:center;}
-    .gold-bar{width:48px;height:3px;background:linear-gradient(to right,var(--gold),var(--gold-light));border-radius:2px;margin:0.8rem auto 1.2rem;}
+    .lbl{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.7rem;text-align:center;}
+    .ttl{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);color:#0a1a3b;line-height:1.15;margin-bottom:0.8rem;text-align:center;}
+    .sub{color:#3a4f7a;font-size:1rem;line-height:1.8;font-weight:300;max-width:560px;text-align:center;}
+    .bar{width:48px;height:3px;background:linear-gradient(to right,var(--gold),var(--gold-light));border-radius:2px;margin:0.8rem auto 1.2rem;}
 
-    /* ABOUT */
     #about{background:var(--off-white);}
-    .about-layout{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;max-width:1100px;width:100%;margin:1.5rem 0 0;align-items:start;}
-    .about-text-block p{color:var(--text-mid);line-height:1.9;font-weight:300;margin-bottom:1rem;}
-    .about-amenities-label{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1rem;}
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;max-width:1100px;width:100%;margin:1.5rem 0 0;align-items:start;}
+    .about-grid p{color:#3a4f7a;line-height:1.9;font-weight:300;margin-bottom:1rem;}
+    .amenity-lbl{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1rem;}
     .amenity-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;}
-    .amenity-item{display:flex;align-items:center;gap:0.7rem;background:var(--white);border:1px solid var(--border);border-radius:6px;padding:0.65rem 1rem;font-size:0.85rem;font-weight:500;color:var(--navy);transition:border-color 0.2s,transform 0.15s;}
-    .amenity-item:hover{border-color:var(--gold);transform:translateY(-2px);}
-    .amenity-emoji{font-size:1.1rem;}
+    .chip{display:flex;align-items:center;gap:0.7rem;background:#fff;border:1px solid var(--border);border-radius:6px;padding:0.65rem 1rem;font-size:0.85rem;font-weight:500;color:#0a1a3b;transition:border-color 0.2s,transform 0.15s;}
+    .chip:hover{border-color:var(--gold);transform:translateY(-2px);}
 
-    /* NOTICES */
-    #news{background:var(--navy);}
-    #news .section-title{color:var(--white);}
-    #news .section-sub{color:rgba(255,255,255,0.6);}
+    #news{background:#0a1a3b;}
+    #news .ttl{color:#fff;}
     .notice-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;margin-top:2rem;max-width:1100px;width:100%;}
-    .notice-card{background:rgba(255,255,255,0.06);border:1px solid rgba(201,162,51,0.25);border-radius:4px;padding:1.8rem;position:relative;overflow:hidden;transition:background 0.2s,transform 0.2s;}
-    .notice-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);}
-    .notice-card:hover{background:rgba(255,255,255,0.09);transform:translateY(-3px);}
-    .notice-type{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.8rem;}
-    .notice-card h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:var(--white);margin-bottom:0.6rem;line-height:1.3;}
-    .notice-card p{font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.7;font-weight:300;}
-    .notice-date{font-size:0.75rem;color:rgba(255,255,255,0.38);margin-top:1.2rem;}
-    .notice-urgent::before{background:var(--red-accent);}
-    .notice-badge{position:absolute;top:1rem;right:1rem;background:var(--red-accent);color:white;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:2px;}
+    .nc{background:rgba(255,255,255,0.06);border:1px solid rgba(201,162,51,0.25);border-radius:4px;padding:1.8rem;position:relative;overflow:hidden;transition:background 0.2s,transform 0.2s;}
+    .nc::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);}
+    .nc:hover{background:rgba(255,255,255,0.09);transform:translateY(-3px);}
+    .nc-type{font-size:0.7rem;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.8rem;}
+    .nc h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:#fff;margin-bottom:0.6rem;line-height:1.3;}
+    .nc p{font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.7;font-weight:300;}
+    .nc-date{font-size:0.75rem;color:rgba(255,255,255,0.38);margin-top:1.2rem;}
+    .nc-urgent::before{background:var(--red);}
+    .nc-badge{position:absolute;top:1rem;right:1rem;background:var(--red);color:#fff;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:2px;}
 
-    /* MEMBERS */
     #members{background:var(--off-white);}
-    .members-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.8rem;max-width:1100px;width:100%;margin-top:1.5rem;}
-    .doc-card{background:var(--white);border:1px solid var(--border);border-radius:4px;padding:1rem 1.2rem;display:flex;align-items:flex-start;gap:0.8rem;transition:border-color 0.2s,box-shadow 0.2s,transform 0.2s;}
-    .doc-card:hover{border-color:var(--gold);box-shadow:0 4px 16px rgba(10,26,59,0.08);transform:translateY(-2px);}
-    .doc-icon-wrap{width:36px;height:36px;background:var(--gold-pale);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;margin-top:2px;}
-    .doc-card-text{flex:1;}
-    .doc-card h4{font-size:0.85rem;font-weight:600;color:var(--navy);margin-bottom:0.2rem;}
-    .doc-card p{font-size:0.75rem;color:var(--text-light);line-height:1.4;margin-bottom:0.3rem;}
-    .doc-link{font-size:0.75rem;color:var(--gold);text-decoration:none;font-weight:600;white-space:nowrap;}
-    .members-note{background:var(--navy);color:rgba(255,255,255,0.7);border-radius:4px;padding:0.8rem 1.2rem;font-size:0.82rem;display:flex;align-items:center;gap:0.6rem;margin-top:1rem;max-width:1100px;width:100%;}
+    .mem-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.8rem;max-width:1100px;width:100%;margin-top:1.5rem;}
+    .mc{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1rem 1.2rem;display:flex;align-items:flex-start;gap:0.8rem;transition:border-color 0.2s,box-shadow 0.2s,transform 0.2s;}
+    .mc:hover{border-color:var(--gold);box-shadow:0 4px 16px rgba(10,26,59,0.08);transform:translateY(-2px);}
+    .mc-icon{width:36px;height:36px;background:var(--gold-pale);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;margin-top:2px;}
+    .mc-text{flex:1;}
+    .mc h4{font-size:0.85rem;font-weight:600;color:#0a1a3b;margin-bottom:0.2rem;}
+    .mc p{font-size:0.75rem;color:var(--text-light);line-height:1.4;margin-bottom:0.3rem;}
+    .mc a{font-size:0.75rem;color:var(--gold);text-decoration:none;font-weight:600;}
+    .mem-note{background:#0a1a3b;color:rgba(255,255,255,0.7);border-radius:4px;padding:0.8rem 1.2rem;font-size:0.82rem;display:flex;align-items:center;gap:0.6rem;margin-top:1rem;max-width:1100px;width:100%;}
 
-    /* EVENTS */
-    #events{background:var(--white);}
-    .events-container{display:grid;grid-template-columns:2fr 1fr;gap:2rem;max-width:1100px;width:100%;margin:1.5rem 0 0;align-items:start;}
-    .events-list{display:flex;flex-direction:column;gap:0.8rem;}
-    .event-row{display:flex;align-items:center;gap:1.5rem;background:var(--off-white);border:1px solid var(--border);border-radius:4px;padding:1.2rem 1.5rem;transition:box-shadow 0.2s,border-color 0.2s;}
-    .event-row:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(10,26,59,0.08);}
-    .ev-date{text-align:center;min-width:52px;}
-    .ev-day{font-family:'Cormorant Garamond',serif;font-size:2rem;color:var(--navy);line-height:1;font-weight:700;}
+    #events{background:#fff;}
+    .ev-grid{display:grid;grid-template-columns:2fr 1fr;gap:2rem;max-width:1100px;width:100%;margin:1.5rem 0 0;align-items:start;}
+    .ev-list{display:flex;flex-direction:column;gap:0.8rem;}
+    .ev-row{display:flex;align-items:center;gap:1.5rem;background:var(--off-white);border:1px solid var(--border);border-radius:4px;padding:1.2rem 1.5rem;transition:box-shadow 0.2s,border-color 0.2s;}
+    .ev-row:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(10,26,59,0.08);}
+    .ev-dt{text-align:center;min-width:52px;}
+    .ev-day{font-family:'Cormorant Garamond',serif;font-size:2rem;color:#0a1a3b;line-height:1;font-weight:700;}
     .ev-mon{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-light);}
-    .ev-divider{width:1px;height:40px;background:var(--border);}
-    .ev-info h4{font-size:0.95rem;font-weight:600;color:var(--navy);margin-bottom:0.2rem;}
+    .ev-sep{width:1px;height:40px;background:var(--border);}
+    .ev-info h4{font-size:0.95rem;font-weight:600;color:#0a1a3b;margin-bottom:0.2rem;}
     .ev-info p{font-size:0.82rem;color:var(--text-light);}
     .ev-tag{margin-left:auto;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:20px;white-space:nowrap;font-weight:600;}
-    .tag-meeting{background:#e8f0fe;color:#1a56c4;}
-    .tag-festival{background:#fef3e2;color:#b45309;}
-    .tag-maint{background:#fce4e4;color:#c0392b;}
-    .tag-social{background:#e6f7ee;color:#1a7a4a;}
-    .mini-cal{background:var(--navy);border-radius:6px;padding:1.8rem;}
-    .mini-cal h4{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold);margin-bottom:1.2rem;}
+    .t-meet{background:#e8f0fe;color:#1a56c4;}
+    .t-fest{background:#fef3e2;color:#b45309;}
+    .t-main{background:#fce4e4;color:#c0392b;}
+    .t-soc{background:#e6f7ee;color:#1a7a4a;}
+    .cal{background:#0a1a3b;border-radius:6px;padding:1.8rem;}
+    .cal h4{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold);margin-bottom:1.2rem;}
     .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
-    .cal-day-name{font-size:0.65rem;text-align:center;color:rgba(255,255,255,0.4);text-transform:uppercase;padding-bottom:0.4rem;}
-    .cal-day{font-size:0.78rem;text-align:center;padding:0.35rem 0;border-radius:3px;color:rgba(255,255,255,0.65);}
-    .cal-day.has-event{background:rgba(201,162,51,0.25);color:var(--gold-light);font-weight:600;}
-    .cal-day.empty{opacity:0;pointer-events:none;}
+    .cal-dn{font-size:0.65rem;text-align:center;color:rgba(255,255,255,0.4);text-transform:uppercase;padding-bottom:0.4rem;}
+    .cal-d{font-size:0.78rem;text-align:center;padding:0.35rem 0;border-radius:3px;color:rgba(255,255,255,0.65);}
+    .cal-d.ev{background:rgba(201,162,51,0.25);color:var(--gold-light);font-weight:600;}
+    .cal-d.em{opacity:0;pointer-events:none;}
 
-    /* GALLERY */
     #gallery{background:var(--off-white);}
-    .gallery-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:6px;margin-top:1.5rem;max-width:1100px;width:100%;}
-    .g-item{overflow:hidden;border-radius:3px;}
-    .g-item img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s,filter 0.3s;filter:saturate(0.85);}
-    .g-item:hover img{transform:scale(1.06);filter:saturate(1.1);}
-    .g-item.wide{grid-column:span 2;}
-    .g-item.tall{grid-row:span 2;}
+    .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:6px;margin-top:1.5rem;max-width:1100px;width:100%;}
+    .gi{overflow:hidden;border-radius:3px;}
+    .gi img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s,filter 0.3s;filter:saturate(0.85);}
+    .gi:hover img{transform:scale(1.06);filter:saturate(1.1);}
+    .gi.w{grid-column:span 2;}
+    .gi.t{grid-row:span 2;}
 
-    /* COMMITTEE */
-    #committee{background:var(--navy);}
-    #committee .section-title{color:var(--white);}
-    .committee-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1.5rem;max-width:1100px;width:100%;margin-top:2rem;justify-items:center;}
-    .committee-card{background:rgba(255,255,255,0.06);border:1px solid rgba(201,162,51,0.2);border-radius:8px;padding:1.8rem 1.2rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:0.8rem;transition:background 0.2s,transform 0.2s,border-color 0.2s;width:100%;cursor:pointer;}
-    .committee-card:hover{background:rgba(255,255,255,0.1);transform:translateY(-3px);border-color:var(--gold);}
-    .committee-avatar{width:80px;height:80px;border-radius:50%;background:rgba(201,162,51,0.12);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:2rem;overflow:hidden;flex-shrink:0;}
-    .committee-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
-    .committee-info h4{font-size:0.95rem;font-weight:600;color:var(--white);}
-    .committee-role{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-top:0.2rem;}
-    .committee-phone{font-size:0.8rem;color:rgba(255,255,255,0.5);margin-top:0.3rem;}
-    .committee-hint{font-size:0.68rem;color:rgba(255,255,255,0.3);margin-top:0.4rem;letter-spacing:0.05em;}
+    #committee{background:#0a1a3b;}
+    #committee .ttl{color:#fff;}
+    .com-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1.5rem;max-width:1100px;width:100%;margin-top:2rem;justify-items:center;}
+    .cc{background:rgba(255,255,255,0.06);border:1px solid rgba(201,162,51,0.2);border-radius:8px;padding:1.8rem 1.2rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:0.8rem;transition:background 0.2s,transform 0.2s,border-color 0.2s;width:100%;cursor:pointer;}
+    .cc:hover{background:rgba(255,255,255,0.1);transform:translateY(-3px);border-color:var(--gold);}
+    .cc-av{width:80px;height:80px;border-radius:50%;background:rgba(201,162,51,0.12);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:2rem;overflow:hidden;}
+    .cc-av img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
+    .cc h4{font-size:0.95rem;font-weight:600;color:#fff;}
+    .cc-role{font-size:0.72rem;letter-spacing:0.12em;text-transform:uppercase;color:var(--gold);font-weight:500;margin-top:0.2rem;}
+    .cc-phone{font-size:0.8rem;color:rgba(255,255,255,0.5);margin-top:0.3rem;}
+    .cc-hint{font-size:0.68rem;color:rgba(255,255,255,0.3);margin-top:0.4rem;}
 
-    /* MODAL */
-    .modal-overlay{display:none;position:fixed;inset:0;background:rgba(5,12,30,0.8);backdrop-filter:blur(6px);z-index:500;align-items:center;justify-content:center;padding:2rem;}
-    .modal-overlay.open{display:flex;}
-    .modal{background:var(--navy-mid);border:1px solid rgba(201,162,51,0.35);border-radius:12px;padding:2rem;max-width:380px;width:100%;position:relative;animation:fadeUp 0.2s ease;}
-    .modal-close{position:absolute;top:0.9rem;right:1rem;background:none;border:none;color:rgba(255,255,255,0.4);font-size:1.3rem;cursor:pointer;line-height:1;transition:color 0.2s;}
-    .modal-close:hover{color:var(--gold);}
-    .modal-avatar{width:80px;height:80px;border-radius:50%;background:rgba(201,162,51,0.12);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 1rem;overflow:hidden;}
-    .modal-avatar img{width:100%;height:100%;object-fit:cover;border-radius:50%;}
-    .modal-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--white);text-align:center;}
-    .modal-role{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);text-align:center;margin-top:0.2rem;margin-bottom:0.4rem;}
-    .modal-phone{font-size:0.82rem;color:rgba(255,255,255,0.5);text-align:center;margin-bottom:1.2rem;}
-    .modal-divider{width:40px;height:1px;background:rgba(201,162,51,0.3);margin:0.8rem auto;}
-    .modal-bio{font-size:0.88rem;color:rgba(255,255,255,0.7);line-height:1.8;text-align:center;font-weight:300;}
+    .modal-ov{display:none;position:fixed;inset:0;background:rgba(5,12,30,0.85);backdrop-filter:blur(6px);z-index:500;align-items:center;justify-content:center;padding:2rem;}
+    .modal-ov.open{display:flex;}
+    .modal{background:#112354;border:1px solid rgba(201,162,51,0.35);border-radius:12px;padding:2rem;max-width:380px;width:100%;position:relative;animation:fadeUp 0.2s ease;}
+    .modal-x{position:absolute;top:0.9rem;right:1rem;background:none;border:none;color:rgba(255,255,255,0.4);font-size:1.3rem;cursor:pointer;transition:color 0.2s;}
+    .modal-x:hover{color:var(--gold);}
+    .modal-av{width:80px;height:80px;border-radius:50%;background:rgba(201,162,51,0.12);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 1rem;}
+    .modal-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:#fff;text-align:center;}
+    .modal-role{font-size:0.72rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);text-align:center;margin-top:0.2rem;margin-bottom:0.3rem;}
+    .modal-phone{font-size:0.82rem;color:rgba(255,255,255,0.5);text-align:center;margin-bottom:1rem;}
+    .modal-div{width:40px;height:1px;background:rgba(201,162,51,0.3);margin:0.8rem auto;}
+    .modal-bio{font-size:0.88rem;color:rgba(255,255,255,0.72);line-height:1.8;text-align:center;font-weight:300;}
 
-    /* CONTACT */
-    #contact{background:var(--white);}
-    .contact-card{background:var(--navy);border-radius:6px;padding:1.8rem;width:100%;max-width:1100px;}
-    .contact-card h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--white);margin-bottom:1.2rem;}
-    .c-detail{display:flex;gap:1rem;margin-bottom:1rem;align-items:flex-start;}
-    .c-icon{width:38px;height:38px;background:rgba(201,162,51,0.15);border:1px solid rgba(201,162,51,0.3);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
-    .c-detail h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);font-weight:600;margin-bottom:0.3rem;}
-    .c-detail p{font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.6;}
+    #contact{background:#fff;}
+    .con-card{background:#0a1a3b;border-radius:6px;padding:1.8rem;width:100%;max-width:1100px;}
+    .c-row{display:flex;gap:1rem;margin-bottom:1rem;align-items:flex-start;}
+    .c-ic{width:38px;height:38px;background:rgba(201,162,51,0.15);border:1px solid rgba(201,162,51,0.3);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+    .c-row h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);font-weight:600;margin-bottom:0.3rem;}
+    .c-row p{font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.6;}
 
-    /* FOOTER */
-    footer{background:var(--navy);border-top:3px solid var(--gold);padding:2rem 5% 1.2rem;}
-    .footer-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:1.5rem;max-width:1100px;margin-left:auto;margin-right:auto;}
-    .footer-brand p{font-size:0.82rem;color:rgba(255,255,255,0.5);margin-top:0.8rem;max-width:280px;line-height:1.7;}
-    .footer-col h5{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--gold);margin-bottom:1.2rem;font-weight:600;}
-    .footer-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
-    .footer-col a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.85rem;transition:color 0.2s;}
-    .footer-col a:hover{color:var(--gold);}
-    .footer-icons{display:flex;flex-direction:column;gap:0.7rem;margin-top:0.2rem;}
-    .footer-icon-btn{display:flex;align-items:center;gap:0.6rem;text-decoration:none;color:rgba(255,255,255,0.6);font-size:0.85rem;transition:color 0.2s;}
-    .footer-icon-btn:hover{color:var(--gold);}
-    .fi-icon{width:28px;height:28px;background:rgba(201,162,51,0.15);border:1px solid rgba(201,162,51,0.3);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;}
-    .footer-rera{margin-top:0.8rem;padding-top:0.8rem;border-top:1px solid rgba(255,255,255,0.1);}
-    .rera-label{display:block;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.2rem;}
-    .rera-id{font-size:0.75rem;color:rgba(255,255,255,0.45);}
-    .footer-bottom{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.2rem;display:flex;justify-content:center;flex-wrap:wrap;gap:0.5rem;font-size:0.78rem;color:rgba(255,255,255,0.35);max-width:1100px;margin:0 auto;}
+    footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2rem;}
+    .ft-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:1.5rem;max-width:1100px;margin-left:auto;margin-right:auto;}
+    .ft-brand p{font-size:0.82rem;color:rgba(255,255,255,0.5);margin-top:0.8rem;max-width:280px;line-height:1.7;}
+    .ft-col h5{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.18em;color:var(--gold);margin-bottom:1.2rem;font-weight:600;}
+    .ft-col ul{list-style:none;display:flex;flex-direction:column;gap:0.6rem;}
+    .ft-col a{color:rgba(255,255,255,0.55);text-decoration:none;font-size:0.85rem;transition:color 0.2s;}
+    .ft-col a:hover{color:var(--gold);}
+    .ft-icons{display:flex;flex-direction:column;gap:0.7rem;margin-top:0.2rem;}
+    .ft-btn{display:flex;align-items:center;gap:0.6rem;text-decoration:none;color:rgba(255,255,255,0.6);font-size:0.85rem;transition:color 0.2s;}
+    .ft-btn:hover{color:var(--gold);}
+    .ft-ic{width:28px;height:28px;background:rgba(201,162,51,0.15);border:1px solid rgba(201,162,51,0.3);border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:0.75rem;flex-shrink:0;}
+    .ft-rera{margin-top:0.8rem;padding-top:0.8rem;border-top:1px solid rgba(255,255,255,0.1);}
+    .ft-rera span:first-child{display:block;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.2rem;}
+    .ft-rera span:last-child{font-size:0.75rem;color:rgba(255,255,255,0.45);}
+    .ft-bot{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.2rem;display:flex;justify-content:center;font-size:0.78rem;color:rgba(255,255,255,0.35);max-width:1100px;margin:0 auto;}
 
     @keyframes fadeUp{from{opacity:0;transform:translateY(28px)}to{opacity:1;transform:translateY(0)}}
     .reveal{opacity:0;transform:translateY(18px);transition:opacity 0.55s ease,transform 0.55s ease;}
     .reveal.visible{opacity:1;transform:translateY(0);}
 
-    @media(max-width:900px){.about-layout{grid-template-columns:1fr;}.events-container{grid-template-columns:1fr;gap:2rem;}.gallery-grid{grid-template-columns:repeat(2,1fr);}.g-item.wide{grid-column:span 2;}}
-    @media(max-width:768px){.nav-links{display:none;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:var(--navy);padding:1.2rem 5%;border-top:1px solid rgba(201,162,51,0.3);gap:1rem;}.nav-links.open{display:flex;}.hamburger{display:flex;}.gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}.members-grid{grid-template-columns:repeat(2,1fr);}.committee-grid{grid-template-columns:repeat(2,1fr);}.hero-logo{width:150px;}}
+    @media(max-width:900px){.about-grid,.ev-grid{grid-template-columns:1fr;}.gal-grid{grid-template-columns:repeat(2,1fr);}.gi.w{grid-column:span 2;}}
+    @media(max-width:768px){
+      .nav-links{display:none;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:#0a1a3b;padding:1.2rem 5%;border-top:1px solid rgba(201,162,51,0.3);gap:1rem;}
+      .nav-links.open{display:flex;}
+      .hamburger{display:flex;}
+      .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}
+      .mem-grid,.com-grid{grid-template-columns:repeat(2,1fr);}
+      .hero-logo{width:150px;}
+      .nav-logo-text{display:none;}
+    }
   </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#home" class="nav-logo">
     <img src="logo.png" alt="Signature 18" style="height:50px;width:auto;border-radius:4px;"/>
-    <div style="display:flex;flex-direction:column;margin-left:0.75rem;">
-      <span style="font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:var(--white);line-height:1.2;">Signature 18</span>
-      <span style="font-size:0.58rem;font-family:'Outfit',sans-serif;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);font-weight:400;">Association of Apartment Owners</span>
+    <div class="nav-logo-text">
+      <strong>Signature 18</strong>
+      <span>Association of Apartment Owners</span>
     </div>
   </a>
   <ul class="nav-links" id="navLinks">
@@ -207,15 +194,14 @@
   <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </nav>
 
-<!-- HERO -->
 <section id="home">
-  <div class="hero-left">
+  <div class="hero-inner">
     <img src="logo2.png" alt="Signature 18" class="hero-logo"/>
     <div class="hero-assoc">Association of Apartment Owners</div>
     <div class="hero-divider">
-      <div class="hero-divider-line"></div>
-      <span class="hero-ethnic">❋</span>
-      <div class="hero-divider-line"></div>
+      <div class="hero-line"></div>
+      <span class="hero-ornament">❋</span>
+      <div class="hero-line"></div>
     </div>
     <p>Your official community platform for 69 families. Stay informed, stay connected, and build the neighbourhood you deserve.</p>
     <div class="hero-btns">
@@ -225,206 +211,161 @@
   </div>
 </section>
 
-<!-- ABOUT -->
 <section id="about">
-  <p class="section-label reveal">About Our Community</p>
-  <h2 class="section-title reveal">A Premium Residential Community in Kasba</h2>
-  <div class="gold-bar reveal"></div>
-  <div class="about-layout reveal">
-    <div class="about-text-block">
+  <p class="lbl reveal">About Our Community</p>
+  <h2 class="ttl reveal">A Premium Residential Community in Kasba</h2>
+  <div class="bar reveal"></div>
+  <div class="about-grid reveal">
+    <div>
       <p>Signature 18 Association of Apartment Owners is the elected governing body of the 69-apartment tower at 8, Bosepukur Road, Kasba, Kolkata. We manage day-to-day operations, maintenance, community events, and the welfare of all residents.</p>
       <p>Our association is committed to maintaining the highest standards of living — ensuring every family experiences comfort, safety, and a strong sense of belonging.</p>
     </div>
-    <div class="about-amenities-block">
-      <p class="about-amenities-label">Our Amenities</p>
+    <div>
+      <p class="amenity-lbl">Our Amenities</p>
       <div class="amenity-grid">
-        <div class="amenity-item"><span class="amenity-emoji">🏊</span><span>Swimming Pool</span></div>
-        <div class="amenity-item"><span class="amenity-emoji">💪</span><span>Fitness Centre</span></div>
-        <div class="amenity-item"><span class="amenity-emoji">🏸</span><span>Badminton Court</span></div>
-        <div class="amenity-item"><span class="amenity-emoji">🎮</span><span>Game Room</span></div>
-        <div class="amenity-item"><span class="amenity-emoji">🌿</span><span>Roof Garden</span></div>
-        <div class="amenity-item"><span class="amenity-emoji">☀️</span><span>Sun Deck</span></div>
-        <div class="amenity-item"><span class="amenity-emoji">🅿️</span><span>Car Parking</span></div>
-        <div class="amenity-item"><span class="amenity-emoji">🏛️</span><span>Community Hall</span></div>
+        <div class="chip">🏊 Swimming Pool</div>
+        <div class="chip">💪 Fitness Centre</div>
+        <div class="chip">🏸 Badminton Court</div>
+        <div class="chip">🎮 Game Room</div>
+        <div class="chip">🌿 Roof Garden</div>
+        <div class="chip">☀️ Sun Deck</div>
+        <div class="chip">🅿️ Car Parking</div>
+        <div class="chip">🏛️ Community Hall</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- NOTICES -->
 <section id="news">
-  <p class="section-label reveal">Official Announcements</p>
-  <h2 class="section-title reveal">Notice Board</h2>
-  <div class="gold-bar reveal"></div>
-  <p class="section-sub reveal" style="color:rgba(255,255,255,0.6);">Important announcements and updates from the Association.</p>
+  <p class="lbl reveal">Official Announcements</p>
+  <h2 class="ttl reveal">Notice Board</h2>
+  <div class="bar reveal"></div>
+  <p class="sub reveal" style="color:rgba(255,255,255,0.6);">Important announcements and updates from the Association.</p>
   <div class="notice-grid">
-    <div class="notice-card notice-urgent reveal"><div class="notice-badge">Urgent</div><p class="notice-type">⚠️ Maintenance</p><h3>Water Supply Interruption – Tank Cleaning</h3><p>Overhead water tank cleaning is scheduled for 28th March. Water supply will be interrupted from 9:00 AM to 1:00 PM. Kindly store water in advance.</p><p class="notice-date">📅 Posted: March 10, 2026</p></div>
-    <div class="notice-card reveal"><p class="notice-type">📋 AGM Notice</p><h3>Annual General Meeting – April 12, 2026</h3><p>All resident members are invited to attend the AGM at the Community Hall, Ground Floor at 6:00 PM. Agenda: accounts review and committee elections.</p><p class="notice-date">📅 Posted: March 5, 2026</p></div>
-    <div class="notice-card reveal"><p class="notice-type">💰 Finance</p><h3>Maintenance Dues – Q1 2026 Reminder</h3><p>Kindly clear all pending maintenance dues for Q1 2026 by March 31st to avoid late fees. Contact the secretary for payment details.</p><p class="notice-date">📅 Posted: March 1, 2026</p></div>
-    <div class="notice-card reveal"><p class="notice-type">🌿 Community</p><h3>Terrace Garden Initiative – Join Us!</h3><p>We are launching a resident-managed terrace garden. Register to adopt a plant bed. Planting day is May 1st — limited spots available!</p><p class="notice-date">📅 Posted: February 20, 2026</p></div>
-    <div class="notice-card reveal"><p class="notice-type">🔒 Security</p><h3>Updated Visitor Entry Protocol</h3><p>Effective April 1st, all visitors must register via the intercom system. Please inform the security desk in advance for guests.</p><p class="notice-date">📅 Posted: February 15, 2026</p></div>
-    <div class="notice-card reveal"><p class="notice-type">📜 Circular</p><h3>Pet Policy Reminder</h3><p>All residents with pets are reminded to ensure pets are leashed in common areas and lifts. Full policy available in the Members section.</p><p class="notice-date">📅 Posted: February 10, 2026</p></div>
+    <div class="nc nc-urgent reveal"><div class="nc-badge">Urgent</div><p class="nc-type">⚠️ Maintenance</p><h3>Water Supply Interruption – Tank Cleaning</h3><p>Overhead water tank cleaning is scheduled for 28th March. Water supply will be interrupted from 9:00 AM to 1:00 PM. Kindly store water in advance.</p><p class="nc-date">📅 Posted: March 10, 2026</p></div>
+    <div class="nc reveal"><p class="nc-type">📋 AGM Notice</p><h3>Annual General Meeting – April 12, 2026</h3><p>All resident members are invited to attend the AGM at the Community Hall, Ground Floor at 6:00 PM. Agenda: accounts review and committee elections.</p><p class="nc-date">📅 Posted: March 5, 2026</p></div>
+    <div class="nc reveal"><p class="nc-type">💰 Finance</p><h3>Maintenance Dues – Q1 2026 Reminder</h3><p>Kindly clear all pending maintenance dues for Q1 2026 by March 31st to avoid late fees. Contact the secretary for payment details.</p><p class="nc-date">📅 Posted: March 1, 2026</p></div>
+    <div class="nc reveal"><p class="nc-type">🌿 Community</p><h3>Terrace Garden Initiative – Join Us!</h3><p>We are launching a resident-managed terrace garden. Register to adopt a plant bed. Planting day is May 1st — limited spots available!</p><p class="nc-date">📅 Posted: February 20, 2026</p></div>
+    <div class="nc reveal"><p class="nc-type">🔒 Security</p><h3>Updated Visitor Entry Protocol</h3><p>Effective April 1st, all visitors must register via the intercom system. Please inform the security desk in advance for guests.</p><p class="nc-date">📅 Posted: February 15, 2026</p></div>
+    <div class="nc reveal"><p class="nc-type">📜 Circular</p><h3>Pet Policy Reminder</h3><p>All residents with pets are reminded to ensure pets are leashed in common areas and lifts. Full policy available in the Members section.</p><p class="nc-date">📅 Posted: February 10, 2026</p></div>
   </div>
 </section>
 
-<!-- MEMBERS -->
 <section id="members">
-  <p class="section-label reveal">Residents Only</p>
-  <h2 class="section-title reveal">For Members</h2>
-  <div class="gold-bar reveal"></div>
-  <p class="section-sub reveal">Access society documents, meeting records, and important information.</p>
-  <div class="members-grid">
-    <div class="doc-card reveal"><div class="doc-icon-wrap">📋</div><div class="doc-card-text"><h4>Meeting Minutes</h4><p>AGM &amp; committee notes</p><a href="#" class="doc-link">View →</a></div></div>
-    <div class="doc-card reveal"><div class="doc-icon-wrap">💰</div><div class="doc-card-text"><h4>Society Documents</h4><p>Financial statements &amp; audits</p><a href="#" class="doc-link">View →</a></div></div>
-    <div class="doc-card reveal"><div class="doc-icon-wrap">📜</div><div class="doc-card-text"><h4>Rules &amp; Bylaws</h4><p>Regulations &amp; guidelines</p><a href="#" class="doc-link">View →</a></div></div>
-    <div class="doc-card reveal"><div class="doc-icon-wrap">🔧</div><div class="doc-card-text"><h4>Maintenance Log</h4><p>Repair &amp; service records</p><a href="#" class="doc-link">View →</a></div></div>
-    <div class="doc-card reveal"><div class="doc-icon-wrap">📞</div><div class="doc-card-text"><h4>Emergency Contacts</h4><p>Plumber, electrician &amp; more</p><a href="#" class="doc-link">View →</a></div></div>
-    <div class="doc-card reveal"><div class="doc-icon-wrap">💳</div><div class="doc-card-text"><h4>Pay Maintenance</h4><p>Bank &amp; UPI details</p><a href="#" class="doc-link">View →</a></div></div>
-    <div class="doc-card reveal"><div class="doc-icon-wrap">📝</div><div class="doc-card-text"><h4>Contact the Association</h4><p>Complaints &amp; queries</p><a href="#contact" class="doc-link">Contact Us →</a></div></div>
-    <div class="doc-card reveal"><div class="doc-icon-wrap">👥</div><div class="doc-card-text"><h4>Residents List</h4><p>Apartment owners directory</p><a href="#" class="doc-link">Open →</a></div></div>
-    <div class="doc-card reveal"><div class="doc-icon-wrap">🏛️</div><div class="doc-card-text"><h4>Community Hall Booking</h4><p>Reserve for events &amp; gatherings</p><a href="#" class="doc-link">Book Now →</a></div></div>
+  <p class="lbl reveal">Residents Only</p>
+  <h2 class="ttl reveal">For Members</h2>
+  <div class="bar reveal"></div>
+  <p class="sub reveal">Access society documents, meeting records, and important information.</p>
+  <div class="mem-grid">
+    <div class="mc reveal"><div class="mc-icon">📋</div><div class="mc-text"><h4>Meeting Minutes</h4><p>AGM &amp; committee notes</p><a href="#">View →</a></div></div>
+    <div class="mc reveal"><div class="mc-icon">💰</div><div class="mc-text"><h4>Society Documents</h4><p>Financial statements &amp; audits</p><a href="#">View →</a></div></div>
+    <div class="mc reveal"><div class="mc-icon">📜</div><div class="mc-text"><h4>Rules &amp; Bylaws</h4><p>Regulations &amp; guidelines</p><a href="#">View →</a></div></div>
+    <div class="mc reveal"><div class="mc-icon">🔧</div><div class="mc-text"><h4>Maintenance Log</h4><p>Repair &amp; service records</p><a href="#">View →</a></div></div>
+    <div class="mc reveal"><div class="mc-icon">📞</div><div class="mc-text"><h4>Emergency Contacts</h4><p>Plumber, electrician &amp; more</p><a href="#">View →</a></div></div>
+    <div class="mc reveal"><div class="mc-icon">💳</div><div class="mc-text"><h4>Pay Maintenance</h4><p>Bank &amp; UPI details</p><a href="#">View →</a></div></div>
+    <div class="mc reveal"><div class="mc-icon">📝</div><div class="mc-text"><h4>Contact the Association</h4><p>Complaints &amp; queries</p><a href="#contact">Contact Us →</a></div></div>
+    <div class="mc reveal"><div class="mc-icon">👥</div><div class="mc-text"><h4>Residents List</h4><p>Apartment owners directory</p><a href="#">Open →</a></div></div>
+    <div class="mc reveal"><div class="mc-icon">🏛️</div><div class="mc-text"><h4>Community Hall Booking</h4><p>Reserve for events &amp; gatherings</p><a href="#">Book Now →</a></div></div>
   </div>
-  <div class="members-note reveal">🔒 Some documents are restricted to registered members only. Contact the secretary to register your access.</div>
+  <div class="mem-note reveal">🔒 Some documents are restricted to registered members only. Contact the secretary to register your access.</div>
 </section>
 
-<!-- EVENTS -->
 <section id="events">
-  <p class="section-label reveal">What's On</p>
-  <h2 class="section-title reveal">Upcoming Events</h2>
-  <div class="gold-bar reveal"></div>
-  <div class="events-container">
-    <div class="events-list">
-      <div class="event-row reveal"><div class="ev-date"><div class="ev-day">28</div><div class="ev-mon">Mar</div></div><div class="ev-divider"></div><div class="ev-info"><h4>Water Tank Cleaning</h4><p>9:00 AM – 1:00 PM · Building-wide</p></div><span class="ev-tag tag-maint">Maintenance</span></div>
-      <div class="event-row reveal"><div class="ev-date"><div class="ev-day">12</div><div class="ev-mon">Apr</div></div><div class="ev-divider"></div><div class="ev-info"><h4>Annual General Meeting (AGM)</h4><p>6:00 PM · Community Hall, Ground Floor</p></div><span class="ev-tag tag-meeting">Meeting</span></div>
-      <div class="event-row reveal"><div class="ev-date"><div class="ev-day">14</div><div class="ev-mon">Apr</div></div><div class="ev-divider"></div><div class="ev-info"><h4>Pohela Boishakh Celebration 🎉</h4><p>5:00 PM onwards · Rooftop &amp; Common Area</p></div><span class="ev-tag tag-festival">Festival</span></div>
-      <div class="event-row reveal"><div class="ev-date"><div class="ev-day">01</div><div class="ev-mon">May</div></div><div class="ev-divider"></div><div class="ev-info"><h4>Terrace Garden Planting Day 🌱</h4><p>8:00 AM – 11:00 AM · Rooftop Terrace</p></div><span class="ev-tag tag-social">Community</span></div>
-      <div class="event-row reveal"><div class="ev-date"><div class="ev-day">20</div><div class="ev-mon">May</div></div><div class="ev-divider"></div><div class="ev-info"><h4>Pool Season Opening Day 🏊</h4><p>10:00 AM · Rooftop Pool</p></div><span class="ev-tag tag-social">Community</span></div>
+  <p class="lbl reveal">What's On</p>
+  <h2 class="ttl reveal">Upcoming Events</h2>
+  <div class="bar reveal"></div>
+  <div class="ev-grid">
+    <div class="ev-list">
+      <div class="ev-row reveal"><div class="ev-dt"><div class="ev-day">28</div><div class="ev-mon">Mar</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Water Tank Cleaning</h4><p>9:00 AM – 1:00 PM · Building-wide</p></div><span class="ev-tag t-main">Maintenance</span></div>
+      <div class="ev-row reveal"><div class="ev-dt"><div class="ev-day">12</div><div class="ev-mon">Apr</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Annual General Meeting (AGM)</h4><p>6:00 PM · Community Hall, Ground Floor</p></div><span class="ev-tag t-meet">Meeting</span></div>
+      <div class="ev-row reveal"><div class="ev-dt"><div class="ev-day">14</div><div class="ev-mon">Apr</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Pohela Boishakh Celebration 🎉</h4><p>5:00 PM onwards · Rooftop &amp; Common Area</p></div><span class="ev-tag t-fest">Festival</span></div>
+      <div class="ev-row reveal"><div class="ev-dt"><div class="ev-day">01</div><div class="ev-mon">May</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Terrace Garden Planting Day 🌱</h4><p>8:00 AM – 11:00 AM · Rooftop Terrace</p></div><span class="ev-tag t-soc">Community</span></div>
+      <div class="ev-row reveal"><div class="ev-dt"><div class="ev-day">20</div><div class="ev-mon">May</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Pool Season Opening Day 🏊</h4><p>10:00 AM · Rooftop Pool</p></div><span class="ev-tag t-soc">Community</span></div>
     </div>
-    <div class="mini-cal reveal">
+    <div class="cal reveal">
       <h4>📅 April 2026</h4>
       <div class="cal-grid">
-        <div class="cal-day-name">S</div><div class="cal-day-name">M</div><div class="cal-day-name">T</div><div class="cal-day-name">W</div><div class="cal-day-name">T</div><div class="cal-day-name">F</div><div class="cal-day-name">S</div>
-        <div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day">1</div><div class="cal-day">2</div><div class="cal-day">3</div><div class="cal-day">4</div><div class="cal-day">5</div>
-        <div class="cal-day">6</div><div class="cal-day">7</div><div class="cal-day">8</div><div class="cal-day">9</div><div class="cal-day">10</div><div class="cal-day">11</div><div class="cal-day has-event">12</div>
-        <div class="cal-day">13</div><div class="cal-day has-event">14</div><div class="cal-day">15</div><div class="cal-day">16</div><div class="cal-day">17</div><div class="cal-day">18</div><div class="cal-day">19</div>
-        <div class="cal-day">20</div><div class="cal-day">21</div><div class="cal-day">22</div><div class="cal-day">23</div><div class="cal-day">24</div><div class="cal-day">25</div><div class="cal-day">26</div>
-        <div class="cal-day">27</div><div class="cal-day">28</div><div class="cal-day">29</div><div class="cal-day">30</div><div class="cal-day empty"></div><div class="cal-day empty"></div><div class="cal-day empty"></div>
+        <div class="cal-dn">S</div><div class="cal-dn">M</div><div class="cal-dn">T</div><div class="cal-dn">W</div><div class="cal-dn">T</div><div class="cal-dn">F</div><div class="cal-dn">S</div>
+        <div class="cal-d em"></div><div class="cal-d em"></div><div class="cal-d">1</div><div class="cal-d">2</div><div class="cal-d">3</div><div class="cal-d">4</div><div class="cal-d">5</div>
+        <div class="cal-d">6</div><div class="cal-d">7</div><div class="cal-d">8</div><div class="cal-d">9</div><div class="cal-d">10</div><div class="cal-d">11</div><div class="cal-d ev">12</div>
+        <div class="cal-d">13</div><div class="cal-d ev">14</div><div class="cal-d">15</div><div class="cal-d">16</div><div class="cal-d">17</div><div class="cal-d">18</div><div class="cal-d">19</div>
+        <div class="cal-d">20</div><div class="cal-d">21</div><div class="cal-d">22</div><div class="cal-d">23</div><div class="cal-d">24</div><div class="cal-d">25</div><div class="cal-d">26</div>
+        <div class="cal-d">27</div><div class="cal-d">28</div><div class="cal-d">29</div><div class="cal-d">30</div><div class="cal-d em"></div><div class="cal-d em"></div><div class="cal-d em"></div>
       </div>
       <div style="margin-top:1rem;font-size:0.75rem;color:rgba(255,255,255,0.4);display:flex;align-items:center;gap:0.5rem;"><span style="width:10px;height:10px;background:rgba(201,162,51,0.25);border-radius:2px;display:inline-block;"></span> Event day</div>
     </div>
   </div>
 </section>
 
-<!-- GALLERY -->
 <section id="gallery">
-  <p class="section-label reveal">Life at Signature 18</p>
-  <h2 class="section-title reveal">Gallery</h2>
-  <div class="gold-bar reveal"></div>
-  <div class="gallery-grid">
-    <div class="g-item wide tall"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="Building"/></div>
-    <div class="g-item"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Lobby"/></div>
-    <div class="g-item"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&q=80" alt="Pool"/></div>
-    <div class="g-item"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=400&q=80" alt="Terrace"/></div>
-    <div class="g-item"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80" alt="Gym"/></div>
-    <div class="g-item wide"><img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=800&q=80" alt="Community"/></div>
+  <p class="lbl reveal">Life at Signature 18</p>
+  <h2 class="ttl reveal">Gallery</h2>
+  <div class="bar reveal"></div>
+  <div class="gal-grid">
+    <div class="gi w t"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="Building"/></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Lobby"/></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&q=80" alt="Pool"/></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=400&q=80" alt="Terrace"/></div>
+    <div class="gi"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80" alt="Gym"/></div>
+    <div class="gi w"><img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=800&q=80" alt="Community"/></div>
   </div>
 </section>
 
-<!-- COMMITTEE -->
 <section id="committee">
-  <h2 class="section-title reveal" style="color:var(--white);">Working Committee</h2>
-  <div class="gold-bar reveal"></div>
-  <p class="section-sub reveal" style="color:rgba(255,255,255,0.6);">Your elected representatives for 2025–26. Tap a card to learn more.</p>
-  <div class="committee-grid">
-    <div class="committee-card reveal" onclick="openModal('Update Name','President','📞 +91 98300 00000','Responsible for overall governance, chairing AGMs, and representing the association in all official matters.')">
-      <div class="committee-avatar">👤</div>
-      <div class="committee-info"><h4>Update Name</h4><p class="committee-role">President</p><p class="committee-phone">📞 +91 98300 00000</p></div>
-      <p class="committee-hint">Tap for profile</p>
-    </div>
-    <div class="committee-card reveal" onclick="openModal('Update Name','Secretary','📞 +91 98300 00000','Manages day-to-day correspondence, meeting minutes, and official records of the association.')">
-      <div class="committee-avatar">👤</div>
-      <div class="committee-info"><h4>Update Name</h4><p class="committee-role">Secretary</p><p class="committee-phone">📞 +91 98300 00000</p></div>
-      <p class="committee-hint">Tap for profile</p>
-    </div>
-    <div class="committee-card reveal" onclick="openModal('Update Name','Treasurer','📞 +91 98300 00000','Oversees all financial matters including maintenance collections, budgeting, and financial reporting.')">
-      <div class="committee-avatar">👤</div>
-      <div class="committee-info"><h4>Update Name</h4><p class="committee-role">Treasurer</p><p class="committee-phone">📞 +91 98300 00000</p></div>
-      <p class="committee-hint">Tap for profile</p>
-    </div>
-    <div class="committee-card reveal" onclick="openModal('Update Name','Vice President','📞 +91 98300 00000','Assists the President and steps in during their absence. Leads key community initiatives and resident engagement.')">
-      <div class="committee-avatar">👤</div>
-      <div class="committee-info"><h4>Update Name</h4><p class="committee-role">Vice President</p><p class="committee-phone">📞 +91 98300 00000</p></div>
-      <p class="committee-hint">Tap for profile</p>
-    </div>
-    <div class="committee-card reveal" onclick="openModal('Update Name','Member','📞 +91 98300 00000','Active committee member contributing to community decisions and resident welfare.')">
-      <div class="committee-avatar">👤</div>
-      <div class="committee-info"><h4>Update Name</h4><p class="committee-role">Member</p><p class="committee-phone">📞 +91 98300 00000</p></div>
-      <p class="committee-hint">Tap for profile</p>
-    </div>
-    <div class="committee-card reveal" onclick="openModal('Update Name','Member','📞 +91 98300 00000','Active committee member contributing to community decisions and resident welfare.')">
-      <div class="committee-avatar">👤</div>
-      <div class="committee-info"><h4>Update Name</h4><p class="committee-role">Member</p><p class="committee-phone">📞 +91 98300 00000</p></div>
-      <p class="committee-hint">Tap for profile</p>
-    </div>
-    <div class="committee-card reveal" onclick="openModal('Update Name','Member','📞 +91 98300 00000','Active committee member contributing to community decisions and resident welfare.')">
-      <div class="committee-avatar">👤</div>
-      <div class="committee-info"><h4>Update Name</h4><p class="committee-role">Member</p><p class="committee-phone">📞 +91 98300 00000</p></div>
-      <p class="committee-hint">Tap for profile</p>
-    </div>
-    <div class="committee-card reveal" onclick="openModal('Update Name','Member','📞 +91 98300 00000','Active committee member contributing to community decisions and resident welfare.')">
-      <div class="committee-avatar">👤</div>
-      <div class="committee-info"><h4>Update Name</h4><p class="committee-role">Member</p><p class="committee-phone">📞 +91 98300 00000</p></div>
-      <p class="committee-hint">Tap for profile</p>
-    </div>
-    <div class="committee-card reveal" onclick="openModal('Update Name','Member','📞 +91 98300 00000','Active committee member contributing to community decisions and resident welfare.')">
-      <div class="committee-avatar">👤</div>
-      <div class="committee-info"><h4>Update Name</h4><p class="committee-role">Member</p><p class="committee-phone">📞 +91 98300 00000</p></div>
-      <p class="committee-hint">Tap for profile</p>
-    </div>
+  <h2 class="ttl reveal">Working Committee</h2>
+  <div class="bar reveal"></div>
+  <p class="sub reveal" style="color:rgba(255,255,255,0.6);">Your elected representatives for 2025–26. Tap a card to learn more.</p>
+  <div class="com-grid">
+    <div class="cc reveal" onclick="openM('Update Name','President','📞 +91 98300 00000','Responsible for overall governance, chairing AGMs, and representing the association in all official matters.')"><div class="cc-av">👤</div><div><h4>Update Name</h4><p class="cc-role">President</p><p class="cc-phone">📞 +91 98300 00000</p></div><p class="cc-hint">Tap for profile</p></div>
+    <div class="cc reveal" onclick="openM('Update Name','Secretary','📞 +91 98300 00000','Manages day-to-day correspondence, meeting minutes, and official records of the association.')"><div class="cc-av">👤</div><div><h4>Update Name</h4><p class="cc-role">Secretary</p><p class="cc-phone">📞 +91 98300 00000</p></div><p class="cc-hint">Tap for profile</p></div>
+    <div class="cc reveal" onclick="openM('Update Name','Treasurer','📞 +91 98300 00000','Oversees all financial matters including maintenance collections, budgeting, and financial reporting.')"><div class="cc-av">👤</div><div><h4>Update Name</h4><p class="cc-role">Treasurer</p><p class="cc-phone">📞 +91 98300 00000</p></div><p class="cc-hint">Tap for profile</p></div>
+    <div class="cc reveal" onclick="openM('Update Name','Vice President','📞 +91 98300 00000','Assists the President and leads key community initiatives and resident engagement.')"><div class="cc-av">👤</div><div><h4>Update Name</h4><p class="cc-role">Vice President</p><p class="cc-phone">📞 +91 98300 00000</p></div><p class="cc-hint">Tap for profile</p></div>
+    <div class="cc reveal" onclick="openM('Update Name','Member','📞 +91 98300 00000','Active committee member contributing to community decisions and resident welfare.')"><div class="cc-av">👤</div><div><h4>Update Name</h4><p class="cc-role">Member</p><p class="cc-phone">📞 +91 98300 00000</p></div><p class="cc-hint">Tap for profile</p></div>
+    <div class="cc reveal" onclick="openM('Update Name','Member','📞 +91 98300 00000','Active committee member contributing to community decisions and resident welfare.')"><div class="cc-av">👤</div><div><h4>Update Name</h4><p class="cc-role">Member</p><p class="cc-phone">📞 +91 98300 00000</p></div><p class="cc-hint">Tap for profile</p></div>
+    <div class="cc reveal" onclick="openM('Update Name','Member','📞 +91 98300 00000','Active committee member contributing to community decisions and resident welfare.')"><div class="cc-av">👤</div><div><h4>Update Name</h4><p class="cc-role">Member</p><p class="cc-phone">📞 +91 98300 00000</p></div><p class="cc-hint">Tap for profile</p></div>
+    <div class="cc reveal" onclick="openM('Update Name','Member','📞 +91 98300 00000','Active committee member contributing to community decisions and resident welfare.')"><div class="cc-av">👤</div><div><h4>Update Name</h4><p class="cc-role">Member</p><p class="cc-phone">📞 +91 98300 00000</p></div><p class="cc-hint">Tap for profile</p></div>
+    <div class="cc reveal" onclick="openM('Update Name','Member','📞 +91 98300 00000','Active committee member contributing to community decisions and resident welfare.')"><div class="cc-av">👤</div><div><h4>Update Name</h4><p class="cc-role">Member</p><p class="cc-phone">📞 +91 98300 00000</p></div><p class="cc-hint">Tap for profile</p></div>
   </div>
 </section>
 
-<!-- MODAL -->
-<div class="modal-overlay" id="modalOverlay" onclick="closeModalOutside(event)">
-  <div class="modal" id="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div class="modal-avatar" id="modalAvatar">👤</div>
-    <div class="modal-name" id="modalName"></div>
-    <div class="modal-role" id="modalRole"></div>
-    <div class="modal-phone" id="modalPhone"></div>
-    <div class="modal-divider"></div>
-    <div class="modal-bio" id="modalBio"></div>
+<div class="modal-ov" id="mOv" onclick="closeOut(event)">
+  <div class="modal" id="mBox">
+    <button class="modal-x" onclick="closeM()">✕</button>
+    <div class="modal-av" id="mAv">👤</div>
+    <div class="modal-name" id="mName"></div>
+    <div class="modal-role" id="mRole"></div>
+    <div class="modal-phone" id="mPhone"></div>
+    <div class="modal-div"></div>
+    <div class="modal-bio" id="mBio"></div>
   </div>
 </div>
 
-<!-- CONTACT -->
 <section id="contact">
-  <p class="section-label reveal">Reach Out</p>
-  <h2 class="section-title reveal">Get in Touch</h2>
-  <div class="gold-bar reveal"></div>
-  <div class="contact-card reveal">
-    <h3>Association Details</h3>
-    <div class="c-detail"><div class="c-icon">📍</div><div><h4>Address</h4><p>8, Bosepukur Road, Kasba<br/>Kolkata – 700042, West Bengal</p></div></div>
-    <div class="c-detail"><div class="c-icon">📧</div><div><h4>Email</h4><p>association@signature18kasba.in</p></div></div>
-    <div class="c-detail"><div class="c-icon">📞</div><div><h4>Facility Manager Contact</h4><p>+91 98300 00000</p></div></div>
-    <div class="c-detail"><div class="c-icon">🕐</div><div><h4>Office Hours</h4><p>Mon – Sat: 10:00 AM – 7:00 PM</p></div></div>
+  <p class="lbl reveal">Reach Out</p>
+  <h2 class="ttl reveal">Get in Touch</h2>
+  <div class="bar reveal"></div>
+  <div class="con-card reveal">
+    <div class="c-row"><div class="c-ic">📍</div><div><h4>Address</h4><p>8, Bosepukur Road, Kasba<br/>Kolkata – 700042, West Bengal</p></div></div>
+    <div class="c-row"><div class="c-ic">📧</div><div><h4>Association Email</h4><p>association@signature18kasba.in</p></div></div>
+    <div class="c-row"><div class="c-ic">📧</div><div><h4>Facility Manager Email</h4><p>manager@signature18kasba.in</p></div></div>
+    <div class="c-row"><div class="c-ic">📞</div><div><h4>Facility Manager Contact</h4><p>+91 98300 00000</p></div></div>
+    <div class="c-row"><div class="c-ic">🕐</div><div><h4>Office Hours</h4><p>Mon – Sat: 10:00 AM – 6:00 PM</p></div></div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-top">
-    <div class="footer-brand">
+  <div class="ft-top">
+    <div class="ft-brand">
       <div style="display:flex;align-items:center;gap:0.75rem;">
         <img src="logo.png" alt="Signature 18" style="height:60px;width:auto;border-radius:4px;"/>
         <div style="display:flex;flex-direction:column;">
-          <span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:var(--white);line-height:1.2;">Signature 18</span>
-          <span style="font-size:0.6rem;font-family:'Outfit',sans-serif;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);font-weight:400;">Association of Apartment Owners</span>
+          <span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:#fff;line-height:1.2;">Signature 18</span>
+          <span style="font-size:0.6rem;font-family:'Outfit',sans-serif;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);">Association of Apartment Owners</span>
         </div>
       </div>
       <p>The official association at 8, Bosepukur Road, Kasba, Kolkata. Together we build a better community.</p>
     </div>
-    <div class="footer-col">
+    <div class="ft-col">
       <h5>Quick Links</h5>
       <ul>
         <li><a href="#about">About Us</a></li>
@@ -436,7 +377,7 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </div>
-    <div class="footer-col">
+    <div class="ft-col">
       <h5>Association</h5>
       <ul>
         <li><a href="#">Rules &amp; Bylaws</a></li>
@@ -445,57 +386,43 @@
         <li><a href="#">Emergency Contacts</a></li>
       </ul>
     </div>
-    <div class="footer-col">
+    <div class="ft-col">
       <h5>Explore</h5>
-      <div class="footer-icons">
-        <a href="https://www.youtube.com/watch?v=_l8ESQoyBrs" target="_blank" class="footer-icon-btn"><span class="fi-icon">▶</span><span>Building Tour</span></a>
-        <a href="https://maps.google.com/?q=8+Bosepukur+Road+Kasba+Kolkata+700042" target="_blank" class="footer-icon-btn"><span class="fi-icon">📍</span><span>View on Map</span></a>
-        <div class="footer-rera">
-          <span class="rera-label">Association Registration No.</span>
-          <span class="rera-id">HIRA/P/KOL/2021/001245</span>
+      <div class="ft-icons">
+        <a href="https://www.youtube.com/watch?v=_l8ESQoyBrs" target="_blank" class="ft-btn"><span class="ft-ic">▶</span><span>Building Tour</span></a>
+        <a href="https://maps.google.com/?q=8+Bosepukur+Road+Kasba+Kolkata+700042" target="_blank" class="ft-btn"><span class="ft-ic">📍</span><span>View on Map</span></a>
+        <div class="ft-rera">
+          <span>Association Registration No.</span>
+          <span>HIRA/P/KOL/2021/001245</span>
         </div>
       </div>
     </div>
   </div>
-  <div class="footer-bottom">
-    <span>© 2026 Signature 18 Association of Apartment Owners, Kasba, Kolkata. All rights reserved.</span>
-  </div>
+  <div class="ft-bot">© 2026 Signature 18 Association of Apartment Owners, Kasba, Kolkata. All rights reserved.</div>
 </footer>
 
 <script>
-  function openModal(name, role, phone, bio) {
-    document.getElementById('modalName').textContent = name;
-    document.getElementById('modalRole').textContent = role;
-    document.getElementById('modalPhone').textContent = phone;
-    document.getElementById('modalBio').textContent = bio;
-    document.getElementById('modalOverlay').classList.add('open');
-    document.body.style.overflow = 'hidden';
+  function openM(n,r,p,b){
+    document.getElementById('mName').textContent=n;
+    document.getElementById('mRole').textContent=r;
+    document.getElementById('mPhone').textContent=p;
+    document.getElementById('mBio').textContent=b;
+    document.getElementById('mOv').classList.add('open');
+    document.body.style.overflow='hidden';
   }
-  function closeModal() {
-    document.getElementById('modalOverlay').classList.remove('open');
-    document.body.style.overflow = '';
-  }
-  function closeModalOutside(e) {
-    if (e.target === document.getElementById('modalOverlay')) closeModal();
-  }
-  document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
-
-  document.getElementById('hamburger').addEventListener('click',()=>{
-    document.getElementById('navLinks').classList.toggle('open');
-  });
+  function closeM(){document.getElementById('mOv').classList.remove('open');document.body.style.overflow='';}
+  function closeOut(e){if(e.target===document.getElementById('mOv'))closeM();}
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
+  document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
   const obs=new IntersectionObserver((entries)=>{
-    entries.forEach((e,i)=>{
-      if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);obs.unobserve(e.target);}
-    });
+    entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),i*70);obs.unobserve(e.target);}});
   },{threshold:0.08});
   document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
   const secs=document.querySelectorAll('section[id]');
   window.addEventListener('scroll',()=>{
     let cur='';
     secs.forEach(s=>{if(window.scrollY>=s.offsetTop-90)cur=s.id;});
-    document.querySelectorAll('.nav-links a').forEach(a=>{
-      a.style.color=a.getAttribute('href')===`#${cur}`?'var(--gold)':'';
-    });
+    document.querySelectorAll('.nav-links a').forEach(a=>{a.style.color=a.getAttribute('href')===`#${cur}`?'var(--gold)':'';});
   });
 </script>
 </body>
