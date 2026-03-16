@@ -44,12 +44,11 @@
       display:flex;align-items:center;justify-content:center;padding:68px 5% 50px;position:relative;text-align:center;
     }
     .hero-left{max-width:780px;animation:fadeUp 0.9s ease both;display:flex;flex-direction:column;align-items:center;}
-    .hero-left h1{font-family:'Cormorant Garamond',serif;font-size:clamp(2.4rem,6vw,4.5rem);color:var(--white);line-height:1.08;margin-bottom:0.6rem;font-weight:400;}
-    .hero-left h1 em{color:var(--gold);font-style:italic;display:block;font-size:1.15em;}
+    .hero-logo{width:180px;height:auto;margin-bottom:1.2rem;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.5));}
     .hero-assoc{font-size:clamp(1.1rem,2.5vw,1.6rem);color:rgba(255,255,255,0.92);font-weight:300;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.2rem;}
     .hero-divider{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;width:100%;}
     .hero-divider-line{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(201,162,51,0.5),transparent);}
-    .hero-divider-diamond{width:8px;height:8px;background:var(--gold);transform:rotate(45deg);flex-shrink:0;}
+    .hero-ethnic{color:var(--gold);font-size:1.4rem;line-height:1;flex-shrink:0;}
     .hero-left p{color:rgba(255,255,255,0.85);font-size:0.95rem;line-height:1.9;font-weight:300;margin-bottom:2rem;max-width:500px;}
     .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
     .btn-gold{background:var(--gold);color:var(--navy);padding:0.85rem 2rem;border-radius:3px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:background 0.2s,transform 0.15s;}
@@ -138,7 +137,7 @@
     /* COMMITTEE */
     #committee{background:var(--navy);}
     #committee .section-title{color:var(--white);}
-    .committee-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1.5rem;max-width:1100px;width:100%;margin-top:2rem;}
+    .committee-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1.5rem;max-width:1100px;width:100%;margin-top:2rem;justify-items:center;}
     .committee-card{background:rgba(255,255,255,0.06);border:1px solid rgba(201,162,51,0.2);border-radius:8px;padding:1.8rem 1.2rem;display:flex;flex-direction:column;align-items:center;text-align:center;gap:0.8rem;transition:background 0.2s,transform 0.2s;}
     .committee-card:hover{background:rgba(255,255,255,0.1);transform:translateY(-3px);}
     .committee-avatar{width:80px;height:80px;border-radius:50%;background:rgba(201,162,51,0.12);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:2rem;overflow:hidden;flex-shrink:0;}
@@ -190,6 +189,7 @@
       .gallery-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}
       .members-grid{grid-template-columns:repeat(2,1fr);}
       .committee-grid{grid-template-columns:repeat(2,1fr);}
+      .hero-logo{width:140px;}
     }
   </style>
 </head>
@@ -219,11 +219,11 @@
 <!-- HERO -->
 <section id="home">
   <div class="hero-left">
-    <h1><em>Signature 18</em></h1>
+    <img src="logo.png" alt="Signature 18" class="hero-logo"/>
     <div class="hero-assoc">Association of Apartment Owners</div>
     <div class="hero-divider">
       <div class="hero-divider-line"></div>
-      <div class="hero-divider-diamond"></div>
+      <span class="hero-ethnic">❋</span>
       <div class="hero-divider-line"></div>
     </div>
     <p>Your official community platform for 69 families. Stay informed, stay connected, and build the neighbourhood you deserve.</p>
@@ -403,54 +403,15 @@
   <div class="gold-bar reveal"></div>
   <p class="section-sub reveal" style="color:rgba(255,255,255,0.6);">Your elected representatives for 2025–26.</p>
   <div class="committee-grid">
-    <div class="committee-card reveal">
-      <div class="committee-avatar">👤</div>
-      <div class="committee-info">
-        <h4>Update Name</h4>
-        <p class="committee-role">President</p>
-        <p class="committee-phone">📞 +91 98300 00000</p>
-      </div>
-    </div>
-    <div class="committee-card reveal">
-      <div class="committee-avatar">👤</div>
-      <div class="committee-info">
-        <h4>Update Name</h4>
-        <p class="committee-role">Secretary</p>
-        <p class="committee-phone">📞 +91 98300 00000</p>
-      </div>
-    </div>
-    <div class="committee-card reveal">
-      <div class="committee-avatar">👤</div>
-      <div class="committee-info">
-        <h4>Update Name</h4>
-        <p class="committee-role">Treasurer</p>
-        <p class="committee-phone">📞 +91 98300 00000</p>
-      </div>
-    </div>
-    <div class="committee-card reveal">
-      <div class="committee-avatar">👤</div>
-      <div class="committee-info">
-        <h4>Update Name</h4>
-        <p class="committee-role">Vice President</p>
-        <p class="committee-phone">📞 +91 98300 00000</p>
-      </div>
-    </div>
-    <div class="committee-card reveal">
-      <div class="committee-avatar">👤</div>
-      <div class="committee-info">
-        <h4>Update Name</h4>
-        <p class="committee-role">Member</p>
-        <p class="committee-phone">📞 +91 98300 00000</p>
-      </div>
-    </div>
-    <div class="committee-card reveal">
-      <div class="committee-avatar">👤</div>
-      <div class="committee-info">
-        <h4>Update Name</h4>
-        <p class="committee-role">Member</p>
-        <p class="committee-phone">📞 +91 98300 00000</p>
-      </div>
-    </div>
+    <div class="committee-card reveal"><div class="committee-avatar">👤</div><div class="committee-info"><h4>Update Name</h4><p class="committee-role">President</p><p class="committee-phone">📞 +91 98300 00000</p></div></div>
+    <div class="committee-card reveal"><div class="committee-avatar">👤</div><div class="committee-info"><h4>Update Name</h4><p class="committee-role">Secretary</p><p class="committee-phone">📞 +91 98300 00000</p></div></div>
+    <div class="committee-card reveal"><div class="committee-avatar">👤</div><div class="committee-info"><h4>Update Name</h4><p class="committee-role">Treasurer</p><p class="committee-phone">📞 +91 98300 00000</p></div></div>
+    <div class="committee-card reveal"><div class="committee-avatar">👤</div><div class="committee-info"><h4>Update Name</h4><p class="committee-role">Vice President</p><p class="committee-phone">📞 +91 98300 00000</p></div></div>
+    <div class="committee-card reveal"><div class="committee-avatar">👤</div><div class="committee-info"><h4>Update Name</h4><p class="committee-role">Member</p><p class="committee-phone">📞 +91 98300 00000</p></div></div>
+    <div class="committee-card reveal"><div class="committee-avatar">👤</div><div class="committee-info"><h4>Update Name</h4><p class="committee-role">Member</p><p class="committee-phone">📞 +91 98300 00000</p></div></div>
+    <div class="committee-card reveal"><div class="committee-avatar">👤</div><div class="committee-info"><h4>Update Name</h4><p class="committee-role">Member</p><p class="committee-phone">📞 +91 98300 00000</p></div></div>
+    <div class="committee-card reveal"><div class="committee-avatar">👤</div><div class="committee-info"><h4>Update Name</h4><p class="committee-role">Member</p><p class="committee-phone">📞 +91 98300 00000</p></div></div>
+    <div class="committee-card reveal"><div class="committee-avatar">👤</div><div class="committee-info"><h4>Update Name</h4><p class="committee-role">Member</p><p class="committee-phone">📞 +91 98300 00000</p></div></div>
   </div>
 </section>
 
