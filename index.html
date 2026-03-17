@@ -4,20 +4,20 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Signature 18 – Association of Apartment Owners, Kasba, Kolkata</title>
-  <link rel="icon" type="image/x-icon" href="favicon.ico"/>
-  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+  <link rel="icon" href="favicon.ico"/>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <style>
     :root{--navy:#0a1a3b;--navy-mid:#112354;--gold:#c9a233;--gold-light:#e8c35a;--gold-pale:#f5e9c0;--off-white:#f8f6f0;--text-light:#7a8aaa;--border:#d6deee;--red:#c0392b;}
     *{margin:0;padding:0;box-sizing:border-box;}
     html{scroll-behavior:smooth;}
     body{font-family:'Outfit',sans-serif;background:#fff;color:#0a1a3b;overflow-x:hidden;}
 
-    /* WIP banner */
-    .wip-banner{background:rgba(10,26,59,0.97);border-bottom:1px solid rgba(192,57,43,0.4);padding:0.32rem 5%;display:flex;align-items:center;justify-content:center;gap:0.6rem;font-size:0.7rem;color:rgba(255,255,255,0.55);letter-spacing:0.06em;position:fixed;top:0;left:0;right:0;z-index:201;}
-    .wip-dot{width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0;animation:blink 1.6s ease-in-out infinite;}
+    /* WIP */
+    .wip{background:rgba(10,26,59,0.97);border-bottom:1px solid rgba(192,57,43,0.4);padding:0.32rem 5%;display:flex;align-items:center;justify-content:center;gap:0.6rem;font-size:0.7rem;color:rgba(255,255,255,0.55);letter-spacing:0.06em;position:fixed;top:0;left:0;right:0;z-index:201;}
+    .wip-dot{width:6px;height:6px;border-radius:50%;background:var(--red);flex-shrink:0;animation:blink 1.6s infinite;}
     @keyframes blink{0%,100%{opacity:1}50%{opacity:0.25}}
-    .v-tag{font-size:0.58rem;background:rgba(201,162,51,0.12);border:1px solid rgba(201,162,51,0.3);color:var(--gold);padding:0.15rem 0.45rem;border-radius:3px;letter-spacing:0.1em;font-weight:600;}
+    .vtag{font-size:0.58rem;background:rgba(201,162,51,0.12);border:1px solid rgba(201,162,51,0.3);color:var(--gold);padding:0.15rem 0.45rem;border-radius:3px;letter-spacing:0.1em;font-weight:600;}
 
     /* NAV */
     nav{position:fixed;top:26px;left:0;right:0;z-index:200;background:rgba(10,26,59,0.97);display:flex;align-items:center;justify-content:space-between;padding:0 4%;height:68px;border-bottom:2px solid var(--gold);}
@@ -34,13 +34,13 @@
     .hamburger span{width:26px;height:2px;background:var(--gold);display:block;}
 
     /* HERO */
-    #home{min-height:100vh;background-color:#112354;background-image:linear-gradient(135deg,rgba(10,26,59,0.80) 0%,rgba(17,35,84,0.70) 100%),url('building.png');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;padding:94px 5% 50px;text-align:center;}
+    #home{min-height:100vh;background-color:#112354;background-image:linear-gradient(135deg,rgba(10,26,59,0.80),rgba(17,35,84,0.70)),url('building.png');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;padding:94px 5% 50px;text-align:center;}
     .hero-inner{max-width:780px;display:flex;flex-direction:column;align-items:center;}
     .hero-logo{width:190px;height:auto;margin-bottom:1.2rem;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.5));}
     .hero-assoc{font-size:clamp(1rem,2.5vw,1.5rem);color:rgba(255,255,255,0.95);font-weight:300;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.2rem;}
     .hero-divider{display:flex;align-items:center;gap:1rem;margin-bottom:1rem;width:100%;}
     .hero-line{flex:1;height:1px;background:linear-gradient(to right,transparent,rgba(201,162,51,0.5),transparent);}
-    .hero-ornament{color:var(--gold);font-size:1.4rem;line-height:1;}
+    .hero-orn{color:var(--gold);font-size:1.4rem;}
     .hero-inner p{color:rgba(255,255,255,0.88);font-size:0.95rem;line-height:1.9;font-weight:300;margin-bottom:2rem;max-width:500px;}
     .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
     .btn-gold{background:var(--gold);color:#0a1a3b;padding:0.85rem 2rem;border-radius:3px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:background 0.2s,transform 0.15s;}
@@ -78,16 +78,15 @@
     .nc-urgent::before{background:var(--red);}
     .nc-badge{position:absolute;top:1rem;right:1rem;background:var(--red);color:#fff;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:2px;}
 
-    /* MEMBERS */
+    /* FOR MEMBERS */
     #members{background:var(--off-white);}
     .mem-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.8rem;max-width:1100px;width:100%;margin-top:1.5rem;}
     .mc{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1rem 1.2rem;display:flex;align-items:flex-start;gap:0.8rem;transition:border-color 0.2s,box-shadow 0.2s,transform 0.2s;}
     .mc:hover{border-color:var(--gold);box-shadow:0 4px 16px rgba(10,26,59,0.08);transform:translateY(-2px);}
     .mc-icon{width:36px;height:36px;background:var(--gold-pale);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:1.1rem;flex-shrink:0;margin-top:2px;}
-    .mc-text{flex:1;}
-    .mc h4{font-size:0.85rem;font-weight:600;color:#0a1a3b;margin-bottom:0.2rem;}
-    .mc p{font-size:0.75rem;color:var(--text-light);line-height:1.4;margin-bottom:0.3rem;}
-    .mc a{font-size:0.75rem;color:var(--gold);text-decoration:none;font-weight:600;}
+    .mc-text h4{font-size:0.85rem;font-weight:600;color:#0a1a3b;margin-bottom:0.2rem;}
+    .mc-text p{font-size:0.75rem;color:var(--text-light);line-height:1.4;margin-bottom:0.3rem;}
+    .mc-text a{font-size:0.75rem;color:var(--gold);text-decoration:none;font-weight:600;}
     .mem-note{background:#0a1a3b;color:rgba(255,255,255,0.7);border-radius:4px;padding:0.8rem 1.2rem;font-size:0.82rem;display:flex;align-items:center;gap:0.6rem;margin-top:1rem;max-width:1100px;width:100%;}
 
     /* EVENTS */
@@ -103,10 +102,8 @@
     .ev-info h4{font-size:0.95rem;font-weight:600;color:#0a1a3b;margin-bottom:0.2rem;}
     .ev-info p{font-size:0.82rem;color:var(--text-light);}
     .ev-tag{margin-left:auto;font-size:0.68rem;letter-spacing:0.08em;text-transform:uppercase;padding:0.3rem 0.75rem;border-radius:20px;white-space:nowrap;font-weight:600;}
-    .t-meet{background:#e8f0fe;color:#1a56c4;}
-    .t-fest{background:#fef3e2;color:#b45309;}
-    .t-main{background:#fce4e4;color:#c0392b;}
-    .t-soc{background:#e6f7ee;color:#1a7a4a;}
+    .t-meet{background:#e8f0fe;color:#1a56c4;} .t-fest{background:#fef3e2;color:#b45309;}
+    .t-main{background:#fce4e4;color:#c0392b;} .t-soc{background:#e6f7ee;color:#1a7a4a;}
     .cal{background:#0a1a3b;border-radius:6px;padding:1.8rem;}
     .cal h4{font-family:'Cormorant Garamond',serif;font-size:1.2rem;color:var(--gold);margin-bottom:1.2rem;}
     .cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:4px;}
@@ -121,14 +118,13 @@
     .gi{overflow:hidden;border-radius:3px;}
     .gi img{width:100%;height:100%;object-fit:cover;transition:transform 0.4s,filter 0.3s;filter:saturate(0.85);}
     .gi:hover img{transform:scale(1.06);filter:saturate(1.1);}
-    .gi.w{grid-column:span 2;}
-    .gi.t{grid-row:span 2;}
+    .gi.w{grid-column:span 2;} .gi.t{grid-row:span 2;}
 
     /* COMMITTEE */
     #committee{background:#0a1a3b;}
     #committee .ttl{color:#fff;}
     .com-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0.7rem;max-width:1100px;width:100%;margin-top:1.5rem;}
-    .cc{background:rgba(255,255,255,0.06);border:1px solid rgba(201,162,51,0.2);border-radius:8px;padding:0.8rem 1rem;display:flex;flex-direction:row;align-items:center;gap:0.8rem;transition:background 0.2s,transform 0.2s,border-color 0.2s;width:100%;cursor:pointer;text-align:left;}
+    .cc{background:rgba(255,255,255,0.06);border:1px solid rgba(201,162,51,0.2);border-radius:8px;padding:0.8rem 1rem;display:flex;align-items:center;gap:0.8rem;transition:background 0.2s,transform 0.2s,border-color 0.2s;cursor:pointer;text-align:left;}
     .cc:hover{background:rgba(255,255,255,0.1);transform:translateY(-2px);border-color:var(--gold);}
     .cc-av{width:46px;height:46px;border-radius:50%;background:rgba(201,162,51,0.12);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:1.3rem;overflow:hidden;flex-shrink:0;}
     .cc-body{flex:1;min-width:0;}
@@ -136,32 +132,23 @@
     .cc-role{font-size:0.62rem;color:var(--gold);font-weight:500;margin-top:0.15rem;line-height:1.3;}
     .cc-phone{font-size:0.68rem;color:rgba(255,255,255,0.4);margin-top:0.15rem;}
     .cc-hint{font-size:0.58rem;color:rgba(255,255,255,0.25);margin-top:0.1rem;}
-
-    /* sub-section dividers */
+    .cc-cultural{border-color:rgba(201,162,51,0.15);}
     .sub-header{display:flex;align-items:center;gap:1rem;max-width:1100px;width:100%;margin:2rem 0 0;}
     .sub-line{flex:1;height:1px;background:rgba(201,162,51,0.3);}
     .sub-title{font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;white-space:nowrap;}
-
-    /* Grievance Committee bordered box */
     .griev-box{max-width:1100px;width:100%;margin-top:2.5rem;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:1.2rem 1.5rem;}
     .griev-box-title{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3);font-weight:600;margin-bottom:1rem;}
     .griev-box-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:0.6rem;}
-
-    /* Cultural Secretary — same style, slightly muted border */
-    .cc-cultural{border-color:rgba(201,162,51,0.15);}
-
-    /* Grievance — de-emphasised */
-    .com-grid-griev{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.6rem;max-width:1100px;width:100%;margin-top:1rem;}
-    .cc-griev{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:0.65rem 0.9rem;display:flex;flex-direction:row;align-items:center;gap:0.7rem;cursor:pointer;text-align:left;transition:background 0.2s,border-color 0.2s;}
+    .cc-griev{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:0.65rem 0.9rem;display:flex;align-items:center;gap:0.7rem;cursor:pointer;text-align:left;transition:background 0.2s,border-color 0.2s;}
     .cc-griev:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.2);}
     .cc-griev-av{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
     .cc-griev-body{flex:1;min-width:0;}
-    .cc-griev h4{font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.55);line-height:1.2;}
+    .cc-griev h4{font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.55);}
     .cc-griev-role{font-size:0.6rem;color:rgba(255,255,255,0.3);margin-top:0.1rem;}
     .cc-griev-phone{font-size:0.62rem;color:rgba(255,255,255,0.25);margin-top:0.1rem;}
     .cc-griev-hint{font-size:0.55rem;color:rgba(255,255,255,0.18);margin-top:0.1rem;}
 
-    /* MODAL */
+    /* COMMITTEE MODAL */
     .modal-ov{display:none;position:fixed;inset:0;background:rgba(5,12,30,0.85);backdrop-filter:blur(6px);z-index:500;align-items:center;justify-content:center;padding:2rem;}
     .modal-ov.open{display:flex;}
     .modal{background:#112354;border:1px solid rgba(201,162,51,0.35);border-radius:12px;padding:2rem 2.5rem;max-width:520px;width:100%;position:relative;}
@@ -171,9 +158,156 @@
     .modal-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:#fff;text-align:center;}
     .modal-role{font-size:0.72rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);text-align:center;margin-top:0.2rem;margin-bottom:0.3rem;}
     .modal-phone{font-size:0.82rem;color:rgba(255,255,255,0.5);text-align:center;margin-bottom:1rem;}
-    .modal-div{width:40px;height:1px;background:rgba(201,162,51,0.3);margin:0.8rem auto;}
+    .modal-divider{width:40px;height:1px;background:rgba(201,162,51,0.3);margin:0.8rem auto;}
     .modal-bio{font-size:0.88rem;color:rgba(255,255,255,0.72);line-height:1.8;text-align:center;font-weight:300;}
 
+    /* RESIDENT DETAILS MODAL */
+    .res-ov{display:none;position:fixed;inset:0;background:rgba(10,26,59,0.55);backdrop-filter:blur(6px);z-index:500;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;}
+    .res-ov.open{display:flex;}
+    .res-modal{background:#f8f6f0;border-radius:10px;max-width:680px;width:100%;margin:auto;overflow:hidden;box-shadow:0 20px 60px rgba(10,26,59,0.25);}
+    .res-header{background:#0a1a3b;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
+    .res-header h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#fff;font-weight:600;}
+    .res-header-sub{font-size:0.7rem;color:rgba(255,255,255,0.45);margin-top:0.15rem;letter-spacing:0.08em;text-transform:uppercase;}
+    .res-close{background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.3rem;cursor:pointer;transition:color 0.2s;}
+    .res-close:hover{color:var(--gold);}
+    .res-search-wrap{padding:1rem 1.5rem;background:#fff;border-bottom:1px solid #e8eaf0;}
+    .res-search{width:100%;border:1px solid var(--border);border-radius:6px;padding:0.6rem 1rem;font-size:0.88rem;font-family:'Outfit',sans-serif;color:#0a1a3b;outline:none;transition:border-color 0.2s;}
+    .res-search:focus{border-color:var(--gold);}
+    .res-count{padding:0.6rem 1.5rem;font-size:0.72rem;color:#aab;background:#f0f2f8;text-align:right;letter-spacing:0.06em;}
+    .res-list{max-height:60vh;overflow-y:auto;padding:0.5rem 0;}
+    .res-row{display:flex;align-items:flex-start;gap:1rem;padding:0.85rem 1.5rem;border-bottom:1px solid #edf0f5;transition:background 0.15s;}
+    .res-row:last-child{border-bottom:none;}
+    .res-row:hover{background:#f0f4ff;}
+    .res-flat{width:42px;height:42px;background:#0a1a3b;color:var(--gold);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:0.78rem;font-weight:700;flex-shrink:0;}
+    .res-info{flex:1;min-width:0;}
+    .res-name{font-size:0.85rem;font-weight:600;color:#0a1a3b;line-height:1.3;margin-bottom:0.2rem;}
+    .res-meta{font-size:0.75rem;color:#7a8aaa;line-height:1.6;word-break:break-all;}
+
+    /* BOOKING MODAL */
+    .book-ov{display:none;position:fixed;inset:0;background:rgba(10,26,59,0.6);backdrop-filter:blur(6px);z-index:600;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;}
+    .book-ov.open{display:flex;}
+    .book-modal{background:#f8f6f0;border-radius:10px;max-width:640px;width:100%;margin:auto;overflow:hidden;box-shadow:0 20px 60px rgba(10,26,59,0.3);}
+    .book-header{background:#0a1a3b;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
+    .book-header h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#fff;font-weight:600;}
+    .book-header-sub{font-size:0.7rem;color:rgba(255,255,255,0.45);margin-top:0.15rem;letter-spacing:0.08em;text-transform:uppercase;}
+    .book-close{background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.3rem;cursor:pointer;transition:color 0.2s;}
+    .book-close:hover{color:var(--gold);}
+    .book-body{padding:1.5rem;}
+    .book-sec{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:1.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid #e0e4f0;}
+    .book-sec:first-child{margin-top:0;}
+    .book-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0.8rem;}
+    .book-row.full{grid-template-columns:1fr;}
+    .bf{display:flex;flex-direction:column;gap:0.35rem;}
+    .bf label{font-size:0.75rem;font-weight:600;color:#3a4f7a;letter-spacing:0.04em;}
+    .bf input,.bf select{border:1px solid var(--border);border-radius:6px;padding:0.55rem 0.8rem;font-size:0.88rem;font-family:'Outfit',sans-serif;color:#0a1a3b;background:#fff;outline:none;transition:border-color 0.2s;}
+    .bf input:focus,.bf select:focus{border-color:var(--gold);}
+    .bf input:disabled{background:#f0f0f0;color:#999;cursor:not-allowed;}
+    .booked-note{font-size:0.68rem;color:var(--red);margin-top:0.3rem;display:none;}
+    .book-tcs{background:#fff;border:1px solid #e0e4f0;border-radius:6px;padding:1rem;margin:1rem 0;max-height:160px;overflow-y:auto;}
+    .book-tcs p{font-size:0.75rem;color:#3a4f7a;line-height:1.7;margin-bottom:0.4rem;}
+    .book-accept{display:flex;align-items:flex-start;gap:0.6rem;margin-bottom:1.2rem;cursor:pointer;}
+    .book-accept input[type=checkbox]{width:16px;height:16px;flex-shrink:0;margin-top:2px;accent-color:var(--gold);}
+    .book-accept span{font-size:0.78rem;color:#3a4f7a;line-height:1.5;}
+    .book-submit{width:100%;background:#0a1a3b;color:#fff;border:none;border-radius:6px;padding:0.9rem;font-size:0.9rem;font-family:'Outfit',sans-serif;font-weight:600;cursor:pointer;transition:background 0.2s;}
+    .book-submit:hover:not(:disabled){background:#112354;}
+    .book-submit:disabled{background:#ccc;cursor:not-allowed;}
+    .book-status{font-size:0.82rem;color:#3a4f7a;margin-top:0.8rem;min-height:1.2rem;text-align:center;}
+    .book-success{padding:2rem 1.5rem;text-align:center;}
+    .book-success-icon{font-size:2.5rem;margin-bottom:1rem;}
+    .book-success h4{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:#0a1a3b;margin-bottom:0.5rem;}
+    .book-success p{font-size:0.88rem;color:#3a4f7a;line-height:1.7;margin-bottom:1rem;}
+    .book-cal-btn{display:inline-flex;align-items:center;gap:0.5rem;background:#0a1a3b;color:#fff;border:none;border-radius:6px;padding:0.65rem 1.2rem;font-size:0.82rem;font-family:'Outfit',sans-serif;cursor:pointer;text-decoration:none;transition:background 0.2s;}
+    .book-cal-btn:hover{background:#112354;}
+
+
+    /* QUERY MODAL */
+    .qry-ov{display:none;position:fixed;inset:0;background:rgba(10,26,59,0.6);backdrop-filter:blur(6px);z-index:600;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;}
+    .qry-ov.open{display:flex;}
+    .qry-modal{background:#f8f6f0;border-radius:10px;max-width:600px;width:100%;margin:auto;overflow:hidden;box-shadow:0 20px 60px rgba(10,26,59,0.3);}
+    .qry-header{background:#0a1a3b;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
+    .qry-header h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#fff;font-weight:600;}
+    .qry-header-sub{font-size:0.7rem;color:rgba(255,255,255,0.45);margin-top:0.15rem;letter-spacing:0.08em;text-transform:uppercase;}
+    .qry-close{background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.3rem;cursor:pointer;transition:color 0.2s;}
+    .qry-close:hover{color:var(--gold);}
+    .qry-body{padding:1.5rem;}
+    .qry-sec{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:1.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid #e0e4f0;}
+    .qry-sec:first-child{margin-top:0;}
+    .qry-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0.8rem;}
+    .qry-row.full{grid-template-columns:1fr;}
+    .qf{display:flex;flex-direction:column;gap:0.35rem;}
+    .qf label{font-size:0.75rem;font-weight:600;color:#3a4f7a;letter-spacing:0.04em;}
+    .qf input,.qf select,.qf textarea{border:1px solid var(--border);border-radius:6px;padding:0.55rem 0.8rem;font-size:0.88rem;font-family:'Outfit',sans-serif;color:#0a1a3b;background:#fff;outline:none;transition:border-color 0.2s;}
+    .qf input:focus,.qf select:focus,.qf textarea:focus{border-color:var(--gold);}
+    .qf textarea{resize:vertical;min-height:100px;line-height:1.6;}
+    .qry-submit{width:100%;background:#0a1a3b;color:#fff;border:none;border-radius:6px;padding:0.9rem;font-size:0.9rem;font-family:'Outfit',sans-serif;font-weight:600;cursor:pointer;transition:background 0.2s;margin-top:0.4rem;}
+    .qry-submit:hover:not(:disabled){background:#112354;}
+    .qry-submit:disabled{background:#ccc;cursor:not-allowed;}
+    .qry-status{font-size:0.82rem;color:#3a4f7a;margin-top:0.8rem;min-height:1.2rem;text-align:center;}
+    .qry-success{padding:2rem 1.5rem;text-align:center;}
+    .qry-success-icon{font-size:2.5rem;margin-bottom:1rem;}
+    .qry-success h4{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:#0a1a3b;margin-bottom:0.5rem;}
+    .qry-success p{font-size:0.88rem;color:#3a4f7a;line-height:1.7;}
+    .qry-new-btn{margin-top:1rem;background:#0a1a3b;color:#fff;border:none;border-radius:6px;padding:0.65rem 1.4rem;font-size:0.82rem;font-family:'Outfit',sans-serif;cursor:pointer;transition:background 0.2s;}
+    .qry-new-btn:hover{background:#112354;}
+    @media(max-width:640px){.qry-row{grid-template-columns:1fr;}.qry-modal{border-radius:8px 8px 0 0;margin:auto 0 0 0;}.qry-ov{padding:0;align-items:flex-end;}}
+
+    /* PAYMENT MODAL */
+    .pay-ov{display:none;position:fixed;inset:0;background:rgba(10,26,59,0.6);backdrop-filter:blur(6px);z-index:600;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;}
+    .pay-ov.open{display:flex;}
+    .pay-modal{background:#f8f6f0;border-radius:10px;max-width:640px;width:100%;margin:auto;overflow:hidden;box-shadow:0 20px 60px rgba(10,26,59,0.3);}
+    .pay-header{background:#0a1a3b;padding:1.2rem 1.5rem;display:flex;align-items:center;justify-content:space-between;}
+    .pay-header h3{font-family:'Cormorant Garamond',serif;font-size:1.35rem;color:#fff;font-weight:600;}
+    .pay-header-sub{font-size:0.7rem;color:rgba(255,255,255,0.45);margin-top:0.15rem;letter-spacing:0.08em;text-transform:uppercase;}
+    .pay-close{background:none;border:none;color:rgba(255,255,255,0.5);font-size:1.3rem;cursor:pointer;transition:color 0.2s;}
+    .pay-close:hover{color:var(--gold);}
+    .pay-body{padding:1.5rem;}
+    .pay-sec{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin:1.2rem 0 0.8rem;padding-bottom:0.4rem;border-bottom:1px solid #e0e4f0;}
+    .pay-sec:first-child{margin-top:0;}
+    /* UPI box */
+    .pay-upi-box{background:#fff;border:1px solid #e0e4f0;border-radius:8px;padding:1.2rem;display:flex;gap:1.2rem;align-items:center;margin-bottom:1rem;}
+    .pay-qr{width:120px;height:120px;object-fit:cover;border-radius:6px;flex-shrink:0;border:1px solid #e0e4f0;}
+    .pay-upi-info{flex:1;}
+    .pay-upi-id{font-size:1rem;font-weight:700;color:#0a1a3b;margin-bottom:0.3rem;}
+    .pay-upi-sub{font-size:0.75rem;color:#7a8aaa;line-height:1.6;}
+    .pay-upi-copy{margin-top:0.5rem;background:#0a1a3b;color:#fff;border:none;border-radius:4px;padding:0.35rem 0.8rem;font-size:0.75rem;font-family:'Outfit',sans-serif;cursor:pointer;transition:background 0.2s;}
+    .pay-upi-copy:hover{background:#112354;}
+    /* Bank box */
+    .pay-bank-box{background:#fff;border:1px solid #e0e4f0;border-radius:8px;padding:1rem 1.2rem;margin-bottom:1rem;}
+    .pay-bank-row{display:flex;justify-content:space-between;align-items:center;padding:0.4rem 0;border-bottom:1px solid #f0f2f8;font-size:0.85rem;}
+    .pay-bank-row:last-child{border-bottom:none;}
+    .pay-bank-row span:first-child{color:#7a8aaa;font-size:0.78rem;}
+    .pay-bank-row span:last-child{font-weight:600;color:#0a1a3b;}
+    /* NoBrokerHood */
+    .pay-nbh{display:flex;align-items:center;gap:0.8rem;background:#fff;border:1px solid #e0e4f0;border-radius:8px;padding:1rem 1.2rem;margin-bottom:1rem;text-decoration:none;transition:border-color 0.2s;}
+    .pay-nbh:hover{border-color:var(--gold);}
+    .pay-nbh-icon{font-size:1.5rem;}
+    .pay-nbh-text{flex:1;}
+    .pay-nbh-text strong{display:block;font-size:0.88rem;color:#0a1a3b;}
+    .pay-nbh-text span{font-size:0.75rem;color:#7a8aaa;}
+    .pay-nbh-arrow{color:#c9a233;font-size:1rem;}
+    /* Form */
+    .pay-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:0.8rem;}
+    .pay-row.full{grid-template-columns:1fr;}
+    .pf{display:flex;flex-direction:column;gap:0.35rem;}
+    .pf label{font-size:0.75rem;font-weight:600;color:#3a4f7a;letter-spacing:0.04em;}
+    .pf select,.pf input[type=file]{border:1px solid var(--border);border-radius:6px;padding:0.55rem 0.8rem;font-size:0.88rem;font-family:'Outfit',sans-serif;color:#0a1a3b;background:#fff;outline:none;transition:border-color 0.2s;}
+    .pf select:focus{border-color:var(--gold);}
+    .pay-months-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.4rem;background:#fff;border:1px solid var(--border);border-radius:6px;padding:0.8rem;}
+    .pay-month-cb{display:flex;align-items:center;gap:0.4rem;font-size:0.78rem;color:#3a4f7a;cursor:pointer;white-space:nowrap;}
+    .pay-month-cb input{accent-color:var(--gold);width:14px;height:14px;}
+    .pay-amount-note{font-size:0.75rem;color:#7a8aaa;margin-top:0.4rem;}
+    .pay-file-hint{font-size:0.68rem;color:#aab;margin-top:0.2rem;}
+    .pay-submit{width:100%;background:#0a1a3b;color:#fff;border:none;border-radius:6px;padding:0.9rem;font-size:0.9rem;font-family:'Outfit',sans-serif;font-weight:600;cursor:pointer;transition:background 0.2s;margin-top:0.4rem;}
+    .pay-submit:hover:not(:disabled){background:#112354;}
+    .pay-submit:disabled{background:#ccc;cursor:not-allowed;}
+    .pay-status{font-size:0.82rem;color:#3a4f7a;margin-top:0.8rem;min-height:1.2rem;text-align:center;}
+    .pay-success{padding:2rem 1.5rem;text-align:center;}
+    .pay-success-icon{font-size:2.5rem;margin-bottom:1rem;}
+    .pay-success h4{font-family:'Cormorant Garamond',serif;font-size:1.5rem;color:#0a1a3b;margin-bottom:0.5rem;}
+    .pay-success p{font-size:0.88rem;color:#3a4f7a;line-height:1.7;}
+    .pay-new-btn{margin-top:1rem;background:#0a1a3b;color:#fff;border:none;border-radius:6px;padding:0.65rem 1.4rem;font-size:0.82rem;font-family:'Outfit',sans-serif;cursor:pointer;transition:background 0.2s;}
+    .pay-new-btn:hover{background:#112354;}
+    @media(max-width:640px){.pay-row{grid-template-columns:1fr;}.pay-upi-box{flex-direction:column;align-items:flex-start;}.pay-months-grid{grid-template-columns:repeat(2,1fr);}.pay-modal{border-radius:8px 8px 0 0;margin:auto 0 0 0;}.pay-ov{padding:0;align-items:flex-end;}}
     /* CONTACT */
     #contact{background:#fff;}
     .con-card{background:#0a1a3b;border-radius:6px;padding:1.8rem;width:100%;max-width:1100px;}
@@ -197,58 +331,46 @@
     .ft-rera{margin-top:0.8rem;padding-top:0.8rem;border-top:1px solid rgba(255,255,255,0.1);}
     .ft-rera .rl{display:block;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.2rem;}
     .ft-rera .ri{font-size:0.75rem;color:rgba(255,255,255,0.45);}
-    .ft-bot{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.2rem;display:flex;justify-content:center;font-size:0.78rem;color:rgba(255,255,255,0.35);max-width:1100px;margin:0 auto;}
+    .ft-bot{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.2rem;display:flex;justify-content:center;align-items:center;gap:0.8rem;font-size:0.78rem;color:rgba(255,255,255,0.35);max-width:1100px;margin:0 auto;}
 
-    /* Scroll animations */
+    /* SCROLL ANIMATIONS */
     .fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
     .fade-up.visible{opacity:1;transform:translateY(0);}
     .fade-left{opacity:0;transform:translateX(-28px);transition:opacity 0.65s ease,transform 0.65s ease;}
     .fade-left.visible{opacity:1;transform:translateX(0);}
     .fade-right{opacity:0;transform:translateX(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
     .fade-right.visible{opacity:1;transform:translateX(0);}
-    .fade-in{opacity:0;transition:opacity 0.7s ease;}
-    .fade-in.visible{opacity:1;}
-    .stagger-child{opacity:0;transform:translateY(22px);transition:opacity 0.5s ease,transform 0.5s ease;}
-    .stagger-child.visible{opacity:1;transform:translateY(0);}
+    .sc{opacity:0;transform:translateY(22px);transition:opacity 0.5s ease,transform 0.5s ease;}
+    .sc.visible{opacity:1;transform:translateY(0);}
 
-    @media(max-width:900px){.about-grid,.ev-grid{grid-template-columns:1fr;}.gal-grid{grid-template-columns:repeat(2,1fr);}.gi.w{grid-column:span 2;}.com-grid,.com-grid-griev{grid-template-columns:repeat(2,1fr);}}
+    @media(max-width:900px){.about-grid,.ev-grid{grid-template-columns:1fr;}.gal-grid{grid-template-columns:repeat(2,1fr);}.gi.w{grid-column:span 2;}.com-grid,.griev-box-grid{grid-template-columns:repeat(2,1fr);}}
     @media(max-width:768px){
-      .nav-links{display:none;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:#0a1a3b;padding:1.2rem 5%;border-top:1px solid rgba(201,162,51,0.3);gap:1rem;}
-      .nav-links.open{display:flex;}
-      .hamburger{display:flex;}
-      .nav-logo-text{display:flex;}
-      .nav-logo-text strong{font-size:0.9rem;}
-      .nav-logo-text span{font-size:0.48rem;}
+      .nav-links{display:none;flex-direction:column;position:absolute;top:94px;left:0;right:0;background:#0a1a3b;padding:1.2rem 5%;border-top:1px solid rgba(201,162,51,0.3);gap:1rem;}
+      .nav-links.open{display:flex;} .hamburger{display:flex;}
+      .nav-logo-text{display:flex;} .nav-logo-text strong{font-size:0.9rem;} .nav-logo-text span{font-size:0.48rem;}
       .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}
       .mem-grid{grid-template-columns:repeat(2,1fr);}
-      .com-grid,.com-grid-griev{grid-template-columns:1fr;}
-      .hero-logo{width:150px;}
-      .amenity-grid{grid-template-columns:repeat(2,1fr);}
+      .com-grid,.griev-box-grid{grid-template-columns:1fr;}
+      .hero-logo{width:150px;} .amenity-grid{grid-template-columns:repeat(2,1fr);}
+      .book-row{grid-template-columns:1fr;}
+      .book-modal{border-radius:8px 8px 0 0;margin:auto 0 0 0;} .book-ov{padding:0;align-items:flex-end;}
+      .res-modal{border-radius:8px 8px 0 0;margin:auto 0 0 0;} .res-ov{padding:0;align-items:flex-end;} .res-list{max-height:55vh;}
     }
   </style>
 </head>
 <body>
 
-<div class="wip-banner">
-  <span class="wip-dot"></span>
-  <span>Website under development — content may change</span>
-</div>
+<div class="wip"><span class="wip-dot"></span><span>Website under development — content may change</span></div>
 
 <nav>
   <a href="#home" class="nav-logo">
     <img src="logo.png" alt="Signature 18"/>
-    <div class="nav-logo-text">
-      <strong>Signature 18</strong>
-      <span>Association of Apartment Owners</span>
-    </div>
+    <div class="nav-logo-text"><strong>Signature 18</strong><span>Association of Apartment Owners</span></div>
   </a>
   <ul class="nav-links" id="navLinks">
-    <li><a href="#about">About</a></li>
-    <li><a href="#news">Notices</a></li>
-    <li><a href="#members">For Members</a></li>
-    <li><a href="#events">Events</a></li>
-    <li><a href="#gallery">Gallery</a></li>
-    <li><a href="#committee">Working Committee</a></li>
+    <li><a href="#about">About</a></li><li><a href="#news">Notices</a></li>
+    <li><a href="#members">For Members</a></li><li><a href="#events">Events</a></li>
+    <li><a href="#gallery">Gallery</a></li><li><a href="#committee">Working Committee</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
   <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
@@ -258,11 +380,7 @@
   <div class="hero-inner">
     <img src="logo2.png" alt="Signature 18" class="hero-logo"/>
     <div class="hero-assoc">Association of Apartment Owners</div>
-    <div class="hero-divider">
-      <div class="hero-line"></div>
-      <span class="hero-ornament">❋</span>
-      <div class="hero-line"></div>
-    </div>
+    <div class="hero-divider"><div class="hero-line"></div><span class="hero-orn">❋</span><div class="hero-line"></div></div>
     <p>Your official community platform for 69 families. Stay informed, stay connected, and build the neighbourhood you deserve.</p>
     <div class="hero-btns">
       <a href="#news" class="btn-gold">View Latest Notices</a>
@@ -283,22 +401,14 @@
     <div class="fade-right">
       <p class="amenity-lbl">Our Amenities</p>
       <div class="amenity-grid">
-        <div class="chip">🏊 Swimming Pool</div>
-        <div class="chip">💪 Fitness Centre</div>
-        <div class="chip">🏸 Badminton Court</div>
-        <div class="chip">🎮 Games Room</div>
-        <div class="chip">🌿 Rooftop Garden</div>
-        <div class="chip">☀️ Sun Deck</div>
-        <div class="chip">🅿️ Car Parking</div>
-        <div class="chip">🏛️ Community Hall</div>
-        <div class="chip">🎭 Rooftop Amphitheater</div>
-        <div class="chip">🎉 Rooftop Party Zone</div>
-        <div class="chip">🛝 Rooftop Children Play Zone</div>
-        <div class="chip">📹 CCTV Surveillance</div>
-        <div class="chip">⚡ Power Backup</div>
-        <div class="chip">🔒 24×7 Security</div>
-        <div class="chip">🚪 Access Control</div>
-        <div class="chip">📟 Intercom</div>
+        <div class="chip">🏊 Swimming Pool</div><div class="chip">💪 Fitness Centre</div>
+        <div class="chip">🏸 Badminton Court</div><div class="chip">🎮 Games Room</div>
+        <div class="chip">🌿 Rooftop Garden</div><div class="chip">☀️ Sun Deck</div>
+        <div class="chip">🅿️ Car Parking</div><div class="chip">🏛️ Community Hall</div>
+        <div class="chip">🎭 Rooftop Amphitheater</div><div class="chip">🎉 Rooftop Party Zone</div>
+        <div class="chip">🛝 Rooftop Children Play Zone</div><div class="chip">📹 CCTV Surveillance</div>
+        <div class="chip">⚡ Power Backup</div><div class="chip">🔒 24×7 Security</div>
+        <div class="chip">🚪 Access Control</div><div class="chip">📟 Intercom</div>
       </div>
     </div>
   </div>
@@ -310,42 +420,42 @@
   <div class="bar fade-up"></div>
   <p class="sub fade-up" style="color:rgba(255,255,255,0.6);">Important announcements and updates from the Association.</p>
   <div class="notice-grid">
-    <div class="nc nc-urgent stagger-child"><div class="nc-badge">Urgent</div><p class="nc-type">⚠️ Maintenance</p><h3>Water Supply Interruption – Tank Cleaning</h3><p>Overhead water tank cleaning is scheduled for 28th March. Water supply will be interrupted from 9:00 AM to 1:00 PM. Kindly store water in advance.</p><p class="nc-date">📅 Posted: March 10, 2026</p></div>
-    <div class="nc stagger-child"><p class="nc-type">📋 AGM Notice</p><h3>Annual General Meeting – April 12, 2026</h3><p>All resident members are invited to attend the AGM at the Community Hall, Ground Floor at 6:00 PM. Agenda: accounts review and committee elections.</p><p class="nc-date">📅 Posted: March 5, 2026</p></div>
-    <div class="nc stagger-child"><p class="nc-type">💰 Finance</p><h3>Maintenance Dues – Q1 2026 Reminder</h3><p>Kindly clear all pending maintenance dues for Q1 2026 by March 31st to avoid late fees. Contact the secretary for payment details.</p><p class="nc-date">📅 Posted: March 1, 2026</p></div>
-    <div class="nc stagger-child"><p class="nc-type">🌿 Community</p><h3>Terrace Garden Initiative – Join Us!</h3><p>We are launching a resident-managed terrace garden. Register to adopt a plant bed. Planting day is May 1st — limited spots available!</p><p class="nc-date">📅 Posted: February 20, 2026</p></div>
+    <div class="nc nc-urgent sc"><div class="nc-badge">Urgent</div><p class="nc-type">⚠️ Maintenance</p><h3>Water Supply Interruption – Tank Cleaning</h3><p>Overhead water tank cleaning is scheduled for 28th March. Water supply will be interrupted from 9:00 AM to 1:00 PM. Kindly store water in advance.</p><p class="nc-date">📅 Posted: March 10, 2026</p></div>
+    <div class="nc sc"><p class="nc-type">📋 AGM Notice</p><h3>Annual General Meeting – April 12, 2026</h3><p>All resident members are invited to attend the AGM at the Community Hall, Ground Floor at 6:00 PM. Agenda: accounts review and committee elections.</p><p class="nc-date">📅 Posted: March 5, 2026</p></div>
+    <div class="nc sc"><p class="nc-type">💰 Finance</p><h3>Maintenance Dues – Q1 2026 Reminder</h3><p>Kindly clear all pending maintenance dues for Q1 2026 by March 31st to avoid late fees. Contact the secretary for payment details.</p><p class="nc-date">📅 Posted: March 1, 2026</p></div>
+    <div class="nc sc"><p class="nc-type">🌿 Community</p><h3>Terrace Garden Initiative – Join Us!</h3><p>We are launching a resident-managed terrace garden. Register to adopt a plant bed. Planting day is May 1st — limited spots available!</p><p class="nc-date">📅 Posted: February 20, 2026</p></div>
   </div>
 </section>
 
 <section id="members">
   <p class="lbl fade-up">Residents Only</p>
   <h2 class="ttl fade-up">For Members</h2>
-  <div class="bar"></div>
-  <p class="sub">Access society documents, meeting records, and important information.</p>
+  <div class="bar fade-up"></div>
+  <p class="sub fade-up">Access society documents, meeting records, and important information.</p>
   <div class="mem-grid">
-    <div class="mc stagger-child"><div class="mc-icon">📋</div><div class="mc-text"><h4>Meeting Minutes</h4><p>AGM &amp; committee notes</p><a href="#">View →</a></div></div>
-    <div class="mc stagger-child"><div class="mc-icon">💰</div><div class="mc-text"><h4>Society Documents</h4><p>Financial statements &amp; audits</p><a href="#">View →</a></div></div>
-    <div class="mc stagger-child"><div class="mc-icon">📜</div><div class="mc-text"><h4>Rules &amp; Bylaws</h4><p>Regulations &amp; guidelines</p><a href="#">View →</a></div></div>
-    <div class="mc stagger-child"><div class="mc-icon">🔧</div><div class="mc-text"><h4>Maintenance Log</h4><p>Repair &amp; service records</p><a href="#">View →</a></div></div>
-    <div class="mc stagger-child"><div class="mc-icon">📞</div><div class="mc-text"><h4>Emergency Contacts</h4><p>Plumber, electrician &amp; more</p><a href="#">View →</a></div></div>
-    <div class="mc stagger-child"><div class="mc-icon">💳</div><div class="mc-text"><h4>Pay Maintenance</h4><p>Bank &amp; UPI details</p><a href="#">View →</a></div></div>
-    <div class="mc stagger-child"><div class="mc-icon">✉️</div><div class="mc-text"><h4>Submit Queries</h4><p>Complaints &amp; queries</p><a href="#contact">Submit →</a></div></div>
-    <div class="mc stagger-child"><div class="mc-icon">👥</div><div class="mc-text"><h4>Resident Details</h4><p>Apartment owners directory</p><a href="#">Open →</a></div></div>
-    <div class="mc stagger-child"><div class="mc-icon">🏛️</div><div class="mc-text"><h4>Community Hall Booking</h4><p>Reserve for events &amp; gatherings</p><a href="#">Book Now →</a></div></div>
+    <div class="mc sc"><div class="mc-icon">📋</div><div class="mc-text"><h4>Meeting Minutes</h4><p>AGM &amp; committee notes</p><a href="#">View →</a></div></div>
+    <div class="mc sc"><div class="mc-icon">💰</div><div class="mc-text"><h4>Society Documents</h4><p>Financial statements &amp; audits</p><a href="#">View →</a></div></div>
+    <div class="mc sc"><div class="mc-icon">📜</div><div class="mc-text"><h4>Rules &amp; Bylaws</h4><p>Regulations &amp; guidelines</p><a href="#">View →</a></div></div>
+    <div class="mc sc"><div class="mc-icon">🔧</div><div class="mc-text"><h4>Maintenance Log</h4><p>Repair &amp; service records</p><a href="#">View →</a></div></div>
+    <div class="mc sc"><div class="mc-icon">📞</div><div class="mc-text"><h4>Emergency Contacts</h4><p>Plumber, electrician &amp; more</p><a href="#">View →</a></div></div>
+    <div class="mc sc"><div class="mc-icon">💳</div><div class="mc-text"><h4>Pay Maintenance</h4><p>Bank &amp; UPI details</p><a href="#" onclick="event.preventDefault();openPay()">View →</a></div></div>
+    <div class="mc sc"><div class="mc-icon">✉️</div><div class="mc-text"><h4>Submit Queries</h4><p>Complaints &amp; queries</p><a href="#" onclick="event.preventDefault();openQuery()">Submit →</a></div></div>
+    <div class="mc sc"><div class="mc-icon">👥</div><div class="mc-text"><h4>Resident Details</h4><p>Apartment owners directory</p><a href="#" onclick="event.preventDefault();openResidents()">Open →</a></div></div>
+    <div class="mc sc"><div class="mc-icon">🏛️</div><div class="mc-text"><h4>Community Hall Booking</h4><p>Reserve for events &amp; gatherings</p><a href="#" onclick="event.preventDefault();openBooking()">Book Now →</a></div></div>
   </div>
-  <div class="mem-note">🔒 Some documents are restricted to registered members only. Contact the secretary to register your access.</div>
+  <div class="mem-note">🔒 Some documents are restricted to board members only. Contact the secretary to register your access.</div>
 </section>
 
 <section id="events">
   <p class="lbl fade-up">What's On</p>
   <h2 class="ttl fade-up">Upcoming Events</h2>
-  <div class="bar"></div>
+  <div class="bar fade-up"></div>
   <div class="ev-grid">
     <div class="ev-list">
-      <div class="ev-row stagger-child"><div class="ev-dt"><div class="ev-day">28</div><div class="ev-mon">Mar</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Water Tank Cleaning</h4><p>9:00 AM – 1:00 PM · Building-wide</p></div><span class="ev-tag t-main">Maintenance</span></div>
-      <div class="ev-row stagger-child"><div class="ev-dt"><div class="ev-day">12</div><div class="ev-mon">Apr</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Annual General Meeting (AGM)</h4><p>6:00 PM · Community Hall, Ground Floor</p></div><span class="ev-tag t-meet">Meeting</span></div>
-      <div class="ev-row stagger-child"><div class="ev-dt"><div class="ev-day">14</div><div class="ev-mon">Apr</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Pohela Boishakh Celebration 🎉</h4><p>5:00 PM onwards · Rooftop &amp; Common Area</p></div><span class="ev-tag t-fest">Festival</span></div>
-      <div class="ev-row stagger-child"><div class="ev-dt"><div class="ev-day">01</div><div class="ev-mon">May</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Terrace Garden Planting Day 🌱</h4><p>8:00 AM – 11:00 AM · Rooftop Terrace</p></div><span class="ev-tag t-soc">Community</span></div>
+      <div class="ev-row sc"><div class="ev-dt"><div class="ev-day">28</div><div class="ev-mon">Mar</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Water Tank Cleaning</h4><p>9:00 AM – 1:00 PM · Building-wide</p></div><span class="ev-tag t-main">Maintenance</span></div>
+      <div class="ev-row sc"><div class="ev-dt"><div class="ev-day">12</div><div class="ev-mon">Apr</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Annual General Meeting (AGM)</h4><p>6:00 PM · Community Hall, Ground Floor</p></div><span class="ev-tag t-meet">Meeting</span></div>
+      <div class="ev-row sc"><div class="ev-dt"><div class="ev-day">14</div><div class="ev-mon">Apr</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Pohela Boishakh Celebration 🎉</h4><p>5:00 PM onwards · Rooftop &amp; Common Area</p></div><span class="ev-tag t-fest">Festival</span></div>
+      <div class="ev-row sc"><div class="ev-dt"><div class="ev-day">01</div><div class="ev-mon">May</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Terrace Garden Planting Day 🌱</h4><p>8:00 AM – 11:00 AM · Rooftop Terrace</p></div><span class="ev-tag t-soc">Community</span></div>
     </div>
     <div class="cal fade-right">
       <h4>📅 April 2026</h4>
@@ -365,77 +475,140 @@
 <section id="gallery">
   <p class="lbl fade-up">Life at Signature 18</p>
   <h2 class="ttl fade-up">Gallery</h2>
-  <div class="bar"></div>
+  <div class="bar fade-up"></div>
   <div class="gal-grid">
-    <div class="gi w t stagger-child"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="Building"/></div>
-    <div class="gi stagger-child"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Lobby"/></div>
-    <div class="gi stagger-child"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&q=80" alt="Pool"/></div>
-    <div class="gi stagger-child"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=400&q=80" alt="Terrace"/></div>
-    <div class="gi stagger-child"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80" alt="Gym"/></div>
-    <div class="gi w stagger-child"><img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=800&q=80" alt="Community"/></div>
+    <div class="gi w t sc"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="Building"/></div>
+    <div class="gi sc"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Lobby"/></div>
+    <div class="gi sc"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&q=80" alt="Pool"/></div>
+    <div class="gi sc"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=400&q=80" alt="Terrace"/></div>
+    <div class="gi sc"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80" alt="Gym"/></div>
+    <div class="gi w sc"><img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=800&q=80" alt="Community"/></div>
   </div>
 </section>
 
 <section id="committee">
-  <h2 class="ttl fade-up">Working Committee</h2>
-  <div class="bar"></div>
-  <p class="sub" style="color:rgba(255,255,255,0.6);">Your representatives for the term 2026–29.</p>
-
-  <!-- Main Committee -->
+  <h2 class="ttl fade-up">Meet Your Committee Members</h2>
+  <div class="bar fade-up"></div>
+  <p class="sub fade-up" style="color:rgba(255,255,255,0.6);">Your representatives for the term 2026–29.</p>
   <div class="com-grid">
-    <div class="cc stagger-child" onclick="openM('Dr. Abhra Mukhopadhyay (11B)','President','📞 +91 98300 00000','Responsible for overall governance, chairing AGMs, and representing the association in all official matters.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Abhra Mukhopadhyay (11B)</h4><p class="cc-role">President</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc stagger-child" onclick="openM('Dr. Ratnadeep Ghosh (10D)','Vice President','📞 +91 98300 00000','Assists the President and leads key community initiatives and resident engagement.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Dr. Ratnadeep Ghosh (10D)</h4><p class="cc-role">Vice President</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc stagger-child" onclick="openM('Mr. Subhajit Mukherjee (8A)','Secretary','📞 +91 98300 00000','Manages day-to-day correspondence, meeting minutes, and official records of the association.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Subhajit Mukherjee (8A)</h4><p class="cc-role">Secretary</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc stagger-child" onclick="openM('Mr. Rahul Basu (13A)','Treasurer','📞 +91 98300 00000','Oversees all financial matters including maintenance collections, budgeting, and financial reporting.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Rahul Basu (13A)</h4><p class="cc-role">Treasurer</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc stagger-child" onclick="openM('Mr. Sayan Chatterjee (12A)','Manager','📞 +91 98300 00000','Manages communication, technology, games and recreational facilities for the community.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Sayan Chatterjee (12A)</h4><p class="cc-role">Manager (Communication, Technology, Games &amp; Recreational Facilities)</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc stagger-child" onclick="openM('Mr. Souvik Kumar (13C)','Manager','📞 +91 98300 00000','Handles communication and oversees the specialised maintenance portfolio of the building.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Souvik Kumar (13C)</h4><p class="cc-role">Manager (Communication, Specialised Maintenance Portfolio)</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc stagger-child" onclick="openM('Mr. Bibhutosh Das (3D)','Manager','📞 +91 98300 00000','Ensures regulatory compliance and acts as liaison with the Grievance Committee.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Bibhutosh Das (3D)</h4><p class="cc-role">Manager (Compliance &amp; Liaison with Grievance Committee)</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc stagger-child" onclick="openM('Mrs. Soma Purkayastha Kabiraj (16C)','Manager','📞 +91 98300 00000','Active committee manager contributing to community decisions and resident welfare.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mrs. Soma Purkayastha Kabiraj (16C)</h4><p class="cc-role">Manager</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc stagger-child" onclick="openM('Mrs. Mousumi Jana Bhattacharya (16D)','Manager','📞 +91 98300 00000','Active committee manager contributing to community decisions and resident welfare.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mrs. Mousumi Jana Bhattacharya (16D)</h4><p class="cc-role">Manager</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc sc" onclick="openM('Dr. Abhra Mukhopadhyay (11B)','President','📞 +91 7980412140','Responsible for overall governance, chairing AGMs, and representing the association in all official matters.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Abhra Mukhopadhyay (11B)</h4><p class="cc-role">President</p><p class="cc-phone">📞 +91 7980412140</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc sc" onclick="openM('Dr. Ratnadeep Ghosh (10D)','Vice President','📞 +91 7980412140','Assists the President and leads key community initiatives and resident engagement.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Dr. Ratnadeep Ghosh (10D)</h4><p class="cc-role">Vice President</p><p class="cc-phone">📞 +91 7980412140</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc sc" onclick="openM('Mr. Subhajit Mukherjee (8A)','Secretary','📞 +91 7980412140','Manages day-to-day correspondence, meeting minutes, and official records of the association.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Subhajit Mukherjee (8A)</h4><p class="cc-role">Secretary</p><p class="cc-phone">📞 +91 7980412140</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc sc" onclick="openM('Mr. Rahul Basu (13A)','Treasurer','📞 +91 7980412140','Oversees all financial matters including maintenance collections, budgeting, and financial reporting.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Rahul Basu (13A)</h4><p class="cc-role">Treasurer</p><p class="cc-phone">📞 +91 7980412140</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc sc" onclick="openM('Mr. Sayan Chatterjee (12A)','Manager','📞 +91 7980412140','Manages communication, technology, games and recreational facilities for the community.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Sayan Chatterjee (12A)</h4><p class="cc-role">Manager (Communication, Technology, Games &amp; Recreational Facilities)</p><p class="cc-phone">📞 +91 7980412140</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc sc" onclick="openM('Mr. Souvik Kumar (13C)','Manager','📞 +91 7980412140','Handles communication and oversees the specialised maintenance portfolio of the building.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Souvik Kumar (13C)</h4><p class="cc-role">Manager (Communication, Specialised Maintenance Portfolio)</p><p class="cc-phone">📞 +91 7980412140</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc sc" onclick="openM('Mr. Bibhutosh Das (3D)','Manager','📞 +91 7980412140','Ensures regulatory compliance and acts as liaison with the Grievance Committee.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Bibhutosh Das (3D)</h4><p class="cc-role">Manager (Compliance &amp; Liaison with Grievance Committee)</p><p class="cc-phone">📞 +91 7980412140</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc sc" onclick="openM('Mrs. Soma Purkayastha Kabiraj (16C)','Manager','📞 +91 7980412140','Active committee manager contributing to community decisions and resident welfare.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mrs. Soma Purkayastha Kabiraj (16C)</h4><p class="cc-role">Manager</p><p class="cc-phone">📞 +91 7980412140</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc sc" onclick="openM('Mrs. Mousumi Jana Bhattacharya (16D)','Manager','📞 +91 7980412140','Active committee manager contributing to community decisions and resident welfare.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mrs. Mousumi Jana Bhattacharya (16D)</h4><p class="cc-role">Manager</p><p class="cc-phone">📞 +91 7980412140</p><p class="cc-hint">Tap for profile</p></div></div>
   </div>
-
-  <!-- Cultural Secretary -->
-  <div class="sub-header">
-    <div class="sub-line"></div>
-    <span class="sub-title">Cultural Committee</span>
-    <div class="sub-line"></div>
-  </div>
+  <div class="sub-header"><div class="sub-line"></div><span class="sub-title">Cultural Committee</span><div class="sub-line"></div></div>
   <div class="com-grid">
-    <div class="cc cc-cultural" onclick="openM('Mrs. Debjani Bhowmick','Cultural Secretary','📞 +91 98300 00000','Organises cultural events, festivals, and community celebrations for all residents.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mrs. Debjani Bhowmick (15B)</h4><p class="cc-role">Cultural Secretary</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc cc-cultural sc" onclick="openM('Mrs. Debjani Bhowmick','Cultural Secretary','📞 +91 7980412140','Organises cultural events, festivals, and community celebrations for all residents.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mrs. Debjani Bhowmick (15B)</h4><p class="cc-role">Cultural Secretary</p><p class="cc-phone">📞 +91 7980412140</p><p class="cc-hint">Tap for profile</p></div></div>
   </div>
-
-  <!-- Grievance Committee — bordered box, de-emphasised -->
   <div class="griev-box">
     <div class="griev-box-title">Grievance Committee</div>
     <div class="griev-box-grid">
-      <div class="cc-griev stagger-child" onclick="openM('Dr. Subrata Lahiri','Grievance Committee Member','📞 +91 98300 00000','Member of the Grievance Committee, responsible for addressing resident concerns and disputes fairly.')"><div class="cc-griev-av">👤</div><div class="cc-griev-body"><h4>Dr. Subrata Lahiri (11C)</h4><p class="cc-griev-role">Grievance Committee</p><p class="cc-griev-phone">📞 +91 98300 00000</p><p class="cc-griev-hint">Tap for profile</p></div></div>
-      <div class="cc-griev stagger-child" onclick="openM('Mr. Jayanta Ray','Grievance Committee Member','📞 +91 98300 00000','Member of the Grievance Committee, responsible for addressing resident concerns and disputes fairly.')"><div class="cc-griev-av">👤</div><div class="cc-griev-body"><h4>Mr. Jayanta Ray (7C)</h4><p class="cc-griev-role">Grievance Committee</p><p class="cc-griev-phone">📞 +91 98300 00000</p><p class="cc-griev-hint">Tap for profile</p></div></div>
-      <div class="cc-griev stagger-child" onclick="openM('Mr. Shyamal Mondal','Grievance Committee Member','📞 +91 98300 00000','Member of the Grievance Committee, responsible for addressing resident concerns and disputes fairly.')"><div class="cc-griev-av">👤</div><div class="cc-griev-body"><h4>Mr. Shyamal Mondal (8D)</h4><p class="cc-griev-role">Grievance Committee</p><p class="cc-griev-phone">📞 +91 98300 00000</p><p class="cc-griev-hint">Tap for profile</p></div></div>
+      <div class="cc-griev sc" onclick="openM('Dr. Subrata Lahiri','Grievance Committee Member','📞 +91 7980412140','Member of the Grievance Committee, responsible for addressing resident concerns and disputes fairly.')"><div class="cc-griev-av">👤</div><div class="cc-griev-body"><h4>Dr. Subrata Lahiri (11C)</h4><p class="cc-griev-role">Grievance Committee</p><p class="cc-griev-phone">📞 +91 7980412140</p><p class="cc-griev-hint">Tap for profile</p></div></div>
+      <div class="cc-griev sc" onclick="openM('Mr. Jayanta Ray','Grievance Committee Member','📞 +91 7980412140','Member of the Grievance Committee, responsible for addressing resident concerns and disputes fairly.')"><div class="cc-griev-av">👤</div><div class="cc-griev-body"><h4>Mr. Jayanta Ray (7C)</h4><p class="cc-griev-role">Grievance Committee</p><p class="cc-griev-phone">📞 +91 7980412140</p><p class="cc-griev-hint">Tap for profile</p></div></div>
+      <div class="cc-griev sc" onclick="openM('Mr. Shyamal Mondal','Grievance Committee Member','📞 +91 7980412140','Member of the Grievance Committee, responsible for addressing resident concerns and disputes fairly.')"><div class="cc-griev-av">👤</div><div class="cc-griev-body"><h4>Mr. Shyamal Mondal (8D)</h4><p class="cc-griev-role">Grievance Committee</p><p class="cc-griev-phone">📞 +91 7980412140</p><p class="cc-griev-hint">Tap for profile</p></div></div>
     </div>
   </div>
 </section>
 
-<div class="modal-ov" id="mOv" onclick="closeOut(event)">
+<!-- Committee modal -->
+<div class="modal-ov" id="mOv" onclick="if(event.target===this)closeM()">
   <div class="modal">
     <button class="modal-x" onclick="closeM()">✕</button>
     <div class="modal-av">👤</div>
     <div class="modal-name" id="mName"></div>
     <div class="modal-role" id="mRole"></div>
     <div class="modal-phone" id="mPhone"></div>
-    <div class="modal-div"></div>
+    <div class="modal-divider"></div>
     <div class="modal-bio" id="mBio"></div>
+  </div>
+</div>
+
+<!-- Resident Details modal -->
+<div class="res-ov" id="resOv">
+  <div class="res-modal">
+    <div class="res-header">
+      <div><h3>Resident Details</h3><div class="res-header-sub">Signature 18 · All 69 Apartments</div></div>
+      <button class="res-close" onclick="closeResidents()">✕</button>
+    </div>
+    <div class="res-search-wrap"><input class="res-search" id="resSearch" type="text" placeholder="Search by flat number or name…"/></div>
+    <div class="res-count" id="resCount">69 residents</div>
+    <div class="res-list" id="resList"></div>
+  </div>
+</div>
+
+<!-- Community Hall Booking modal -->
+<div class="book-ov" id="bookOv">
+  <div class="book-modal">
+    <div class="book-header">
+      <div><h3>Community Hall Booking</h3><div class="book-header-sub">Signature 18 · 8, Bosepukur Road, Kasba</div></div>
+      <button class="book-close" onclick="closeBooking()">✕</button>
+    </div>
+    <div id="bookFormWrap">
+      <div class="book-body">
+        <p class="book-sec">Resident Details</p>
+        <div class="book-row">
+          <div class="bf"><label>Flat Number *</label><input type="text" id="bFlat" placeholder="e.g. 10A"/></div>
+          <div class="bf"><label>Owner Name *</label><input type="text" id="bName" placeholder="Full name"/></div>
+        </div>
+        <div class="book-row">
+          <div class="bf"><label>Contact Number *</label><input type="tel" id="bPhone" placeholder="+91 XXXXX XXXXX"/></div>
+          <div class="bf"><label>Email Address *</label><input type="email" id="bEmail" placeholder="your@email.com"/></div>
+        </div>
+        <p class="book-sec">Event Details</p>
+        <div class="book-row">
+          <div class="bf"><label>Event Date *</label><input type="date" id="bDate"/><span class="booked-note" id="bBookedNote">⚠️ This date is already booked</span></div>
+          <div class="bf"><label>Event Type *</label>
+            <select id="bType"><option value="">Select type…</option><option>Birthday Party</option><option>Wedding/Reception</option><option>Puja / Religious Event</option><option>Anniversary</option><option>Corporate / Meeting</option><option>Other</option></select>
+          </div>
+        </div>
+        <div class="book-row">
+          <div class="bf"><label>Start Time *</label><input type="time" id="bStart"/></div>
+          <div class="bf"><label>End Time *</label><input type="time" id="bEnd"/></div>
+        </div>
+        <div class="book-row">
+          <div class="bf"><label>Approx. No. of Guests *</label><input type="number" id="bGuests" placeholder="e.g. 50" min="1"/></div>
+          <div class="bf"><label>Parking Spots Required</label><input type="number" id="bParking" placeholder="e.g. 5" min="0"/></div>
+        </div>
+        <div class="book-row full"><div class="bf"><label>Additional Notes</label><input type="text" id="bNotes" placeholder="Any special requirements…"/></div></div>
+        <p class="book-sec">Terms &amp; Conditions</p>
+        <div class="book-tcs">
+          <p>• Booking is subject to availability and prior approval by the Association.</p>
+          <p>• <strong>Booking charge: Rs. 2,500/- (non-refundable)</strong> + Security Deposit Rs. 2,000/- (refundable) = <strong>Rs. 4,500/- total</strong>. Transfer to Association Account — cash not accepted. Email payment confirmation to: <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="194a505e282158585652565552584d58595e54585055375a5654">[email&#160;protected]</a></p>
+          <p>• Note electric meter reading before and after the event with Facility Manager. Units charged @ Rs. 12/- per unit, adjusted against Security Deposit.</p>
+          <p>• The hall must be left clean after use.</p>
+          <p>• Any damage to property is the responsibility of the booking owner.</p>
+          <p>• Noise levels must be kept under control at all times.</p>
+          <p>• Community rules and regulations must be strictly followed.</p>
+        </div>
+        <label class="book-accept"><input type="checkbox" id="bAccept"/><span>I have read and agree to the Terms &amp; Conditions above.</span></label>
+        <button class="book-submit" id="bSubmitBtn" onclick="submitBooking()">Submit Booking Request</button>
+        <div class="book-status" id="bStatus"></div>
+      </div>
+    </div>
+    <div id="bookSuccess" style="display:none;" class="book-success">
+      <div class="book-success-icon">✅</div>
+      <h4>Booking Request Submitted!</h4>
+      <p>Your request has been sent to the Association and Facility Manager.<br/>You will be contacted for confirmation within 24 hours.</p>
+      <a class="book-cal-btn" href="#" onclick="downloadICS(event)">📅 Add to My Calendar</a>
+      <p style="margin-top:1rem;font-size:0.78rem;color:#999;">Remember to transfer Rs. 4,500/- to complete the booking.</p>
+    </div>
   </div>
 </div>
 
 <section id="contact">
   <p class="lbl fade-up">Reach Out</p>
   <h2 class="ttl fade-up">Get in Touch</h2>
-  <div class="bar"></div>
+  <div class="bar fade-up"></div>
   <div class="con-card fade-up">
     <div class="c-row"><div class="c-ic">📍</div><div><h4>Address</h4><p>8, Bosepukur Road, Kasba<br/>Kolkata – 700042, West Bengal</p></div></div>
-    <div class="c-row"><div class="c-ic">📧</div><div><h4>Association Email</h4><p>association@signature18kasba.in</p></div></div>
-    <div class="c-row"><div class="c-ic">🗂️</div><div><h4>Facility Manager Email</h4><p>manager@signature18kasba.in</p></div></div>
-    <div class="c-row"><div class="c-ic">📞</div><div><h4>Facility Manager Contact</h4><p>+91 98300 00000</p></div></div>
+    <div class="c-row"><div class="c-ic">📧</div><div><h4>Association Email</h4><p>sig18aaokolkata@gmail.com</p></div></div>
+    <div class="c-row"><div class="c-ic">🗂️</div><div><h4>Facility Manager Email</h4><p>fm.signature18@gmail.com</p></div></div>
+    <div class="c-row"><div class="c-ic">📞</div><div><h4>Facility Manager Contact</h4><p>+91 7980412140</p></div></div>
     <div class="c-row"><div class="c-ic">🕐</div><div><h4>Office Hours</h4><p>Tue – Sun: 9:00 AM – 6:00 PM (Monday Off)</p></div></div>
   </div>
 </section>
@@ -450,45 +623,103 @@
           <span style="font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);">Association of Apartment Owners</span>
         </div>
       </div>
-      <p>The official association at 8, Bosepukur Road, Kasba, Kolkata. Together we build a better community.</p>
+      <p>Together we build a better community.</p>
     </div>
-    <div class="ft-col">
-      <h5>Quick Links</h5>
-      <ul>
-        <li><a href="#about">About Us</a></li>
-        <li><a href="#news">Notice Board</a></li>
-        <li><a href="#members">For Members</a></li>
-        <li><a href="#events">Events</a></li>
-        <li><a href="#gallery">Gallery</a></li>
-        <li><a href="#committee">Working Committee</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
-    <div class="ft-col">
-      <h5>Association</h5>
-      <ul>
-        <li><a href="#">Rules &amp; Bylaws</a></li>
-        <li><a href="#">Pay Maintenance</a></li>
-        <li><a href="#">Complaint Register</a></li>
-        <li><a href="#">Emergency Contacts</a></li>
-      </ul>
-    </div>
-    <div class="ft-col">
-      <h5>Explore</h5>
+    <div class="ft-col"><h5>Quick Links</h5><ul>
+      <li><a href="#about">About Us</a></li><li><a href="#news">Notice Board</a></li>
+      <li><a href="#members">For Members</a></li><li><a href="#events">Events</a></li>
+      <li><a href="#gallery">Gallery</a></li><li><a href="#committee">Working Committee</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul></div>
+    <div class="ft-col"><h5>Association</h5><ul>
+      <li><a href="#">Rules &amp; Bylaws</a></li><li><a href="#">Pay Maintenance</a></li>
+      <li><a href="#">Complaint Register</a></li><li><a href="#">Emergency Contacts</a></li>
+    </ul></div>
+    <div class="ft-col"><h5>Explore</h5>
       <div class="ft-icons">
         <a href="https://www.youtube.com/watch?v=_l8ESQoyBrs" target="_blank" class="ft-btn"><span class="ft-ic">▶</span><span>Building Tour</span></a>
-        <a href="https://maps.google.com/?q=8+Bosepukur+Road+Kasba+Kolkata+700042" target="_blank" class="ft-btn"><span class="ft-ic">📍</span><span>View on Map</span></a>
-        <div class="ft-rera">
-          <span class="rl">Registration No.</span>
-          <span class="ri">008872025 of year 2025</span>
-        </div>
+        <a href="https://maps.app.goo.gl/zzAVXrAiWkUoHsoq8" target="_blank" class="ft-btn"><span class="ft-ic">📍</span><span>View on Map</span></a>
+        <div class="ft-rera"><span class="rl">Registration No.</span><span class="ri">008872025 of year 2025</span></div>
       </div>
     </div>
   </div>
-  <div class="ft-bot">© 2026 Signature 18 Association of Apartment Owners, Kasba, Kolkata. All rights reserved. &nbsp;<span class="v-tag">v1.0</span></div>
+  <div class="ft-bot"><span>© 2026 Signature 18 Association of Apartment Owners, Kasba, Kolkata. All rights reserved.</span><span class="vtag">v1.0</span></div>
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+const RESIDENTS=[
+  {flat:'1B',name:'SMT. SWETA BANERJEE',phone:'9830299966',email:'indranil5673@gmail.com',parking:''},
+  {flat:'1C',name:'SRI SANJOY SARKAR & SMT. SOMA SARKAR',phone:'9830917643/9432211300',email:'sanjoysarkar02@gmail.com',parking:''},
+  {flat:'2B',name:'SRI TAPABRATA RAY & SMT. SHREYASHI DHAR CHOWDHURY',phone:'9583158117/8586934034',email:'tapabrataray@yahoo.co.in',parking:''},
+  {flat:'2C',name:'MRS. DAPHNE PHILOMENA RYAN & MR.TYRON MARK RYAN',phone:'9831255139/9831295438',email:'daphneryan@rediffmail.com',parking:''},
+  {flat:'2D',name:'DR. SAUMITRA KAMAR & MRS. MAITRAYEE KAMAR',phone:'9732625505',email:'dr.soumitrakamar@gmail.com',parking:''},
+  {flat:'3A',name:'SMT MADHUMITA BASU AND SRI SUKANTA BHATTACHARYA',phone:'9836354292/9830657108',email:'bhattacharya.sukanta@gmail.com',parking:''},
+  {flat:'3B',name:'MR. SIBDAS CHAKRAVARTI & MRS. JENNIFER CHAKRAVARTY(4BHK)',phone:'973307777',email:'michael.chakravarti@gmail.com',parking:''},
+  {flat:'3C',name:'MR. SIBDAS CHAKRAVARTI & MRS. JENNIFER CHAKRAVARTY',phone:'973307777',email:'michael.chakravarti@gmail.com',parking:''},
+  {flat:'3D',name:'SRI BIBHUTOSH DAS AND SMT CHAITALI DAS',phone:'9925152975',email:'bibhuscanner@gmail.com',parking:''},
+  {flat:'4A',name:'SMT. ILA CHOWDHARY &  SRI ABHIJEET NANDAN',phone:'8240579352',email:'ilachowdhary@gmail.com',parking:''},
+  {flat:'4B',name:'SMT.NISHI SRIVASTAVA & MR. VIVEK SRIVASTAVA',phone:'7044044890',email:'viveknishi2021@gmail.com',parking:''},
+  {flat:'4C',name:'MR. SUDEEP BISWAS & MRS. SHANTA BISWAS',phone:'9433552080/9331239080',email:'sudeepwbpdcl@gmail.com',parking:''},
+  {flat:'4D',name:'SAYANTI MUKHERJEE',phone:'9830864187',email:'sayanti.mukherjee87@gmail.com',parking:''},
+  {flat:'5A',name:'SRI ARNAB NANDAN & SMT. PAYEL DEV NANDAN',phone:'7086055900/8638281503',email:'arnab.nandan@tatamotors.com',parking:''},
+  {flat:'5B',name:'SRI NILADRI BHATTACHARJEE AND SMT MOUSUMI BHATTACHARJEE',phone:'7205063002/7750024035',email:'niladri-86@live.com',parking:''},
+  {flat:'5C',name:'SMT. CHANDRIMA HALDAR',phone:'9051227006',email:'haldarutsav@gmail.com',parking:''},
+  {flat:'5D',name:'MRS.SHAREEN ESLINDA RYAN & MR.SHANE FABIAN RYAN',phone:'9831043483',email:'s_flavien@yahoo.com',parking:''},
+  {flat:'6A',name:'SMT. KAKALI DATTA & SRI PALASH DATTA',phone:'9123002698/7980228091',email:'kakali1980datta@gmail.com',parking:''},
+  {flat:'6B',name:'SRI ABHIJIT CHKARABORTY & MRS.SUDESHNA BANERJEE',phone:'9830483190',email:'connectwithabhijit@yahoo.in',parking:''},
+  {flat:'6C',name:'SRI RAKESH RANJAN & SMT. NISHA PRASAD',phone:'9836891123',email:'rakesh.ranjen@gmail.com',parking:''},
+  {flat:'6D',name:'SRIMATI  DYUTI SAHA/SRI ABHISHEK CHAKRABORTY',phone:'9007317133/8961225055',email:'dyutisg99@gmail.com',parking:''},
+  {flat:'7A',name:'SRI SUMANTA CHAKRABARTI & MRS. APARAJITA CHATTERJEE',phone:'7003986737',email:'sumanta088@gmail.com',parking:''},
+  {flat:'7B',name:'SRI PRIYANGSHU GHOSH & SRI PRADIP KUMAR GHOSH',phone:'9494862880/8777600920',email:'pghosh06@gmail.com',parking:''},
+  {flat:'7C',name:'SRI SUBHRA RAY/JAYANTA RAY',phone:'9830045039/9830020430',email:'jayantaray3@gmail.com',parking:''},
+  {flat:'7D',name:'SRI SUBHASISH BHOWMICK',phone:'9831397613',email:'subhasish.bhowmick@gmail.com',parking:''},
+  {flat:'8A',name:'SRI SUBHAJIT MUKHERJEE',phone:'9038585712',email:'subhajit.mukherjee971@gmail.com',parking:''},
+  {flat:'8B',name:'SRI SURAJIT GHOSH & SIMPAL GHOSH',phone:'9830280620',email:'sayanjitghosh58@gmail.com',parking:''},
+  {flat:'8C',name:'SRI SAYANJIT GHOSH & SIMPAL GHOSH',phone:'9836110301',email:'sayanjitghosh58@gmail.com',parking:''},
+  {flat:'8D',name:'SRI SHYAMAL KUMAR MONDAL AND SMT SARMISTHA MONDAL',phone:'8372978959',email:'shyamal1970@gmail.com',parking:''},
+  {flat:'9A',name:'SRI SANDIPAN NAG',phone:'9830305267',email:'nag.sandipan@gmail.com',parking:''},
+  {flat:'9B',name:'SRI RAHUL DEV ROY AND SMT HAIMANTI ROY',phone:'9663007959',email:'rahul.dev.roy.iitb@gmail.com',parking:''},
+  {flat:'9C',name:'SRI TRYAMBAK DEY & MRS. SRABANI SARKAR',phone:'9674713269',email:'rkdey40@rediffmail.com',parking:''},
+  {flat:'9D',name:'SMT BANASHRI KUMAR AND SRI SOUMIT KUMAR',phone:'9477702039',email:'soumit.kumar@gmail.com',parking:''},
+  {flat:'10A',name:'SMT ADREEJA ACHARYYA & MR. ARNAB ACHARJEE',phone:'9830341101/9836741417',email:'adreeja.acharyya@gmail.com',parking:''},
+  {flat:'10B',name:'MR. TARUN KUMAR SEN, MRS. SANTI SEN & MR. SANDIP BASU',phone:'9831001143',email:'tsen8116@gmail.com',parking:''},
+  {flat:'10C',name:'SRI ARNAB PALODHY AND SMT RASHMITA DAS',phone:'7872724504/9674760220',email:'dr.arnabpalodhy@gmail.com',parking:''},
+  {flat:'10D',name:'SMT JAYATI GHOSH AND SRI RATNADEEP GHOSH',phone:'9432505960',email:'doctorghosh@gmail.com',parking:''},
+  {flat:'11A',name:'SMT JAYEETA MUKHERJEE AND SRI ANUJ PRAMANICK',phone:'9830936360',email:'a_pramanick@rediffmail.com',parking:''},
+  {flat:'11B',name:'ABHRA MUKHOPADHYAY & GARGI MUKHOPADHYAY',phone:'9830029830',email:'abhra.mukhopadhyay@gmail.com',parking:''},
+  {flat:'11C',name:'DR. SUBRATA LAHIRI &  MRS. KANIKA LAHIRI',phone:'9831883482',email:'subratadrlahiri@gmail.com',parking:''},
+  {flat:'11D',name:'SRI ATANU DAS',phone:'8802297797',email:'sahebarchi@gmail.com',parking:''},
+  {flat:'12A',name:'SRI SHYAMAL CHATTERJEE, SRI SAYAN CHATTERJEE AND SMT MUNMUN CHATTERJEE',phone:'9903387360',email:'sayanchatt151192@gmail.com',parking:''},
+  {flat:'12B',name:'SMT PIYALI MAITRA',phone:'9083514279',email:'piyalimtr68@gmail.com',parking:''},
+  {flat:'12C',name:'SRI DEBDEEP CHATTERJEE AND SMT NAVANITA DUTTA CHOWDURY',phone:'9874714410',email:'debdeep14985@gmail.com',parking:''},
+  {flat:'12D',name:'SMT SUSMITA PAL AND SRI SIDDHARTHA PAL',phone:'9339823768',email:'siddharthapal27@gmail.com',parking:''},
+  {flat:'13A',name:'DEBJANI BASU AND RAHUL BASU',phone:'9883019512',email:'rahul_b_in@yahoo.com',parking:''},
+  {flat:'13B',name:'MRS. SWAPNA MAITI',phone:'6289018738',email:'motilalm44@gmail.com',parking:''},
+  {flat:'13C',name:'SRI SOUVIK KUMAR/ANKITA DAS',phone:'9582942985',email:'makhankumar@gmail.com',parking:''},
+  {flat:'13D',name:'SRI ARPAN PAUL',phone:'8900020907',email:'arpanpaul999@gmail.com',parking:''},
+  {flat:'14A',name:'SRI ABBYA BISWAS & MRS. TULIKA BISWAS',phone:'8910363261',email:'biswasabbya@gmail.com',parking:''},
+  {flat:'14B',name:'RUPAK KUNDU AND SAHELI SAHA',phone:'9836054982',email:'drrupakkundusmc@gmail.com',parking:''},
+  {flat:'14C',name:'SANCHARI MUKHERJEE',phone:'9836622485',email:'mukherjee.sanchari@gmail.com',parking:''},
+  {flat:'14D',name:'SRI SANDIPAN GHOSH AND SMT RITA GHOSH',phone:'9874273737',email:'sghosh.cloud@gmail.com',parking:''},
+  {flat:'15A',name:'TANYA DAS',phone:'9830017107',email:'das_tanya@yahoo.com',parking:''},
+  {flat:'15B',name:'SRI SANJOY BHOWMICK AND SMT DEBJANI BHOWMICK',phone:'9433996638',email:'sanmick03@gmail.com',parking:''},
+  {flat:'15C',name:'SRI SUMIT GHOSH &SMT. KAKOLI SINHA',phone:'7063255543',email:'sumit.2bai@gmail.com',parking:''},
+  {flat:'15D',name:'SRI PARTHA SARATHI BISWAS & SMT. SURANJANA BISWAS',phone:'9939290723',email:'to.biswasps@gmail.com',parking:''},
+  {flat:'16A',name:'DR.KAUSHAMBI ROY',phone:'7980220098',email:'kaushambiroy@gmail.com',parking:''},
+  {flat:'16B',name:'SRI SUBRATA MITRA/ MRS. RUPA SHOME',phone:'9674713024',email:'subratamitra1967@gmail.com',parking:''},
+  {flat:'16C',name:'SRI SAMRAT KABIRAJ AND SMT SOMA PURKAYASTHA KABIRAJ',phone:'9836662221',email:'samratkabiraj@gmail.com',parking:''},
+  {flat:'16D',name:'SRI TUSHAR KANTI JANA',phone:'9831060097',email:'proftkj@gmail.com',parking:''},
+  {flat:'17A',name:'SRI PRAKASH YADAV , SMT. KALPANA JADAV, SRI RAHUL JADAV',phone:'9836026625',email:'rahul_hallmarks@yahoo.co.in',parking:''},
+  {flat:'17B',name:'DR. SUPRAKASH ROY & DR. CHANDRAYEE ROY SAHA',phone:'9331026873',email:'dr.suprakashroy@gmail.com',parking:''},
+  {flat:'17C',name:'SRI PRITAM HIRA',phone:'9830581563',email:'preetamhira5@yahoo.co.in',parking:''},
+  {flat:'17D',name:'MS. SUSHMITA DEBNATH',phone:'9830677065',email:'susmita_deb2@rediffmail.com',parking:''},
+  {flat:'18A',name:'MRS. SHABNAM SHOME, MR. RAJIV SHOME',phone:'9830014757',email:'shomeshabnam@yahoo.co.in',parking:''},
+  {flat:'18B',name:'SRI SHILADITYA BHOWMIK',phone:'9769219880',email:'shiladitya23@gmail.com',parking:''},
+  {flat:'18C',name:'SRI SAMIR DAS',phone:'9830572211',email:'samir.rse@gmail.com',parking:''},
+  {flat:'18D',name:'MR. MILAN KUMAR DUTTA',phone:'7872393447',email:'milandutta1974@gmail.com',parking:''}
+];
+
+  // ── COMMITTEE MODAL ──
   function openM(n,r,p,b){
     document.getElementById('mName').textContent=n;
     document.getElementById('mRole').textContent=r;
@@ -498,41 +729,567 @@
     document.body.style.overflow='hidden';
   }
   function closeM(){document.getElementById('mOv').classList.remove('open');document.body.style.overflow='';}
-  function closeOut(e){if(e.target===document.getElementById('mOv'))closeM();}
-  document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
+
+  // ── SCROLL ANIMATIONS ──
+  const ao=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ao.unobserve(x.target);}});},{threshold:0.08});
+  const so=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const s=Array.from(x.target.parentElement.querySelectorAll('.sc'));setTimeout(()=>x.target.classList.add('visible'),s.indexOf(x.target)*80);so.unobserve(x.target);}});},{threshold:0.06});
+  document.querySelectorAll('.fade-up,.fade-left,.fade-right').forEach(el=>ao.observe(el));
+  document.querySelectorAll('.sc').forEach(el=>so.observe(el));
+
+  // ── NAV ──
   document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
-
-  // Scroll animations
-  const animObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        animObs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.08 });
-
-  // Stagger children with delay
-  const staggerObs = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const siblings = Array.from(entry.target.parentElement.querySelectorAll('.stagger-child'));
-        const idx = siblings.indexOf(entry.target);
-        setTimeout(() => entry.target.classList.add('visible'), idx * 80);
-        staggerObs.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.06 });
-
-  document.querySelectorAll('.fade-up, .fade-left, .fade-right, .fade-in').forEach(el => animObs.observe(el));
-  document.querySelectorAll('.stagger-child').forEach(el => staggerObs.observe(el));
-
-  // Active nav highlight
   window.addEventListener('scroll',()=>{
-    let cur='';
-    document.querySelectorAll('section[id]').forEach(s=>{if(window.scrollY>=s.offsetTop-90)cur=s.id;});
-    document.querySelectorAll('.nav-links a').forEach(a=>{a.style.color=a.getAttribute('href')===`#${cur}`?'var(--gold)':'';});
+    let c='';
+    document.querySelectorAll('section[id]').forEach(s=>{if(window.scrollY>=s.offsetTop-90)c=s.id;});
+    document.querySelectorAll('.nav-links a').forEach(a=>{a.style.color=a.getAttribute('href')==='#'+c?'var(--gold)':'';});
   });
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeM();closeResidents();closeBooking();closeQuery();closePay();}});
+
+  // ── RESIDENT DETAILS ──
+  function openResidents(){
+    document.getElementById('resOv').classList.add('open');
+    document.body.style.overflow='hidden';
+    renderResidents('');
+  }
+  function closeResidents(){document.getElementById('resOv').classList.remove('open');document.body.style.overflow='';}
+  function renderResidents(q){
+    const ce=document.getElementById('resCount'),li=document.getElementById('resList');
+    const f=q?RESIDENTS.filter(r=>r.flat.toLowerCase().includes(q.toLowerCase())||r.name.toLowerCase().includes(q.toLowerCase())):RESIDENTS;
+    ce.textContent=f.length+' resident'+(f.length!==1?'s':'')+(q?' found':'');
+    if(!f.length){li.innerHTML='<p style="text-align:center;color:#999;padding:2rem;">No results found.</p>';return;}
+    li.innerHTML=f.map(r=>`<div class="res-row"><div class="res-flat">${r.flat}</div><div class="res-info"><div class="res-name">${r.name}</div>${r.phone?'<div class="res-meta">📞 '+r.phone+'</div>':''}${r.email?'<div class="res-meta">✉️ '+r.email+'</div>':''}${r.parking?'<div class="res-meta">🅿️ '+r.parking+'</div>':''}</div></div>`).join('');
+  }
+  document.getElementById('resSearch').addEventListener('input',e=>renderResidents(e.target.value));
+  document.getElementById('resOv').addEventListener('click',e=>{if(e.target===document.getElementById('resOv'))closeResidents();});
+
+  // ── COMMUNITY HALL BOOKING ──
+  // ⚙️ Replace these 4 values after setup:
+  const EMAILJS_PUBLIC_KEY  = 'YOUR_PUBLIC_KEY';
+  const EMAILJS_SERVICE_ID  = 'YOUR_SERVICE_ID';
+  const EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';
+  const SHEET_CSV_URL         = 'YOUR_GOOGLE_SHEET_CSV_URL';
+  const EMAILJS_QUERY_TEMPLATE_ID = 'YOUR_QUERY_TEMPLATE_ID'; // ← replace
+  const EMAILJS_PAY_TEMPLATE_ID   = 'YOUR_PAY_TEMPLATE_ID';   // ← replace
+
+  let bookedDates=[];
+  async function loadBookedDates(){
+    try{const t=await(await fetch(SHEET_CSV_URL)).text();bookedDates=t.split('\n').map(l=>l.trim().replace(/"/g,'')).filter(d=>/^\d{4}-\d{2}-\d{2}$/.test(d));}catch(e){bookedDates=[];}
+  }
+  function openBooking(){
+    document.getElementById('bookOv').classList.add('open');
+    document.getElementById('bookFormWrap').style.display='';
+    document.getElementById('bookSuccess').style.display='none';
+    document.getElementById('bStatus').textContent='';
+    document.getElementById('bSubmitBtn').disabled=false;
+    document.getElementById('bAccept').checked=false;
+    ['bFlat','bName','bPhone','bEmail','bDate','bStart','bEnd','bGuests','bParking','bNotes'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+    document.getElementById('bType').value='';
+    document.getElementById('bBookedNote').style.display='none';
+    document.body.style.overflow='hidden';
+    const d=document.getElementById('bDate');
+    const t=new Date();t.setDate(t.getDate()+1);d.min=t.toISOString().split('T')[0];
+    const mx=new Date();mx.setFullYear(mx.getFullYear()+1);d.max=mx.toISOString().split('T')[0];
+    loadBookedDates();
+  }
+  function closeBooking(){document.getElementById('bookOv').classList.remove('open');document.body.style.overflow='';}
+   window.addEventListener('load',function(){
+     const safe=(id,fn)=>{const el=document.getElementById(id);if(el)fn(el);};
+     safe('bookOv',el=>el.addEventListener('click',e=>{if(e.target===el)closeBooking();}));
+     safe('bDate',el=>el.addEventListener('change',function(){
+       const note=document.getElementById('bBookedNote'),btn=document.getElementById('bSubmitBtn');
+       if(bookedDates.includes(this.value)){note.style.display='block';btn.disabled=true;}
+       else{note.style.display='none';btn.disabled=false;}
+     }));
+     safe('qryOv',el=>el.addEventListener('click',e=>{if(e.target===el)closeQuery();}));
+     safe('payOv',el=>el.addEventListener('click',e=>{if(e.target===el)closePay();}));
+     safe('qFlat',el=>el.addEventListener('change',function(){
+       const r=RESIDENTS.find(x=>x.flat===this.value);
+       if(r){
+         document.getElementById('qName').value=r.name;
+         document.getElementById('qEmail').value=r.email;
+         document.getElementById('qPhone').value=r.phone;
+       }else{
+         ['qName','qEmail','qPhone'].forEach(id=>{document.getElementById(id).value='';});
+       }
+     }));
+   });
+  async function submitBooking(){
+    const g=id=>document.getElementById(id).value.trim();
+    const flat=g('bFlat'),name=g('bName'),phone=g('bPhone'),email=g('bEmail');
+    const date=g('bDate'),type=document.getElementById('bType').value;
+    const start=g('bStart'),end=g('bEnd'),guests=g('bGuests');
+    const parking=g('bParking')||'0',notes=g('bNotes')||'None';
+    const accept=document.getElementById('bAccept').checked;
+    const st=document.getElementById('bStatus');
+    if(!flat||!name||!phone||!email||!date||!type||!start||!end||!guests){st.textContent='⚠️ Please fill in all required fields.';return;}
+    if(!accept){st.textContent='⚠️ Please accept the Terms & Conditions.';return;}
+    if(bookedDates.includes(date)){st.textContent='⚠️ This date is already booked.';return;}
+    const btn=document.getElementById('bSubmitBtn');
+    btn.disabled=true;st.textContent='Sending your request…';
+    const df=new Date(date+'T00:00:00').toLocaleDateString('en-IN',{weekday:'long',year:'numeric',month:'long',day:'numeric'});
+    try{
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+      await emailjs.send(EMAILJS_SERVICE_ID,EMAILJS_TEMPLATE_ID,{
+        to_email:'sig18aaokolkata@gmail.com,fm.signature18@gmail.com',reply_to:email,
+        subject:`Community Hall Booking Request – Flat ${flat} – ${df}`,
+        flat,name,phone,email,date:df,type,start_time:start,end_time:end,guests,parking,notes
+      });
+      window._bd={flat,name,email,date,type,start,end};
+      document.getElementById('bookFormWrap').style.display='none';
+      document.getElementById('bookSuccess').style.display='block';
+    }catch(err){st.textContent='❌ Could not send. Please email sig18aaokolkata@gmail.com directly.';btn.disabled=false;}
+  }
+  function downloadICS(e){
+    e.preventDefault();
+    const d=window._bd;if(!d)return;
+    const f=t=>t.replace(':','')+'00',ds=d.date.replace(/-/g,'');
+    const ics=['BEGIN:VCALENDAR','VERSION:2.0','PRODID:-//Signature18//EN','BEGIN:VEVENT',
+      `UID:${Date.now()}@signature18kasba.in`,`DTSTART:${ds}T${f(d.start)}`,`DTEND:${ds}T${f(d.end)}`,
+      `SUMMARY:Community Hall – ${d.type} (Flat ${d.flat})`,
+      `DESCRIPTION:Booking at Signature 18 Community Hall\\nFlat: ${d.flat}\\nOwner: ${d.name}\\nPending confirmation.`,
+      'LOCATION:Signature 18 Community Hall\\, 8 Bosepukur Road\\, Kasba\\, Kolkata 700042',
+      'STATUS:TENTATIVE','END:VEVENT','END:VCALENDAR'].join('\r\n');
+    const a=Object.assign(document.createElement('a'),{href:URL.createObjectURL(new Blob([ics],{type:'text/calendar'})),download:'community_hall_booking.ics'});
+    a.click();
+  }
+
+  // ── SUBMIT QUERY ──
+  function openQuery(){
+    document.getElementById('qryOv').classList.add('open');
+    document.getElementById('qryFormWrap').style.display='';
+    document.getElementById('qrySuccess').style.display='none';
+    document.getElementById('qStatus').textContent='';
+    document.getElementById('qSubmitBtn').disabled=false;
+    ['qName','qPhone','qEmail','qSubject','qDesc'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+    ['qFlat','qCategory','qPriority'].forEach(id=>{const el=document.getElementById(id);if(el&&id!=='qPriority')el.value='';});
+    document.getElementById('qPriority').value='Normal';
+    document.body.style.overflow='hidden';
+  }
+  function closeQuery(){document.getElementById('qryOv').classList.remove('open');document.body.style.overflow='';}
+  function resetQuery(){
+    document.getElementById('qryFormWrap').style.display='';
+    document.getElementById('qrySuccess').style.display='none';
+    document.getElementById('qSubmitBtn').disabled=false;
+    document.getElementById('qStatus').textContent='';
+    ['qName','qPhone','qEmail','qSubject','qDesc'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+    document.getElementById('qFlat').value='';
+    document.getElementById('qCategory').value='';
+    document.getElementById('qPriority').value='Normal';
+  }
+  async function submitQuery(){
+    const g=id=>document.getElementById(id).value.trim();
+    const flat=g('qFlat'),name=g('qName'),phone=g('qPhone'),email=g('qEmail');
+    const category=document.getElementById('qCategory').value;
+    const priority=document.getElementById('qPriority').value;
+    const subject=g('qSubject'),desc=g('qDesc');
+    const st=document.getElementById('qStatus');
+    if(!flat||!name||!phone||!email||!category||!subject||!desc){st.textContent='⚠️ Please fill in all required fields.';return;}
+    const btn=document.getElementById('qSubmitBtn');
+    btn.disabled=true;st.textContent='Sending your query…';
+    const emailSubject=`[${priority}] Query – ${category} – Flat ${flat} – ${subject}`;
+    try{
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_QUERY_TEMPLATE_ID, {
+        to_email:'ig18aaokolkata@gmail.com',
+        reply_to:email,
+        subject:emailSubject,
+        flat,name,phone,email,category,priority,subject,description:desc
+      });
+      document.getElementById('qryFormWrap').style.display='none';
+      document.getElementById('qrySuccess').style.display='block';
+    }catch(err){
+      st.textContent='❌ Could not send. Please email ig18aaokolkata@gmail.com directly.';
+      btn.disabled=false;
+    }
+  }
+  // ── PAY MAINTENANCE ──
+  function openPay(){
+    const ov=document.getElementById('payOv'); if(!ov) return;
+    ov.classList.add('open');
+    document.getElementById('payFormWrap').style.display='';
+    document.getElementById('paySuccess').style.display='none';
+    document.getElementById('payStatus').textContent='';
+    document.getElementById('paySubmitBtn').disabled=false;
+    ['payFlat','payMode','payTxn','payAmt'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+    document.querySelectorAll('#payMonthsGrid input[type=checkbox]').forEach(cb=>cb.checked=false);
+    document.getElementById('payReceipt').value='';
+    document.body.style.overflow='hidden';
+  }
+  function closePay(){
+    const ov=document.getElementById('payOv'); if(!ov) return;
+    ov.classList.remove('open'); document.body.style.overflow='';
+  }
+  function resetPay(){
+    document.getElementById('payFormWrap').style.display='';
+    document.getElementById('paySuccess').style.display='none';
+    document.getElementById('payStatus').textContent='';
+    document.getElementById('paySubmitBtn').disabled=false;
+    ['payFlat','payMode','payTxn','payAmt'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+    document.querySelectorAll('#payMonthsGrid input[type=checkbox]').forEach(cb=>cb.checked=false);
+    document.getElementById('payReceipt').value='';
+  }
+  function copyUPI(){
+    navigator.clipboard.writeText('signature18@sbi').then(()=>{
+      const btn=document.querySelector('.pay-upi-copy');
+      const orig=btn.textContent; btn.textContent='✅ Copied!';
+      setTimeout(()=>btn.textContent=orig,2000);
+    }).catch(()=>alert('UPI ID: signature18@sbi'));
+  }
+  async function submitPayment(){
+    const g=id=>document.getElementById(id).value.trim();
+    const flat=document.getElementById('payFlat').value;
+    const mode=document.getElementById('payMode').value;
+    const txn=g('payTxn'), amt=g('payAmt');
+    const months=[...document.querySelectorAll('#payMonthsGrid input[type=checkbox]:checked')].map(c=>c.value);
+    const receipt=document.getElementById('payReceipt').files[0];
+    const st=document.getElementById('payStatus');
+    if(!flat||!mode||!txn||!amt||months.length===0){st.textContent='⚠️ Please fill in all required fields and select at least one month.';return;}
+    if(!receipt){st.textContent='⚠️ Please upload your payment receipt.';return;}
+    if(receipt.size>5*1024*1024){st.textContent='⚠️ File too large. Max 5MB.';return;}
+    const btn=document.getElementById('paySubmitBtn');
+    btn.disabled=true; st.textContent='Sending receipt…';
+    const toBase64=f=>new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(r.result.split(',')[1]);r.onerror=rej;r.readAsDataURL(f);});
+    try{
+      const receiptB64=await toBase64(receipt);
+      emailjs.init(EMAILJS_PUBLIC_KEY);
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_PAY_TEMPLATE_ID,{
+        to_email:'ig18aaokolkata@gmail.com',
+        subject:'Maintenance Payment – Flat '+flat+' – '+months.join(', '),
+        flat, mode, txn, amount:amt,
+        months:months.join(', '),
+        filename:receipt.name,
+        receipt_attachment:receiptB64
+      });
+      document.getElementById('payFormWrap').style.display='none';
+      document.getElementById('paySuccess').style.display='block';
+    }catch(err){
+      st.textContent='❌ Could not send. Please email association@signature18kasba.in directly.';
+      btn.disabled=false;
+    }
+  }
+
 </script>
+
+<!-- SUBMIT QUERY MODAL -->
+<div class="qry-ov" id="qryOv">
+  <div class="qry-modal">
+    <div class="qry-header">
+      <div>
+        <h3>Submit a Query</h3>
+        <div class="qry-header-sub">Signature 18 · Association of Apartment Owners</div>
+      </div>
+      <button class="qry-close" onclick="closeQuery()">✕</button>
+    </div>
+    <div id="qryFormWrap">
+      <div class="qry-body">
+        <p class="qry-sec">Your Details</p>
+        <div class="qry-row">
+          <div class="qf"><label>Flat Number *</label>
+            <select id="qFlat">
+              <option value="">Select flat…</option>
+              <option value='1B'>1B</option>
+              <option value='1C'>1C</option>
+              <option value='2B'>2B</option>
+              <option value='2C'>2C</option>
+              <option value='2D'>2D</option>
+              <option value='3A'>3A</option>
+              <option value='3B'>3B</option>
+              <option value='3C'>3C</option>
+              <option value='3D'>3D</option>
+              <option value='4A'>4A</option>
+              <option value='4B'>4B</option>
+              <option value='4C'>4C</option>
+              <option value='4D'>4D</option>
+              <option value='5A'>5A</option>
+              <option value='5B'>5B</option>
+              <option value='5C'>5C</option>
+              <option value='5D'>5D</option>
+              <option value='6A'>6A</option>
+              <option value='6B'>6B</option>
+              <option value='6C'>6C</option>
+              <option value='6D'>6D</option>
+              <option value='7A'>7A</option>
+              <option value='7B'>7B</option>
+              <option value='7C'>7C</option>
+              <option value='7D'>7D</option>
+              <option value='8A'>8A</option>
+              <option value='8B'>8B</option>
+              <option value='8C'>8C</option>
+              <option value='8D'>8D</option>
+              <option value='9A'>9A</option>
+              <option value='9B'>9B</option>
+              <option value='9C'>9C</option>
+              <option value='9D'>9D</option>
+              <option value='10A'>10A</option>
+              <option value='10B'>10B</option>
+              <option value='10C'>10C</option>
+              <option value='10D'>10D</option>
+              <option value='11A'>11A</option>
+              <option value='11B'>11B</option>
+              <option value='11C'>11C</option>
+              <option value='11D'>11D</option>
+              <option value='12A'>12A</option>
+              <option value='12B'>12B</option>
+              <option value='12C'>12C</option>
+              <option value='12D'>12D</option>
+              <option value='13A'>13A</option>
+              <option value='13B'>13B</option>
+              <option value='13C'>13C</option>
+              <option value='13D'>13D</option>
+              <option value='14A'>14A</option>
+              <option value='14B'>14B</option>
+              <option value='14C'>14C</option>
+              <option value='14D'>14D</option>
+              <option value='15A'>15A</option>
+              <option value='15B'>15B</option>
+              <option value='15C'>15C</option>
+              <option value='15D'>15D</option>
+              <option value='16A'>16A</option>
+              <option value='16B'>16B</option>
+              <option value='16C'>16C</option>
+              <option value='16D'>16D</option>
+              <option value='17A'>17A</option>
+              <option value='17B'>17B</option>
+              <option value='17C'>17C</option>
+              <option value='17D'>17D</option>
+              <option value='18A'>18A</option>
+              <option value='18B'>18B</option>
+              <option value='18C'>18C</option>
+              <option value='18D'>18D</option>
+            </select>
+          </div>
+          <div class="qf"><label>Your Name *</label><input type="text" id="qName" placeholder="Full name"/></div>
+        </div>
+        <div class="qry-row">
+          <div class="qf"><label>Contact Number *</label><input type="tel" id="qPhone" placeholder="+91 XXXXX XXXXX"/></div>
+          <div class="qf"><label>Email Address *</label><input type="email" id="qEmail" placeholder="your@email.com"/></div>
+        </div>
+        <p class="qry-sec">Query Details</p>
+        <div class="qry-row">
+          <div class="qf"><label>Category *</label>
+            <select id="qCategory">
+              <option value="">Select category…</option>
+              <option>Maintenance &amp; Repairs</option>
+              <option>Billing &amp; Payments</option>
+              <option>Security &amp; Access</option>
+              <option>Common Areas &amp; Amenities</option>
+              <option>Community Hall</option>
+              <option>Parking</option>
+              <option>Noise &amp; Nuisance</option>
+              <option>Pets</option>
+              <option>Housekeeping &amp; Cleanliness</option>
+              <option>Committee / Governance</option>
+              <option>Rules &amp; Bylaws</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="qf"><label>Priority</label>
+            <select id="qPriority">
+              <option value="Normal">Normal</option>
+              <option value="Urgent">Urgent</option>
+              <option value="Low">Low</option>
+            </select>
+          </div>
+        </div>
+        <div class="qry-row full">
+          <div class="qf"><label>Subject *</label><input type="text" id="qSubject" placeholder="Brief summary of your query"/></div>
+        </div>
+        <div class="qry-row full">
+          <div class="qf"><label>Description *</label><textarea id="qDesc" placeholder="Please describe your query or complaint in detail…"></textarea></div>
+        </div>
+        <button class="qry-submit" id="qSubmitBtn" onclick="submitQuery()">Submit Query</button>
+        <div class="qry-status" id="qStatus"></div>
+      </div>
+    </div>
+    <div id="qrySuccess" style="display:none;" class="qry-success">
+      <div class="qry-success-icon">✅</div>
+      <h4>Query Submitted!</h4>
+      <p>Your query has been sent to the Association.<br/>You will receive a response within 2–3 working days.</p>
+      <button class="qry-new-btn" onclick="resetQuery()">Submit Another Query</button>
+    </div>
+  </div>
+</div>
+
+<!-- PAY MAINTENANCE MODAL -->
+<div class="pay-ov" id="payOv">
+  <div class="pay-modal">
+    <div class="pay-header">
+      <div>
+        <h3>Pay Maintenance</h3>
+        <div class="pay-header-sub">Signature 18 · Association of Apartment Owners</div>
+      </div>
+      <button class="pay-close" onclick="closePay()">✕</button>
+    </div>
+    <div id="payFormWrap">
+      <div class="pay-body">
+
+        <p class="pay-sec">Payment Options</p>
+        <div class="pay-upi-box">
+          <img src="upi_qr.jpg" alt="UPI QR Code" class="pay-qr"/>
+          <div class="pay-upi-info">
+            <div class="pay-upi-id">signature18@sbi</div>
+            <div class="pay-upi-sub">Scan with any UPI app<br/>GPay · PhonePe · Paytm · BHIM · WhatsApp Pay</div>
+            <button class="pay-upi-copy" onclick="copyUPI()">📋 Copy UPI ID</button>
+          </div>
+        </div>
+
+        <div class="pay-bank-box">
+          <div class="pay-bank-row"><span>Account Name</span><span>Signature Eighteen Association</span></div>
+          <div class="pay-bank-row"><span>Bank</span><span>State Bank of India (SBI)</span></div>
+          <div class="pay-bank-row"><span>Account Number</span><span>39847201956384</span></div>
+          <div class="pay-bank-row"><span>IFSC Code</span><span>SBIN0001823</span></div>
+          <div class="pay-bank-row"><span>Branch</span><span>Kasba, Kolkata</span></div>
+        </div>
+
+        <a class="pay-nbh" href="https://www.nobrokerHood.com" target="_blank">
+          <span class="pay-nbh-icon">🏠</span>
+          <span class="pay-nbh-text">
+            <strong>Pay via NoBrokerHood</strong>
+            <span>Online maintenance payment portal — nobrokerHood.com</span>
+          </span>
+          <span class="pay-nbh-arrow">→</span>
+        </a>
+
+        <p class="pay-sec">Submit Payment Receipt</p>
+        <div class="pay-row">
+          <div class="pf">
+            <label>Flat Number *</label>
+            <select id="payFlat">
+              <option value="">Select flat…</option>
+              <option value='1B'>1B</option>
+              <option value='1C'>1C</option>
+              <option value='2B'>2B</option>
+              <option value='2C'>2C</option>
+              <option value='2D'>2D</option>
+              <option value='3A'>3A</option>
+              <option value='3B'>3B</option>
+              <option value='3C'>3C</option>
+              <option value='3D'>3D</option>
+              <option value='4A'>4A</option>
+              <option value='4B'>4B</option>
+              <option value='4C'>4C</option>
+              <option value='4D'>4D</option>
+              <option value='5A'>5A</option>
+              <option value='5B'>5B</option>
+              <option value='5C'>5C</option>
+              <option value='5D'>5D</option>
+              <option value='6A'>6A</option>
+              <option value='6B'>6B</option>
+              <option value='6C'>6C</option>
+              <option value='6D'>6D</option>
+              <option value='7A'>7A</option>
+              <option value='7B'>7B</option>
+              <option value='7C'>7C</option>
+              <option value='7D'>7D</option>
+              <option value='8A'>8A</option>
+              <option value='8B'>8B</option>
+              <option value='8C'>8C</option>
+              <option value='8D'>8D</option>
+              <option value='9A'>9A</option>
+              <option value='9B'>9B</option>
+              <option value='9C'>9C</option>
+              <option value='9D'>9D</option>
+              <option value='10A'>10A</option>
+              <option value='10B'>10B</option>
+              <option value='10C'>10C</option>
+              <option value='10D'>10D</option>
+              <option value='11A'>11A</option>
+              <option value='11B'>11B</option>
+              <option value='11C'>11C</option>
+              <option value='11D'>11D</option>
+              <option value='12A'>12A</option>
+              <option value='12B'>12B</option>
+              <option value='12C'>12C</option>
+              <option value='12D'>12D</option>
+              <option value='13A'>13A</option>
+              <option value='13B'>13B</option>
+              <option value='13C'>13C</option>
+              <option value='13D'>13D</option>
+              <option value='14A'>14A</option>
+              <option value='14B'>14B</option>
+              <option value='14C'>14C</option>
+              <option value='14D'>14D</option>
+              <option value='15A'>15A</option>
+              <option value='15B'>15B</option>
+              <option value='15C'>15C</option>
+              <option value='15D'>15D</option>
+              <option value='16A'>16A</option>
+              <option value='16B'>16B</option>
+              <option value='16C'>16C</option>
+              <option value='16D'>16D</option>
+              <option value='17A'>17A</option>
+              <option value='17B'>17B</option>
+              <option value='17C'>17C</option>
+              <option value='17D'>17D</option>
+              <option value='18A'>18A</option>
+              <option value='18B'>18B</option>
+              <option value='18C'>18C</option>
+              <option value='18D'>18D</option>
+            </select>
+          </div>
+          <div class="pf">
+            <label>Payment Mode *</label>
+            <select id="payMode">
+              <option value="">Select…</option>
+              <option>UPI</option>
+              <option>Net Banking</option>
+              <option>NoBrokerHood</option>
+              <option>NEFT / RTGS</option>
+              <option>Cheque</option>
+            </select>
+          </div>
+        </div>
+        <div class="pay-row">
+          <div class="pf">
+            <label>Transaction ID / Ref No. *</label>
+            <input type="text" id="payTxn" placeholder="e.g. TXN123456789"/>
+          </div>
+          <div class="pf">
+            <label>Amount Paid (₹) *</label>
+            <input type="number" id="payAmt" placeholder="e.g. 3500"/>
+          </div>
+        </div>
+        <div class="pay-row full">
+          <div class="pf">
+            <label>Months Paid For *</label>
+            <div class="pay-months-grid" id="payMonthsGrid">
+              <label class='pay-month-cb'><input type='checkbox' name='month' value='January 2026'/> January 2026</label>
+              <label class='pay-month-cb'><input type='checkbox' name='month' value='February 2026'/> February 2026</label>
+              <label class='pay-month-cb'><input type='checkbox' name='month' value='March 2026'/> March 2026</label>
+              <label class='pay-month-cb'><input type='checkbox' name='month' value='April 2026'/> April 2026</label>
+              <label class='pay-month-cb'><input type='checkbox' name='month' value='May 2026'/> May 2026</label>
+              <label class='pay-month-cb'><input type='checkbox' name='month' value='June 2026'/> June 2026</label>
+              <label class='pay-month-cb'><input type='checkbox' name='month' value='July 2026'/> July 2026</label>
+              <label class='pay-month-cb'><input type='checkbox' name='month' value='August 2026'/> August 2026</label>
+              <label class='pay-month-cb'><input type='checkbox' name='month' value='September 2026'/> September 2026</label>
+              <label class='pay-month-cb'><input type='checkbox' name='month' value='October 2026'/> October 2026</label>
+              <label class='pay-month-cb'><input type='checkbox' name='month' value='November 2026'/> November 2026</label>
+              <label class='pay-month-cb'><input type='checkbox' name='month' value='December 2026'/> December 2026</label>
+              <label class='pay-month-cb'><input type='checkbox' name='month' value='January 2027'/> January 2027</label>
+              <label class='pay-month-cb'><input type='checkbox' name='month' value='February 2027'/> February 2027</label>
+              <label class='pay-month-cb'><input type='checkbox' name='month' value='March 2027'/> March 2027</label>
+            </div>
+            <span class="pay-amount-note">💡 Common area maintenance charge: ₹4.50 per sq.ft of carpet area</span>
+          </div>
+        </div>
+        <div class="pay-row full">
+          <div class="pf">
+            <label>Upload Payment Receipt *</label>
+            <input type="file" id="payReceipt" accept="image/*,.pdf"/>
+            <span class="pay-file-hint">JPG, PNG or PDF · Max 5MB</span>
+          </div>
+        </div>
+        <button class="pay-submit" id="paySubmitBtn" onclick="submitPayment()">Submit Receipt</button>
+        <div class="pay-status" id="payStatus"></div>
+      </div>
+    </div>
+    <div id="paySuccess" style="display:none;" class="pay-success">
+      <div class="pay-success-icon">✅</div>
+      <h4>Receipt Submitted!</h4>
+      <p>Your payment receipt has been sent to the Association.<br/>Your payment will be confirmed within 1–2 working days.</p>
+      <button class="pay-new-btn" onclick="resetPay()">Submit Another</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
