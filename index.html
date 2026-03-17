@@ -13,18 +13,21 @@
     html{scroll-behavior:smooth;}
     body{font-family:'Outfit',sans-serif;background:#fff;color:#0a1a3b;overflow-x:hidden;}
 
-    nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(10,26,59,0.97);display:flex;align-items:center;justify-content:space-between;padding:0 5%;height:68px;border-bottom:2px solid var(--gold);}
-    .nav-logo{display:flex;align-items:center;gap:0.75rem;text-decoration:none;}
-    .nav-logo-text{display:flex;flex-direction:column;}
-    .nav-logo-text strong{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:600;color:#fff;line-height:1.2;}
-    .nav-logo-text span{font-size:0.58rem;letter-spacing:0.16em;text-transform:uppercase;color:var(--gold);}
+    /* NAV */
+    nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(10,26,59,0.97);display:flex;align-items:center;justify-content:space-between;padding:0 4%;height:68px;border-bottom:2px solid var(--gold);}
+    .nav-logo{display:flex;align-items:center;gap:0.6rem;text-decoration:none;min-width:0;}
+    .nav-logo img{height:44px;width:auto;border-radius:4px;flex-shrink:0;}
+    .nav-logo-text{display:flex;flex-direction:column;min-width:0;}
+    .nav-logo-text strong{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:600;color:#fff;line-height:1.2;white-space:nowrap;}
+    .nav-logo-text span{font-size:0.52rem;letter-spacing:0.14em;text-transform:uppercase;color:var(--gold);white-space:nowrap;}
     .nav-links{display:flex;gap:1.5rem;list-style:none;align-items:center;}
     .nav-links a{text-decoration:none;color:rgba(255,255,255,0.75);font-size:0.78rem;letter-spacing:0.06em;text-transform:uppercase;font-weight:500;transition:color 0.2s;}
     .nav-links a:hover{color:var(--gold);}
     .nav-cta{background:var(--gold)!important;color:#0a1a3b!important;padding:0.45rem 1.1rem;border-radius:3px;font-weight:600!important;}
-    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+    .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;flex-shrink:0;}
     .hamburger span{width:26px;height:2px;background:var(--gold);display:block;}
 
+    /* HERO */
     #home{min-height:100vh;background-color:#112354;background-image:linear-gradient(135deg,rgba(10,26,59,0.80) 0%,rgba(17,35,84,0.70) 100%),url('building.png');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;padding:68px 5% 50px;text-align:center;}
     .hero-inner{max-width:780px;display:flex;flex-direction:column;align-items:center;}
     .hero-logo{width:190px;height:auto;margin-bottom:1.2rem;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.5));}
@@ -39,20 +42,23 @@
     .btn-ghost{border:2px solid rgba(255,255,255,0.6);color:#fff;padding:0.85rem 2rem;border-radius:3px;text-decoration:none;font-weight:500;font-size:0.9rem;transition:border-color 0.2s,transform 0.15s;}
     .btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
 
+    /* SECTIONS */
     section{padding:4rem 5%;display:flex;flex-direction:column;align-items:center;}
     .lbl{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.7rem;text-align:center;}
     .ttl{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);color:#0a1a3b;line-height:1.15;margin-bottom:0.8rem;text-align:center;}
     .sub{color:#3a4f7a;font-size:1rem;line-height:1.8;font-weight:300;max-width:560px;text-align:center;}
     .bar{width:48px;height:3px;background:linear-gradient(to right,var(--gold),var(--gold-light));border-radius:2px;margin:0.8rem auto 1.2rem;}
 
+    /* ABOUT */
     #about{background:var(--off-white);}
     .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;max-width:1100px;width:100%;margin:1.5rem 0 0;align-items:start;}
     .about-grid p{color:#3a4f7a;line-height:1.9;font-weight:300;margin-bottom:1rem;}
     .amenity-lbl{font-size:0.72rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:1rem;}
-    .amenity-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.6rem;}
-    .chip{display:flex;align-items:center;gap:0.7rem;background:#fff;border:1px solid var(--border);border-radius:6px;padding:0.65rem 1rem;font-size:0.85rem;font-weight:500;color:#0a1a3b;transition:border-color 0.2s,transform 0.15s;}
+    .amenity-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0.5rem;}
+    .chip{display:flex;align-items:center;gap:0.5rem;background:#fff;border:1px solid var(--border);border-radius:6px;padding:0.5rem 0.7rem;font-size:0.78rem;font-weight:500;color:#0a1a3b;transition:border-color 0.2s,transform 0.15s;}
     .chip:hover{border-color:var(--gold);transform:translateY(-2px);}
 
+    /* NOTICES */
     #news{background:#0a1a3b;}
     #news .ttl{color:#fff;}
     .notice-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:1.2rem;margin-top:2rem;max-width:1100px;width:100%;}
@@ -66,6 +72,7 @@
     .nc-urgent::before{background:var(--red);}
     .nc-badge{position:absolute;top:1rem;right:1rem;background:var(--red);color:#fff;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:2px;}
 
+    /* MEMBERS */
     #members{background:var(--off-white);}
     .mem-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.8rem;max-width:1100px;width:100%;margin-top:1.5rem;}
     .mc{background:#fff;border:1px solid var(--border);border-radius:4px;padding:1rem 1.2rem;display:flex;align-items:flex-start;gap:0.8rem;transition:border-color 0.2s,box-shadow 0.2s,transform 0.2s;}
@@ -77,6 +84,7 @@
     .mc a{font-size:0.75rem;color:var(--gold);text-decoration:none;font-weight:600;}
     .mem-note{background:#0a1a3b;color:rgba(255,255,255,0.7);border-radius:4px;padding:0.8rem 1.2rem;font-size:0.82rem;display:flex;align-items:center;gap:0.6rem;margin-top:1rem;max-width:1100px;width:100%;}
 
+    /* EVENTS */
     #events{background:#fff;}
     .ev-grid{display:grid;grid-template-columns:2fr 1fr;gap:2rem;max-width:1100px;width:100%;margin:1.5rem 0 0;align-items:start;}
     .ev-list{display:flex;flex-direction:column;gap:0.8rem;}
@@ -101,6 +109,7 @@
     .cal-d.ev{background:rgba(201,162,51,0.25);color:var(--gold-light);font-weight:600;}
     .cal-d.em{opacity:0;pointer-events:none;}
 
+    /* GALLERY */
     #gallery{background:var(--off-white);}
     .gal-grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:180px;gap:6px;margin-top:1.5rem;max-width:1100px;width:100%;}
     .gi{overflow:hidden;border-radius:3px;}
@@ -109,6 +118,7 @@
     .gi.w{grid-column:span 2;}
     .gi.t{grid-row:span 2;}
 
+    /* COMMITTEE */
     #committee{background:#0a1a3b;}
     #committee .ttl{color:#fff;}
     .com-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:0.7rem;max-width:1100px;width:100%;margin-top:1.5rem;}
@@ -120,13 +130,35 @@
     .cc-role{font-size:0.62rem;color:var(--gold);font-weight:500;margin-top:0.15rem;line-height:1.3;}
     .cc-phone{font-size:0.68rem;color:rgba(255,255,255,0.4);margin-top:0.15rem;}
     .cc-hint{font-size:0.58rem;color:rgba(255,255,255,0.25);margin-top:0.1rem;}
-    .grievance-header{display:flex;align-items:center;gap:1rem;max-width:1100px;width:100%;margin:2rem 0 0;}
-    .grievance-line{flex:1;height:1px;background:rgba(201,162,51,0.3);}
-    .grievance-title{font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;white-space:nowrap;}
 
+    /* sub-section dividers */
+    .sub-header{display:flex;align-items:center;gap:1rem;max-width:1100px;width:100%;margin:2rem 0 0;}
+    .sub-line{flex:1;height:1px;background:rgba(201,162,51,0.3);}
+    .sub-title{font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:600;white-space:nowrap;}
+
+    /* Grievance Committee bordered box */
+    .griev-box{max-width:1100px;width:100%;margin-top:2.5rem;border:1px solid rgba(255,255,255,0.1);border-radius:8px;padding:1.2rem 1.5rem;}
+    .griev-box-title{font-size:0.68rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.3);font-weight:600;margin-bottom:1rem;}
+    .griev-box-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:0.6rem;}
+
+    /* Cultural Secretary — same style, slightly muted border */
+    .cc-cultural{border-color:rgba(201,162,51,0.15);}
+
+    /* Grievance — de-emphasised */
+    .com-grid-griev{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:0.6rem;max-width:1100px;width:100%;margin-top:1rem;}
+    .cc-griev{background:rgba(255,255,255,0.03);border:1px solid rgba(255,255,255,0.1);border-radius:6px;padding:0.65rem 0.9rem;display:flex;flex-direction:row;align-items:center;gap:0.7rem;cursor:pointer;text-align:left;transition:background 0.2s,border-color 0.2s;}
+    .cc-griev:hover{background:rgba(255,255,255,0.06);border-color:rgba(255,255,255,0.2);}
+    .cc-griev-av{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0;}
+    .cc-griev-body{flex:1;min-width:0;}
+    .cc-griev h4{font-size:0.78rem;font-weight:500;color:rgba(255,255,255,0.55);line-height:1.2;}
+    .cc-griev-role{font-size:0.6rem;color:rgba(255,255,255,0.3);margin-top:0.1rem;}
+    .cc-griev-phone{font-size:0.62rem;color:rgba(255,255,255,0.25);margin-top:0.1rem;}
+    .cc-griev-hint{font-size:0.55rem;color:rgba(255,255,255,0.18);margin-top:0.1rem;}
+
+    /* MODAL */
     .modal-ov{display:none;position:fixed;inset:0;background:rgba(5,12,30,0.85);backdrop-filter:blur(6px);z-index:500;align-items:center;justify-content:center;padding:2rem;}
     .modal-ov.open{display:flex;}
-    .modal{background:#112354;border:1px solid rgba(201,162,51,0.35);border-radius:12px;padding:2rem;max-width:380px;width:100%;position:relative;}
+    .modal{background:#112354;border:1px solid rgba(201,162,51,0.35);border-radius:12px;padding:2rem 2.5rem;max-width:520px;width:100%;position:relative;}
     .modal-x{position:absolute;top:0.9rem;right:1rem;background:none;border:none;color:rgba(255,255,255,0.4);font-size:1.3rem;cursor:pointer;transition:color 0.2s;}
     .modal-x:hover{color:var(--gold);}
     .modal-av{width:80px;height:80px;border-radius:50%;background:rgba(201,162,51,0.12);border:2px solid var(--gold);display:flex;align-items:center;justify-content:center;font-size:2rem;margin:0 auto 1rem;}
@@ -136,6 +168,7 @@
     .modal-div{width:40px;height:1px;background:rgba(201,162,51,0.3);margin:0.8rem auto;}
     .modal-bio{font-size:0.88rem;color:rgba(255,255,255,0.72);line-height:1.8;text-align:center;font-weight:300;}
 
+    /* CONTACT */
     #contact{background:#fff;}
     .con-card{background:#0a1a3b;border-radius:6px;padding:1.8rem;width:100%;max-width:1100px;}
     .c-row{display:flex;gap:1rem;margin-bottom:1rem;align-items:flex-start;}
@@ -143,6 +176,7 @@
     .c-row h4{font-size:0.78rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold);font-weight:600;margin-bottom:0.3rem;}
     .c-row p{font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.6;}
 
+    /* FOOTER */
     footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2rem;}
     .ft-top{display:flex;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:1.5rem;max-width:1100px;margin-left:auto;margin-right:auto;}
     .ft-brand p{font-size:0.82rem;color:rgba(255,255,255,0.5);margin-top:0.8rem;max-width:280px;line-height:1.7;}
@@ -159,16 +193,31 @@
     .ft-rera .ri{font-size:0.75rem;color:rgba(255,255,255,0.45);}
     .ft-bot{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.2rem;display:flex;justify-content:center;font-size:0.78rem;color:rgba(255,255,255,0.35);max-width:1100px;margin:0 auto;}
 
-    @media(max-width:900px){.about-grid,.ev-grid{grid-template-columns:1fr;}.gal-grid{grid-template-columns:repeat(2,1fr);}.gi.w{grid-column:span 2;}.com-grid{grid-template-columns:repeat(2,1fr);}}
+    /* Scroll animations */
+    .fade-up{opacity:0;transform:translateY(32px);transition:opacity 0.65s ease,transform 0.65s ease;}
+    .fade-up.visible{opacity:1;transform:translateY(0);}
+    .fade-left{opacity:0;transform:translateX(-28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+    .fade-left.visible{opacity:1;transform:translateX(0);}
+    .fade-right{opacity:0;transform:translateX(28px);transition:opacity 0.65s ease,transform 0.65s ease;}
+    .fade-right.visible{opacity:1;transform:translateX(0);}
+    .fade-in{opacity:0;transition:opacity 0.7s ease;}
+    .fade-in.visible{opacity:1;}
+    .stagger-child{opacity:0;transform:translateY(22px);transition:opacity 0.5s ease,transform 0.5s ease;}
+    .stagger-child.visible{opacity:1;transform:translateY(0);}
+
+    @media(max-width:900px){.about-grid,.ev-grid{grid-template-columns:1fr;}.gal-grid{grid-template-columns:repeat(2,1fr);}.gi.w{grid-column:span 2;}.com-grid,.com-grid-griev{grid-template-columns:repeat(2,1fr);}}
     @media(max-width:768px){
       .nav-links{display:none;flex-direction:column;position:absolute;top:68px;left:0;right:0;background:#0a1a3b;padding:1.2rem 5%;border-top:1px solid rgba(201,162,51,0.3);gap:1rem;}
       .nav-links.open{display:flex;}
       .hamburger{display:flex;}
+      .nav-logo-text{display:flex;}
+      .nav-logo-text strong{font-size:0.9rem;}
+      .nav-logo-text span{font-size:0.48rem;}
       .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}
       .mem-grid{grid-template-columns:repeat(2,1fr);}
-      .com-grid{grid-template-columns:1fr;}
+      .com-grid,.com-grid-griev{grid-template-columns:1fr;}
       .hero-logo{width:150px;}
-      .nav-logo-text{display:none;}
+      .amenity-grid{grid-template-columns:repeat(2,1fr);}
     }
   </style>
 </head>
@@ -176,7 +225,7 @@
 
 <nav>
   <a href="#home" class="nav-logo">
-    <img src="logo.png" alt="Signature 18" style="height:50px;width:auto;border-radius:4px;"/>
+    <img src="logo.png" alt="Signature 18"/>
     <div class="nav-logo-text">
       <strong>Signature 18</strong>
       <span>Association of Apartment Owners</span>
@@ -212,78 +261,82 @@
 </section>
 
 <section id="about">
-  <p class="lbl">About Our Community</p>
-  <h2 class="ttl">A Premium Residential Community in Kasba</h2>
-  <div class="bar"></div>
+  <p class="lbl fade-up">About Our Community</p>
+  <h2 class="ttl fade-up">A Premium Residential Community in Kasba</h2>
+  <div class="bar fade-up"></div>
   <div class="about-grid">
-    <div>
+    <div class="fade-left">
       <p>Signature 18 Association of Apartment Owners is the governing body of the 69-apartment tower at 8, Bosepukur Road, Kasba, Kolkata. We manage day-to-day operations, maintenance, community events, and the welfare of all residents.</p>
       <p>Our association is committed to maintaining the highest standards of living — ensuring every family experiences comfort, safety, and a strong sense of belonging.</p>
     </div>
-    <div>
+    <div class="fade-right">
       <p class="amenity-lbl">Our Amenities</p>
       <div class="amenity-grid">
         <div class="chip">🏊 Swimming Pool</div>
         <div class="chip">💪 Fitness Centre</div>
         <div class="chip">🏸 Badminton Court</div>
-        <div class="chip">🎮 Game Room</div>
-        <div class="chip">🌿 Roof Garden</div>
+        <div class="chip">🎮 Games Room</div>
+        <div class="chip">🌿 Rooftop Garden</div>
         <div class="chip">☀️ Sun Deck</div>
         <div class="chip">🅿️ Car Parking</div>
         <div class="chip">🏛️ Community Hall</div>
-        <div class="chip">🎭 Rooftop Amphitheater &amp; Party Zone</div>
+        <div class="chip">🎭 Rooftop Amphitheater</div>
+        <div class="chip">🎉 Rooftop Party Zone</div>
         <div class="chip">🛝 Rooftop Children Play Zone</div>
-        <div class="chip">📹 CCTV Surveillance &amp; Power Backup</div>
-        <div class="chip">🔒 24×7 Security &amp; Access Control</div>
+        <div class="chip">📹 CCTV Surveillance</div>
+        <div class="chip">⚡ Power Backup</div>
+        <div class="chip">🔒 24×7 Security</div>
+        <div class="chip">🚪 Access Control</div>
+        <div class="chip">📟 Intercom</div>
       </div>
     </div>
   </div>
 </section>
 
 <section id="news">
-  <p class="lbl">Official Announcements</p>
-  <h2 class="ttl">Notice Board</h2>
-  <div class="bar"></div>
-  <p class="sub" style="color:rgba(255,255,255,0.6);">Important announcements and updates from the Association.</p>
+  <p class="lbl fade-up">Official Announcements</p>
+  <h2 class="ttl fade-up">Notice Board</h2>
+  <div class="bar fade-up"></div>
+  <p class="sub fade-up" style="color:rgba(255,255,255,0.6);">Important announcements and updates from the Association.</p>
   <div class="notice-grid">
-    <div class="nc nc-urgent"><div class="nc-badge">Urgent</div><p class="nc-type">⚠️ Maintenance</p><h3>Water Supply Interruption – Tank Cleaning</h3><p>Overhead water tank cleaning is scheduled for 28th March. Water supply will be interrupted from 9:00 AM to 1:00 PM. Kindly store water in advance.</p><p class="nc-date">📅 Posted: March 10, 2026</p></div>
-    <div class="nc"><p class="nc-type">📋 AGM Notice</p><h3>Annual General Meeting – April 12, 2026</h3><p>All resident members are invited to attend the AGM at the Community Hall, Ground Floor at 6:00 PM. Agenda: accounts review and committee elections.</p><p class="nc-date">📅 Posted: March 5, 2026</p></div>
-    <div class="nc"><p class="nc-type">💰 Finance</p><h3>Maintenance Dues – Q1 2026 Reminder</h3><p>Kindly clear all pending maintenance dues for Q1 2026 by March 31st to avoid late fees. Contact the secretary for payment details.</p><p class="nc-date">📅 Posted: March 1, 2026</p></div>
-    <div class="nc"><p class="nc-type">🌿 Community</p><h3>Terrace Garden Initiative – Join Us!</h3><p>We are launching a resident-managed terrace garden. Register to adopt a plant bed. Planting day is May 1st — limited spots available!</p><p class="nc-date">📅 Posted: February 20, 2026</p></div>
+    <div class="nc nc-urgent stagger-child"><div class="nc-badge">Urgent</div><p class="nc-type">⚠️ Maintenance</p><h3>Water Supply Interruption – Tank Cleaning</h3><p>Overhead water tank cleaning is scheduled for 28th March. Water supply will be interrupted from 9:00 AM to 1:00 PM. Kindly store water in advance.</p><p class="nc-date">📅 Posted: March 10, 2026</p></div>
+    <div class="nc stagger-child"><p class="nc-type">📋 AGM Notice</p><h3>Annual General Meeting – April 12, 2026</h3><p>All resident members are invited to attend the AGM at the Community Hall, Ground Floor at 6:00 PM. Agenda: accounts review and committee elections.</p><p class="nc-date">📅 Posted: March 5, 2026</p></div>
+    <div class="nc stagger-child"><p class="nc-type">💰 Finance</p><h3>Maintenance Dues – Q1 2026 Reminder</h3><p>Kindly clear all pending maintenance dues for Q1 2026 by March 31st to avoid late fees. Contact the secretary for payment details.</p><p class="nc-date">📅 Posted: March 1, 2026</p></div>
+    <div class="nc stagger-child"><p class="nc-type">🌿 Community</p><h3>Terrace Garden Initiative – Join Us!</h3><p>We are launching a resident-managed terrace garden. Register to adopt a plant bed. Planting day is May 1st — limited spots available!</p><p class="nc-date">📅 Posted: February 20, 2026</p></div>
   </div>
 </section>
 
 <section id="members">
-  <p class="lbl">Residents Only</p>
-  <h2 class="ttl">For Members</h2>
+  <p class="lbl fade-up">Residents Only</p>
+  <h2 class="ttl fade-up">For Members</h2>
   <div class="bar"></div>
   <p class="sub">Access society documents, meeting records, and important information.</p>
   <div class="mem-grid">
-    <div class="mc"><div class="mc-icon">📋</div><div class="mc-text"><h4>Meeting Minutes</h4><p>AGM &amp; committee notes</p><a href="#">View →</a></div></div>
-    <div class="mc"><div class="mc-icon">💰</div><div class="mc-text"><h4>Society Documents</h4><p>Financial statements &amp; audits</p><a href="#">View →</a></div></div>
-    <div class="mc"><div class="mc-icon">📜</div><div class="mc-text"><h4>Rules &amp; Bylaws</h4><p>Regulations &amp; guidelines</p><a href="#">View →</a></div></div>
-    <div class="mc"><div class="mc-icon">🔧</div><div class="mc-text"><h4>Maintenance Log</h4><p>Repair &amp; service records</p><a href="#">View →</a></div></div>
-    <div class="mc"><div class="mc-icon">📞</div><div class="mc-text"><h4>Emergency Contacts</h4><p>Plumber, electrician &amp; more</p><a href="#">View →</a></div></div>
-    <div class="mc"><div class="mc-icon">💳</div><div class="mc-text"><h4>Pay Maintenance</h4><p>Bank &amp; UPI details</p><a href="#">View →</a></div></div>
-    <div class="mc"><div class="mc-icon">📝</div><div class="mc-text"><h4>Contact the Association</h4><p>Complaints &amp; queries</p><a href="#contact">Contact Us →</a></div></div>
-    <div class="mc"><div class="mc-icon">👥</div><div class="mc-text"><h4>Residents List</h4><p>Apartment owners directory</p><a href="#">Open →</a></div></div>
-    <div class="mc"><div class="mc-icon">🏛️</div><div class="mc-text"><h4>Community Hall Booking</h4><p>Reserve for events &amp; gatherings</p><a href="#">Book Now →</a></div></div>
+    <div class="mc stagger-child"><div class="mc-icon">📋</div><div class="mc-text"><h4>Meeting Minutes</h4><p>AGM &amp; committee notes</p><a href="#">View →</a></div></div>
+    <div class="mc stagger-child"><div class="mc-icon">💰</div><div class="mc-text"><h4>Society Documents</h4><p>Financial statements &amp; audits</p><a href="#">View →</a></div></div>
+    <div class="mc stagger-child"><div class="mc-icon">📜</div><div class="mc-text"><h4>Rules &amp; Bylaws</h4><p>Regulations &amp; guidelines</p><a href="#">View →</a></div></div>
+    <div class="mc stagger-child"><div class="mc-icon">🔧</div><div class="mc-text"><h4>Maintenance Log</h4><p>Repair &amp; service records</p><a href="#">View →</a></div></div>
+    <div class="mc stagger-child"><div class="mc-icon">📞</div><div class="mc-text"><h4>Emergency Contacts</h4><p>Plumber, electrician &amp; more</p><a href="#">View →</a></div></div>
+    <div class="mc stagger-child"><div class="mc-icon">💳</div><div class="mc-text"><h4>Pay Maintenance</h4><p>Bank &amp; UPI details</p><a href="#">View →</a></div></div>
+    <div class="mc stagger-child"><div class="mc-icon">✉️</div><div class="mc-text"><h4>Submit Queries</h4><p>Complaints &amp; queries</p><a href="#contact">Submit →</a></div></div>
+    <div class="mc stagger-child"><div class="mc-icon">👥</div><div class="mc-text"><h4>Resident Details</h4><p>Apartment owners directory</p><a href="#">Open →</a></div></div>
+    <div class="mc stagger-child"><div class="mc-icon">🏛️</div><div class="mc-text"><h4>Community Hall Booking</h4><p>Reserve for events &amp; gatherings</p><a href="#">Book Now →</a></div></div>
   </div>
   <div class="mem-note">🔒 Some documents are restricted to registered members only. Contact the secretary to register your access.</div>
 </section>
 
 <section id="events">
-  <p class="lbl">What's On</p>
-  <h2 class="ttl">Upcoming Events</h2>
+  <p class="lbl fade-up">What's On</p>
+  <h2 class="ttl fade-up">Upcoming Events</h2>
   <div class="bar"></div>
   <div class="ev-grid">
     <div class="ev-list">
-      <div class="ev-row"><div class="ev-dt"><div class="ev-day">28</div><div class="ev-mon">Mar</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Water Tank Cleaning</h4><p>9:00 AM – 1:00 PM · Building-wide</p></div><span class="ev-tag t-main">Maintenance</span></div>
-      <div class="ev-row"><div class="ev-dt"><div class="ev-day">12</div><div class="ev-mon">Apr</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Annual General Meeting (AGM)</h4><p>6:00 PM · Community Hall, Ground Floor</p></div><span class="ev-tag t-meet">Meeting</span></div>
-      <div class="ev-row"><div class="ev-dt"><div class="ev-day">14</div><div class="ev-mon">Apr</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Pohela Boishakh Celebration 🎉</h4><p>5:00 PM onwards · Rooftop &amp; Common Area</p></div><span class="ev-tag t-fest">Festival</span></div>
-      <div class="ev-row"><div class="ev-dt"><div class="ev-day">01</div><div class="ev-mon">May</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Terrace Garden Planting Day 🌱</h4><p>8:00 AM – 11:00 AM · Rooftop Terrace</p></div><span class="ev-tag t-soc">Community</span></div>
+      <div class="ev-row stagger-child"><div class="ev-dt"><div class="ev-day">28</div><div class="ev-mon">Mar</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Water Tank Cleaning</h4><p>9:00 AM – 1:00 PM · Building-wide</p></div><span class="ev-tag t-main">Maintenance</span></div>
+      <div class="ev-row stagger-child"><div class="ev-dt"><div class="ev-day">12</div><div class="ev-mon">Apr</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Annual General Meeting (AGM)</h4><p>6:00 PM · Community Hall, Ground Floor</p></div><span class="ev-tag t-meet">Meeting</span></div>
+      <div class="ev-row stagger-child"><div class="ev-dt"><div class="ev-day">14</div><div class="ev-mon">Apr</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Pohela Boishakh Celebration 🎉</h4><p>5:00 PM onwards · Rooftop &amp; Common Area</p></div><span class="ev-tag t-fest">Festival</span></div>
+      <div class="ev-row stagger-child"><div class="ev-dt"><div class="ev-day">01</div><div class="ev-mon">May</div></div><div class="ev-sep"></div><div class="ev-info"><h4>Terrace Garden Planting Day 🌱</h4><p>8:00 AM – 11:00 AM · Rooftop Terrace</p></div><span class="ev-tag t-soc">Community</span></div>
     </div>
-    <div class="cal">
+    <div class="cal fade-right">
       <h4>📅 April 2026</h4>
       <div class="cal-grid">
         <div class="cal-dn">S</div><div class="cal-dn">M</div><div class="cal-dn">T</div><div class="cal-dn">W</div><div class="cal-dn">T</div><div class="cal-dn">F</div><div class="cal-dn">S</div>
@@ -299,45 +352,55 @@
 </section>
 
 <section id="gallery">
-  <p class="lbl">Life at Signature 18</p>
-  <h2 class="ttl">Gallery</h2>
+  <p class="lbl fade-up">Life at Signature 18</p>
+  <h2 class="ttl fade-up">Gallery</h2>
   <div class="bar"></div>
   <div class="gal-grid">
-    <div class="gi w t"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="Building"/></div>
-    <div class="gi"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Lobby"/></div>
-    <div class="gi"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&q=80" alt="Pool"/></div>
-    <div class="gi"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=400&q=80" alt="Terrace"/></div>
-    <div class="gi"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80" alt="Gym"/></div>
-    <div class="gi w"><img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=800&q=80" alt="Community"/></div>
+    <div class="gi w t stagger-child"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="Building"/></div>
+    <div class="gi stagger-child"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Lobby"/></div>
+    <div class="gi stagger-child"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&q=80" alt="Pool"/></div>
+    <div class="gi stagger-child"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=400&q=80" alt="Terrace"/></div>
+    <div class="gi stagger-child"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80" alt="Gym"/></div>
+    <div class="gi w stagger-child"><img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=800&q=80" alt="Community"/></div>
   </div>
 </section>
 
 <section id="committee">
-  <h2 class="ttl">Working Committee</h2>
+  <h2 class="ttl fade-up">Working Committee</h2>
   <div class="bar"></div>
   <p class="sub" style="color:rgba(255,255,255,0.6);">Your representatives for the term 2026–29.</p>
+
+  <!-- Main Committee -->
   <div class="com-grid">
-    <div class="cc" onclick="openM('Dr. Abhra Mukhopadhyay (11B)','President','📞 +91 98300 00000','Responsible for overall governance, chairing AGMs, and representing the association in all official matters.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Abhra Mukhopadhyay (11B)</h4><p class="cc-role">President</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc" onclick="openM('Dr. Ratnadeep Ghosh (10D)','Vice President','📞 +91 98300 00000','Assists the President and leads key community initiatives and resident engagement.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Dr. Ratnadeep Ghosh (10D)</h4><p class="cc-role">Vice President</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc" onclick="openM('Mr. Subhajit Mukherjee (8A)','Secretary','📞 +91 98300 00000','Manages day-to-day correspondence, meeting minutes, and official records of the association.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Subhajit Mukherjee (8A)</h4><p class="cc-role">Secretary</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc" onclick="openM('Mr. Rahul Basu (13A)','Treasurer','📞 +91 98300 00000','Oversees all financial matters including maintenance collections, budgeting, and financial reporting.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Rahul Basu (13A)</h4><p class="cc-role">Treasurer</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc" onclick="openM('Mr. Sayan Chatterjee (12A)','Manager','📞 +91 98300 00000','Manages communication, technology, games and recreational facilities for the community.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Sayan Chatterjee (12A)</h4><p class="cc-role">Manager (Communication, Technology, Games &amp; Recreational Facilities)</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc" onclick="openM('Mr. Souvik Kumar (13C)','Manager','📞 +91 98300 00000','Handles communication and oversees the specialised maintenance portfolio of the building.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Souvik Kumar (13C)</h4><p class="cc-role">Manager (Communication, Specialised Maintenance Portfolio)</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc" onclick="openM('Mr. Bibhutosh Das (3D)','Manager','📞 +91 98300 00000','Ensures regulatory compliance and acts as liaison with the Grievance Committee.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Bibhutosh Das (3D)</h4><p class="cc-role">Manager (Compliance &amp; Liaison with Grievance Committee)</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc" onclick="openM('Mrs. Soma Purkayastha Kabiraj (16C)','Manager','📞 +91 98300 00000','Active committee manager contributing to community decisions and resident welfare.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mrs. Soma Purkayastha Kabiraj (16C)</h4><p class="cc-role">Manager</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc" onclick="openM('Mrs. Mousumi Jana Bhattacharya (16D)','Manager','📞 +91 98300 00000','Active committee manager contributing to community decisions and resident welfare.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mrs. Mousumi Jana Bhattacharya (16D)</h4><p class="cc-role">Manager</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc" onclick="openM('Mrs. Debjani Bhowmick','Cultural Secretary','📞 +91 98300 00000','Organises cultural events, festivals, and community celebrations for all residents.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mrs. Debjani Bhowmick</h4><p class="cc-role">Cultural Secretary</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc stagger-child" onclick="openM('Dr. Abhra Mukhopadhyay (11B)','President','📞 +91 98300 00000','Responsible for overall governance, chairing AGMs, and representing the association in all official matters.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Abhra Mukhopadhyay (11B)</h4><p class="cc-role">President</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc stagger-child" onclick="openM('Dr. Ratnadeep Ghosh (10D)','Vice President','📞 +91 98300 00000','Assists the President and leads key community initiatives and resident engagement.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Dr. Ratnadeep Ghosh (10D)</h4><p class="cc-role">Vice President</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc stagger-child" onclick="openM('Mr. Subhajit Mukherjee (8A)','Secretary','📞 +91 98300 00000','Manages day-to-day correspondence, meeting minutes, and official records of the association.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Subhajit Mukherjee (8A)</h4><p class="cc-role">Secretary</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc stagger-child" onclick="openM('Mr. Rahul Basu (13A)','Treasurer','📞 +91 98300 00000','Oversees all financial matters including maintenance collections, budgeting, and financial reporting.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Rahul Basu (13A)</h4><p class="cc-role">Treasurer</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc stagger-child" onclick="openM('Mr. Sayan Chatterjee (12A)','Manager','📞 +91 98300 00000','Manages communication, technology, games and recreational facilities for the community.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Sayan Chatterjee (12A)</h4><p class="cc-role">Manager (Communication, Technology, Games &amp; Recreational Facilities)</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc stagger-child" onclick="openM('Mr. Souvik Kumar (13C)','Manager','📞 +91 98300 00000','Handles communication and oversees the specialised maintenance portfolio of the building.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Souvik Kumar (13C)</h4><p class="cc-role">Manager (Communication, Specialised Maintenance Portfolio)</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc stagger-child" onclick="openM('Mr. Bibhutosh Das (3D)','Manager','📞 +91 98300 00000','Ensures regulatory compliance and acts as liaison with the Grievance Committee.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Bibhutosh Das (3D)</h4><p class="cc-role">Manager (Compliance &amp; Liaison with Grievance Committee)</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc stagger-child" onclick="openM('Mrs. Soma Purkayastha Kabiraj (16C)','Manager','📞 +91 98300 00000','Active committee manager contributing to community decisions and resident welfare.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mrs. Soma Purkayastha Kabiraj (16C)</h4><p class="cc-role">Manager</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc stagger-child" onclick="openM('Mrs. Mousumi Jana Bhattacharya (16D)','Manager','📞 +91 98300 00000','Active committee manager contributing to community decisions and resident welfare.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mrs. Mousumi Jana Bhattacharya (16D)</h4><p class="cc-role">Manager</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
   </div>
 
-  <div class="grievance-header">
-    <div class="grievance-line"></div>
-    <span class="grievance-title">Grievance Committee</span>
-    <div class="grievance-line"></div>
+  <!-- Cultural Secretary -->
+  <div class="sub-header">
+    <div class="sub-line"></div>
+    <span class="sub-title">Cultural Committee</span>
+    <div class="sub-line"></div>
   </div>
   <div class="com-grid">
-    <div class="cc" onclick="openM('Dr. Subrata Lahiri','Grievance Committee Member','📞 +91 98300 00000','Member of the Grievance Committee, responsible for addressing resident concerns and disputes fairly.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Dr. Subrata Lahiri</h4><p class="cc-role">Grievance Committee</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc" onclick="openM('Mr. Jayanta Ray','Grievance Committee Member','📞 +91 98300 00000','Member of the Grievance Committee, responsible for addressing resident concerns and disputes fairly.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Jayanta Ray</h4><p class="cc-role">Grievance Committee</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
-    <div class="cc" onclick="openM('Mr. Shyamal Mondal','Grievance Committee Member','📞 +91 98300 00000','Member of the Grievance Committee, responsible for addressing resident concerns and disputes fairly.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mr. Shyamal Mondal</h4><p class="cc-role">Grievance Committee</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc cc-cultural" onclick="openM('Mrs. Debjani Bhowmick','Cultural Secretary','📞 +91 98300 00000','Organises cultural events, festivals, and community celebrations for all residents.')"><div class="cc-av">👤</div><div class="cc-body"><h4>Mrs. Debjani Bhowmick (15B)</h4><p class="cc-role">Cultural Secretary</p><p class="cc-phone">📞 +91 98300 00000</p><p class="cc-hint">Tap for profile</p></div></div>
+  </div>
+
+  <!-- Grievance Committee — bordered box, de-emphasised -->
+  <div class="griev-box">
+    <div class="griev-box-title">Grievance Committee</div>
+    <div class="griev-box-grid">
+      <div class="cc-griev stagger-child" onclick="openM('Dr. Subrata Lahiri','Grievance Committee Member','📞 +91 98300 00000','Member of the Grievance Committee, responsible for addressing resident concerns and disputes fairly.')"><div class="cc-griev-av">👤</div><div class="cc-griev-body"><h4>Dr. Subrata Lahiri (11C)</h4><p class="cc-griev-role">Grievance Committee</p><p class="cc-griev-phone">📞 +91 98300 00000</p><p class="cc-griev-hint">Tap for profile</p></div></div>
+      <div class="cc-griev stagger-child" onclick="openM('Mr. Jayanta Ray','Grievance Committee Member','📞 +91 98300 00000','Member of the Grievance Committee, responsible for addressing resident concerns and disputes fairly.')"><div class="cc-griev-av">👤</div><div class="cc-griev-body"><h4>Mr. Jayanta Ray (7C)</h4><p class="cc-griev-role">Grievance Committee</p><p class="cc-griev-phone">📞 +91 98300 00000</p><p class="cc-griev-hint">Tap for profile</p></div></div>
+      <div class="cc-griev stagger-child" onclick="openM('Mr. Shyamal Mondal','Grievance Committee Member','📞 +91 98300 00000','Member of the Grievance Committee, responsible for addressing resident concerns and disputes fairly.')"><div class="cc-griev-av">👤</div><div class="cc-griev-body"><h4>Mr. Shyamal Mondal (8D)</h4><p class="cc-griev-role">Grievance Committee</p><p class="cc-griev-phone">📞 +91 98300 00000</p><p class="cc-griev-hint">Tap for profile</p></div></div>
+    </div>
   </div>
 </section>
 
@@ -354,13 +417,13 @@
 </div>
 
 <section id="contact">
-  <p class="lbl">Reach Out</p>
-  <h2 class="ttl">Get in Touch</h2>
+  <p class="lbl fade-up">Reach Out</p>
+  <h2 class="ttl fade-up">Get in Touch</h2>
   <div class="bar"></div>
-  <div class="con-card">
+  <div class="con-card fade-up">
     <div class="c-row"><div class="c-ic">📍</div><div><h4>Address</h4><p>8, Bosepukur Road, Kasba<br/>Kolkata – 700042, West Bengal</p></div></div>
     <div class="c-row"><div class="c-ic">📧</div><div><h4>Association Email</h4><p>association@signature18kasba.in</p></div></div>
-    <div class="c-row"><div class="c-ic">📧</div><div><h4>Facility Manager Email</h4><p>manager@signature18kasba.in</p></div></div>
+    <div class="c-row"><div class="c-ic">🗂️</div><div><h4>Facility Manager Email</h4><p>manager@signature18kasba.in</p></div></div>
     <div class="c-row"><div class="c-ic">📞</div><div><h4>Facility Manager Contact</h4><p>+91 98300 00000</p></div></div>
     <div class="c-row"><div class="c-ic">🕐</div><div><h4>Office Hours</h4><p>Tue – Sun: 9:00 AM – 6:00 PM (Monday Off)</p></div></div>
   </div>
@@ -405,8 +468,8 @@
         <a href="https://www.youtube.com/watch?v=_l8ESQoyBrs" target="_blank" class="ft-btn"><span class="ft-ic">▶</span><span>Building Tour</span></a>
         <a href="https://maps.google.com/?q=8+Bosepukur+Road+Kasba+Kolkata+700042" target="_blank" class="ft-btn"><span class="ft-ic">📍</span><span>View on Map</span></a>
         <div class="ft-rera">
-          <span class="rl">Association Registration No.</span>
-          <span class="ri">HIRA/P/KOL/2021/001245</span>
+          <span class="rl">Registration No.</span>
+          <span class="ri">008872025 of year 2025</span>
         </div>
       </div>
     </div>
@@ -427,11 +490,36 @@
   function closeOut(e){if(e.target===document.getElementById('mOv'))closeM();}
   document.addEventListener('keydown',e=>{if(e.key==='Escape')closeM();});
   document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
+
+  // Scroll animations
+  const animObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        animObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.08 });
+
+  // Stagger children with delay
+  const staggerObs = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const siblings = Array.from(entry.target.parentElement.querySelectorAll('.stagger-child'));
+        const idx = siblings.indexOf(entry.target);
+        setTimeout(() => entry.target.classList.add('visible'), idx * 80);
+        staggerObs.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.06 });
+
+  document.querySelectorAll('.fade-up, .fade-left, .fade-right, .fade-in').forEach(el => animObs.observe(el));
+  document.querySelectorAll('.stagger-child').forEach(el => staggerObs.observe(el));
+
+  // Active nav highlight
   window.addEventListener('scroll',()=>{
     let cur='';
     document.querySelectorAll('section[id]').forEach(s=>{if(window.scrollY>=s.offsetTop-90)cur=s.id;});
     document.querySelectorAll('.nav-links a').forEach(a=>{a.style.color=a.getAttribute('href')===`#${cur}`?'var(--gold)':'';});
   });
 </script>
-</body>
-</html>
