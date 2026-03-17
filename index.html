@@ -19,25 +19,8 @@
 
 
     /* ── LOGIN SCREEN ── */
-    #loginScreen{display:flex;position:fixed;inset:0;z-index:9999;overflow:hidden;background:#0a1a3b;min-height:100vh;min-width:100vw;flex-direction:column;align-items:center;justify-content:center;gap:1.6rem;padding:2rem;text-align:center;transition:opacity 0.4s;}
-    #loginScreen.hide{opacity:0;pointer-events:none;}
-    #lsBg{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0;display:block;}
-    #loginScreen > *{position:relative;z-index:1;}
-    .ls-logo{width:220px;height:auto;filter:drop-shadow(0 8px 32px rgba(0,0,0,0.6));}
-    .ls-sub{font-size:0.88rem;color:rgba(255,255,255,0.55);max-width:320px;line-height:1.7;}
-    .ls-divider{width:40px;height:1px;background:rgba(201,162,51,0.4);}
-    .g-btn{display:flex;align-items:center;gap:0.75rem;background:#fff;color:#333;border:none;border-radius:8px;padding:0.85rem 1.8rem;font-size:0.95rem;font-family:'Outfit',sans-serif;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.3);transition:box-shadow 0.2s,transform 0.15s;}
-    .g-btn:hover{box-shadow:0 6px 24px rgba(0,0,0,0.4);transform:translateY(-2px);}
-    .g-btn svg{width:22px;height:22px;flex-shrink:0;}
-    .ls-note{font-size:0.72rem;color:rgba(255,255,255,0.3);max-width:280px;line-height:1.6;}
-    .ls-err{background:rgba(192,57,43,0.2);border:1px solid rgba(192,57,43,0.4);border-radius:6px;padding:0.7rem 1.2rem;font-size:0.82rem;color:#e74c3c;max-width:320px;display:none;}
-    .ls-err.show{display:block;}
-    .ls-loading{font-size:0.82rem;color:rgba(255,255,255,0.45);display:none;}
-    .ls-loading.show{display:block;}
+
     /* nav user area */
-    .nav-user{display:flex;align-items:center;gap:0.4rem;flex-shrink:1;min-width:0;}
-    .nav-user-name{font-size:0.72rem;color:rgba(255,255,255,0.7);max-width:80px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;flex-shrink:1;}
-    .nav-user-photo{width:28px;height:28px;border-radius:50%;border:2px solid var(--gold);object-fit:cover;}
     .nav-signout{background:none;border:1px solid rgba(255,255,255,0.25);color:rgba(255,255,255,0.6);border-radius:3px;padding:0.22rem 0.55rem;font-size:0.68rem;cursor:pointer;font-family:'Outfit',sans-serif;transition:all 0.2s;margin-left:0.2rem;}
     .nav-signout:hover{border-color:var(--gold);color:var(--gold);}
 
@@ -336,6 +319,24 @@
     .pay-new-btn{margin-top:1rem;background:#0a1a3b;color:#fff;border:none;border-radius:6px;padding:0.65rem 1.4rem;font-size:0.82rem;font-family:'Outfit',sans-serif;cursor:pointer;transition:background 0.2s;}
     .pay-new-btn:hover{background:#112354;}
     @media(max-width:640px){.pay-row{grid-template-columns:1fr;}.pay-upi-box{flex-direction:column;align-items:flex-start;}.pay-months-grid{grid-template-columns:repeat(2,1fr);}.pay-modal{border-radius:8px 8px 0 0;margin:auto 0 0 0;}.pay-ov{padding:0;align-items:flex-end;}}
+
+    /* ── MEMBER GATE ── */
+    #members{position:relative;}
+    .member-gate{display:none;position:absolute;inset:0;background:rgba(10,26,59,0.95);backdrop-filter:blur(12px);z-index:20;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;padding:2rem;text-align:center;border-radius:4px;}
+    .member-gate.show{display:flex;}
+    .member-gate-icon{font-size:2.2rem;}
+    .member-gate-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;color:#fff;}
+    .member-gate-sub{font-size:0.88rem;color:rgba(255,255,255,0.6);max-width:320px;line-height:1.7;}
+    .member-gate .g-btn{display:flex;align-items:center;gap:0.75rem;background:#fff;color:#333;border:none;border-radius:8px;padding:0.85rem 1.8rem;font-size:0.95rem;font-family:'Outfit',sans-serif;font-weight:600;cursor:pointer;box-shadow:0 4px 16px rgba(0,0,0,0.3);transition:box-shadow 0.2s,transform 0.15s;}
+    .member-gate .g-btn:hover{box-shadow:0 6px 24px rgba(0,0,0,0.4);transform:translateY(-2px);}
+    .member-gate .g-btn svg{width:22px;height:22px;flex-shrink:0;}
+    .member-gate-err{background:rgba(192,57,43,0.15);border:1px solid rgba(192,57,43,0.45);border-radius:8px;padding:1rem 1.2rem;font-size:0.82rem;color:#ff6b6b;max-width:320px;line-height:1.6;text-align:center;display:none;}
+    .member-gate-err.show{display:block;}
+    .member-gate-err a{color:var(--gold);text-decoration:underline;}
+    .member-gate-note{font-size:0.72rem;color:rgba(255,255,255,0.3);max-width:280px;line-height:1.6;}
+    @keyframes spin{to{transform:rotate(360deg);}}
+    /* Nav sign in button */
+
     /* CONTACT */
     #contact{background:#fff;}
     .con-card{background:#0a1a3b;border-radius:6px;padding:1.8rem;width:100%;max-width:1100px;}
@@ -373,9 +374,6 @@
 
     @media(max-width:900px){.about-grid,.ev-grid{grid-template-columns:1fr;}.gal-grid{grid-template-columns:repeat(2,1fr);}.gi.w{grid-column:span 2;}.com-grid,.griev-box-grid{grid-template-columns:repeat(2,1fr);}}
     @media(max-width:768px){
-      #navUserArea .nav-user-name{display:none;}
-      #navUserArea .nav-user{gap:0.3rem;}
-      #navUserArea .nav-signout{font-size:0.62rem;padding:0.2rem 0.45rem;}
       .nav-links{display:none;flex-direction:column;position:absolute;top:94px;left:0;right:0;background:#0a1a3b;padding:1.2rem 5%;border-top:1px solid rgba(201,162,51,0.3);gap:1rem;}
       .nav-links.open{display:flex;} .hamburger{display:flex;}
       .nav-logo-text{display:flex;} .nav-logo-text strong{font-size:0.9rem;} .nav-logo-text span{font-size:0.48rem;}
@@ -391,70 +389,6 @@
 </head>
 <body>
 
-<div id="loginScreen">
-  <svg id="lsBg" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" style="position:absolute;top:0;left:0;width:100%;height:100%;">
-  <defs>
-    <!-- Fine diagonal grid -->
-    <pattern id="grid" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse">
-      <line x1="0" y1="0" x2="20" y2="20" stroke="rgba(201,162,51,0.04)" stroke-width="0.5"/>
-      <line x1="20" y1="0" x2="0"  y2="20" stroke="rgba(201,162,51,0.04)" stroke-width="0.5"/>
-    </pattern>
-    <!-- Diamond lattice -->
-    <pattern id="diamonds" x="0" y="0" width="60" height="60" patternUnits="userSpaceOnUse">
-      <polygon points="30,2 58,30 30,58 2,30" fill="none" stroke="rgba(201,162,51,0.16)" stroke-width="0.8"/>
-      <polygon points="30,12 48,30 30,48 12,30" fill="none" stroke="rgba(201,162,51,0.09)" stroke-width="0.6"/>
-      <circle cx="30" cy="30" r="2" fill="rgba(201,162,51,0.18)"/>
-      <circle cx="2"  cy="30" r="1.2" fill="rgba(201,162,51,0.12)"/>
-      <circle cx="58" cy="30" r="1.2" fill="rgba(201,162,51,0.12)"/>
-      <circle cx="30" cy="2"  r="1.2" fill="rgba(201,162,51,0.12)"/>
-      <circle cx="30" cy="58" r="1.2" fill="rgba(201,162,51,0.12)"/>
-      <!-- Petal at each corner intersection -->
-      <path d="M2,2 Q8,8 2,14 Q-4,8 2,2Z"   fill="rgba(201,162,51,0.06)"/>
-      <path d="M58,2 Q64,8 58,14 Q52,8 58,2Z" fill="rgba(201,162,51,0.06)"/>
-      <path d="M2,58 Q8,64 2,70 Q-4,64 2,58Z"  fill="rgba(201,162,51,0.06)"/>
-      <path d="M58,58 Q64,64 58,70 Q52,64 58,58Z" fill="rgba(201,162,51,0.06)"/>
-      <!-- Spokes from centre -->
-      <line x1="30" y1="12" x2="30" y2="2"  stroke="rgba(201,162,51,0.08)" stroke-width="0.5"/>
-      <line x1="30" y1="48" x2="30" y2="58" stroke="rgba(201,162,51,0.08)" stroke-width="0.5"/>
-      <line x1="12" y1="30" x2="2"  y2="30" stroke="rgba(201,162,51,0.08)" stroke-width="0.5"/>
-      <line x1="48" y1="30" x2="58" y2="30" stroke="rgba(201,162,51,0.08)" stroke-width="0.5"/>
-    </pattern>
-    <!-- Outer border mandala ring — large single motif at corners -->
-    <pattern id="large" x="0" y="0" width="120" height="120" patternUnits="userSpaceOnUse">
-      <polygon points="60,4 116,60 60,116 4,60" fill="none" stroke="rgba(201,162,51,0.07)" stroke-width="1.2"/>
-      <polygon points="60,20 100,60 60,100 20,60" fill="none" stroke="rgba(201,162,51,0.05)" stroke-width="0.8"/>
-      <circle cx="60" cy="4"   r="2" fill="rgba(201,162,51,0.1)"/>
-      <circle cx="60" cy="116" r="2" fill="rgba(201,162,51,0.1)"/>
-      <circle cx="4"  cy="60"  r="2" fill="rgba(201,162,51,0.1)"/>
-      <circle cx="116" cy="60" r="2" fill="rgba(201,162,51,0.1)"/>
-    </pattern>
-    <!-- Radial glow -->
-    <radialGradient id="glow" cx="50%" cy="50%" r="60%">
-      <stop offset="0%"   stop-color="#1a2f6b" stop-opacity="1"/>
-      <stop offset="100%" stop-color="#060e24" stop-opacity="1"/>
-    </radialGradient>
-  </defs>
-  <!-- Base -->
-  <rect width="100%" height="100%" fill="url(#glow)"/>
-  <!-- Pattern layers -->
-  <rect width="100%" height="100%" fill="url(#grid)"/>
-  <rect width="100%" height="100%" fill="url(#large)"/>
-  <rect width="100%" height="100%" fill="url(#diamonds)"/>
-  <!-- Top & bottom gold border lines -->
-  <line x1="0" y1="0" x2="100%" y2="0" stroke="rgba(201,162,51,0.25)" stroke-width="2"/>
-  <line x1="0" y1="100%" x2="100%" y2="100%" stroke="rgba(201,162,51,0.25)" stroke-width="2"/>
-</svg>
-  <img src="logo.png" alt="Signature 18" class="ls-logo"/>
-  <div class="ls-divider"></div>
-  <div class="ls-sub">Sign in with your registered Google account to access the community portal.</div>
-  <button class="g-btn" id="gSignInBtn" onclick="doSignIn()">
-    <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
-    Sign in with Google
-  </button>
-  <div class="ls-err" id="lsErr"></div>
-  <div class="ls-loading" id="lsLoading">Verifying your account&hellip;</div>
-  <div class="ls-note">Access is restricted to registered Signature 18 residents only.<br/>Contact the Association if you need help.</div>
-</div>
 
 <div class="wip"><span class="wip-dot"></span><span>Website under development — content may change</span></div>
 
@@ -469,7 +403,6 @@
     <li><a href="#gallery">Gallery</a></li><li><a href="#committee">Working Committee</a></li>
     <li><a href="#contact" class="nav-cta">Contact</a></li>
   </ul>
-  <div id="navUserArea"></div>
   <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
 </nav>
 
@@ -525,6 +458,24 @@
 </section>
 
 <section id="members">
+
+  <div class="member-gate show" id="memberGate">
+    <div id="memberGateLoading" style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
+      <div style="width:36px;height:36px;border:3px solid rgba(201,162,51,0.3);border-top-color:var(--gold);border-radius:50%;animation:spin 0.8s linear infinite;"></div>
+      <div style="font-size:0.85rem;color:rgba(255,255,255,0.5);">Checking session&hellip;</div>
+    </div>
+    <div id="memberGateContent" style="display:none;flex-direction:column;align-items:center;gap:1rem;">
+    <div class="member-gate-icon">&#x1F512;</div>
+    <div class="member-gate-title">Members Only</div>
+    <div class="member-gate-sub">Sign in with your registered Google account to access this section.</div>
+    <button class="g-btn" id="memberSignInBtn" onclick="doSignIn()">
+      <svg viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+      Sign in with Google
+    </button>
+    <div class="member-gate-err" id="memberGateErr"></div>
+    <div class="member-gate-note">Access restricted to registered Signature 18 residents only.</div>
+    </div>
+  </div>
   <p class="lbl fade-up">Residents Only</p>
   <h2 class="ttl fade-up">For Members</h2>
   <div class="bar fade-up"></div>
@@ -1155,7 +1106,7 @@ const RESIDENTS=[
   // Add your GitHub Pages URL to: Authentication → Settings → Authorised domains
   const FIREBASE_CONFIG = {
     apiKey:            "AIzaSyCLLBoz7omO26827Zonb9RKLC9ovBU1MOU",
-    authDomain:        "signature18-fcc5c.firebaseapp.com",
+    authDomain:        "signature18-fcc5c.web.app",
     projectId:         "signature18-fcc5c",
     storageBucket:     "signature18-fcc5c.firebasestorage.app",
     messagingSenderId: "1043699444207",
@@ -1218,7 +1169,11 @@ const RESIDENTS=[
     'shomeshabnam@yahoo.co.in',
     'shyamal1970@gmail.com',
     'siddharthapal27@gmail.com',
-    'sig18aaokolkata@gmail.com,fm.signature18@gmail.com',
+    'sig18aaokolkata@gmail.com',
+    'ig18aaokolkata@gmail.com',
+    'fm.signature18@gmail.com',
+    'association@signature18kasba.in',
+    'manager@signature18kasba.in',
     'soumit.kumar@gmail.com',
     'subhajit.mukherjee971@gmail.com',
     'subhasish.bhowmick@gmail.com',
@@ -1235,77 +1190,77 @@ const RESIDENTS=[
   ]);
 
   // Lock scroll immediately - unlock only after auth
-  document.body.classList.add('locked');
-
-  // ── SAFARI FIX: Set authDomain to YOUR OWN domain ──
-  // Safari ITP blocks cross-origin cookies from firebaseapp.com
-  // Using your own GitHub Pages domain as authDomain fixes this
-  const config = Object.assign({}, FIREBASE_CONFIG, {
-    authDomain: window.location.hostname === 'localhost'
-      ? FIREBASE_CONFIG.authDomain
-      : window.location.hostname  // e.g. yourusername.github.io
-  });
-
-  firebase.initializeApp(config);
+  firebase.initializeApp(FIREBASE_CONFIG);
   const fbAuth    = firebase.auth();
   const gProvider = new firebase.auth.GoogleAuthProvider();
   gProvider.setCustomParameters({prompt:'select_account'});
 
   function doSignIn(){
-    const err  = document.getElementById('lsErr');
-    const load = document.getElementById('lsLoading');
-    const btn  = document.getElementById('gSignInBtn');
-    err.classList.remove('show');
-    load.classList.add('show');
-    btn.disabled = true;
-    fbAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-      .then(()=> fbAuth.signInWithRedirect(gProvider))
-      .catch(()=>{
-        load.classList.remove('show'); btn.disabled=false;
-        err.textContent='Sign-in failed. Please try again.';
-        err.classList.add('show');
+    const btn = document.getElementById('memberSignInBtn');
+    const err = document.getElementById('memberGateErr');
+    if(btn) btn.disabled = true;
+    if(err) err.classList.remove('show');
+
+    fbAuth.signInWithPopup(gProvider)
+      .then(result=>{
+        processUser(result.user);
+      })
+      .catch(e=>{
+        console.error('Popup error:', e.code, e.message);
+        if(btn) btn.disabled = false;
+        if(err){ err.innerHTML='Sign-in failed: '+e.message; err.classList.add('show'); }
       });
   }
 
   function doSignOut(){
-    fbAuth.signOut().then(()=> window.location.reload());
+    fbAuth.signOut().then(()=>{
+      unlockMembers(); // hide gate content
+      lockMembers();   // show sign-in button again
+    });
   }
 
-  function handleUser(user){
-    const screen  = document.getElementById('loginScreen');
-    const navArea = document.getElementById('navUserArea');
-    const load    = document.getElementById('lsLoading');
-    const err     = document.getElementById('lsErr');
-    const btn     = document.getElementById('gSignInBtn');
+  function unlockMembers(){
+    const gate    = document.getElementById('memberGate');
+    const loading = document.getElementById('memberGateLoading');
+    const gcont   = document.getElementById('memberGateContent');
+    if(gate)    gate.classList.remove('show');
+    if(loading) loading.style.display='none';
+    if(gcont)   gcont.style.display='none';
+  }
+
+  function lockMembers(errMsg){
+    const gate    = document.getElementById('memberGate');
+    const loading = document.getElementById('memberGateLoading');
+    const gcont   = document.getElementById('memberGateContent');
+    const err     = document.getElementById('memberGateErr');
+    const btn     = document.getElementById('memberSignInBtn');
+    if(gate)    gate.classList.add('show');
+    if(loading) loading.style.display='none';
+    if(gcont)   gcont.style.display='flex';
+    if(btn)     btn.disabled=false;
+    if(err){ err.innerHTML=errMsg||''; err.classList.toggle('show',!!errMsg); }
+  }
+
+  function processUser(user){
     if(user){
       const email = user.email.toLowerCase();
+      console.log('User:', email, '| Allowed:', ALLOWED.has(email));
       if(ALLOWED.has(email)){
-        screen.classList.add('hide');
-        setTimeout(()=>{ screen.style.display='none'; document.body.classList.remove('locked'); }, 400);
-        err.classList.remove('show');
-        const photo = user.photoURL
-          ? '<img class="nav-user-photo" src="'+user.photoURL+'" alt=""/>'
-          : '<span style="width:28px;height:28px;border-radius:50%;border:2px solid var(--gold);background:rgba(201,162,51,0.2);display:inline-flex;align-items:center;justify-content:center;font-size:0.9rem;">&#x1F464;</span>';
-        navArea.innerHTML='<div class="nav-user">'+photo+'<span class="nav-user-name">'+(user.displayName||email.split('@')[0])+'</span><button class="nav-signout" onclick="doSignOut()">Sign out</button></div>';
+        unlockMembers();
       } else {
         fbAuth.signOut();
-        screen.style.display='flex'; screen.classList.remove('hide');
-        load.classList.remove('show'); btn.disabled=false;
-        err.textContent='Your account is not registered. Contact the Association.';
-        err.classList.add('show');
+        lockMembers('&#x26A0;&#xFE0F; <b>'+user.email+'</b> is not registered as a resident.<br/>Contact: <a href="mailto:association@signature18kasba.in">association@signature18kasba.in</a>');
       }
     } else {
-      screen.style.display='flex'; screen.classList.remove('hide');
-      document.body.classList.add('locked');
-      if(navArea) navArea.innerHTML='';
-      load.classList.remove('show'); btn.disabled=false;
+      lockMembers();
     }
   }
 
-  // Wait for redirect result first, then listen for auth state
-  fbAuth.getRedirectResult()
-    .then(()=> fbAuth.onAuthStateChanged(handleUser))
-    .catch(()=> fbAuth.onAuthStateChanged(handleUser));
+  // On page load — check if already signed in from a previous session
+  fbAuth.onAuthStateChanged(user=>{
+    console.log('onAuthStateChanged:', user ? user.email : 'null');
+    processUser(user);
+  });
 </script>
 
 <!-- SUBMIT QUERY MODAL -->
