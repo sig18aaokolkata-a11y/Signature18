@@ -1237,11 +1237,17 @@ const RESIDENTS=[
   // Lock scroll immediately - unlock only after auth
   document.body.classList.add('locked');
 
-  // Use Firebase v9 compat but set persistence to LOCAL explicitly
-  // This is critical for Safari ITP which wipes sessionStorage
-  firebase.initializeApp(FIREBASE_CONFIG);
+  // ── SAFARI FIX: Set authDomain to YOUR OWN domain ──
+  // Safari ITP blocks cross-origin cookies from firebaseapp.com
+  // Using your own GitHub Pages domain as authDomain fixes this
+  const config = Object.assign({}, FIREBASE_CONFIG, {
+    authDomain: window.location.hostname === 'localhost'
+      ? FIREBASE_CONFIG.authDomain
+      : window.location.hostname  // e.g. yourusername.github.io
+  });
+
+  firebase.initializeApp(config);
   const fbAuth    = firebase.auth();
-  fbAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
   const gProvider = new firebase.auth.GoogleAuthProvider();
   gProvider.setCustomParameters({prompt:'select_account'});
 
@@ -1252,18 +1258,17 @@ const RESIDENTS=[
     err.classList.remove('show');
     load.classList.add('show');
     btn.disabled = true;
-    // Use redirect for ALL browsers — most reliable across Safari, Chrome, Firefox
-    fbAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(()=>{
-      return fbAuth.signInWithRedirect(gProvider);
-    }).catch(()=>{
-      load.classList.remove('show'); btn.disabled=false;
-      err.textContent='Sign-in failed. Please try again.';
-      err.classList.add('show');
-    });
+    fbAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL)
+      .then(()=> fbAuth.signInWithRedirect(gProvider))
+      .catch(()=>{
+        load.classList.remove('show'); btn.disabled=false;
+        err.textContent='Sign-in failed. Please try again.';
+        err.classList.add('show');
+      });
   }
 
   function doSignOut(){
-    fbAuth.signOut().then(()=>{ window.location.reload(); });
+    fbAuth.signOut().then(()=> window.location.reload());
   }
 
   function handleUser(user){
@@ -1297,9 +1302,7 @@ const RESIDENTS=[
     }
   }
 
-  // ── CRITICAL: getRedirectResult MUST be awaited before onAuthStateChanged ──
-  // Safari returns from Google redirect → getRedirectResult processes the token
-  // → stores in LOCAL IndexedDB → onAuthStateChanged then fires with the user
+  // Wait for redirect result first, then listen for auth state
   fbAuth.getRedirectResult()
     .then(()=> fbAuth.onAuthStateChanged(handleUser))
     .catch(()=> fbAuth.onAuthStateChanged(handleUser));
