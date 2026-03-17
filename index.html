@@ -1236,15 +1236,14 @@ const RESIDENTS=[
 
   // Lock scroll immediately - unlock only after auth
   document.body.classList.add('locked');
+
+  // Use Firebase v9 compat but set persistence to LOCAL explicitly
+  // This is critical for Safari ITP which wipes sessionStorage
   firebase.initializeApp(FIREBASE_CONFIG);
   const fbAuth    = firebase.auth();
+  fbAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL);
   const gProvider = new firebase.auth.GoogleAuthProvider();
   gProvider.setCustomParameters({prompt:'select_account'});
-
-  function isSafari(){
-    const ua = navigator.userAgent.toLowerCase();
-    return ua.includes('safari') && !ua.includes('chrome') && !ua.includes('android');
-  }
 
   function doSignIn(){
     const err  = document.getElementById('lsErr');
@@ -1253,22 +1252,19 @@ const RESIDENTS=[
     err.classList.remove('show');
     load.classList.add('show');
     btn.disabled = true;
-    if(isSafari()){
-      fbAuth.signInWithRedirect(gProvider).catch(()=>{
-        load.classList.remove('show'); btn.disabled=false;
-        err.textContent='Sign-in failed. Please try again.';
-        err.classList.add('show');
-      });
-    } else {
-      fbAuth.signInWithPopup(gProvider).catch(()=>{
-        load.classList.remove('show'); btn.disabled=false;
-        err.textContent='Sign-in failed. Please try again.';
-        err.classList.add('show');
-      });
-    }
+    // Use redirect for ALL browsers — most reliable across Safari, Chrome, Firefox
+    fbAuth.setPersistence(firebase.auth.Auth.Persistence.LOCAL).then(()=>{
+      return fbAuth.signInWithRedirect(gProvider);
+    }).catch(()=>{
+      load.classList.remove('show'); btn.disabled=false;
+      err.textContent='Sign-in failed. Please try again.';
+      err.classList.add('show');
+    });
   }
 
-  function doSignOut(){ fbAuth.signOut(); }
+  function doSignOut(){
+    fbAuth.signOut().then(()=>{ window.location.reload(); });
+  }
 
   function handleUser(user){
     const screen  = document.getElementById('loginScreen');
@@ -1279,7 +1275,6 @@ const RESIDENTS=[
     if(user){
       const email = user.email.toLowerCase();
       if(ALLOWED.has(email)){
-        // ✅ Authorised — unlock site
         screen.classList.add('hide');
         setTimeout(()=>{ screen.style.display='none'; document.body.classList.remove('locked'); }, 400);
         err.classList.remove('show');
@@ -1288,7 +1283,6 @@ const RESIDENTS=[
           : '<span style="width:28px;height:28px;border-radius:50%;border:2px solid var(--gold);background:rgba(201,162,51,0.2);display:inline-flex;align-items:center;justify-content:center;font-size:0.9rem;">&#x1F464;</span>';
         navArea.innerHTML='<div class="nav-user">'+photo+'<span class="nav-user-name">'+(user.displayName||email.split('@')[0])+'</span><button class="nav-signout" onclick="doSignOut()">Sign out</button></div>';
       } else {
-        // ❌ Not a resident
         fbAuth.signOut();
         screen.style.display='flex'; screen.classList.remove('hide');
         load.classList.remove('show'); btn.disabled=false;
@@ -1296,7 +1290,6 @@ const RESIDENTS=[
         err.classList.add('show');
       }
     } else {
-      // Signed out — show login
       screen.style.display='flex'; screen.classList.remove('hide');
       document.body.classList.add('locked');
       if(navArea) navArea.innerHTML='';
@@ -1304,30 +1297,12 @@ const RESIDENTS=[
     }
   }
 
-  // ── KEY FIX: Handle redirect FIRST before setting up onAuthStateChanged ──
-  // This prevents Safari redirect from flashing login screen on return
-  let redirectHandled = false;
-  fbAuth.getRedirectResult().then(result=>{
-    redirectHandled = true;
-    if(result && result.user){
-      // Redirect just completed — handleUser will be called by onAuthStateChanged
-    } else {
-      // No redirect in progress — safe to listen for auth state
-      fbAuth.onAuthStateChanged(handleUser);
-    }
-  }).catch(err=>{
-    redirectHandled = true;
-    fbAuth.onAuthStateChanged(handleUser);
-  }).finally(()=>{
-    // Fallback: if getRedirectResult never resolves (shouldn't happen), start listening anyway
-    setTimeout(()=>{ if(!redirectHandled) fbAuth.onAuthStateChanged(handleUser); }, 3000);
-  });
-
-  // For non-Safari browsers, also start listening immediately
-  // (getRedirectResult resolves instantly with null for popup-based flows)
-  if(!isSafari()){
-    fbAuth.onAuthStateChanged(handleUser);
-  }
+  // ── CRITICAL: getRedirectResult MUST be awaited before onAuthStateChanged ──
+  // Safari returns from Google redirect → getRedirectResult processes the token
+  // → stores in LOCAL IndexedDB → onAuthStateChanged then fires with the user
+  fbAuth.getRedirectResult()
+    .then(()=> fbAuth.onAuthStateChanged(handleUser))
+    .catch(()=> fbAuth.onAuthStateChanged(handleUser));
 </script>
 
 <!-- SUBMIT QUERY MODAL -->
