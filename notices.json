@@ -1,0 +1,26 @@
+[
+  {
+    "urgent": true,
+    "badge": "Advisory",
+    "type": "🚿 Maintenance Advisory",
+    "title": "Water Supply Interruption – Tank Cleaning",
+    "body": "The overhead water tank is scheduled for its mandatory cleaning on <strong>13th April 2026</strong>. Water supply will be temporarily suspended from 9:00 AM to 2:00 PM. Residents are requested to store adequate water in advance.",
+    "date": "April 1, 2026"
+  },
+  {
+    "urgent": false,
+    "badge": "",
+    "type": "📋 Governance",
+    "title": "Special General Meeting – 5th April 2026",
+    "body": "A Special General Meeting (SGM) is called on <strong>5th April 2026 at 6:30 PM</strong> at the Community Hall. All owner members are requested to attend. Agenda will be circulated separately.",
+    "date": "March 25, 2026"
+  },
+  {
+    "urgent": false,
+    "badge": "",
+    "type": "💰 Finance Reminder",
+    "title": "Maintenance Fee Due – April Quarter 2026",
+    "body": "This is a gentle reminder that the maintenance fee for the <strong>April–June 2026 quarter</strong> is now due. Kindly make your payment at the earliest via UPI or bank transfer. Refer to the Pay Maintenance section for account details.",
+    "date": "April 1, 2026"
+  }
+]

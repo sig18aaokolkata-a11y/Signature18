@@ -1,0 +1,554 @@
+[
+  {
+    "flat": "1B",
+    "name": "SMT. SWETA BANERJEE",
+    "phone": "9830299966",
+    "email": "indranil5673@gmail.com",
+    "parking": "P-01",
+    "intercom": "101"
+  },
+  {
+    "flat": "1C",
+    "name": "SRI SANJOY SARKAR & SMT. SOMA SARKAR",
+    "phone": "9830917643/9432211300",
+    "email": "sanjoysarkar02@gmail.com",
+    "parking": "P-02",
+    "intercom": "102"
+  },
+  {
+    "flat": "2B",
+    "name": "SRI TAPABRATA RAY & SMT. SHREYASHI DHAR CHOWDHURY",
+    "phone": "9583158117/8586934034",
+    "email": "tapabrataray@yahoo.co.in",
+    "parking": "P-03",
+    "intercom": "103"
+  },
+  {
+    "flat": "2C",
+    "name": "MRS. DAPHNE PHILOMENA RYAN & MR.TYRON MARK RYAN",
+    "phone": "9831255139/9831295438",
+    "email": "daphneryan@rediffmail.com",
+    "parking": "P-04",
+    "intercom": "104"
+  },
+  {
+    "flat": "2D",
+    "name": "DR. SAUMITRA KAMAR & MRS. MAITRAYEE KAMAR",
+    "phone": "9732625505",
+    "email": "dr.soumitrakamar@gmail.com",
+    "parking": "P-05",
+    "intercom": "105"
+  },
+  {
+    "flat": "3A",
+    "name": "SMT MADHUMITA BASU AND SRI SUKANTA BHATTACHARYA",
+    "phone": "9836354292/9830657108",
+    "email": "bhattacharya.sukanta@gmail.com",
+    "parking": "P-06",
+    "intercom": "106"
+  },
+  {
+    "flat": "3B",
+    "name": "MR. SIBDAS CHAKRAVARTI & MRS. JENNIFER CHAKRAVARTY(4BHK)",
+    "phone": "973307777",
+    "email": "michael.chakravarti@gmail.com",
+    "parking": "P-07",
+    "intercom": "107"
+  },
+  {
+    "flat": "3C",
+    "name": "MR. SIBDAS CHAKRAVARTI & MRS. JENNIFER CHAKRAVARTY",
+    "phone": "973307777",
+    "email": "michael.chakravarti@gmail.com",
+    "parking": "P-08",
+    "intercom": "108"
+  },
+  {
+    "flat": "3D",
+    "name": "SRI BIBHUTOSH DAS AND SMT CHAITALI DAS",
+    "phone": "9925152975",
+    "email": "bibhuscanner@gmail.com",
+    "parking": "P-09",
+    "intercom": "109"
+  },
+  {
+    "flat": "4A",
+    "name": "SMT. ILA CHOWDHARY &  SRI ABHIJEET NANDAN",
+    "phone": "8240579352",
+    "email": "ilachowdhary@gmail.com",
+    "parking": "P-10",
+    "intercom": "110"
+  },
+  {
+    "flat": "4B",
+    "name": "SMT.NISHI SRIVASTAVA & MR. VIVEK SRIVASTAVA",
+    "phone": "7044044890",
+    "email": "viveknishi2021@gmail.com",
+    "parking": "P-11",
+    "intercom": "111"
+  },
+  {
+    "flat": "4C",
+    "name": "MR. SUDEEP BISWAS & MRS. SHANTA BISWAS",
+    "phone": "9433552080/9331239080",
+    "email": "sudeepwbpdcl@gmail.com",
+    "parking": "P-12",
+    "intercom": "112"
+  },
+  {
+    "flat": "4D",
+    "name": "SAYANTI MUKHERJEE",
+    "phone": "9830864187",
+    "email": "sayanti.mukherjee87@gmail.com",
+    "parking": "P-13",
+    "intercom": "113"
+  },
+  {
+    "flat": "5A",
+    "name": "SRI ARNAB NANDAN & SMT. PAYEL DEV NANDAN",
+    "phone": "7086055900/8638281503",
+    "email": "arnab.nandan@tatamotors.com",
+    "parking": "P-14",
+    "intercom": "114"
+  },
+  {
+    "flat": "5B",
+    "name": "SRI NILADRI BHATTACHARJEE AND SMT MOUSUMI BHATTACHARJEE",
+    "phone": "7205063002/7750024035",
+    "email": "niladri-86@live.com",
+    "parking": "P-15",
+    "intercom": "115"
+  },
+  {
+    "flat": "5C",
+    "name": "SMT. CHANDRIMA HALDAR",
+    "phone": "9051227006",
+    "email": "haldarutsav@gmail.com",
+    "parking": "P-16",
+    "intercom": "116"
+  },
+  {
+    "flat": "5D",
+    "name": "MRS.SHAREEN ESLINDA RYAN & MR.SHANE FABIAN RYAN",
+    "phone": "9831043483",
+    "email": "s_flavien@yahoo.com",
+    "parking": "P-17",
+    "intercom": "117"
+  },
+  {
+    "flat": "6A",
+    "name": "SMT. KAKALI DATTA & SRI PALASH DATTA",
+    "phone": "9123002698/7980228091",
+    "email": "kakali1980datta@gmail.com",
+    "parking": "P-18",
+    "intercom": "118"
+  },
+  {
+    "flat": "6B",
+    "name": "SRI ABHIJIT CHKARABORTY & MRS.SUDESHNA BANERJEE",
+    "phone": "9830483190",
+    "email": "connectwithabhijit@yahoo.in",
+    "parking": "P-19",
+    "intercom": "119"
+  },
+  {
+    "flat": "6C",
+    "name": "SRI RAKESH RANJAN & SMT. NISHA PRASAD",
+    "phone": "9836891123",
+    "email": "rakesh.ranjen@gmail.com",
+    "parking": "P-20",
+    "intercom": "120"
+  },
+  {
+    "flat": "6D",
+    "name": "SRIMATI  DYUTI SAHA/SRI ABHISHEK CHAKRABORTY",
+    "phone": "9007317133/8961225055",
+    "email": "dyutisg99@gmail.com",
+    "parking": "P-21",
+    "intercom": "121"
+  },
+  {
+    "flat": "7A",
+    "name": "SRI SUMANTA CHAKRABARTI & MRS. APARAJITA CHATTERJEE",
+    "phone": "7003986737",
+    "email": "sumanta088@gmail.com",
+    "parking": "P-22",
+    "intercom": "122"
+  },
+  {
+    "flat": "7B",
+    "name": "SRI PRIYANGSHU GHOSH & SRI PRADIP KUMAR GHOSH",
+    "phone": "9494862880/8777600920",
+    "email": "pghosh06@gmail.com",
+    "parking": "P-23",
+    "intercom": "123"
+  },
+  {
+    "flat": "7C",
+    "name": "SRI SUBHRA RAY/JAYANTA RAY",
+    "phone": "9830045039/9830020430",
+    "email": "jayantaray3@gmail.com",
+    "parking": "P-24",
+    "intercom": "124"
+  },
+  {
+    "flat": "7D",
+    "name": "SRI SUBHASISH BHOWMICK",
+    "phone": "9831397613",
+    "email": "subhasish.bhowmick@gmail.com",
+    "parking": "P-25",
+    "intercom": "125"
+  },
+  {
+    "flat": "8A",
+    "name": "SRI SUBHAJIT MUKHERJEE",
+    "phone": "9038585712",
+    "email": "subhajit.mukherjee971@gmail.com",
+    "parking": "P-26",
+    "intercom": "126"
+  },
+  {
+    "flat": "8B",
+    "name": "SRI SURAJIT GHOSH & SIMPAL GHOSH",
+    "phone": "9830280620",
+    "email": "sayanjitghosh58@gmail.com",
+    "parking": "P-27",
+    "intercom": "127"
+  },
+  {
+    "flat": "8C",
+    "name": "SRI SAYANJIT GHOSH & SIMPAL GHOSH",
+    "phone": "9836110301",
+    "email": "sayanjitghosh58@gmail.com",
+    "parking": "P-28",
+    "intercom": "128"
+  },
+  {
+    "flat": "8D",
+    "name": "SRI SHYAMAL KUMAR MONDAL AND SMT SARMISTHA MONDAL",
+    "phone": "8372978959",
+    "email": "shyamal1970@gmail.com",
+    "parking": "P-29",
+    "intercom": "129"
+  },
+  {
+    "flat": "9A",
+    "name": "SRI SANDIPAN NAG",
+    "phone": "9830305267",
+    "email": "nag.sandipan@gmail.com",
+    "parking": "P-30",
+    "intercom": "130"
+  },
+  {
+    "flat": "9B",
+    "name": "SRI RAHUL DEV ROY AND SMT HAIMANTI ROY",
+    "phone": "9663007959",
+    "email": "rahul.dev.roy.iitb@gmail.com",
+    "parking": "P-31",
+    "intercom": "131"
+  },
+  {
+    "flat": "9C",
+    "name": "SRI TRYAMBAK DEY & MRS. SRABANI SARKAR",
+    "phone": "9674713269",
+    "email": "rkdey40@rediffmail.com",
+    "parking": "P-32",
+    "intercom": "132"
+  },
+  {
+    "flat": "9D",
+    "name": "SMT BANASHRI KUMAR AND SRI SOUMIT KUMAR",
+    "phone": "9477702039",
+    "email": "soumit.kumar@gmail.com",
+    "parking": "P-33",
+    "intercom": "133"
+  },
+  {
+    "flat": "10A",
+    "name": "SMT ADREEJA ACHARYYA & MR. ARNAB ACHARJEE",
+    "phone": "9830341101/9836741417",
+    "email": "adreeja.acharyya@gmail.com",
+    "parking": "P-34",
+    "intercom": "134"
+  },
+  {
+    "flat": "10B",
+    "name": "MR. TARUN KUMAR SEN, MRS. SANTI SEN & MR. SANDIP BASU",
+    "phone": "9831001143",
+    "email": "tsen8116@gmail.com",
+    "parking": "P-35",
+    "intercom": "135"
+  },
+  {
+    "flat": "10C",
+    "name": "SRI ARNAB PALODHY AND SMT RASHMITA DAS",
+    "phone": "7872724504/9674760220",
+    "email": "dr.arnabpalodhy@gmail.com",
+    "parking": "P-36",
+    "intercom": "136"
+  },
+  {
+    "flat": "10D",
+    "name": "SMT JAYATI GHOSH AND SRI RATNADEEP GHOSH",
+    "phone": "9432505960",
+    "email": "doctorghosh@gmail.com",
+    "parking": "P-37",
+    "intercom": "137"
+  },
+  {
+    "flat": "11A",
+    "name": "SMT JAYEETA MUKHERJEE AND SRI ANUJ PRAMANICK",
+    "phone": "9830936360",
+    "email": "a_pramanick@rediffmail.com",
+    "parking": "P-38",
+    "intercom": "138"
+  },
+  {
+    "flat": "11B",
+    "name": "ABHRA MUKHOPADHYAY & GARGI MUKHOPADHYAY",
+    "phone": "9830029830",
+    "email": "abhra.mukhopadhyay@gmail.com",
+    "parking": "P-39",
+    "intercom": "139"
+  },
+  {
+    "flat": "11C",
+    "name": "DR. SUBRATA LAHIRI &  MRS. KANIKA LAHIRI",
+    "phone": "9831883482",
+    "email": "subratadrlahiri@gmail.com",
+    "parking": "P-40",
+    "intercom": "140"
+  },
+  {
+    "flat": "11D",
+    "name": "SRI ATANU DAS",
+    "phone": "8802297797",
+    "email": "sahebarchi@gmail.com",
+    "parking": "P-41",
+    "intercom": "141"
+  },
+  {
+    "flat": "12A",
+    "name": "SRI SHYAMAL CHATTERJEE, SRI SAYAN CHATTERJEE AND SMT MUNMUN CHATTERJEE",
+    "phone": "9903387360",
+    "email": "sayanchatt151192@gmail.com",
+    "parking": "P-42",
+    "intercom": "142"
+  },
+  {
+    "flat": "12B",
+    "name": "SMT PIYALI MAITRA",
+    "phone": "9083514279",
+    "email": "piyalimtr68@gmail.com",
+    "parking": "P-43",
+    "intercom": "143"
+  },
+  {
+    "flat": "12C",
+    "name": "SRI DEBDEEP CHATTERJEE AND SMT NAVANITA DUTTA CHOWDURY",
+    "phone": "9874714410",
+    "email": "debdeep14985@gmail.com",
+    "parking": "P-44",
+    "intercom": "144"
+  },
+  {
+    "flat": "12D",
+    "name": "SMT SUSMITA PAL AND SRI SIDDHARTHA PAL",
+    "phone": "9339823768",
+    "email": "siddharthapal27@gmail.com",
+    "parking": "P-45",
+    "intercom": "145"
+  },
+  {
+    "flat": "13A",
+    "name": "DEBJANI BASU AND RAHUL BASU",
+    "phone": "9883019512",
+    "email": "rahul_b_in@yahoo.com",
+    "parking": "P-46",
+    "intercom": "146"
+  },
+  {
+    "flat": "13B",
+    "name": "MRS. SWAPNA MAITI",
+    "phone": "6289018738",
+    "email": "motilalm44@gmail.com",
+    "parking": "P-47",
+    "intercom": "147"
+  },
+  {
+    "flat": "13C",
+    "name": "SRI SOUVIK KUMAR/ANKITA DAS",
+    "phone": "9582942985",
+    "email": "makhankumar@gmail.com",
+    "parking": "P-48",
+    "intercom": "148"
+  },
+  {
+    "flat": "13D",
+    "name": "SRI ARPAN PAUL",
+    "phone": "8900020907",
+    "email": "arpanpaul999@gmail.com",
+    "parking": "P-49",
+    "intercom": "149"
+  },
+  {
+    "flat": "14A",
+    "name": "SRI ABBYA BISWAS & MRS. TULIKA BISWAS",
+    "phone": "8910363261",
+    "email": "biswasabbya@gmail.com",
+    "parking": "P-50",
+    "intercom": "150"
+  },
+  {
+    "flat": "14B",
+    "name": "RUPAK KUNDU AND SAHELI SAHA",
+    "phone": "9836054982",
+    "email": "drrupakkundusmc@gmail.com",
+    "parking": "P-51",
+    "intercom": "151"
+  },
+  {
+    "flat": "14C",
+    "name": "SANCHARI MUKHERJEE",
+    "phone": "9836622485",
+    "email": "mukherjee.sanchari@gmail.com",
+    "parking": "P-52",
+    "intercom": "152"
+  },
+  {
+    "flat": "14D",
+    "name": "SRI SANDIPAN GHOSH AND SMT RITA GHOSH",
+    "phone": "9874273737",
+    "email": "sghosh.cloud@gmail.com",
+    "parking": "P-53",
+    "intercom": "153"
+  },
+  {
+    "flat": "15A",
+    "name": "TANYA DAS",
+    "phone": "9830017107",
+    "email": "das_tanya@yahoo.com",
+    "parking": "P-54",
+    "intercom": "154"
+  },
+  {
+    "flat": "15B",
+    "name": "SRI SANJOY BHOWMICK AND SMT DEBJANI BHOWMICK",
+    "phone": "9433996638",
+    "email": "sanmick03@gmail.com",
+    "parking": "P-55",
+    "intercom": "155"
+  },
+  {
+    "flat": "15C",
+    "name": "SRI SUMIT GHOSH &SMT. KAKOLI SINHA",
+    "phone": "7063255543",
+    "email": "sumit.2bai@gmail.com",
+    "parking": "P-56",
+    "intercom": "156"
+  },
+  {
+    "flat": "15D",
+    "name": "SRI PARTHA SARATHI BISWAS & SMT. SURANJANA BISWAS",
+    "phone": "9939290723",
+    "email": "to.biswasps@gmail.com",
+    "parking": "P-57",
+    "intercom": "157"
+  },
+  {
+    "flat": "16A",
+    "name": "DR.KAUSHAMBI ROY",
+    "phone": "7980220098",
+    "email": "kaushambiroy@gmail.com",
+    "parking": "P-58",
+    "intercom": "158"
+  },
+  {
+    "flat": "16B",
+    "name": "SRI SUBRATA MITRA/ MRS. RUPA SHOME",
+    "phone": "9674713024",
+    "email": "subratamitra1967@gmail.com",
+    "parking": "P-59",
+    "intercom": "159"
+  },
+  {
+    "flat": "16C",
+    "name": "SRI SAMRAT KABIRAJ AND SMT SOMA PURKAYASTHA KABIRAJ",
+    "phone": "9836662221",
+    "email": "samratkabiraj@gmail.com",
+    "parking": "P-60",
+    "intercom": "160"
+  },
+  {
+    "flat": "16D",
+    "name": "SRI TUSHAR KANTI JANA",
+    "phone": "9831060097",
+    "email": "proftkj@gmail.com",
+    "parking": "P-61",
+    "intercom": "161"
+  },
+  {
+    "flat": "17A",
+    "name": "SRI PRAKASH YADAV , SMT. KALPANA JADAV, SRI RAHUL JADAV",
+    "phone": "9836026625",
+    "email": "rahul_hallmarks@yahoo.co.in",
+    "parking": "P-62",
+    "intercom": "162"
+  },
+  {
+    "flat": "17B",
+    "name": "DR. SUPRAKASH ROY & DR. CHANDRAYEE ROY SAHA",
+    "phone": "9331026873",
+    "email": "dr.suprakashroy@gmail.com",
+    "parking": "P-63",
+    "intercom": "163"
+  },
+  {
+    "flat": "17C",
+    "name": "SRI PRITAM HIRA",
+    "phone": "9830581563",
+    "email": "preetamhira5@yahoo.co.in",
+    "parking": "P-64",
+    "intercom": "164"
+  },
+  {
+    "flat": "17D",
+    "name": "MS. SUSHMITA DEBNATH",
+    "phone": "9830677065",
+    "email": "susmita_deb2@rediffmail.com",
+    "parking": "P-65",
+    "intercom": "165"
+  },
+  {
+    "flat": "18A",
+    "name": "MRS. SHABNAM SHOME, MR. RAJIV SHOME",
+    "phone": "9830014757",
+    "email": "shomeshabnam@yahoo.co.in",
+    "parking": "P-66",
+    "intercom": "166"
+  },
+  {
+    "flat": "18B",
+    "name": "SRI SHILADITYA BHOWMIK",
+    "phone": "9769219880",
+    "email": "shiladitya23@gmail.com",
+    "parking": "P-67",
+    "intercom": "167"
+  },
+  {
+    "flat": "18C",
+    "name": "SRI SAMIR DAS",
+    "phone": "9830572211",
+    "email": "samir.rse@gmail.com",
+    "parking": "P-68",
+    "intercom": "168"
+  },
+  {
+    "flat": "18D",
+    "name": "MR. MILAN KUMAR DUTTA",
+    "phone": "7872393447",
+    "email": "milandutta1974@gmail.com",
+    "parking": "P-69",
+    "intercom": "169"
+  }
+]

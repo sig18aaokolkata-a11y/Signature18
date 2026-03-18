@@ -1,0 +1,29 @@
+[
+  {
+    "day": "01",
+    "month": "Apr",
+    "title": "🏊 Pool Season Opening Day!",
+    "desc": "From 7:00 AM · Rooftop Swimming Pool",
+    "tag": "t-soc",
+    "label": "Community",
+    "highlight": true
+  },
+  {
+    "day": "14",
+    "month": "Apr",
+    "title": "🎉 Shubho Poila Boisakh Celebration",
+    "desc": "5:00 PM onwards · Rooftop & Common Area",
+    "tag": "t-fest",
+    "label": "Festival",
+    "highlight": true
+  },
+  {
+    "day": "26",
+    "month": "Apr",
+    "title": "☀️ Kids Summer Activity Week",
+    "desc": "All day · Games Room, Pool & Rooftop Play Zone",
+    "tag": "t-soc",
+    "label": "Community",
+    "highlight": true
+  }
+]

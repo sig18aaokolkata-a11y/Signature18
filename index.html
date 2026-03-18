@@ -32,7 +32,7 @@ nav{position:fixed;top:26px;left:0;right:0;z-index:200;background:rgba(10,26,59,
 .nav-guide{color:rgba(255,255,255,0.5)!important;font-size:0.7rem!important;display:flex;align-items:center;gap:0.3rem;}
 .hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;flex-shrink:0;}
 .hamburger span{width:26px;height:2px;background:var(--gold);display:block;}
-#home{min-height:100vh;background-color:#112354;background-image:linear-gradient(135deg,rgba(10,26,59,0.80),rgba(17,35,84,0.70)),url('building.png');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;padding:94px 5% 50px;text-align:center;}
+#home{position:relative;min-height:100vh;background-color:#112354;background-image:linear-gradient(135deg,rgba(10,26,59,0.80),rgba(17,35,84,0.70)),url('building.png');background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;padding:94px 5% 80px;text-align:center;}
 .hero-inner{max-width:780px;display:flex;flex-direction:column;align-items:center;}
 .hero-logo{width:190px;height:auto;margin-bottom:1.2rem;filter:drop-shadow(0 4px 24px rgba(0,0,0,0.5));}
 .hero-assoc{font-size:clamp(1rem,2.5vw,1.5rem);color:rgba(255,255,255,0.95);font-weight:300;letter-spacing:0.12em;text-transform:uppercase;margin-bottom:1.2rem;}
@@ -41,9 +41,9 @@ nav{position:fixed;top:26px;left:0;right:0;z-index:200;background:rgba(10,26,59,
 .hero-orn{color:var(--gold);font-size:1.4rem;}
 .hero-inner p{color:rgba(255,255,255,0.88);font-size:0.95rem;line-height:1.9;font-weight:300;margin-bottom:2rem;max-width:500px;}
 .hero-btns{display:flex;gap:1rem;flex-wrap:wrap;justify-content:center;}
-.btn-gold{background:var(--gold);color:#0a1a3b;padding:0.85rem 2rem;border-radius:3px;text-decoration:none;font-weight:600;font-size:0.9rem;transition:background 0.2s,transform 0.15s;}
+.btn-gold{background:var(--gold);color:#0a1a3b;padding:0.6rem 1.4rem;border-radius:3px;text-decoration:none;font-weight:600;font-size:0.8rem;letter-spacing:0.04em;transition:background 0.2s,transform 0.15s;}
 .btn-gold:hover{background:var(--gold-light);transform:translateY(-2px);}
-.btn-ghost{border:2px solid rgba(255,255,255,0.6);color:#fff;padding:0.85rem 2rem;border-radius:3px;text-decoration:none;font-weight:500;font-size:0.9rem;transition:border-color 0.2s,transform 0.15s;}
+.btn-ghost{border:1px solid rgba(255,255,255,0.5);color:#fff;padding:0.6rem 1.4rem;border-radius:3px;text-decoration:none;font-weight:500;font-size:0.8rem;letter-spacing:0.04em;transition:border-color 0.2s,transform 0.15s;}
 .btn-ghost:hover{border-color:var(--gold);color:var(--gold);transform:translateY(-2px);}
 section{padding:4rem 5%;display:flex;flex-direction:column;align-items:center;}
 .lbl{font-size:0.72rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.7rem;text-align:center;}
@@ -68,7 +68,7 @@ section{padding:4rem 5%;display:flex;flex-direction:column;align-items:center;}
 .nc p{font-size:0.88rem;color:rgba(255,255,255,0.65);line-height:1.7;font-weight:300;}
 .nc-date{font-size:0.75rem;color:rgba(255,255,255,0.38);margin-top:1.2rem;}
 .nc-urgent::before{background:var(--red);}
-.nc-badge{position:absolute;top:1rem;right:1rem;background:var(--red);color:#fff;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.6rem;border-radius:2px;}
+.nc-badge{position:absolute;top:0.8rem;right:0.8rem;background:var(--red);color:#fff;font-size:0.62rem;letter-spacing:0.1em;text-transform:uppercase;padding:0.2rem 0.55rem;border-radius:3px;z-index:1;white-space:nowrap;}
 #members{position:relative;background:var(--off-white);min-height:480px;}
 .mem-welcome{display:none;max-width:1100px;width:100%;background:linear-gradient(135deg,#0a1a3b,#112354);border:1px solid rgba(201,162,51,0.3);border-radius:8px;padding:0.9rem 1.4rem;margin-bottom:1.2rem;align-items:center;justify-content:space-between;gap:1rem;flex-wrap:wrap;}
 .mem-welcome.show{display:flex;}
@@ -102,13 +102,13 @@ section{padding:4rem 5%;display:flex;flex-direction:column;align-items:center;}
 .member-gate-note{font-size:0.72rem;color:rgba(255,255,255,0.3);max-width:280px;line-height:1.6;}
 @keyframes spin{to{transform:rotate(360deg);}}
 #events{background:#fff;}
-.ev-grid{display:grid;grid-template-columns:2fr 1fr;gap:2rem;max-width:1100px;width:100%;margin:1.5rem 0 0;align-items:start;}
+.ev-grid{display:flex;flex-direction:column;gap:0.8rem;max-width:1100px;width:100%;margin:1.5rem 0 0;}
 .ev-list{display:flex;flex-direction:column;gap:0.8rem;}
 .ev-row{display:flex;align-items:center;gap:1.5rem;background:var(--off-white);border:1px solid var(--border);border-radius:4px;padding:1.2rem 1.5rem;transition:box-shadow 0.2s,border-color 0.2s;}
 .ev-row:hover{border-color:var(--gold);box-shadow:0 6px 20px rgba(10,26,59,0.08);}
-.ev-dt{text-align:center;min-width:52px;}
-.ev-day{font-family:'Cormorant Garamond',serif;font-size:2rem;color:#0a1a3b;line-height:1;font-weight:700;}
-.ev-mon{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.12em;color:var(--text-light);}
+.ev-dt{text-align:center;min-width:60px;background:var(--gold-pale);border-radius:6px;padding:0.5rem 0.4rem;}
+.ev-day{font-family:'Cormorant Garamond',serif;font-size:2.4rem;color:var(--gold);line-height:1;font-weight:700;}
+.ev-mon{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.14em;color:#0a1a3b;font-weight:600;}
 .ev-sep{width:1px;height:40px;background:var(--border);}
 .ev-info h4{font-size:0.95rem;font-weight:600;color:#0a1a3b;margin-bottom:0.2rem;}
 .ev-info p{font-size:0.82rem;color:var(--text-light);}
@@ -260,33 +260,85 @@ footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2re
 .ft-rera .rl{display:block;font-size:0.65rem;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.2rem;}
 .ft-rera .ri{font-size:0.75rem;color:rgba(255,255,255,0.45);}
 .ft-bot{border-top:1px solid rgba(255,255,255,0.1);padding-top:1.2rem;display:flex;justify-content:center;align-items:center;gap:0.8rem;font-size:0.78rem;color:rgba(255,255,255,0.35);max-width:1100px;margin:0 auto;}
-.fade-up{opacity:1;transform:translateY(0);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fade-up{opacity:0;transform:translateY(24px);transition:opacity 0.65s ease,transform 0.65s ease;}
 .fade-up.visible{opacity:1;transform:translateY(0);}
-.fade-left{opacity:1;transform:translateX(0);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fade-left{opacity:0;transform:translateX(-24px);transition:opacity 0.65s ease,transform 0.65s ease;}
 .fade-left.visible{opacity:1;transform:translateX(0);}
-.fade-right{opacity:1;transform:translateX(0);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fade-right{opacity:0;transform:translateX(24px);transition:opacity 0.65s ease,transform 0.65s ease;}
 .fade-right.visible{opacity:1;transform:translateX(0);}
-.sc{opacity:1;transform:translateY(0);transition:opacity 0.5s ease,transform 0.5s ease;}
+.sc{opacity:0;transform:translateY(20px);transition:opacity 0.55s ease,transform 0.55s ease;}
 .sc.visible{opacity:1;transform:translateY(0);}
-@media(max-width:900px){.about-grid,.ev-grid{grid-template-columns:1fr;}.gal-grid{grid-template-columns:repeat(2,1fr);}.gi.w{grid-column:span 2;}.com-grid,.griev-box-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:900px){
+  .about-grid{grid-template-columns:1fr;}
+  .ev-grid{flex-direction:column;}
+  .gal-grid{grid-template-columns:repeat(2,1fr);}
+  .gi.w{grid-column:span 2;}
+  .com-grid,.griev-box-grid{grid-template-columns:repeat(2,1fr);}
+  .amenity-grid{grid-template-columns:repeat(3,1fr);}
+}
 @media(max-width:768px){
-.nav-links{display:none;flex-direction:column;position:absolute;top:94px;left:0;right:0;background:#0a1a3b;padding:1.2rem 5%;border-top:1px solid rgba(201,162,51,0.3);gap:1rem;}
-.nav-links.open{display:flex;}.hamburger{display:flex;}
-.nav-logo-text strong{font-size:0.9rem;}.nav-logo-text span{font-size:0.48rem;}
-.gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}
-.mem-grid{grid-template-columns:repeat(2,1fr);}
-.com-grid,.griev-box-grid{grid-template-columns:1fr;}
-.hero-logo{width:150px;}.amenity-grid{grid-template-columns:repeat(2,1fr);}
-.book-row,.qry-row,.pay-row{grid-template-columns:1fr;}
-.book-modal,.qry-modal,.pay-modal,.byl-modal,.res-modal{border-radius:8px 8px 0 0;max-height:92vh;}
-.book-ov,.qry-ov,.pay-ov,.byl-ov,.res-ov{padding:0;align-items:flex-end;overflow:hidden;}
-    #members{min-height:420px;}
-    .member-gate{gap:0.8rem;padding:1.5rem;}
-    .member-gate-title{font-size:1.5rem;}
-    .member-gate-sub{font-size:0.82rem;}
-.res-list{flex:1;min-height:0;}.pay-months-grid{grid-template-columns:repeat(2,1fr);}
-.pay-upi-box{flex-direction:column;align-items:flex-start;}
-.mem-welcome{padding:0.8rem 1rem;}.mem-welcome-name{font-size:1rem;}}
+  /* NAV */
+  .nav-links{display:none;flex-direction:column;position:absolute;top:94px;left:0;right:0;background:#0a1a3b;padding:1.2rem 5%;border-top:1px solid rgba(201,162,51,0.3);gap:1rem;z-index:199;}
+  .nav-links.open{display:flex;}
+  .hamburger{display:flex;}
+  .nav-logo-text strong{font-size:0.9rem;}
+  .nav-logo-text span{font-size:0.48rem;}
+  /* HERO */
+  .hero-logo{width:130px;}
+  .hero-assoc{font-size:0.85rem;}
+  .hero-inner p{font-size:0.88rem;}
+  /* ABOUT */
+  .about-grid{grid-template-columns:1fr;gap:2rem;}
+  .amenity-grid{grid-template-columns:repeat(2,1fr);}
+  .about-vision{padding:1rem 1.2rem;}
+  /* NOTICES */
+  .notice-grid{grid-template-columns:1fr;}
+  /* GALLERY */
+  .gal-grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:150px;}
+  /* COMMITTEE */
+  .com-grid{grid-template-columns:1fr;}
+  .griev-box-grid{grid-template-columns:1fr;}
+  /* MEMBERS */
+  #members{min-height:420px;}
+  .mem-grid{grid-template-columns:repeat(2,1fr);}
+  .member-gate{gap:0.8rem;padding:1.5rem;}
+  .member-gate-title{font-size:1.5rem;}
+  .member-gate-sub{font-size:0.82rem;}
+  .mem-welcome{padding:0.8rem 1rem;}
+  .mem-welcome-name{font-size:1rem;}
+  /* EVENTS */
+  .ev-row{flex-wrap:wrap;gap:0.8rem;padding:1rem;}
+  .ev-tag{margin-left:0;}
+  /* MODALS */
+  .book-modal,.qry-modal,.pay-modal,.byl-modal,.res-modal{border-radius:8px 8px 0 0;max-height:92vh;}
+  .book-ov,.qry-ov,.pay-ov,.byl-ov,.res-ov{padding:0;align-items:flex-end;overflow:hidden;}
+  .book-row,.qry-row,.pay-row{grid-template-columns:1fr;}
+  .pay-upi-box{flex-direction:column;align-items:flex-start;}
+  .pay-months-grid{grid-template-columns:repeat(2,1fr);}
+  .res-list{flex:1;min-height:0;}
+  /* FOOTER */
+  .ft-top{flex-direction:column;gap:2rem;}
+  .ft-col{min-width:0;}
+  /* CONTACT */
+  .con-card{padding:1.2rem;}
+  /* SCROLL INDICATOR */
+  .scroll-indicator{bottom:1.2rem;}
+  .scroll-chevrons i{width:10px;height:10px;}
+  .scroll-indicator span{font-size:0.6rem;}
+}
+@media(max-width:480px){
+  .mem-grid{grid-template-columns:1fr;}
+  .amenity-grid{grid-template-columns:repeat(2,1fr);}
+  .hero-logo{width:110px;}
+  .hero-btns{flex-direction:column;align-items:center;width:100%;}
+  .btn-gold,.btn-ghost{width:100%;text-align:center;justify-content:center;}
+  .ttl{font-size:1.7rem;}
+  .nc{padding:1.2rem;}
+  .ev-dt{min-width:50px;}
+  .ev-day{font-size:1.8rem;}
+  .ep-form{max-width:100%;}
+  .griev-box-grid{grid-template-columns:1fr;}
+}
 
     .emg-ov{display:none;position:fixed;inset:0;background:rgba(10,26,59,0.6);backdrop-filter:blur(6px);z-index:600;align-items:center;justify-content:center;padding:1rem;overflow:hidden;}
     .emg-ov.open{display:flex;}
@@ -312,6 +364,62 @@ footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2re
     .emg-call.red:hover{background:#a93226;}
     .emg-note{font-size:0.72rem;color:#aab;text-align:center;padding:0.6rem 0 0;}
     @media(max-width:640px){.emg-modal{border-radius:8px 8px 0 0;max-height:92vh;}.emg-ov{padding:0;align-items:flex-end;overflow:hidden;}}
+
+    .scroll-indicator{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:0.4rem;cursor:pointer;opacity:0.7;transition:opacity 0.2s;animation:fadeInScroll 2s ease 1.5s both;}
+    .scroll-indicator:hover{opacity:1;}
+    .scroll-indicator span{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:rgba(255,255,255,0.6);}
+    .scroll-chevrons{display:flex;flex-direction:column;align-items:center;gap:2px;}
+    .scroll-chevrons i{display:block;width:12px;height:12px;border-right:2px solid rgba(201,162,51,0.9);border-bottom:2px solid rgba(201,162,51,0.9);transform:rotate(45deg);animation:scrollBounce 1.4s ease infinite;}
+    .scroll-chevrons i:nth-child(1){animation-delay:0s;opacity:0.3;}
+    .scroll-chevrons i:nth-child(2){animation-delay:0.15s;opacity:0.6;}
+    .scroll-chevrons i:nth-child(3){animation-delay:0.3s;opacity:1;}
+    @keyframes scrollBounce{0%,100%{transform:rotate(45deg) translate(0,0);}50%{transform:rotate(45deg) translate(3px,3px);}}
+    @keyframes fadeInScroll{from{opacity:0;transform:translateX(-50%) translateY(10px);}to{opacity:0.7;transform:translateX(-50%) translateY(0);}}
+    @media(max-width:768px){
+      .scroll-indicator{bottom:1.2rem;}
+      .scroll-chevrons i{width:10px;height:10px;}
+      .scroll-indicator span{font-size:0.6rem;}
+    }
+
+
+    /* EMAIL/PASSWORD SIGN-IN */
+    .ep-toggle{font-size:0.75rem;color:rgba(255,255,255,0.45);cursor:pointer;text-align:center;line-height:1.6;}
+    .ep-toggle a{color:rgba(255,255,255,0.65);text-decoration:underline;text-underline-offset:3px;cursor:pointer;transition:color 0.2s;}
+    .ep-toggle a:hover{color:var(--gold);}
+    .ep-form{display:none;flex-direction:column;gap:0.7rem;width:100%;max-width:300px;}
+    .ep-form.show{display:flex;}
+    .ep-input{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.2);border-radius:8px;padding:0.75rem 1rem;font-size:0.9rem;font-family:'Outfit',sans-serif;color:#fff;outline:none;transition:border-color 0.2s;width:100%;}
+    .ep-input::placeholder{color:rgba(255,255,255,0.35);}
+    .ep-input:focus{border-color:var(--gold);}
+    .ep-btn{background:var(--gold);color:#0a1a3b;border:none;border-radius:8px;padding:0.8rem;font-size:0.9rem;font-family:'Outfit',sans-serif;font-weight:700;cursor:pointer;transition:background 0.2s,transform 0.15s;width:100%;}
+    .ep-btn:hover{background:var(--gold-light);transform:translateY(-1px);}
+    .ep-btn:disabled{background:rgba(201,162,51,0.4);cursor:not-allowed;transform:none;}
+    .ep-forgot{font-size:0.72rem;color:rgba(255,255,255,0.4);text-align:center;cursor:pointer;}
+    .ep-forgot a{color:rgba(255,255,255,0.5);text-decoration:underline;text-underline-offset:3px;}
+    .ep-forgot a:hover{color:var(--gold);}
+    .ep-divider{display:flex;align-items:center;gap:0.8rem;width:100%;max-width:300px;}
+    .ep-divider::before,.ep-divider::after{content:'';flex:1;height:1px;background:rgba(255,255,255,0.12);}
+    .ep-divider span{font-size:0.68rem;color:rgba(255,255,255,0.3);letter-spacing:0.1em;text-transform:uppercase;}
+    .ep-mail-note{font-size:0.7rem;color:rgba(255,255,255,0.3);text-align:center;max-width:280px;line-height:1.6;}
+    .ep-mail-note a{color:rgba(201,162,51,0.6);text-decoration:none;}
+    .ep-mail-note a:hover{color:var(--gold);}
+    .ep-signout{background:none;border:1px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.45);border-radius:6px;padding:0.3rem 0.9rem;font-size:0.72rem;font-family:'Outfit',sans-serif;cursor:pointer;transition:all 0.2s;margin-top:0.2rem;}
+    .ep-signout:hover{border-color:rgba(201,162,51,0.5);color:var(--gold);}
+
+
+    .about-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;max-width:1100px;width:100%;margin:1.5rem 0 0;align-items:start;}
+    .about-grid p{color:#3a4f7a;line-height:1.9;font-weight:300;margin-bottom:1rem;font-size:0.95rem;}
+    .about-vision{margin-top:1.5rem;padding:1.4rem 1.6rem;background:linear-gradient(135deg,rgba(201,162,51,0.07),rgba(201,162,51,0.02));border:1px solid rgba(201,162,51,0.35);border-left:4px solid var(--gold);border-radius:0 8px 8px 0;}
+    .about-vision-label{font-size:0.68rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-weight:700;margin-bottom:0.8rem;display:flex;align-items:center;gap:0.6rem;}
+    .about-vision-label::after{content:'';flex:1;height:1px;background:rgba(201,162,51,0.3);}
+    .about-vision p{color:#3a4f7a;line-height:1.9;font-weight:300;margin-bottom:0.7rem;font-size:0.9rem;}
+    .about-vision p:last-child{margin-bottom:0;}
+
+
+    .about-vision-cols{display:grid;grid-template-columns:1fr 1fr;gap:2rem;}
+    .about-vision-cols p{margin-bottom:0;}
+    @media(max-width:768px){.about-vision-cols{grid-template-columns:1fr;gap:0.8rem;}}
+
   </style>
 </head>
 <body>
@@ -339,7 +447,11 @@ footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2re
     <div class="hero-assoc">Association of Apartment Owners</div>
     <div class="hero-divider"><div class="hero-line"></div><span class="hero-orn">&#x2737;</span><div class="hero-line"></div></div>
     <p>Your official community platform for 69 families. Stay informed, stay connected, and build the neighbourhood you deserve.</p>
-    <div class="hero-btns"><a href="#news" class="btn-gold">View Latest Notices</a><a href="#contact" class="btn-ghost">Contact Committee</a></div>
+    <div class="hero-btns"><a href="#news" class="btn-gold">View Latest Notices</a><a href="#members" class="btn-ghost">&#x1F512; Member Section</a><a href="#contact" class="btn-ghost">Contact Committee</a></div>
+  </div>
+  <div class="scroll-indicator" onclick="document.getElementById('about').scrollIntoView({behavior:'smooth'})">
+    <span>Scroll</span>
+    <div class="scroll-chevrons"><i></i><i></i><i></i></div>
   </div>
 </section>
 
@@ -349,8 +461,9 @@ footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2re
   <div class="bar fade-up"></div>
   <div class="about-grid">
     <div class="fade-left">
-      <p>Signature 18 Association of Apartment Owners is the governing body of the 69-apartment tower at 8, Bosepukur Road, Kasba, Kolkata. We manage day-to-day operations, maintenance, community events, and the welfare of all residents.</p>
-      <p>Our association is committed to maintaining the highest standards of living &mdash; ensuring every family experiences comfort, safety, and a strong sense of belonging.</p>
+      <p>Signature 18 Association of Apartment Owners is the governing body of the 69-apartment residential tower located at 8, Bosepukur Road, Kasba, Kolkata.</p>
+      <p>The Association oversees the day-to-day operations, maintenance, community initiatives, and resident welfare, ensuring that the building functions seamlessly.</p>
+      <p>Committed to maintaining the highest standards of living, we strive to create a community where every family enjoys comfort, safety, and a true sense of belonging.</p>
     </div>
     <div class="fade-right">
       <p class="amenity-lbl">Our Amenities</p>
@@ -371,7 +484,16 @@ footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2re
         <div class="chip">&#x1F512; 24&times;7 Security</div>
         <div class="chip">&#x1F6AA; Access Control</div>
         <div class="chip">&#x1F4DF; Intercom</div>
+        <div class="chip">&#x1F9EF; Fire Safety System</div>
+        <div class="chip">&#x1F4A7; 24&times;7 KMC Water</div>
       </div>
+    </div>
+  </div>
+  <div class="about-vision fade-up" style="max-width:1100px;width:100%;margin-top:1.8rem;">
+    <div class="about-vision-label">Our Vision</div>
+    <div class="about-vision-cols">
+      <p>Our vision is to nurture Signature 18 as a model residential community &mdash; one that reflects thoughtful management, mutual respect among residents, and pride in our shared home.</p>
+      <p>Through responsible governance and active community participation, we aim to preserve the quality, value, and harmony of our residence for years to come.</p>
     </div>
   </div>
 </section>
@@ -381,11 +503,7 @@ footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2re
   <h2 class="ttl fade-up">Notice Board</h2>
   <div class="bar fade-up"></div>
   <p class="sub fade-up" style="color:rgba(255,255,255,0.6);">Stay informed with the latest updates, reminders and advisories from the Association.</p>
-  <div class="notice-grid">
-    <div class="nc nc-urgent sc"><div class="nc-badge">Advisory</div><p class="nc-type">&#x1F6BF; Maintenance Advisory</p><h3>Water Supply Interruption &ndash; Tank Cleaning</h3><p>The overhead water tank is scheduled for its mandatory cleaning on <strong>13th April 2026</strong>. Water supply will be temporarily suspended from 9:00 AM to 2:00 PM. Residents are requested to store adequate water in advance.</p><p class="nc-date">&#x1F4C5; Posted: April 1, 2026</p></div>
-    <div class="nc sc"><p class="nc-type">&#x1F4CB; Governance</p><h3>Special General Meeting &ndash; 5th April 2026</h3><p>A Special General Meeting (SGM) is called on <strong>5th April 2026 at 6:30 PM</strong> at the Community Hall. All owner members are requested to attend. Agenda will be circulated separately.</p><p class="nc-date">&#x1F4C5; Posted: March 25, 2026</p></div>
-    <div class="nc sc"><p class="nc-type">&#x1F4B0; Finance Reminder</p><h3>Maintenance Fee Due &ndash; April Quarter 2026</h3><p>This is a gentle reminder that the maintenance fee for the <strong>April&ndash;June 2026 quarter</strong> is now due. Kindly make your payment at the earliest via UPI or bank transfer. Refer to the Pay Maintenance section for account details.</p><p class="nc-date">&#x1F4C5; Posted: April 1, 2026</p></div>
-  </div>
+  <div class="notice-grid" id="noticeGrid"><div class="nc sc" style="color:rgba(255,255,255,0.4);padding:2rem;text-align:center;">Loading notices&hellip;</div></div>
 </section>
 
 <section id="members">
@@ -397,8 +515,17 @@ footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2re
     <div id="memberGateContent" style="display:flex;flex-direction:column;align-items:center;gap:1rem;">
       <div class="member-gate-icon">&#x1F512;</div>
       <div class="member-gate-title">Members Only</div>
-      <div class="member-gate-sub">Sign in with your registered Google account to access this section.</div>
+      <div class="member-gate-sub">Sign in to access the residents&rsquo; section.</div>
       <button class="g-btn" id="memberSignInBtn" onclick="doSignIn()"><svg viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.08 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.31-8.16 2.31-6.26 0-11.57-3.59-13.46-8.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg> Sign in with Google</button>
+      <div class="ep-divider"><span>or</span></div>
+      <div class="ep-toggle" id="epToggle">Don&rsquo;t have Gmail? <a onclick="toggleEpForm()">Sign in with email &amp; password</a></div>
+      <div class="ep-form" id="epForm">
+        <input class="ep-input" id="epEmail" type="email" placeholder="Email address" autocomplete="email"/>
+        <input class="ep-input" id="epPassword" type="password" placeholder="Password" autocomplete="current-password"/>
+        <button class="ep-btn" id="epSignInBtn" onclick="doEpSignIn()">Sign In</button>
+        <div class="ep-forgot"><a onclick="doForgotPassword()">Forgot password?</a></div>
+        <div class="ep-mail-note">No credentials yet? Email us at<br/><a href="/cdn-cgi/l/email-protection#3a49535d0b025b5b55515556515b4e5b7a5d575b535614595557"><span class="__cf_email__" data-cfemail="2b58424c1a134a4a44404447404a5f4a6b4c464a424705484446">[email&#160;protected]</span></a></div>
+      </div>
       <div class="member-gate-err" id="memberGateErr"></div>
       <div class="member-gate-note">Access restricted to registered Signature 18 residents only.</div>
     </div>
@@ -412,17 +539,16 @@ footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2re
   <div class="bar fade-up"></div>
   <p class="sub fade-up">Pay maintenance, book the community hall, submit queries, view resident details, access society documents &amp; bylaws, and more &mdash; all in one place.</p>
   <div class="mem-grid">
-    <div class="mc sc"><div class="mc-icon">&#x1F4CB;</div><div class="mc-text"><h4>Meeting Minutes</h4><p>AGM &amp; committee notes</p><a href="#">View &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x1F4B0;</div><div class="mc-text"><h4>Society Documents</h4><p>Financial statements &amp; audits</p><a href="#">View &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x1F4DC;</div><div class="mc-text"><h4>Rules &amp; Bylaws</h4><p>Regulations &amp; guidelines</p><a href="#" onclick="event.preventDefault();openBylaws()">View &rarr;</a></div></div>
+    <div class="mc sc"><div class="mc-icon">&#x1F465;</div><div class="mc-text"><h4>Resident Directory</h4><p>Know your community</p><a href="#" onclick="event.preventDefault();openResidents()">Open &rarr;</a></div></div>
+    <div class="mc sc"><div class="mc-icon">&#x1F3DB;&#xFE0F;</div><div class="mc-text"><h4>Book Community Hall</h4><p>Reserve for your event</p><a href="#" onclick="event.preventDefault();openBooking()">Book Now &rarr;</a></div></div>
+    <div class="mc sc"><div class="mc-icon">&#x2709;&#xFE0F;</div><div class="mc-text"><h4>Raise a Query</h4><p>We&rsquo;re here to help</p><a href="#" onclick="event.preventDefault();openQuery()">Submit &rarr;</a></div></div>
+    <div class="mc sc"><div class="mc-icon">&#x1F4B3;</div><div class="mc-text"><h4>Pay Maintenance</h4><p>UPI, bank &amp; portal</p><a href="#" onclick="event.preventDefault();openPay()">View &rarr;</a></div></div>
+    <div class="mc sc"><div class="mc-icon">&#x1F4DC;</div><div class="mc-text"><h4>Bylaws &amp; Guidelines</h4><p>Rules &amp; amenity policies</p><a href="#" onclick="event.preventDefault();openBylaws()">View &rarr;</a></div></div>
+    <div class="mc sc"><div class="mc-icon">&#x1F6A8;</div><div class="mc-text"><h4>Emergency Contacts</h4><p>Quick access when it matters</p><a href="#" onclick="event.preventDefault();openEmg()">View &rarr;</a></div></div>
+    <div class="mc sc"><div class="mc-icon">&#x1F4CA;</div><div class="mc-text"><h4>Society Documents</h4><p>Financials, audits &amp; building docs</p><a href="#">View &rarr;</a></div></div>
     <div class="mc sc"><div class="mc-icon">&#x1F527;</div><div class="mc-text"><h4>Maintenance Log</h4><p>Repair &amp; service records</p><a href="#">View &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x1F4DE;</div><div class="mc-text"><h4>Emergency Contacts</h4><p>Plumber, electrician &amp; more</p><a href="#" onclick="event.preventDefault();openEmg()">View &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x1F4B3;</div><div class="mc-text"><h4>Pay Maintenance</h4><p>Bank &amp; UPI details</p><a href="#" onclick="event.preventDefault();openPay()">View &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x2709;&#xFE0F;</div><div class="mc-text"><h4>Submit Queries</h4><p>Complaints &amp; queries</p><a href="#" onclick="event.preventDefault();openQuery()">Submit &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x1F465;</div><div class="mc-text"><h4>Resident Details</h4><p>Apartment owners directory</p><a href="#" onclick="event.preventDefault();openResidents()">Open &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x1F3E0;</div><div class="mc-text"><h4>NoBrokerHood Portal</h4><p>Payments, visitors &amp; services</p><a href="https://www.nobrokerHood.com" target="_blank">Open &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x1F3DB;&#xFE0F;</div><div class="mc-text"><h4>Community Hall Booking</h4><p>Reserve for events &amp; gatherings</p><a href="#" onclick="event.preventDefault();openBooking()">Book Now &rarr;</a></div></div>
-  </div>
+    <div class="mc sc"><div class="mc-icon">&#x1F4CB;</div><div class="mc-text"><h4>Meeting Minutes</h4><p>AGM, SGM &amp; committee notes</p><a href="#">View &rarr;</a></div></div>
+    <div class="mc sc"><div class="mc-icon">&#x1F3E0;</div><div class="mc-text"><h4>NoBrokerHood Portal</h4><p>Payments, visitors &amp; ERP services</p><a href="https://www.nobrokerHood.com" target="_blank">Open &rarr;</a></div></div>  </div>
   <div class="mem-note">&#x1F512; Some documents are restricted to registered members only. Contact the secretary to register your access.</div>
 </section>
 
@@ -430,25 +556,7 @@ footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2re
   <p class="lbl fade-up">Participation &amp; Celebration</p>
   <h2 class="ttl fade-up">Upcoming Events</h2>
   <div class="bar fade-up"></div>
-  <div class="ev-grid">
-    <div class="ev-list">
-      <div class="ev-row sc"><div class="ev-dt"><div class="ev-day">01</div><div class="ev-mon">Apr</div></div><div class="ev-sep"></div><div class="ev-info"><h4>&#x1F3CA; Pool Season Opening Day!</h4><p>From 7:00 AM &middot; Rooftop Swimming Pool</p></div><span class="ev-tag t-soc">Community</span></div>
-      <div class="ev-row sc"><div class="ev-dt"><div class="ev-day">14</div><div class="ev-mon">Apr</div></div><div class="ev-sep"></div><div class="ev-info"><h4>&#x1F389; Shubho Poila Boisakh Celebration</h4><p>5:00 PM onwards &middot; Rooftop &amp; Common Area</p></div><span class="ev-tag t-fest">Festival</span></div>
-      <div class="ev-row sc"><div class="ev-dt"><div class="ev-day">26</div><div class="ev-mon">Apr</div></div><div class="ev-sep"></div><div class="ev-info"><h4>&#x2600;&#xFE0F; Kids Summer Activity Week</h4><p>All day &middot; Games Room, Pool &amp; Rooftop Play Zone</p></div><span class="ev-tag t-soc">Community</span></div>
-    </div>
-    <div class="cal fade-right">
-      <h4>&#x1F4C5; April 2026</h4>
-      <div class="cal-grid">
-        <div class="cal-dn">S</div><div class="cal-dn">M</div><div class="cal-dn">T</div><div class="cal-dn">W</div><div class="cal-dn">T</div><div class="cal-dn">F</div><div class="cal-dn">S</div>
-        <div class="cal-d em"></div><div class="cal-d em"></div><div class="cal-d ev">1</div><div class="cal-d">2</div><div class="cal-d">3</div><div class="cal-d">4</div><div class="cal-d">5</div>
-        <div class="cal-d">6</div><div class="cal-d">7</div><div class="cal-d">8</div><div class="cal-d">9</div><div class="cal-d">10</div><div class="cal-d">11</div><div class="cal-d">12</div>
-        <div class="cal-d">13</div><div class="cal-d ev">14</div><div class="cal-d">15</div><div class="cal-d">16</div><div class="cal-d">17</div><div class="cal-d">18</div><div class="cal-d">19</div>
-        <div class="cal-d">20</div><div class="cal-d">21</div><div class="cal-d">22</div><div class="cal-d">23</div><div class="cal-d">24</div><div class="cal-d">25</div><div class="cal-d ev">26</div>
-        <div class="cal-d">27</div><div class="cal-d">28</div><div class="cal-d">29</div><div class="cal-d">30</div><div class="cal-d em"></div><div class="cal-d em"></div><div class="cal-d em"></div>
-      </div>
-      <div style="margin-top:1rem;font-size:0.75rem;color:rgba(255,255,255,0.4);display:flex;align-items:center;gap:0.5rem;"><span style="width:10px;height:10px;background:rgba(201,162,51,0.25);border-radius:2px;display:inline-block;"></span> Event day</div>
-    </div>
-  </div>
+  <div class="ev-grid" id="eventList"><div class="ev-row" style="color:#aab;padding:1.2rem;">Loading events&hellip;</div></div>
 </section>
 
 <section id="gallery">
@@ -470,7 +578,7 @@ footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2re
   <div class="bar fade-up"></div>
   <p class="sub fade-up" style="color:rgba(255,255,255,0.6);">Meet your representatives for the term 2026&ndash;29.</p>
   <div class="com-grid">
-    <div class="cc sc" onclick="openP('am')"><div class="cc-av">&#x1F464;</div><div class="cc-body"><h4>Abhra Mukhopadhyay</h4><p class="cc-role">President</p><p class="cc-hint">Tap for profile</p></div></div>
+    <div class="cc sc" onclick="openP('am')"><div class="cc-av">&#x1F464;</div><div class="cc-body"><h4>Dr. Abhra Mukhopadhyay</h4><p class="cc-role">President</p><p class="cc-hint">Tap for profile</p></div></div>
     <div class="cc sc" onclick="openP('rg')"><div class="cc-av">&#x1F464;</div><div class="cc-body"><h4>Dr. Ratnadeep Ghosh</h4><p class="cc-role">Vice President</p><p class="cc-hint">Tap for profile</p></div></div>
     <div class="cc sc" onclick="openP('sm')"><div class="cc-av">&#x1F464;</div><div class="cc-body"><h4>Mr. Subhajit Mukherjee</h4><p class="cc-role">Secretary</p><p class="cc-hint">Tap for profile</p></div></div>
     <div class="cc sc" onclick="openP('rb')"><div class="cc-av">&#x1F464;</div><div class="cc-body"><h4>Mr. Rahul Basu</h4><p class="cc-role">Treasurer</p><p class="cc-hint">Tap for profile</p></div></div>
@@ -524,75 +632,7 @@ footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2re
     <div id="bookFormWrap"><div class="book-body">
       <p class="book-sec">Resident Details</p>
       <div class="book-row">
-        <div class="bf"><label>Flat Number *</label><select id="bFlat"><option value="">Select flat&hellip;</option><option value='1B'>1B</option>
-<option value='1C'>1C</option>
-<option value='2B'>2B</option>
-<option value='2C'>2C</option>
-<option value='2D'>2D</option>
-<option value='3A'>3A</option>
-<option value='3B'>3B</option>
-<option value='3C'>3C</option>
-<option value='3D'>3D</option>
-<option value='4A'>4A</option>
-<option value='4B'>4B</option>
-<option value='4C'>4C</option>
-<option value='4D'>4D</option>
-<option value='5A'>5A</option>
-<option value='5B'>5B</option>
-<option value='5C'>5C</option>
-<option value='5D'>5D</option>
-<option value='6A'>6A</option>
-<option value='6B'>6B</option>
-<option value='6C'>6C</option>
-<option value='6D'>6D</option>
-<option value='7A'>7A</option>
-<option value='7B'>7B</option>
-<option value='7C'>7C</option>
-<option value='7D'>7D</option>
-<option value='8A'>8A</option>
-<option value='8B'>8B</option>
-<option value='8C'>8C</option>
-<option value='8D'>8D</option>
-<option value='9A'>9A</option>
-<option value='9B'>9B</option>
-<option value='9C'>9C</option>
-<option value='9D'>9D</option>
-<option value='10A'>10A</option>
-<option value='10B'>10B</option>
-<option value='10C'>10C</option>
-<option value='10D'>10D</option>
-<option value='11A'>11A</option>
-<option value='11B'>11B</option>
-<option value='11C'>11C</option>
-<option value='11D'>11D</option>
-<option value='12A'>12A</option>
-<option value='12B'>12B</option>
-<option value='12C'>12C</option>
-<option value='12D'>12D</option>
-<option value='13A'>13A</option>
-<option value='13B'>13B</option>
-<option value='13C'>13C</option>
-<option value='13D'>13D</option>
-<option value='14A'>14A</option>
-<option value='14B'>14B</option>
-<option value='14C'>14C</option>
-<option value='14D'>14D</option>
-<option value='15A'>15A</option>
-<option value='15B'>15B</option>
-<option value='15C'>15C</option>
-<option value='15D'>15D</option>
-<option value='16A'>16A</option>
-<option value='16B'>16B</option>
-<option value='16C'>16C</option>
-<option value='16D'>16D</option>
-<option value='17A'>17A</option>
-<option value='17B'>17B</option>
-<option value='17C'>17C</option>
-<option value='17D'>17D</option>
-<option value='18A'>18A</option>
-<option value='18B'>18B</option>
-<option value='18C'>18C</option>
-<option value='18D'>18D</option></select></div>
+        <div class="bf"><label>Flat Number *</label><select id="bFlat"><option value="">Select flat&hellip;</option></select></div>
         <div class="bf"><label>Owner Name *</label><input type="text" id="bName" placeholder="Full name"/></div>
       </div>
       <div class="book-row">
@@ -636,75 +676,7 @@ footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2re
     <div id="qryFormWrap"><div class="qry-body">
       <p class="qry-sec">Your Details</p>
       <div class="qry-row">
-        <div class="qf"><label>Flat Number *</label><select id="qFlat"><option value="">Select flat&hellip;</option><option value='1B'>1B</option>
-<option value='1C'>1C</option>
-<option value='2B'>2B</option>
-<option value='2C'>2C</option>
-<option value='2D'>2D</option>
-<option value='3A'>3A</option>
-<option value='3B'>3B</option>
-<option value='3C'>3C</option>
-<option value='3D'>3D</option>
-<option value='4A'>4A</option>
-<option value='4B'>4B</option>
-<option value='4C'>4C</option>
-<option value='4D'>4D</option>
-<option value='5A'>5A</option>
-<option value='5B'>5B</option>
-<option value='5C'>5C</option>
-<option value='5D'>5D</option>
-<option value='6A'>6A</option>
-<option value='6B'>6B</option>
-<option value='6C'>6C</option>
-<option value='6D'>6D</option>
-<option value='7A'>7A</option>
-<option value='7B'>7B</option>
-<option value='7C'>7C</option>
-<option value='7D'>7D</option>
-<option value='8A'>8A</option>
-<option value='8B'>8B</option>
-<option value='8C'>8C</option>
-<option value='8D'>8D</option>
-<option value='9A'>9A</option>
-<option value='9B'>9B</option>
-<option value='9C'>9C</option>
-<option value='9D'>9D</option>
-<option value='10A'>10A</option>
-<option value='10B'>10B</option>
-<option value='10C'>10C</option>
-<option value='10D'>10D</option>
-<option value='11A'>11A</option>
-<option value='11B'>11B</option>
-<option value='11C'>11C</option>
-<option value='11D'>11D</option>
-<option value='12A'>12A</option>
-<option value='12B'>12B</option>
-<option value='12C'>12C</option>
-<option value='12D'>12D</option>
-<option value='13A'>13A</option>
-<option value='13B'>13B</option>
-<option value='13C'>13C</option>
-<option value='13D'>13D</option>
-<option value='14A'>14A</option>
-<option value='14B'>14B</option>
-<option value='14C'>14C</option>
-<option value='14D'>14D</option>
-<option value='15A'>15A</option>
-<option value='15B'>15B</option>
-<option value='15C'>15C</option>
-<option value='15D'>15D</option>
-<option value='16A'>16A</option>
-<option value='16B'>16B</option>
-<option value='16C'>16C</option>
-<option value='16D'>16D</option>
-<option value='17A'>17A</option>
-<option value='17B'>17B</option>
-<option value='17C'>17C</option>
-<option value='17D'>17D</option>
-<option value='18A'>18A</option>
-<option value='18B'>18B</option>
-<option value='18C'>18C</option>
-<option value='18D'>18D</option></select></div>
+        <div class="qf"><label>Flat Number *</label><select id="qFlat"><option value="">Select flat&hellip;</option></select></div>
         <div class="qf"><label>Your Name *</label><input type="text" id="qName" placeholder="Full name"/></div>
       </div>
       <div class="qry-row">
@@ -735,75 +707,7 @@ footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2re
       <div class="pay-bank-box"><div class="pay-bank-row"><span>Account Name</span><span>Signature Eighteen Association</span></div><div class="pay-bank-row"><span>Bank</span><span>State Bank of India (SBI)</span></div><div class="pay-bank-row"><span>Account Number</span><span>39847201956384</span></div><div class="pay-bank-row"><span>IFSC Code</span><span>SBIN0001823</span></div><div class="pay-bank-row"><span>Branch</span><span>Kasba, Kolkata</span></div></div>
       <a class="pay-nbh" href="https://www.nobrokerHood.com" target="_blank"><span class="pay-nbh-icon">&#x1F3E0;</span><span class="pay-nbh-text"><strong>Pay via NoBrokerHood</strong><span>nobrokerHood.com</span></span><span class="pay-nbh-arrow">&rarr;</span></a>
       <p class="pay-sec">Submit Payment Receipt</p>
-      <div class="pay-row"><div class="pf"><label>Flat Number *</label><select id="payFlat"><option value="">Select flat&hellip;</option><option value='1B'>1B</option>
-<option value='1C'>1C</option>
-<option value='2B'>2B</option>
-<option value='2C'>2C</option>
-<option value='2D'>2D</option>
-<option value='3A'>3A</option>
-<option value='3B'>3B</option>
-<option value='3C'>3C</option>
-<option value='3D'>3D</option>
-<option value='4A'>4A</option>
-<option value='4B'>4B</option>
-<option value='4C'>4C</option>
-<option value='4D'>4D</option>
-<option value='5A'>5A</option>
-<option value='5B'>5B</option>
-<option value='5C'>5C</option>
-<option value='5D'>5D</option>
-<option value='6A'>6A</option>
-<option value='6B'>6B</option>
-<option value='6C'>6C</option>
-<option value='6D'>6D</option>
-<option value='7A'>7A</option>
-<option value='7B'>7B</option>
-<option value='7C'>7C</option>
-<option value='7D'>7D</option>
-<option value='8A'>8A</option>
-<option value='8B'>8B</option>
-<option value='8C'>8C</option>
-<option value='8D'>8D</option>
-<option value='9A'>9A</option>
-<option value='9B'>9B</option>
-<option value='9C'>9C</option>
-<option value='9D'>9D</option>
-<option value='10A'>10A</option>
-<option value='10B'>10B</option>
-<option value='10C'>10C</option>
-<option value='10D'>10D</option>
-<option value='11A'>11A</option>
-<option value='11B'>11B</option>
-<option value='11C'>11C</option>
-<option value='11D'>11D</option>
-<option value='12A'>12A</option>
-<option value='12B'>12B</option>
-<option value='12C'>12C</option>
-<option value='12D'>12D</option>
-<option value='13A'>13A</option>
-<option value='13B'>13B</option>
-<option value='13C'>13C</option>
-<option value='13D'>13D</option>
-<option value='14A'>14A</option>
-<option value='14B'>14B</option>
-<option value='14C'>14C</option>
-<option value='14D'>14D</option>
-<option value='15A'>15A</option>
-<option value='15B'>15B</option>
-<option value='15C'>15C</option>
-<option value='15D'>15D</option>
-<option value='16A'>16A</option>
-<option value='16B'>16B</option>
-<option value='16C'>16C</option>
-<option value='16D'>16D</option>
-<option value='17A'>17A</option>
-<option value='17B'>17B</option>
-<option value='17C'>17C</option>
-<option value='17D'>17D</option>
-<option value='18A'>18A</option>
-<option value='18B'>18B</option>
-<option value='18C'>18C</option>
-<option value='18D'>18D</option></select></div><div class="pf"><label>Payment Mode *</label><select id="payMode"><option value="">Select&hellip;</option><option>UPI</option><option>Net Banking</option><option>NoBrokerHood</option><option>NEFT / RTGS</option><option>Cheque</option></select></div></div>
+      <div class="pay-row"><div class="pf"><label>Flat Number *</label><select id="payFlat"><option value="">Select flat&hellip;</option></select></div><div class="pf"><label>Payment Mode *</label><select id="payMode"><option value="">Select&hellip;</option><option>UPI</option><option>Net Banking</option><option>NoBrokerHood</option><option>NEFT / RTGS</option><option>Cheque</option></select></div></div>
       <div class="pay-row"><div class="pf"><label>Transaction ID *</label><input type="text" id="payTxn" placeholder="e.g. TXN123456"/></div><div class="pf"><label>Amount Paid (Rs.) *</label><input type="number" id="payAmt" placeholder="e.g. 3500"/></div></div>
       <div class="pay-row full"><div class="pf"><label>Months Paid For *</label><div class="pay-months-grid" id="payMonthsGrid"><label class='pay-month-cb'><input type='checkbox' name='month' value='January 2026'/> January 2026</label>
 <label class='pay-month-cb'><input type='checkbox' name='month' value='February 2026'/> February 2026</label>
@@ -896,7 +800,7 @@ footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2re
   <div class="ft-bot"><span>&copy; 2026 Signature 18 Association of Apartment Owners, Kasba, Kolkata. All rights reserved.</span><span class="vtag">v1.0</span></div>
 </footer>
 
-<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
 <script>
   const EMAILJS_PUBLIC_KEY="YOUR_PUBLIC_KEY";
@@ -913,152 +817,28 @@ footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2re
     messagingSenderId:"1043699444207",
     appId:"1:1043699444207:web:890298821572a2eb6b2e1a"
   };
-  const RESIDENTS=[
-  {flat:'1B',name:'SMT. SWETA BANERJEE',phone:'9830299966',email:'indranil5673@gmail.com',parking:''},
-  {flat:'1C',name:'SRI SANJOY SARKAR & SMT. SOMA SARKAR',phone:'9830917643/9432211300',email:'sanjoysarkar02@gmail.com',parking:''},
-  {flat:'2B',name:'SRI TAPABRATA RAY & SMT. SHREYASHI DHAR CHOWDHURY',phone:'9583158117/8586934034',email:'tapabrataray@yahoo.co.in',parking:''},
-  {flat:'2C',name:'MRS. DAPHNE PHILOMENA RYAN & MR.TYRON MARK RYAN',phone:'9831255139/9831295438',email:'daphneryan@rediffmail.com',parking:''},
-  {flat:'2D',name:'DR. SAUMITRA KAMAR & MRS. MAITRAYEE KAMAR',phone:'9732625505',email:'dr.soumitrakamar@gmail.com',parking:''},
-  {flat:'3A',name:'SMT MADHUMITA BASU AND SRI SUKANTA BHATTACHARYA',phone:'9836354292/9830657108',email:'bhattacharya.sukanta@gmail.com',parking:''},
-  {flat:'3B',name:'MR. SIBDAS CHAKRAVARTI & MRS. JENNIFER CHAKRAVARTY(4BHK)',phone:'973307777',email:'michael.chakravarti@gmail.com',parking:''},
-  {flat:'3C',name:'MR. SIBDAS CHAKRAVARTI & MRS. JENNIFER CHAKRAVARTY',phone:'973307777',email:'michael.chakravarti@gmail.com',parking:''},
-  {flat:'3D',name:'SRI BIBHUTOSH DAS AND SMT CHAITALI DAS',phone:'9925152975',email:'bibhuscanner@gmail.com',parking:''},
-  {flat:'4A',name:'SMT. ILA CHOWDHARY &  SRI ABHIJEET NANDAN',phone:'8240579352',email:'ilachowdhary@gmail.com',parking:''},
-  {flat:'4B',name:'SMT.NISHI SRIVASTAVA & MR. VIVEK SRIVASTAVA',phone:'7044044890',email:'viveknishi2021@gmail.com',parking:''},
-  {flat:'4C',name:'MR. SUDEEP BISWAS & MRS. SHANTA BISWAS',phone:'9433552080/9331239080',email:'sudeepwbpdcl@gmail.com',parking:''},
-  {flat:'4D',name:'SAYANTI MUKHERJEE',phone:'9830864187',email:'sayanti.mukherjee87@gmail.com',parking:''},
-  {flat:'5A',name:'SRI ARNAB NANDAN & SMT. PAYEL DEV NANDAN',phone:'7086055900/8638281503',email:'arnab.nandan@tatamotors.com',parking:''},
-  {flat:'5B',name:'SRI NILADRI BHATTACHARJEE AND SMT MOUSUMI BHATTACHARJEE',phone:'7205063002/7750024035',email:'niladri-86@live.com',parking:''},
-  {flat:'5C',name:'SMT. CHANDRIMA HALDAR',phone:'9051227006',email:'haldarutsav@gmail.com',parking:''},
-  {flat:'5D',name:'MRS.SHAREEN ESLINDA RYAN & MR.SHANE FABIAN RYAN',phone:'9831043483',email:'s_flavien@yahoo.com',parking:''},
-  {flat:'6A',name:'SMT. KAKALI DATTA & SRI PALASH DATTA',phone:'9123002698/7980228091',email:'kakali1980datta@gmail.com',parking:''},
-  {flat:'6B',name:'SRI ABHIJIT CHKARABORTY & MRS.SUDESHNA BANERJEE',phone:'9830483190',email:'connectwithabhijit@yahoo.in',parking:''},
-  {flat:'6C',name:'SRI RAKESH RANJAN & SMT. NISHA PRASAD',phone:'9836891123',email:'rakesh.ranjen@gmail.com',parking:''},
-  {flat:'6D',name:'SRIMATI  DYUTI SAHA/SRI ABHISHEK CHAKRABORTY',phone:'9007317133/8961225055',email:'dyutisg99@gmail.com',parking:''},
-  {flat:'7A',name:'SRI SUMANTA CHAKRABARTI & MRS. APARAJITA CHATTERJEE',phone:'7003986737',email:'sumanta088@gmail.com',parking:''},
-  {flat:'7B',name:'SRI PRIYANGSHU GHOSH & SRI PRADIP KUMAR GHOSH',phone:'9494862880/8777600920',email:'pghosh06@gmail.com',parking:''},
-  {flat:'7C',name:'SRI SUBHRA RAY/JAYANTA RAY',phone:'9830045039/9830020430',email:'jayantaray3@gmail.com',parking:''},
-  {flat:'7D',name:'SRI SUBHASISH BHOWMICK',phone:'9831397613',email:'subhasish.bhowmick@gmail.com',parking:''},
-  {flat:'8A',name:'SRI SUBHAJIT MUKHERJEE',phone:'9038585712',email:'subhajit.mukherjee971@gmail.com',parking:''},
-  {flat:'8B',name:'SRI SURAJIT GHOSH & SIMPAL GHOSH',phone:'9830280620',email:'sayanjitghosh58@gmail.com',parking:''},
-  {flat:'8C',name:'SRI SAYANJIT GHOSH & SIMPAL GHOSH',phone:'9836110301',email:'sayanjitghosh58@gmail.com',parking:''},
-  {flat:'8D',name:'SRI SHYAMAL KUMAR MONDAL AND SMT SARMISTHA MONDAL',phone:'8372978959',email:'shyamal1970@gmail.com',parking:''},
-  {flat:'9A',name:'SRI SANDIPAN NAG',phone:'9830305267',email:'nag.sandipan@gmail.com',parking:''},
-  {flat:'9B',name:'SRI RAHUL DEV ROY AND SMT HAIMANTI ROY',phone:'9663007959',email:'rahul.dev.roy.iitb@gmail.com',parking:''},
-  {flat:'9C',name:'SRI TRYAMBAK DEY & MRS. SRABANI SARKAR',phone:'9674713269',email:'rkdey40@rediffmail.com',parking:''},
-  {flat:'9D',name:'SMT BANASHRI KUMAR AND SRI SOUMIT KUMAR',phone:'9477702039',email:'soumit.kumar@gmail.com',parking:''},
-  {flat:'10A',name:'SMT ADREEJA ACHARYYA & MR. ARNAB ACHARJEE',phone:'9830341101/9836741417',email:'adreeja.acharyya@gmail.com',parking:''},
-  {flat:'10B',name:'MR. TARUN KUMAR SEN, MRS. SANTI SEN & MR. SANDIP BASU',phone:'9831001143',email:'tsen8116@gmail.com',parking:''},
-  {flat:'10C',name:'SRI ARNAB PALODHY AND SMT RASHMITA DAS',phone:'7872724504/9674760220',email:'dr.arnabpalodhy@gmail.com',parking:''},
-  {flat:'10D',name:'SMT JAYATI GHOSH AND SRI RATNADEEP GHOSH',phone:'9432505960',email:'doctorghosh@gmail.com',parking:''},
-  {flat:'11A',name:'SMT JAYEETA MUKHERJEE AND SRI ANUJ PRAMANICK',phone:'9830936360',email:'a_pramanick@rediffmail.com',parking:''},
-  {flat:'11B',name:'ABHRA MUKHOPADHYAY & GARGI MUKHOPADHYAY',phone:'9830029830',email:'abhra.mukhopadhyay@gmail.com',parking:''},
-  {flat:'11C',name:'DR. SUBRATA LAHIRI &  MRS. KANIKA LAHIRI',phone:'9831883482',email:'subratadrlahiri@gmail.com',parking:''},
-  {flat:'11D',name:'SRI ATANU DAS',phone:'8802297797',email:'sahebarchi@gmail.com',parking:''},
-  {flat:'12A',name:'SRI SHYAMAL CHATTERJEE, SRI SAYAN CHATTERJEE AND SMT MUNMUN CHATTERJEE',phone:'9903387360',email:'sayanchatt151192@gmail.com',parking:''},
-  {flat:'12B',name:'SMT PIYALI MAITRA',phone:'9083514279',email:'piyalimtr68@gmail.com',parking:''},
-  {flat:'12C',name:'SRI DEBDEEP CHATTERJEE AND SMT NAVANITA DUTTA CHOWDURY',phone:'9874714410',email:'debdeep14985@gmail.com',parking:''},
-  {flat:'12D',name:'SMT SUSMITA PAL AND SRI SIDDHARTHA PAL',phone:'9339823768',email:'siddharthapal27@gmail.com',parking:''},
-  {flat:'13A',name:'DEBJANI BASU AND RAHUL BASU',phone:'9883019512',email:'rahul_b_in@yahoo.com',parking:''},
-  {flat:'13B',name:'MRS. SWAPNA MAITI',phone:'6289018738',email:'motilalm44@gmail.com',parking:''},
-  {flat:'13C',name:'SRI SOUVIK KUMAR/ANKITA DAS',phone:'9582942985',email:'makhankumar@gmail.com',parking:''},
-  {flat:'13D',name:'SRI ARPAN PAUL',phone:'8900020907',email:'arpanpaul999@gmail.com',parking:''},
-  {flat:'14A',name:'SRI ABBYA BISWAS & MRS. TULIKA BISWAS',phone:'8910363261',email:'biswasabbya@gmail.com',parking:''},
-  {flat:'14B',name:'RUPAK KUNDU AND SAHELI SAHA',phone:'9836054982',email:'drrupakkundusmc@gmail.com',parking:''},
-  {flat:'14C',name:'SANCHARI MUKHERJEE',phone:'9836622485',email:'mukherjee.sanchari@gmail.com',parking:''},
-  {flat:'14D',name:'SRI SANDIPAN GHOSH AND SMT RITA GHOSH',phone:'9874273737',email:'sghosh.cloud@gmail.com',parking:''},
-  {flat:'15A',name:'TANYA DAS',phone:'9830017107',email:'das_tanya@yahoo.com',parking:''},
-  {flat:'15B',name:'SRI SANJOY BHOWMICK AND SMT DEBJANI BHOWMICK',phone:'9433996638',email:'sanmick03@gmail.com',parking:''},
-  {flat:'15C',name:'SRI SUMIT GHOSH &SMT. KAKOLI SINHA',phone:'7063255543',email:'sumit.2bai@gmail.com',parking:''},
-  {flat:'15D',name:'SRI PARTHA SARATHI BISWAS & SMT. SURANJANA BISWAS',phone:'9939290723',email:'to.biswasps@gmail.com',parking:''},
-  {flat:'16A',name:'DR.KAUSHAMBI ROY',phone:'7980220098',email:'kaushambiroy@gmail.com',parking:''},
-  {flat:'16B',name:'SRI SUBRATA MITRA/ MRS. RUPA SHOME',phone:'9674713024',email:'subratamitra1967@gmail.com',parking:''},
-  {flat:'16C',name:'SRI SAMRAT KABIRAJ AND SMT SOMA PURKAYASTHA KABIRAJ',phone:'9836662221',email:'samratkabiraj@gmail.com',parking:''},
-  {flat:'16D',name:'SRI TUSHAR KANTI JANA',phone:'9831060097',email:'proftkj@gmail.com',parking:''},
-  {flat:'17A',name:'SRI PRAKASH YADAV , SMT. KALPANA JADAV, SRI RAHUL JADAV',phone:'9836026625',email:'rahul_hallmarks@yahoo.co.in',parking:''},
-  {flat:'17B',name:'DR. SUPRAKASH ROY & DR. CHANDRAYEE ROY SAHA',phone:'9331026873',email:'dr.suprakashroy@gmail.com',parking:''},
-  {flat:'17C',name:'SRI PRITAM HIRA',phone:'9830581563',email:'preetamhira5@yahoo.co.in',parking:''},
-  {flat:'17D',name:'MS. SUSHMITA DEBNATH',phone:'9830677065',email:'susmita_deb2@rediffmail.com',parking:''},
-  {flat:'18A',name:'MRS. SHABNAM SHOME, MR. RAJIV SHOME',phone:'9830014757',email:'shomeshabnam@yahoo.co.in',parking:''},
-  {flat:'18B',name:'SRI SHILADITYA BHOWMIK',phone:'9769219880',email:'shiladitya23@gmail.com',parking:''},
-  {flat:'18C',name:'SRI SAMIR DAS',phone:'9830572211',email:'samir.rse@gmail.com',parking:''},
-  {flat:'18D',name:'MR. MILAN KUMAR DUTTA',phone:'7872393447',email:'milandutta1974@gmail.com',parking:''}
-];
-  const ALLOWED = new Set([
-    'a_pramanick@rediffmail.com',
-    'abhra.mukhopadhyay@gmail.com',
-    'adreeja.acharyya@gmail.com',
-    'arnab.nandan@tatamotors.com',
-    'arpanpaul999@gmail.com',
-    'bhattacharya.sukanta@gmail.com',
-    'bibhuscanner@gmail.com',
-    'biswasabbya@gmail.com',
-    'connectwithabhijit@yahoo.in',
-    'daphneryan@rediffmail.com',
-    'das_tanya@yahoo.com',
-    'debdeep14985@gmail.com',
-    'doctorghosh@gmail.com',
-    'dr.arnabpalodhy@gmail.com',
-    'dr.soumitrakamar@gmail.com',
-    'dr.suprakashroy@gmail.com',
-    'drrupakkundusmc@gmail.com',
-    'dyutisg99@gmail.com',
-    'haldarutsav@gmail.com',
-    'ig18aaokolkata@gmail.com',
-    'ilachowdhary@gmail.com',
-    'indranil5673@gmail.com',
-    'jayantaray3@gmail.com',
-    'kakali1980datta@gmail.com',
-    'kaushambiroy@gmail.com',
-    'makhankumar@gmail.com',
-    'michael.chakravarti@gmail.com',
-    'milandutta1974@gmail.com',
-    'motilalm44@gmail.com',
-    'mukherjee.sanchari@gmail.com',
-    'nag.sandipan@gmail.com',
-    'niladri-86@live.com',
-    'pghosh06@gmail.com',
-    'piyalimtr68@gmail.com',
-    'preetamhira5@yahoo.co.in',
-    'proftkj@gmail.com',
-    'rahul.dev.roy.iitb@gmail.com',
-    'rahul_b_in@yahoo.com',
-    'rahul_hallmarks@yahoo.co.in',
-    'rakesh.ranjen@gmail.com',
-    'rkdey40@rediffmail.com',
-    's_flavien@yahoo.com',
-    'sahebarchi@gmail.com',
-    'samir.rse@gmail.com',
-    'samratkabiraj@gmail.com',
-    'sanjoysarkar02@gmail.com',
-    'sanmick03@gmail.com',
-    'sayanchatt151192@gmail.com',
-    'sayanjitghosh58@gmail.com',
-    'sayanti.mukherjee87@gmail.com',
-    'sghosh.cloud@gmail.com',
-    'shiladitya23@gmail.com',
-    'shomeshabnam@yahoo.co.in',
-    'shyamal1970@gmail.com',
-    'siddharthapal27@gmail.com',
-    'sig18aaokolkata@gmail.com',
-    'ig18aaokolkata@gmail.com',
-    'fm.signature18@gmail.com',
-    'association@signature18kasba.in',
-    'manager@signature18kasba.in',
-    'soumit.kumar@gmail.com',
-    'subhajit.mukherjee971@gmail.com',
-    'subhasish.bhowmick@gmail.com',
-    'subratadrlahiri@gmail.com',
-    'subratamitra1967@gmail.com',
-    'sudeepwbpdcl@gmail.com',
-    'sumanta088@gmail.com',
-    'sumit.2bai@gmail.com',
-    'susmita_deb2@rediffmail.com',
-    'tapabrataray@yahoo.co.in',
-    'to.biswasps@gmail.com',
-    'tsen8116@gmail.com',
-    'viveknishi2021@gmail.com'
-  ]);
+  // RESIDENTS loaded from residents.json — edit that file and redeploy to update
+  let RESIDENTS = [];
+  fetch('residents.json')
+    .then(r => r.json())
+    .then(data => {
+      RESIDENTS = data;
+      // Build ALLOWED from resident emails in JSON
+      ALLOWED = new Set(data.map(r => r.email.toLowerCase()).filter(Boolean));
+      // Also always allow association emails
+      ['sig18aaokolkata@gmail.com','fm.signature18@gmail.com','sig18aaokolkata@gmail.com'].forEach(e => ALLOWED.add(e));
+      // Populate all flat dropdowns
+      const opts = data.map(r => '<option value="' + r.flat + '">' + r.flat + '</option>').join('');
+      ['bFlat','qFlat','payFlat'].forEach(id => {
+        const el = document.getElementById(id);
+        if(el) el.innerHTML = '<option value="">Select flat&hellip;</option>' + opts;
+      });
+    })
+    .catch(() => console.error('Could not load residents.json'));
+
+  // ALLOWED emails built dynamically from residents.json
+  // No need to maintain a separate whitelist — it stays in sync automatically
+  let ALLOWED = new Set();
 
   const PROFILES = {
     am:  {name:"Dr. Abhra Mukhopadhyay (11B)",         role:"President",                                                              bio:"A doctor by profession with a strong inclination toward law — a meticulous perfectionist who has a knack for expressing his thoughts through timeless clichés. Widely respected within the Society, he brings wisdom, conviction, and a principled voice to community matters."},
@@ -1141,11 +921,133 @@ footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2re
     }
   }
 
+
+  // ── EMAIL / PASSWORD SIGN-IN ──
+  const epProvider = new firebase.auth.EmailAuthProvider();
+
+  function toggleEpForm(){
+    const form = document.getElementById('epForm');
+    const toggle = document.getElementById('epToggle');
+    const isShowing = form.classList.contains('show');
+    form.classList.toggle('show', !isShowing);
+    toggle.style.display = isShowing ? '' : 'none';
+    if(!isShowing) document.getElementById('epEmail').focus();
+  }
+
+  function doEpSignIn(){
+    const email = document.getElementById('epEmail').value.trim();
+    const password = document.getElementById('epPassword').value;
+    const btn = document.getElementById('epSignInBtn');
+    const err = document.getElementById('memberGateErr');
+    if(!email || !password){
+      err.innerHTML = 'Please enter your email and password.';
+      err.classList.add('show');
+      return;
+    }
+    btn.disabled = true;
+    btn.textContent = 'Signing in…';
+    err.classList.remove('show');
+    fbAuth.signInWithEmailAndPassword(email, password)
+      .then(r => processUser(r.user))
+      .catch(e => {
+        btn.disabled = false;
+        btn.textContent = 'Sign In';
+        let msg = 'Sign-in failed. Please try again.';
+        if(e.code === 'auth/user-not-found' || e.code === 'auth/wrong-password' || e.code === 'auth/invalid-credential')
+          msg = 'Incorrect email or password.';
+        else if(e.code === 'auth/invalid-email')
+          msg = 'Please enter a valid email address.';
+        else if(e.code === 'auth/too-many-requests')
+          msg = 'Too many attempts. Please try again later.';
+        err.innerHTML = msg;
+        err.classList.add('show');
+      });
+  }
+
+  function doForgotPassword(){
+    const email = document.getElementById('epEmail').value.trim();
+    const err = document.getElementById('memberGateErr');
+    if(!email){
+      err.innerHTML = 'Enter your email address above first.';
+      err.classList.add('show');
+      return;
+    }
+    fbAuth.sendPasswordResetEmail(email)
+      .then(() => {
+        err.innerHTML = '&#x2705; Password reset email sent to <b>' + email + '</b>';
+        err.classList.add('show');
+        err.style.color = '#4caf50';
+      })
+      .catch(e => {
+        err.innerHTML = 'Could not send reset email. Check the address and try again.';
+        err.classList.add('show');
+      });
+  }
+
+  // Auto sign-out after 8 hours of inactivity
+  let inactivityTimer;
+  function resetInactivityTimer(){
+    clearTimeout(inactivityTimer);
+    inactivityTimer = setTimeout(() => {
+      if(fbAuth.currentUser) fbAuth.signOut().then(() => window.location.reload());
+    }, 8 * 60 * 60 * 1000);
+  }
+  ['click','keydown','scroll','touchstart'].forEach(e =>
+    document.addEventListener(e, resetInactivityTimer, {passive:true})
+  );
+  resetInactivityTimer();
+
+
+  // ── NOTICES ──
+  function renderNotices(data){
+    const grid = document.getElementById('noticeGrid');
+    if(!grid) return;
+    grid.innerHTML = data.map(n => {
+      const urgent = n.urgent ? 'nc-urgent' : '';
+      const badge = n.badge ? '<div class="nc-badge">'+n.badge+'</div>' : '';
+      const date = n.date ? '<p class="nc-date">&#x1F4C5; Posted: '+n.date+'</p>' : '';
+      return '<div class="nc '+urgent+' sc">'+badge+'<p class="nc-type">'+n.type+'</p><h3>'+n.title+'</h3><p>'+n.body+'</p>'+date+'</div>';
+    }).join('');
+  }
+
+  // ── EVENTS ──
+  function renderEvents(data){
+    const list = document.getElementById('eventList'); // ev-grid
+    const calGrid = document.getElementById('calGrid');
+    if(!list) return;
+
+    list.innerHTML = data.map(e =>
+      '<div class="ev-row sc"><div class="ev-dt"><div class="ev-day">'+e.day+'</div><div class="ev-mon">'+e.month+'</div></div><div class="ev-sep"></div><div class="ev-info"><h4>'+e.title+'</h4>'+(e.desc?'<p>'+e.desc+'</p>':'')+'</div>'+(e.label?'<span class="ev-tag '+(e.tag||'t-soc')+'">'+e.label+'</span>':'')+'</div>'
+    ).join('');
+
+  }
+
+  // ── FETCH NOTICES & EVENTS ──
+  fetch('notices.json').then(r=>r.json()).then(data=>{
+    renderNotices(data);
+    // Trigger scroll animation on newly added cards
+    setTimeout(()=>document.querySelectorAll('#noticeGrid .sc').forEach(el=>so.observe(el)),50);
+  })
+    .catch(()=>{ document.getElementById('noticeGrid').innerHTML='<div class="nc sc" style="color:rgba(255,255,255,0.4);padding:2rem;text-align:center;">Could not load notices.</div>'; });
+
+  fetch('events.json').then(r=>r.json()).then(data=>{
+    renderEvents(data);
+    setTimeout(()=>document.querySelectorAll('#eventList .sc').forEach(el=>so.observe(el)),50);
+  })
+    .catch(()=>{ document.getElementById('eventList').innerHTML='<div class="ev-row" style="color:#aab;padding:1.2rem;">Could not load events.</div>'; });
+
   fbAuth.onAuthStateChanged(user => processUser(user));
 
-  const ao=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ao.unobserve(x.target);}});},{threshold:0.08});
-  const so=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const s=Array.from(x.target.parentElement.querySelectorAll('.sc'));setTimeout(()=>x.target.classList.add('visible'),s.indexOf(x.target)*80);so.unobserve(x.target);}});},{threshold:0.06});
+  const ao=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ao.unobserve(x.target);}});},{threshold:0,rootMargin:'0px 0px -20px 0px'});
+  const so=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const s=Array.from(x.target.parentElement.querySelectorAll('.sc'));setTimeout(()=>x.target.classList.add('visible'),s.indexOf(x.target)*80);so.unobserve(x.target);}});},{threshold:0,rootMargin:'0px 0px -10px 0px'});
   document.querySelectorAll('.fade-up,.fade-left,.fade-right').forEach(el=>ao.observe(el));
+  // Fallback: ensure all elements become visible if observer doesn't fire
+  setTimeout(()=>{
+    document.querySelectorAll('.fade-up,.fade-left,.fade-right,.sc').forEach(el=>{
+      if(!el.classList.contains('visible')) el.classList.add('visible');
+    });
+  }, 1500);
+
   document.querySelectorAll('.sc').forEach(el=>so.observe(el));
 
   document.getElementById('hamburger').addEventListener('click',()=>document.getElementById('navLinks').classList.toggle('open'));
@@ -1172,7 +1074,7 @@ footer{background:#0a1a3b;border-top:3px solid var(--gold);padding:2rem 5% 1.2re
     const f=q?RESIDENTS.filter(r=>r.flat.toLowerCase().includes(q.toLowerCase())||r.name.toLowerCase().includes(q.toLowerCase())):RESIDENTS;
     ce.textContent=f.length+' resident'+(f.length!==1?'s':'')+(q?' found':'');
     if(!f.length){li.innerHTML='<p style="text-align:center;color:#999;padding:2rem;">No results found.</p>';return;}
-    li.innerHTML=f.map(r=>'<div class="res-row"><div class="res-flat">'+r.flat+'</div><div class="res-info"><div class="res-name">'+r.name+'</div>'+(r.phone?'<div class="res-meta">Phone: '+r.phone+'</div>':'')+(r.email?'<div class="res-meta">Email: '+r.email+'</div>':'')+'</div></div>').join('');
+    li.innerHTML=f.map(r=>'<div class="res-row"><div class="res-flat">'+r.flat+'</div><div class="res-info"><div class="res-name">'+r.name+'</div>'+(r.phone?'<div class="res-meta">&#x1F4DE; '+r.phone+'</div>':'')+(r.email?'<div class="res-meta">&#x2709; '+r.email+'</div>':'')+(r.parking?'<div class="res-meta">&#x1F17F;&#xFE0F; Parking: '+r.parking+'</div>':'')+(r.intercom?'<div class="res-meta">&#x260E;&#xFE0F; Intercom: '+r.intercom+'</div>':'')+'</div></div>').join('');
   }
 
   let bookedDates=[];
