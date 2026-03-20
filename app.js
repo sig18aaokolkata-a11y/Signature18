@@ -12,28 +12,30 @@
     messagingSenderId:"1043699444207",
     appId:"1:1043699444207:web:890298821572a2eb6b2e1a"
   };
-  // RESIDENTS loaded from residents.json — edit that file and redeploy to update
+  // RESIDENTS — loaded only after successful login (security: not exposed on page load)
   let RESIDENTS = [];
-  fetch('residents.json')
-    .then(r => r.json())
-    .then(data => {
-      RESIDENTS = data;
-      // Build ALLOWED from resident emails in JSON
-      ALLOWED = new Set(data.map(r => r.email.toLowerCase()).filter(Boolean));
-      // Also always allow association emails
-      ['sig18aaokolkata@gmail.com','fm.signature18@gmail.com','sig18aaokolkata@gmail.com'].forEach(e => ALLOWED.add(e));
-      // Populate all flat dropdowns
-      const opts = data.map(r => '<option value="' + r.flat + '">' + r.flat + '</option>').join('');
-      ['bFlat','qFlat','payFlat'].forEach(id => {
-        const el = document.getElementById(id);
-        if(el) el.innerHTML = '<option value="">Select flat&hellip;</option>' + opts;
-      });
-    })
-    .catch(() => console.error('Could not load residents.json'));
-
-  // ALLOWED emails built dynamically from residents.json
-  // No need to maintain a separate whitelist — it stays in sync automatically
   let ALLOWED = new Set();
+
+  // Association emails always allowed
+  ['sig18aaokolkata@gmail.com','fm.signature18@gmail.com'].forEach(e => ALLOWED.add(e));
+
+  function loadResidents(){
+    return fetch('residents.json?v=1.5')
+      .then(r => r.json())
+      .then(data => {
+        RESIDENTS = data;
+        // Build ALLOWED from resident emails
+        ALLOWED = new Set(data.map(r => r.email.toLowerCase()).filter(Boolean));
+        ['sig18aaokolkata@gmail.com','fm.signature18@gmail.com'].forEach(e => ALLOWED.add(e));
+        // Populate flat dropdowns
+        const opts = data.map(r => '<option value="' + r.flat + '">' + r.flat + '</option>').join('');
+        ['bFlat','qFlat','payFlat','rentFlat'].forEach(id => {
+          const el = document.getElementById(id);
+          if(el) el.innerHTML = '<option value="">Select flat&hellip;</option>' + opts;
+        });
+      })
+      .catch(() => console.error('Could not load residents.json'));
+  }
 
   const PROFILES = {
     am:  {name:"Dr. Abhra Mukhopadhyay (11B)",         role:"President",                                                              bio:"A doctor by profession with a strong inclination toward law — a meticulous perfectionist who has a knack for expressing his thoughts through timeless clichés. Widely respected within the Society, he brings wisdom, conviction, and a principled voice to community matters."},
@@ -43,8 +45,8 @@
     sc:  {name:"Mr. Sayan Chatterjee (12A)",           role:"Manager (Communication, Technology, Games & Recreational Facilities)",   bio:"A vibrant management professional who still hasn’t lost his penchant for coding. A devoted family man who skillfully balances the joys of fatherhood with the many demands of consulting life."},
     sk:  {name:"Mr. Souvik Kumar (13C)",               role:"Manager (Communication, Specialised Maintenance Portfolio)",             bio:"A seemingly reserved management professional who turns out to be great fun once you get to know him. Passionate about long driving tours and an excellent cook, he’s just the kind of person you’d want by your side when needed."},
     btd: {name:"Mr. Bibhutosh Das (3D)",               role:"Manager (Compliance & Liaison with Grievance Committee)",               bio:"A proud retiree from a Maharatna PSU, he now spends his time juggling between karaoke renditions of old Hindi classics and animated discussions on legal and compliance matters. Whether you agree with him or not, Mr. ‘3D’ is someone who always makes his presence felt!"},
-    spk: {name:"Mrs. Soma Purkayastha Kabiraj (16C)",  role:"Manager",                                                               bio:"Active committee manager contributing to community decisions and resident welfare."},
-    mjb: {name:"Mrs. Mousumi Jana Bhattacharya (16D)", role:"Manager",                                                               bio:"Active committee manager contributing to community decisions and resident welfare."},
+    spk: {name:"Mrs. Soma Purkayastha Kabiraj (16C)",  role:"Manager",                                                               bio:"An esteemed member of our association committee, she brings a strong sense of responsibility, professionalism, and commitment to community welfare. Known for her approachable demeanor and balanced perspective, she actively contributes to creating an inclusive and well-coordinated environment for all residents."},
+    mjb: {name:"Mrs. Mousumi Jana Bhattacharya (16D)", role:"Manager",                                                               bio:"She demonstrates a commendable ability to manage responsibilities with diligence and attention to detail, playing a key role in the planning and execution of various initiatives. Her structured approach and collaborative mindset help ensure the smooth functioning of committee activities."},
     db:  {name:"Mrs. Debjani Bhowmick (15B)",          role:"Cultural Secretary",                                                    bio:"A jovial superlady whose infectious energy keeps everything moving — from household duties and motherhood to an active social life. Her positivity brings residents together, making her a natural at community bonding and a brilliant event organiser."},
   };
   function openP(key){var p=PROFILES[key];if(p)openM(p.name,p.role,"",p.bio);}
@@ -105,12 +107,15 @@
   function processUser(user){
     if(user){
       const email = user.email.toLowerCase();
-      if(ALLOWED.has(email)){
-        unlockMembers(user);
-      } else {
-        fbAuth.signOut();
-        lockMembers('&#x26A0;&#xFE0F; <b>' + user.email + '</b> is not registered as a resident.<br/>Contact: sig18aaokolkata@gmail.com');
-      }
+      // Load residents after login — not exposed on page load
+      loadResidents().then(() => {
+        if(ALLOWED.has(email)){
+          unlockMembers(user);
+        } else {
+          fbAuth.signOut();
+          lockMembers('&#x26A0;&#xFE0F; <b>' + user.email + '</b> is not registered as a resident.<br/>Contact: &ldquo;sig18aaokolkata&#64;gmail&#46;com&rdquo;');
+        }
+      });
     } else {
       lockMembers();
     }
@@ -218,20 +223,76 @@
   }
 
   // ── FETCH NOTICES & EVENTS ──
-  fetch('notices.json').then(r=>r.json()).then(data=>{
+  fetch('notices.json?v=1.5').then(r=>r.json()).then(data=>{
     renderNotices(data);
     // Trigger scroll animation on newly added cards
     setTimeout(()=>document.querySelectorAll('#noticeGrid .sc').forEach(el=>so.observe(el)),50);
   })
     .catch(()=>{ document.getElementById('noticeGrid').innerHTML='<div class="nc sc" style="color:rgba(255,255,255,0.4);padding:2rem;text-align:center;">Could not load notices.</div>'; });
 
-  fetch('events.json').then(r=>r.json()).then(data=>{
+  fetch('events.json?v=1.1').then(r=>r.json()).then(data=>{
     renderEvents(data);
     setTimeout(()=>document.querySelectorAll('#eventList .sc').forEach(el=>so.observe(el)),50);
   })
     .catch(()=>{ document.getElementById('eventList').innerHTML='<div class="ev-row" style="color:#aab;padding:1.2rem;">Could not load events.</div>'; });
 
   fbAuth.onAuthStateChanged(user => processUser(user));
+
+  // ── GALLERY CAROUSEL ──
+  (function(){
+    const track   = document.getElementById('galTrack');
+    const dotsBox = document.getElementById('galDots');
+    const prevBtn = document.getElementById('galPrev');
+    const nextBtn = document.getElementById('galNext');
+    if(!track) return;
+
+    const slides = track.querySelectorAll('.carousel-slide');
+    const total  = slides.length;
+    let current  = 0;
+    let timer;
+
+    // Build dots
+    slides.forEach((_,i) => {
+      const d = document.createElement('button');
+      d.className = 'carousel-dot' + (i===0?' active':'');
+      d.setAttribute('aria-label','Slide '+(i+1));
+      d.addEventListener('click', () => goTo(i));
+      dotsBox.appendChild(d);
+    });
+
+    function goTo(n){
+      current = (n + total) % total;
+      track.style.transform = 'translateX(-' + (current * 100) + '%)';
+      dotsBox.querySelectorAll('.carousel-dot').forEach((d,i) =>
+        d.classList.toggle('active', i === current)
+      );
+    }
+
+    function next(){ goTo(current + 1); }
+    function prev(){ goTo(current - 1); }
+
+    function startAuto(){ timer = setInterval(next, 3000); }
+    function stopAuto() { clearInterval(timer); }
+
+    prevBtn.addEventListener('click', () => { stopAuto(); prev(); startAuto(); });
+    nextBtn.addEventListener('click', () => { stopAuto(); next(); startAuto(); });
+
+    // Pause on hover
+    track.parentElement.addEventListener('mouseenter', stopAuto);
+    track.parentElement.addEventListener('mouseleave', startAuto);
+
+    // Touch/swipe support
+    let touchStartX = 0;
+    track.addEventListener('touchstart', e => { touchStartX = e.touches[0].clientX; stopAuto(); }, {passive:true});
+    track.addEventListener('touchend',   e => {
+      const diff = touchStartX - e.changedTouches[0].clientX;
+      if(Math.abs(diff) > 40) diff > 0 ? next() : prev();
+      startAuto();
+    }, {passive:true});
+
+    startAuto();
+  })();
+
 
   const ao=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('visible');ao.unobserve(x.target);}});},{threshold:0,rootMargin:'0px 0px -20px 0px'});
   const so=new IntersectionObserver(e=>{e.forEach(x=>{if(x.isIntersecting){const s=Array.from(x.target.parentElement.querySelectorAll('.sc'));setTimeout(()=>x.target.classList.add('visible'),s.indexOf(x.target)*80);so.unobserve(x.target);}});},{threshold:0,rootMargin:'0px 0px -10px 0px'});
@@ -250,7 +311,7 @@
     let c='';document.querySelectorAll('section[id]').forEach(s=>{if(window.scrollY>=s.offsetTop-90)c=s.id;});
     document.querySelectorAll('.nav-links a').forEach(a=>{a.style.color=a.getAttribute('href')==='#'+c?'#c9a233':'';});
   });
-  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeM();closeResidents();closeBooking();closeQuery();closePay();closeBylaws();closeEmg();}});
+  document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeM();closeResidents();closeBooking();closeQuery();closePay();closeBylaws();closeEmg();closeRent();}});
 
   function openM(n,r,p,b){
     document.getElementById('mName').textContent=n;
@@ -269,18 +330,36 @@
     const f=q?RESIDENTS.filter(r=>r.flat.toLowerCase().includes(q.toLowerCase())||r.name.toLowerCase().includes(q.toLowerCase())):RESIDENTS;
     ce.textContent=f.length+' resident'+(f.length!==1?'s':'')+(q?' found':'');
     if(!f.length){li.innerHTML='<p style="text-align:center;color:#999;padding:2rem;">No results found.</p>';return;}
-    li.innerHTML=f.map(r=>'<div class="res-row"><div class="res-flat">'+r.flat+'</div><div class="res-info"><div class="res-name">'+r.name+'</div>'+(r.phone?'<div class="res-meta">&#x1F4DE; '+r.phone+'</div>':'')+(r.email?'<div class="res-meta">&#x2709; '+r.email+'</div>':'')+(r.parking?'<div class="res-meta">&#x1F17F;&#xFE0F; Parking: '+r.parking+'</div>':'')+(r.intercom?'<div class="res-meta">&#x260E;&#xFE0F; Intercom: '+r.intercom+'</div>':'')+'</div></div>').join('');
+    li.innerHTML=f.map(r=>{const unsold=r.name==='Unsold';return '<div class="res-row'+(unsold?' res-unsold':'')+'">'+'<div class="res-flat">'+r.flat+'</div>'+'<div class="res-info">'+'<div class="res-name">'+r.name+(unsold?' &mdash; <span style="font-size:0.72rem;font-weight:400;color:#bbb;">Not occupied</span>':'')+'</div>'+(unsold?'':(r.phone?'<div class="res-meta">&#x1F4DE; '+r.phone+'</div>':'')+(r.email?'<div class="res-meta">&#x2709; '+r.email+'</div>':'')+(r.parking?'<div class="res-meta">&#x1F17F;&#xFE0F; Parking: '+r.parking+'</div>':'')+(r.intercom?'<div class="res-meta">&#x260E;&#xFE0F; Intercom: '+r.intercom+'</div>':''))+'</div></div>';}).join('');
   }
 
   let bookedDates=[];
   async function loadBookedDates(){try{const t=await(await fetch(SHEET_CSV_URL)).text();bookedDates=t.split('\n').map(l=>l.trim().replace(/"/g,'')).filter(d=>/^[0-9]{4}-[0-9]{2}-[0-9]{2}$/.test(d));}catch(e){bookedDates=[];}}
+
+  // ── AUTO-FILL owner details from logged-in user's email ──
+  function autoFillOwner(flatId, nameId, phoneId, emailId){
+    const user = fbAuth.currentUser;
+    if(!user || !RESIDENTS.length) return;
+    const resident = RESIDENTS.find(r => r.email.toLowerCase() === user.email.toLowerCase());
+    if(!resident) return;
+    const flatEl = document.getElementById(flatId);
+    const nameEl = document.getElementById(nameId);
+    const phoneEl = document.getElementById(phoneId);
+    const emailEl = document.getElementById(emailId);
+    if(flatEl) flatEl.value = resident.flat;
+    if(nameEl && nameId) nameEl.value = resident.name;
+    if(phoneEl && phoneId) phoneEl.value = resident.phone;
+    if(emailEl && emailId) emailEl.value = resident.email;
+  }
+
   function openBooking(){
     document.getElementById('bookOv').classList.add('open');
     document.getElementById('bookFormWrap').style.display='';
     document.getElementById('bookSuccess').style.display='none';
     document.getElementById('bStatus').textContent='';
     ['bName','bPhone','bEmail','bDate','bStart','bEnd','bGuests','bParking','bNotes'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-    document.getElementById('bFlat').value='';document.getElementById('bType').value='';
+    document.getElementById('bType').value='';
+    autoFillOwner('bFlat','bName','bPhone','bEmail');
     document.getElementById('bBookedNote').style.display='none';document.getElementById('bAccept').checked=false;
     const d=document.getElementById('bDate');
     const t=new Date();t.setDate(t.getDate()+1);d.min=t.toISOString().split('T')[0];
@@ -297,7 +376,8 @@
     document.getElementById('qrySuccess').style.display='none';
     document.getElementById('qStatus').textContent='';
     ['qName','qPhone','qEmail','qSubject','qDesc'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-    document.getElementById('qFlat').value='';document.getElementById('qCategory').value='';document.getElementById('qPriority').value='Normal';
+    document.getElementById('qCategory').value='';document.getElementById('qPriority').value='Normal';
+    autoFillOwner('qFlat','qName','qPhone','qEmail');
     document.body.style.overflow='hidden';
   }
   function closeQuery(){document.getElementById('qryOv').classList.remove('open');document.body.style.overflow='';}
@@ -310,7 +390,8 @@
     document.getElementById('paySuccess').style.display='none';
     document.getElementById('payStatus').textContent='';
     ['payTxn','payAmt'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
-    document.getElementById('payFlat').value='';document.getElementById('payMode').value='';
+    document.getElementById('payMode').value='';
+    autoFillOwner('payFlat',null,null,null);
     document.querySelectorAll('#payMonthsGrid input[type=checkbox]').forEach(cb=>cb.checked=false);
     const ri=document.getElementById('payReceipt');if(ri)ri.value='';
     document.body.style.overflow='hidden';
@@ -324,6 +405,36 @@
       setTimeout(()=>btn.textContent=orig,2000);
     }).catch(()=>alert('UPI ID: signature18@sbi'));
   }
+
+
+  // ── RENT DECLARATION ──
+  function openRent(){
+    const ov=document.getElementById('rentOv');
+    if(!ov) return;
+    ov.classList.add('open');
+    document.getElementById('rentFormWrap').style.display='';
+    document.getElementById('rentSuccess').style.display='none';
+    document.getElementById('rentStatus').textContent='';
+    ['rentOwnerName','rentOwnerPhone','rentOwnerEmail','rentTenantName','rentTenantPhone',
+     'rentTenantEmail','rentMembers','rentStartDate','rentParking','rentVehicle',
+     'rentEmergency','rentNotes'].forEach(id=>{const el=document.getElementById(id);if(el)el.value='';});
+    ['rentTenantType','rentDuration','rentAgreement'].forEach(id=>{
+      const el=document.getElementById(id);if(el)el.value='';
+    });
+    document.querySelectorAll('input[name="rentPolice"]').forEach(r=>r.checked=false);
+    const ra=document.getElementById('rentAck');if(ra)ra.checked=false;
+    const rf=document.getElementById('rentAgreementFile');if(rf)rf.value='';
+    // Populate rentFlat from RESIDENTS
+    const rentFlatEl=document.getElementById('rentFlat');
+    if(rentFlatEl && RESIDENTS.length){
+      const opts=RESIDENTS.map(r=>'<option value="'+r.flat+'">'+r.flat+'</option>').join('');
+      rentFlatEl.innerHTML='<option value="">Select flat&hellip;</option>'+opts;
+    }
+    autoFillOwner('rentFlat','rentOwnerName','rentOwnerPhone','rentOwnerEmail');
+    document.body.style.overflow='hidden';
+  }
+  function closeRent(){document.getElementById('rentOv').classList.remove('open');document.body.style.overflow='';}
+  function resetRent(){openRent();}
 
   function openBylaws(){document.getElementById('bylOv').classList.add('open');document.body.style.overflow='hidden';}
   function closeBylaws(){document.getElementById('bylOv').classList.remove('open');document.body.style.overflow='';}
@@ -350,6 +461,12 @@
     }));
     safe('payOv',el=>el.addEventListener('click',e=>{if(e.target===el)closePay();}));
     safe('bylOv',el=>el.addEventListener('click',e=>{if(e.target===el)closeBylaws();}));
+    safe('rentOv',el=>el.addEventListener('click',e=>{if(e.target===el)closeRent();}));
+    safe('rentFlat',el=>el.addEventListener('change',function(){
+      const r=RESIDENTS.find(x=>x.flat===this.value);
+      if(r){document.getElementById('rentOwnerName').value=r.name;document.getElementById('rentOwnerEmail').value=r.email;document.getElementById('rentOwnerPhone').value=r.phone;}
+      else{['rentOwnerName','rentOwnerEmail','rentOwnerPhone'].forEach(id=>document.getElementById(id).value='');}
+    }));
     safe('emgOv',el=>el.addEventListener('click',e=>{if(e.target===el)closeEmg();}));
     safe('mOv',el=>el.addEventListener('click',e=>{if(e.target===el)closeM();}));
   });

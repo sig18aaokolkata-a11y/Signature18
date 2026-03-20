@@ -9,7 +9,7 @@
   <title>Signature 18 &ndash; Association of Apartment Owners, Kasba, Kolkata</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="styles.css?v=1.5"/>
 
 </head>
 <body>
@@ -114,7 +114,7 @@
         <input class="ep-input" id="epPassword" type="password" placeholder="Password" autocomplete="current-password"/>
         <button class="ep-btn" id="epSignInBtn" onclick="doEpSignIn()">Sign In</button>
         <div class="ep-forgot"><a onclick="doForgotPassword()">Forgot password?</a></div>
-        <div class="ep-mail-note">No credentials yet? Email us at<br/><a href="/cdn-cgi/l/email-protection#3a49535d0b025b5b55515556515b4e5b7a5d575b535614595557"><span class="__cf_email__" data-cfemail="2b58424c1a134a4a44404447404a5f4a6b4c464a424705484446">[email&#160;protected]</span></a></div>
+        <div class="ep-mail-note">No credentials yet? Write to us at<br/>&ldquo;sig18aaokolkata&#64;gmail&#46;com&rdquo;</div>
       </div>
       <div class="member-gate-err" id="memberGateErr"></div>
       <div class="member-gate-note">Access restricted to registered Signature 18 residents only.</div>
@@ -135,8 +135,8 @@
     <div class="mc sc"><div class="mc-icon">&#x1F4B3;</div><div class="mc-text"><h4>Pay Maintenance</h4><p>UPI, bank &amp; portal</p><a href="#" onclick="event.preventDefault();openPay()">View &rarr;</a></div></div>
     <div class="mc sc"><div class="mc-icon">&#x1F4DC;</div><div class="mc-text"><h4>Bylaws &amp; Guidelines</h4><p>Rules &amp; amenity policies</p><a href="#" onclick="event.preventDefault();openBylaws()">View &rarr;</a></div></div>
     <div class="mc sc"><div class="mc-icon">&#x1F6A8;</div><div class="mc-text"><h4>Emergency Contacts</h4><p>Quick access when it matters</p><a href="#" onclick="event.preventDefault();openEmg()">View &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x1F4CA;</div><div class="mc-text"><h4>Society Documents</h4><p>Financials, audits &amp; building docs</p><a href="#">View &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x1F527;</div><div class="mc-text"><h4>Maintenance Log</h4><p>Repair &amp; service records</p><a href="#">View &rarr;</a></div></div>
+    <div class="mc sc"><div class="mc-icon">&#x1F4DD;</div><div class="mc-text"><h4>Rent Declaration</h4><p>Notify us if you&rsquo;re renting out</p><a href="#" onclick="event.preventDefault();openRent()">Declare &rarr;</a></div></div>
+    <div class="mc sc"><div class="mc-icon">&#x1F4CA;</div><div class="mc-text"><h4>Society Documents</h4><p>Financials, audits, maintenance &amp; building docs</p><a href="#">View &rarr;</a></div></div>
     <div class="mc sc"><div class="mc-icon">&#x1F4CB;</div><div class="mc-text"><h4>Meeting Minutes</h4><p>AGM, SGM &amp; committee notes</p><a href="#">View &rarr;</a></div></div>
     <div class="mc sc"><div class="mc-icon">&#x1F3E0;</div><div class="mc-text"><h4>NoBrokerHood Portal</h4><p>Payments, visitors &amp; ERP services</p><a href="https://www.nobrokerHood.com" target="_blank">Open &rarr;</a></div></div>  </div>
   <div class="mem-note">&#x1F512; Some documents are restricted to registered members only. Contact the secretary to register your access.</div>
@@ -153,13 +153,18 @@
   <p class="lbl fade-up">Life at Signature 18</p>
   <h2 class="ttl fade-up">Gallery</h2>
   <div class="bar fade-up"></div>
-  <div class="gal-grid">
-    <div class="gi w t sc"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=800&q=80" alt="Building"/></div>
-    <div class="gi sc"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&q=80" alt="Lobby"/></div>
-    <div class="gi sc"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=400&q=80" alt="Pool"/></div>
-    <div class="gi sc"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=400&q=80" alt="Terrace"/></div>
-    <div class="gi sc"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&q=80" alt="Gym"/></div>
-    <div class="gi w sc"><img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=800&q=80" alt="Community"/></div>
+  <div class="carousel fade-up" id="galCarousel">
+    <div class="carousel-track" id="galTrack">
+      <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=1200&q=80" alt="Building"/><div class="carousel-caption">Signature 18</div></div>
+      <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1200&q=80" alt="Lobby"/><div class="carousel-caption">Grand Lobby</div></div>
+      <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1571902943202-507ec2618e8f?w=1200&q=80" alt="Pool"/><div class="carousel-caption">Rooftop Swimming Pool</div></div>
+      <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1567016432779-094069958ea5?w=1200&q=80" alt="Terrace"/><div class="carousel-caption">Rooftop Terrace</div></div>
+      <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=1200&q=80" alt="Gym"/><div class="carousel-caption">Fitness Centre</div></div>
+      <div class="carousel-slide"><img src="https://images.unsplash.com/photo-1560472355-536de3962603?w=1200&q=80" alt="Community"/><div class="carousel-caption">Community Hall</div></div>
+    </div>
+    <button class="carousel-btn carousel-prev" id="galPrev" aria-label="Previous">&#8249;</button>
+    <button class="carousel-btn carousel-next" id="galNext" aria-label="Next">&#8250;</button>
+    <div class="carousel-dots" id="galDots"></div>
   </div>
 </section>
 
@@ -294,7 +299,7 @@
     <div id="payFormWrap"><div class="pay-body">
       <p class="pay-sec">Payment Options</p>
       <div class="pay-upi-box"><img src="upi_qr.jpg?v=2" alt="UPI QR Code" class="pay-qr"/><div><div style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.4rem;">Scan &amp; Pay</div><div class="pay-upi-id">signature18@sbi</div><div class="pay-upi-sub">Scan with any UPI app<br/>GPay &middot; PhonePe &middot; Paytm &middot; BHIM &middot; WhatsApp Pay</div><button class="pay-upi-copy" onclick="copyUPI()">&#x1F4CB; Copy UPI ID</button></div></div>
-      <div class="pay-bank-box"><div class="pay-bank-row"><span>Account Name</span><span>Signature Eighteen Association</span></div><div class="pay-bank-row"><span>Bank</span><span>State Bank of India (SBI)</span></div><div class="pay-bank-row"><span>Account Number</span><span>39847201956384</span></div><div class="pay-bank-row"><span>IFSC Code</span><span>SBIN0001823</span></div><div class="pay-bank-row"><span>Branch</span><span>Kasba, Kolkata</span></div></div>
+      <div class="pay-bank-box"><div class="pay-bank-row"><span>Account Name</span><span>Signature Eighteen Association of Apartment Owners</span></div><div class="pay-bank-row"><span>Bank</span><span>State Bank of India (SBI)</span></div><div class="pay-bank-row"><span>Branch</span><span>Kasba, Kolkata</span></div><div class="pay-bank-row"><span>Account Number</span><span>44455065848</span></div><div class="pay-bank-row"><span>IFSC Code</span><span>SBIN0001486</span></div><div class="pay-bank-row"><span>MICR Code</span><span>700002055</span></div></div>
       <a class="pay-nbh" href="https://www.nobrokerHood.com" target="_blank"><span class="pay-nbh-icon">&#x1F3E0;</span><span class="pay-nbh-text"><strong>Pay via NoBrokerHood</strong><span>nobrokerHood.com</span></span><span class="pay-nbh-arrow">&rarr;</span></a>
       <p class="pay-sec">Submit Payment Receipt</p>
       <div class="pay-row"><div class="pf"><label>Flat Number *</label><select id="payFlat"><option value="">Select flat&hellip;</option></select></div><div class="pf"><label>Payment Mode *</label><select id="payMode"><option value="">Select&hellip;</option><option>UPI</option><option>Net Banking</option><option>NoBrokerHood</option><option>NEFT / RTGS</option><option>Cheque</option></select></div></div>
@@ -330,14 +335,13 @@
       <p class="byl-sec">Bylaws &amp; Handbooks</p>
       <a class="byl-item" href="docs/bylaws.pdf" target="_blank"><div class="byl-item-icon">&#x1F3DB;&#xFE0F;</div><div class="byl-item-text"><div class="byl-item-title">Association Bylaws</div><div class="byl-item-desc">Governing rules of Signature 18 AAO</div></div><span class="byl-item-arrow">&rarr;</span></a>
       <p class="byl-sec">Amenity Guidelines</p>
-      <a class="byl-item" href="docs/pool-rules.pdf" target="_blank"><div class="byl-item-icon">&#x1F3CA;</div><div class="byl-item-text"><div class="byl-item-title">Swimming Pool Rules</div><div class="byl-item-desc">Safety &amp; usage guidelines for the pool</div></div><span class="byl-item-arrow">&rarr;</span></a>
-      <a class="byl-item" href="docs/gym-rules.pdf" target="_blank"><div class="byl-item-icon">&#x1F4AA;</div><div class="byl-item-text"><div class="byl-item-title">Fitness Centre Guidelines</div><div class="byl-item-desc">Equipment usage &amp; etiquette</div></div><span class="byl-item-arrow">&rarr;</span></a>
-      <a class="byl-item" href="docs/games-room-rules.pdf" target="_blank"><div class="byl-item-icon">&#x1F3AE;</div><div class="byl-item-text"><div class="byl-item-title">Games Room Rules</div><div class="byl-item-desc">Booking &amp; fair usage policy</div></div><span class="byl-item-arrow">&rarr;</span></a>
-      <a class="byl-item" href="docs/community-hall-rules.pdf" target="_blank"><div class="byl-item-icon">&#x1F3DB;&#xFE0F;</div><div class="byl-item-text"><div class="byl-item-title">Community Hall Guidelines</div><div class="byl-item-desc">Booking terms &amp; conditions</div></div><span class="byl-item-arrow">&rarr;</span></a>
+      <a class="byl-item" href="docs/pool-rules.pdf" target="_blank"><div class="byl-item-icon">&#x1F3CA;</div><div class="byl-item-text"><div class="byl-item-title">Swimming Pool Guidelines</div><div class="byl-item-desc">Timings, access, safety &amp; hygiene rules &mdash; 6:00 AM to 10:00 PM, closed Mondays</div></div><span class="byl-item-arrow">&rarr;</span></a>
+      <a class="byl-item" href="docs/gym-rules.pdf" target="_blank"><div class="byl-item-icon">&#x1F4AA;</div><div class="byl-item-text"><div class="byl-item-title">Gym Usage Guidelines</div><div class="byl-item-desc">Timings, eligibility, safety &amp; conduct rules &mdash; 6:00 AM to 10:00 PM, closed Mondays</div></div><span class="byl-item-arrow">&rarr;</span></a>
+      <a class="byl-item" href="docs/games-room-rules.pdf" target="_blank"><div class="byl-item-icon">&#x1F3AE;</div><div class="byl-item-text"><div class="byl-item-title">Games Room Guidelines</div><div class="byl-item-desc">TV, Table Tennis, Foosball, Snooker, Carrom &amp; Chess usage rules</div></div><span class="byl-item-arrow">&rarr;</span></a>
       <p class="byl-sec">Policies</p>
-      <a class="byl-item" href="docs/pet-policy.pdf" target="_blank"><div class="byl-item-icon">&#x1F43E;</div><div class="byl-item-text"><div class="byl-item-title">Pet Policy</div><div class="byl-item-desc">Rules for pet owners in the building</div></div><span class="byl-item-arrow">&rarr;</span></a>
+      <a class="byl-item" href="docs/pet-policy.pdf" target="_blank"><div class="byl-item-icon">&#x1F43E;</div><div class="byl-item-text"><div class="byl-item-title">Pet Policy</div><div class="byl-item-desc">Responsible ownership, community etiquette, health &amp; safety requirements</div></div><span class="byl-item-arrow">&rarr;</span></a>
       <a class="byl-item" href="docs/parking-policy.pdf" target="_blank"><div class="byl-item-icon">&#x1F17F;&#xFE0F;</div><div class="byl-item-text"><div class="byl-item-title">Parking Policy</div><div class="byl-item-desc">Allocation &amp; visitor parking rules</div></div><span class="byl-item-arrow">&rarr;</span></a>
-      <p class="byl-placeholder">&#x1F4CE; Files will be uploaded shortly. Contact the Association for copies.</p>
+
     </div>
   </div>
 </div>
@@ -384,14 +388,102 @@
   <div class="ft-top">
     <div class="ft-brand"><div style="display:flex;align-items:center;gap:0.75rem;"><img src="logo.png" alt="Signature 18" style="height:60px;width:auto;border-radius:4px;"/><div style="display:flex;flex-direction:column;"><span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:#fff;line-height:1.2;">Signature 18</span><span style="font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:#c9a233;">Association of Apartment Owners</span></div></div><p>Together we build a better community.</p></div>
     <div class="ft-col"><h5>Quick Links</h5><ul><li><a href="#about">About Us</a></li><li><a href="#news">Notice Board</a></li><li><a href="#members">For Members</a></li><li><a href="#events">Events</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#committee">Working Committee</a></li><li><a href="#contact">Contact</a></li></ul></div>
-    <div class="ft-col"><h5>Association</h5><ul><li><a href="#" onclick="event.preventDefault();openBylaws()">Rules &amp; Bylaws</a></li><li><a href="#" onclick="event.preventDefault();openPay()">Pay Maintenance</a></li><li><a href="#" onclick="event.preventDefault();openQuery()">Submit Query</a></li><li><a href="#" onclick="event.preventDefault();openBooking()">Hall Booking</a></li></ul></div>
-    <div class="ft-col"><h5>Explore</h5><div class="ft-icons"><a href="https://www.youtube.com/watch?v=_l8ESQoyBrs" target="_blank" class="ft-btn"><span class="ft-ic">&#x25B6;</span><span>Building Tour</span></a><a href="https://maps.app.goo.gl/zzAVXrAiWkUoHsoq8" target="_blank" class="ft-btn"><span class="ft-ic">&#x1F4CD;</span><span>View on Map</span></a><a href="user-guide.pdf" target="_blank" class="ft-btn"><span class="ft-ic">&#x1F4D6;</span><span>User Guide</span></a><div class="ft-rera"><span class="rl">Registration No.</span><span class="ri">008872025 of year 2025</span></div></div></div>
+<div class="ft-col"><h5>Explore</h5><div class="ft-icons"><a href="https://www.youtube.com/watch?v=_l8ESQoyBrs" target="_blank" class="ft-btn"><span class="ft-ic">&#x25B6;</span><span>Building Tour</span></a><a href="https://maps.app.goo.gl/zzAVXrAiWkUoHsoq8" target="_blank" class="ft-btn"><span class="ft-ic">&#x1F4CD;</span><span>View on Map</span></a><a href="user-guide.pdf" target="_blank" class="ft-btn"><span class="ft-ic">&#x1F4D6;</span><span>User Guide</span></a><div class="ft-rera"><span class="rl">Registration No.</span><span class="ri">008872025 of year 2025</span></div></div></div>
   </div>
   <div class="ft-bot"><span>&copy; 2026 Signature 18 Association of Apartment Owners, Kasba, Kolkata. All rights reserved.</span><span class="vtag">v1.0</span></div>
 </footer>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-<script src="app.js"></script>
+<script src="app.js?v=1.5"></script>
+
+<!-- Rent Declaration Modal -->
+<div class="qry-ov" id="rentOv">
+  <div class="qry-modal">
+    <div class="qry-header">
+      <div>
+        <h3>Rent Declaration</h3>
+        <div class="qry-header-sub">Signature 18 &middot; Tenant Intimation Form</div>
+      </div>
+      <button class="qry-close" onclick="closeRent()">&#x2715;</button>
+    </div>
+    <div id="rentFormWrap"><div class="qry-body">
+      <p class="qry-sec">Owner Details</p>
+      <div class="qry-row">
+        <div class="qf"><label>Flat Number *</label><select id="rentFlat"><option value="">Select flat&hellip;</option></select></div>
+        <div class="qf"><label>Owner Name *</label><input type="text" id="rentOwnerName" placeholder="Full name"/></div>
+      </div>
+      <div class="qry-row">
+        <div class="qf"><label>Owner Contact *</label><input type="tel" id="rentOwnerPhone" placeholder="+91 XXXXX XXXXX"/></div>
+        <div class="qf"><label>Owner Email *</label><input type="email" id="rentOwnerEmail" placeholder="your@email.com"/></div>
+      </div>
+      <p class="qry-sec">Tenant Details</p>
+      <div class="qry-row">
+        <div class="qf"><label>Tenant Name *</label><input type="text" id="rentTenantName" placeholder="Full name of primary tenant"/></div>
+        <div class="qf"><label>Tenant Contact *</label><input type="tel" id="rentTenantPhone" placeholder="+91 XXXXX XXXXX"/></div>
+      </div>
+      <div class="qry-row">
+        <div class="qf"><label>Tenant Email</label><input type="email" id="rentTenantEmail" placeholder="tenant@email.com"/></div>
+        <div class="qf"><label>Tenant Type *</label><select id="rentTenantType"><option value="">Select&hellip;</option><option>Family</option><option>Bachelor (Male)</option><option>Bachelor (Female)</option><option>Working Professionals</option><option>Corporate / Company</option></select></div>
+      </div>
+      <div class="qry-row">
+        <div class="qf"><label>No. of Members *</label><input type="number" id="rentMembers" placeholder="e.g. 3" min="1"/></div>
+        <div class="qf"><label>Tenancy Start Date *</label><input type="date" id="rentStartDate"/></div>
+      </div>
+      <div class="qry-row">
+        <div class="qf"><label>Rent Period</label><select id="rentDuration"><option value="">Select&hellip;</option><option>6 months</option><option>11 months</option><option>1 year</option><option>2 years</option><option>Open-ended</option></select></div>
+      </div>
+      <p class="qry-sec">Parking &amp; Vehicles</p>
+      <div class="qry-row">
+        <div class="qf"><label>Parking Slot Assigned</label><input type="text" id="rentParking" placeholder="e.g. P-01 or None"/></div>
+        <div class="qf"><label>Vehicle Number(s)</label><input type="text" id="rentVehicle" placeholder="e.g. WB 02 AB 1234"/></div>
+      </div>
+      <p class="qry-sec">Documentation</p>
+      <div class="qry-row">
+        <div class="qf"><label>Rent Agreement Signed?</label><select id="rentAgreement"><option value="">Select&hellip;</option><option>Yes — Registered</option><option>Yes — Notarised</option><option>Yes — Unregistered</option><option>Not yet</option></select></div>
+        <div class="qf"><label>Upload Rent Agreement</label><input type="file" id="rentAgreementFile" accept="image/*,.pdf"/><span style="font-size:0.68rem;color:#aab;margin-top:0.2rem;display:block;">JPG, PNG or PDF &middot; Max 5MB</span></div>
+      </div>
+      <div class="qry-row full">
+        <div class="qf">
+          <label>Police Verification Completed?</label>
+          <div style="display:flex;gap:1.5rem;margin-top:0.4rem;">
+            <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-size:0.88rem;color:#3a4f7a;">
+              <input type="radio" name="rentPolice" id="rentPoliceYes" value="Yes" style="accent-color:var(--gold);width:16px;height:16px;"/> Yes
+            </label>
+            <label style="display:flex;align-items:center;gap:0.5rem;cursor:pointer;font-size:0.88rem;color:#3a4f7a;">
+              <input type="radio" name="rentPolice" id="rentPoliceNo" value="No" style="accent-color:var(--gold);width:16px;height:16px;"/> No
+            </label>
+          </div>
+        </div>
+      </div>
+      <div class="qry-row full">
+        <div class="qf"><label>Emergency Contact (Owner / Local Guardian)</label><input type="text" id="rentEmergency" placeholder="Name &amp; phone number"/></div>
+      </div>
+      <div class="qry-row full">
+        <div class="qf"><label>Additional Notes</label><textarea id="rentNotes" placeholder="Any other details the Association should know&hellip;"></textarea></div>
+      </div>
+      <div class="qry-row full">
+        <div class="qf">
+          <div style="background:rgba(201,162,51,0.08);border:1px solid rgba(201,162,51,0.35);border-radius:6px;padding:1rem 1.1rem;">
+            <p style="font-size:0.78rem;color:#3a4f7a;line-height:1.7;margin-bottom:0.6rem;"><strong style="color:#0a1a3b;">Acknowledgement</strong></p>
+            <p style="font-size:0.78rem;color:#3a4f7a;line-height:1.7;margin-bottom:0.8rem;">I hereby declare that the information provided above is true and accurate to the best of my knowledge. I understand that renting out my flat without intimating the Association is a violation of the Society bylaws. I agree to ensure that tenants abide by all rules and regulations of Signature 18.</p>
+            <label style="display:flex;align-items:flex-start;gap:0.6rem;cursor:pointer;">
+              <input type="checkbox" id="rentAck" style="width:16px;height:16px;accent-color:var(--gold);flex-shrink:0;margin-top:2px;"/>
+              <span style="font-size:0.78rem;color:#0a1a3b;font-weight:600;">I confirm the above declaration and take responsibility for my tenants&rsquo; conduct.</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <button class="qry-submit" id="rentSubmitBtn" disabled>&#x1F512; Submissions Opening Soon</button>
+      <div class="qry-status" id="rentStatus"></div>
+    </div></div>
+    <div id="rentSuccess" style="display:none;" class="qry-success">
+      <div class="qry-success-icon">&#x2705;</div>
+      <h4>Declaration Submitted!</h4>
+      <p>Your rent declaration has been sent to the Association.<br/>We will get in touch within 2&ndash;3 working days.</p>
+      <button class="qry-new-btn" onclick="resetRent()">Submit Another</button>
+    </div>
+  </div>
+</div>
 </body>
 </html>
