@@ -9,7 +9,7 @@
   <title>Signature 18 &ndash; Association of Apartment Owners, Kasba, Kolkata</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet"/>
   <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-  <link rel="stylesheet" href="styles.css?v=1.5"/>
+  <link rel="stylesheet" href="styles.css?v=2.0"/>
 
 </head>
 <body>
@@ -121,25 +121,30 @@
     </div>
   </div>
   <div class="mem-welcome" id="memWelcome">
-    <div class="mem-welcome-left"><div id="memWelcomePhoto" class="mem-welcome-photo-placeholder">&#x1F464;</div><div class="mem-welcome-text"><span class="mem-welcome-greeting">Welcome back</span><span class="mem-welcome-name" id="memWelcomeName">Member</span></div></div>
+    <div class="mem-welcome-left"><div id="memWelcomePhoto" class="mem-welcome-photo-placeholder">&#x1F464;</div><div class="mem-welcome-text"><span class="mem-welcome-greeting">Welcome back <span class="admin-badge admin-only" id="adminBadge" style="display:none;">&#x1F6E1;&#xFE0F; Administrator</span></span><span class="mem-welcome-name" id="memWelcomeName">Member</span></div></div>
     <button class="mem-welcome-signout" onclick="doSignOut()">Sign Out</button>
   </div>
   <p class="lbl fade-up">Restricted</p>
   <h2 class="ttl fade-up">For Members</h2>
   <div class="bar fade-up"></div>
   <p class="sub fade-up">Pay maintenance, book the community hall, submit queries, view resident details, access society documents &amp; bylaws, and more &mdash; all in one place.</p>
+  <p style="font-size:0.7rem;color:#aab;margin-bottom:0.6rem;">&#x1F512; Member data is private &mdash; Keep it confidential</p>
   <div class="mem-grid">
-    <div class="mc sc"><div class="mc-icon">&#x1F465;</div><div class="mc-text"><h4>Resident Directory</h4><p>Know your community</p><a href="#" onclick="event.preventDefault();openResidents()">Open &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x1F3DB;&#xFE0F;</div><div class="mc-text"><h4>Book Community Hall</h4><p>Reserve for your event</p><a href="#" onclick="event.preventDefault();openBooking()">Book Now &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x2709;&#xFE0F;</div><div class="mc-text"><h4>Raise a Query</h4><p>We&rsquo;re here to help</p><a href="#" onclick="event.preventDefault();openQuery()">Submit &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x1F4B3;</div><div class="mc-text"><h4>Pay Maintenance</h4><p>UPI, bank &amp; portal</p><a href="#" onclick="event.preventDefault();openPay()">View &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x1F4DC;</div><div class="mc-text"><h4>Bylaws &amp; Guidelines</h4><p>Rules &amp; amenity policies</p><a href="#" onclick="event.preventDefault();openBylaws()">View &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x1F6A8;</div><div class="mc-text"><h4>Emergency Contacts</h4><p>Quick access when it matters</p><a href="#" onclick="event.preventDefault();openEmg()">View &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x1F4DD;</div><div class="mc-text"><h4>Rent Declaration</h4><p>Notify us if you&rsquo;re renting out</p><a href="#" onclick="event.preventDefault();openRent()">Declare &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x1F4CA;</div><div class="mc-text"><h4>Society Documents</h4><p>Financials, audits, maintenance &amp; building docs</p><a href="#">View &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x1F4CB;</div><div class="mc-text"><h4>Meeting Minutes</h4><p>AGM, SGM &amp; committee notes</p><a href="#">View &rarr;</a></div></div>
-    <div class="mc sc"><div class="mc-icon">&#x1F3E0;</div><div class="mc-text"><h4>NoBrokerHood Portal</h4><p>Payments, visitors &amp; ERP services</p><a href="https://www.nobrokerHood.com" target="_blank">Open &rarr;</a></div></div>  </div>
-  <div class="mem-note">&#x1F512; Some documents are restricted to registered members only. Contact the secretary to register your access.</div>
+    <div class="mc sc"><div class="mc-icon">&#x1F465;</div><div class="mc-text"><h4 class="res-card-title">Resident Directory</h4><p class="mc-sub" data-member="Know your community" data-admin="View &amp; edit resident records">Know your community</p><a href="#" class="mc-link" data-member-label="Open &rarr;" data-admin-label="Manage &rarr;" onclick="event.preventDefault();openResidents()">Open &rarr;</a></div></div>
+    <div class="mc sc"><div class="mc-icon">&#x1F3DB;&#xFE0F;</div><div class="mc-text"><h4 class="hall-card-title">Book Community Hall</h4><p class="mc-sub" data-member="Reserve for your event" data-admin="Review &amp; manage booking requests">Reserve for your event</p><a href="#" class="mc-link" data-member-label="Book Now &rarr;" data-admin-label="Manage &rarr;" onclick="event.preventDefault();openBooking()">Book Now &rarr;</a></div></div>
+    <div class="mc sc"><div class="mc-icon">&#x2709;&#xFE0F;</div><div class="mc-text"><h4 class="query-card-title">Raise a Query</h4><p class="mc-sub" data-member="We&rsquo;re here to help" data-admin="View &amp; respond to queries">We&rsquo;re here to help</p><a href="#" class="mc-link" data-member-label="Submit &rarr;" data-admin-label="Manage &rarr;" onclick="event.preventDefault();openQuery()">Submit &rarr;</a></div></div>
+    <div class="mc sc member-only"><div class="mc-icon">&#x1F4B3;</div><div class="mc-text"><h4>Payment Information</h4><p class="mc-sub" data-member="UPI, bank transfer &amp; NoBrokerHood" data-admin="Payment details &amp; receipts">UPI, bank transfer &amp; NoBrokerHood</p><a href="#" onclick="event.preventDefault();openPay()">View &rarr;</a></div></div>
+    <div class="mc sc"><div class="mc-icon">&#x1F4DC;</div><div class="mc-text"><h4>Bylaws &amp; Guidelines</h4><p class="mc-sub" data-member="Rules &amp; amenity policies" data-admin="Rules &amp; amenity policies">Rules &amp; amenity policies</p><a href="#" class="mc-link" data-member-label="View &rarr;" data-admin-label="View &rarr;" onclick="event.preventDefault();openBylaws()">View &rarr;</a></div></div>
+    <div class="mc sc"><div class="mc-icon">&#x1F6A8;</div><div class="mc-text"><h4>Emergency Contacts</h4><p class="mc-sub" data-member="Quick access when it matters" data-admin="Quick access when it matters">Quick access when it matters</p><a href="#" class="mc-link" data-member-label="View &rarr;" data-admin-label="Edit &rarr;" onclick="event.preventDefault();openEmg()">View &rarr;</a></div></div>
+    <div class="mc sc member-only"><div class="mc-icon">&#x270F;&#xFE0F;</div><div class="mc-text"><h4>My Consents</h4><p class="mc-sub" data-member="Acknowledge society policies" data-admin="">Acknowledge society policies</p><a href="#" class="mc-link" data-member-label="View &rarr;" data-admin-label="" onclick="event.preventDefault();openConsents()">View &rarr;</a></div></div>
+    <div class="mc sc admin-only" style="display:none;"><div class="mc-icon">&#x1F4DD;</div><div class="mc-text"><h4>Manage Consents</h4><p>Topics &amp; acknowledgements</p><a href="#" onclick="event.preventDefault();openManageConsents()">Manage &rarr;</a></div></div>
+    <div class="mc sc admin-only" style="display:none;"><div class="mc-icon">&#x1F436;</div><div class="mc-text"><h4>Manage Pets</h4><p>View &amp; acknowledge registrations</p><a href="#" onclick="event.preventDefault();openManagePets()">Manage &rarr;</a></div></div>
+    <div class="mc sc"><div class="mc-icon">&#x1F4DD;</div><div class="mc-text"><h4 class="rent-card-title">Rent Declaration</h4><p class="mc-sub" data-member="Notify us if you&rsquo;re renting out" data-admin="View &amp; manage rent declarations">Notify us if you&rsquo;re renting out</p><a href="#" class="mc-link" data-member-label="Declare &rarr;" data-admin-label="Manage &rarr;" onclick="event.preventDefault();openRent()">Declare &rarr;</a></div></div>
+    <div class="mc sc member-only"><div class="mc-icon">&#x1F4CA;</div><div class="mc-text"><h4>Society Documents</h4><p class="mc-sub" data-member="Financials, audits, meeting minutes &amp; more" data-admin="Upload &amp; manage society documents">Financials, audits, meeting minutes &amp; more</p><a href="https://drive.google.com/drive/folders/1pqxt03luL9D2eOPXER2ZqR9Syt43_B1S?usp=drive_link" target="_blank">View &rarr;</a></div></div>
+    <div class="mc sc member-only"><div class="mc-icon">&#x1F436;</div><div class="mc-text"><h4>Pet Registration</h4><p class="mc-sub" data-member="Register your pet with the Association" data-admin="">Register your pet with the Association</p><a href="#" class="mc-link" data-member-label="Register &rarr;" data-admin-label="" onclick="event.preventDefault();openPetReg()">Register &rarr;</a></div></div>
+    <div class="mc sc admin-only" style="display:none;"><div class="mc-icon">&#x1F4E3;</div><div class="mc-text"><h4>Manage Notice Board</h4><p>Add, edit &amp; remove notices</p><a href="#" onclick="event.preventDefault();openManageNotices()">Manage &rarr;</a></div></div>
+    <div class="mc sc admin-only" style="display:none;"><div class="mc-icon">&#x1F4C5;</div><div class="mc-text"><h4>Manage Events</h4><p>Add, edit &amp; remove events</p><a href="#" onclick="event.preventDefault();openManageEvents()">Manage &rarr;</a></div></div>  </div>
+<a href="https://www.nobrokerHood.com" target="_blank" style="font-size:0.72rem;color:var(--gold);text-decoration:underline;text-underline-offset:2px;margin-top:0.8rem;display:inline-block;">&#x1F3E0; NoBrokerHood Portal &rarr;</a>
 </section>
 
 <section id="events">
@@ -213,7 +218,7 @@
 <!-- Resident Details -->
 <div class="res-ov" id="resOv">
   <div class="res-modal">
-    <div class="res-header"><div><h3>Resident Details</h3><div class="res-header-sub">Signature 18 &middot; All 69 Apartments</div></div><button class="res-close" onclick="closeResidents()">&#x2715;</button></div>
+    <div class="res-header"><div><h3>Resident Details</h3><div class="res-header-sub" id="resHeaderSub">Members only &middot; Confidential</div></div><button class="res-close" onclick="closeResidents()">&#x2715;</button></div>
     <div class="res-search-wrap"><input class="res-search" id="resSearch" type="text" placeholder="Search by flat number or name&hellip;"/></div>
     <div class="res-count" id="resCount">69 residents</div>
     <div class="res-list" id="resList"></div>
@@ -223,7 +228,22 @@
 <!-- Community Hall Booking -->
 <div class="book-ov" id="bookOv">
   <div class="book-modal">
-    <div class="book-header"><div><h3>Community Hall Booking</h3><div class="book-header-sub">Signature 18 &middot; 8, Bosepukur Road, Kasba</div></div><button class="book-close" onclick="closeBooking()">&#x2715;</button></div>
+    <div class="book-header">
+      <div><h3 id="bookModalTitle">Community Hall Booking</h3><div class="book-header-sub" id="bookHeaderSub">Subject to Association approval</div></div>
+      <button class="book-close" onclick="closeBooking()">&#x2715;</button>
+    </div>
+
+    <!-- MEMBER: Active booking warning -->
+    <div id="bookActiveWarn" style="display:none;" class="book-body">
+      <div style="text-align:center;padding:1.5rem 1rem;">
+        <div style="font-size:2.5rem;margin-bottom:0.8rem;">&#x23F3;</div>
+        <h4 style="color:#0a1a3b;margin-bottom:0.5rem;">Booking Request Pending</h4>
+        <p id="bookActiveMsg" style="font-size:0.88rem;color:#3a4f7a;line-height:1.7;margin-bottom:1.2rem;"></p>
+        <p style="font-size:0.8rem;color:#aab;">You may book again once your current request is approved and the event date has passed, or if it is rejected.</p>
+      </div>
+    </div>
+
+    <!-- MEMBER: Booking form -->
     <div id="bookFormWrap"><div class="book-body">
       <p class="book-sec">Resident Details</p>
       <div class="book-row">
@@ -236,40 +256,67 @@
       </div>
       <p class="book-sec">Event Details</p>
       <div class="book-row">
-        <div class="bf"><label>Event Date *</label><input type="date" id="bDate"/><span class="booked-note" id="bBookedNote">&#x26A0;&#xFE0F; This date is already booked</span></div>
+        <div class="bf"><label>Event Date *</label><input type="date" id="bDate" placeholder="Select date"/><span class="booked-note" id="bBookedNote">&#x26A0;&#xFE0F; This date is already booked</span><span style="font-size:0.68rem;color:#aab;margin-top:0.3rem;display:block;">&#x1F4C5; Advance booking up to 3 months only</span></div>
         <div class="bf"><label>Event Type *</label><select id="bType"><option value="">Select type&hellip;</option><option>Birthday Party</option><option>Wedding/Reception</option><option>Puja / Religious Event</option><option>Anniversary</option><option>Corporate / Meeting</option><option>Other</option></select></div>
       </div>
       <div class="book-row">
-        <div class="bf"><label>Start Time *</label><input type="time" id="bStart"/></div>
-        <div class="bf"><label>End Time *</label><input type="time" id="bEnd"/></div>
+        <div class="bf"><label>Approx. Guests *</label><input type="number" id="bGuests" placeholder="Max 100" min="1" max="100"/></div>
+        <div class="bf"><label>Additional Notes</label><input type="text" id="bNotes" placeholder="Any special requirements&hellip;"/></div>
       </div>
+      <p class="book-sec">Payment</p>
       <div class="book-row">
-        <div class="bf"><label>Approx. Guests *</label><input type="number" id="bGuests" placeholder="e.g. 50" min="1"/></div>
-        <div class="bf"><label>Parking Spots</label><input type="number" id="bParking" placeholder="e.g. 5" min="0"/></div>
+        <div class="bf">
+          <label>Upload Payment Proof *</label>
+          <input type="file" id="bPaymentProof" accept="image/*,.pdf"/>
+          <span style="font-size:0.68rem;color:#aab;margin-top:0.2rem;display:block;">Screenshot or receipt of Rs. 4,500/- transfer &middot; JPG, PNG or PDF</span>
+        </div>
       </div>
-      <div class="book-row full"><div class="bf"><label>Additional Notes</label><input type="text" id="bNotes" placeholder="Any special requirements&hellip;"/></div></div>
       <p class="book-sec">Terms &amp; Conditions</p>
       <div class="book-tcs">
         <p>&bull; Booking is subject to availability and prior approval by the Association.</p>
         <p>&bull; <strong>Booking charge: Rs. 2,500/- (non-refundable)</strong> + Security Deposit Rs. 2,000/- (refundable) = <strong>Rs. 4,500/- total</strong>. Transfer to Association Account &mdash; cash not accepted. Email confirmation to: &ldquo;sig18aaokolkata&#64;gmail&#46;com&rdquo;</p>
-        <p>&bull; Note electric meter reading before and after event. Units charged @ Rs. 12/- per unit.</p>
         <p>&bull; The hall must be left clean after use. Any damage is the responsibility of the booking owner.</p>
-        <p>&bull; Noise levels must be kept under control. Community rules must be followed.</p>
+        <p>&bull; Maximum guest capacity: <strong>100 persons</strong>. Noise levels must be kept under control.</p>
       </div>
-      <label class="book-accept"><input type="checkbox" id="bAccept"/><span>I have read and agree to the Terms &amp; Conditions above.</span></label>
-      <button class="book-submit" id="bSubmitBtn" disabled>&#x1F512; Submissions Opening Soon</button>
+      <label class="book-accept"><input type="checkbox" id="bAccept" onchange="updateBookBtn()"/><span>I have read and agree to the Terms &amp; Conditions above.</span></label>
+      <button class="book-submit" id="bSubmitBtn" onclick="submitBooking()">Submit Request</button>
       <div class="book-status" id="bStatus"></div>
     </div></div>
-    <div id="bookSuccess" style="display:none;" class="book-success"><div class="book-success-icon">&#x2705;</div><h4>Booking Request Submitted!</h4><p>Your request has been sent. You will be contacted within 24 hours.</p><a class="book-cal-btn" href="#" onclick="downloadICS(event)">&#x1F4C5; Add to My Calendar</a></div>
+
+    <!-- MEMBER: Success -->
+    <div id="bookSuccess" style="display:none;" class="book-success">
+      <div class="book-success-icon">&#x2705;</div>
+      <h4>Booking Request Submitted!</h4>
+      <p>Your request has been sent to the Association. You will be notified within 24 hours.</p>
+    </div>
+
+    <!-- MEMBER: History — mirrors qryHistory pattern -->
+    <div id="bookHistory" class="book-body" style="display:none;border-top:2px solid #e0e4f0;padding-top:1rem;"></div>
+
+    <!-- ADMIN: Requests panel -->
+    <div id="bookAdminPanel" style="display:none;" class="book-body">
+      <p class="book-sec" style="margin-top:0;">&#x1F4CB; Pending Requests</p>
+      <div id="bookPendingList"></div>
+      <p class="book-sec">&#x1F4DC; All Bookings</p>
+      <div id="bookAllList"></div>
+    </div>
   </div>
 </div>
+
+<!-- Admin: Approve/Reject Modal -->
+
 
 <!-- Submit Query -->
 <div class="qry-ov" id="qryOv">
   <div class="qry-modal">
-    <div class="qry-header"><div><h3>Submit a Query</h3><div class="qry-header-sub">Signature 18 &middot; Association of Apartment Owners</div></div><button class="qry-close" onclick="closeQuery()">&#x2715;</button></div>
+    <div class="qry-header">
+      <div><h3 id="qryModalTitle">Submit a Query</h3><div class="qry-header-sub" id="qryHeaderSub">We'll get back to you shortly</div></div>
+      <button class="qry-close" onclick="closeQuery()">&#x2715;</button>
+    </div>
+
+    <!-- MEMBER: Submit form -->
     <div id="qryFormWrap"><div class="qry-body">
-      <p class="qry-sec">Your Details</p>
+      <p class="qry-sec">Resident Details</p>
       <div class="qry-row">
         <div class="qf"><label>Flat Number *</label><select id="qFlat"><option value="">Select flat&hellip;</option></select></div>
         <div class="qf"><label>Your Name *</label><input type="text" id="qName" placeholder="Full name"/></div>
@@ -285,52 +332,70 @@
       </div>
       <div class="qry-row full"><div class="qf"><label>Subject *</label><input type="text" id="qSubject" placeholder="Brief summary of your query"/></div></div>
       <div class="qry-row full"><div class="qf"><label>Description *</label><textarea id="qDesc" placeholder="Please describe your query in detail&hellip;"></textarea></div></div>
-      <button class="qry-submit" id="qSubmitBtn" disabled>&#x1F512; Submissions Opening Soon</button>
+      <button class="qry-submit" id="qSubmitBtn" onclick="submitQuery()">Submit Query</button>
       <div class="qry-status" id="qStatus"></div>
     </div></div>
-    <div id="qrySuccess" style="display:none;" class="qry-success"><div class="qry-success-icon">&#x2705;</div><h4>Query Submitted!</h4><p>Your query has been sent. You will receive a response within 2&ndash;3 working days.</p><button class="qry-new-btn" onclick="resetQuery()">Submit Another Query</button></div>
+
+    <!-- MEMBER: Success -->
+    <div id="qrySuccess" style="display:none;" class="qry-success">
+      <div class="qry-success-icon">&#x2705;</div>
+      <h4>Query Submitted!</h4>
+      <p>Your query has been sent. You will receive a response within 2&ndash;3 working days.</p>
+      <button class="qry-new-btn" onclick="resetQuery()">Submit Another</button>
+    </div>
+
+    <!-- MEMBER: My Queries history -->
+    <div id="qryHistory" class="qry-body" style="display:none;border-top:2px solid #e0e4f0;padding-top:1rem;"></div>
+
+    <!-- ADMIN: Queries panel -->
+    <div id="qryAdminPanel" style="display:none;" class="qry-body">
+      <div style="display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap;">
+        <button class="qry-filter-btn active" onclick="filterQueries('open')">&#x1F7E1; Open</button>
+        <button class="qry-filter-btn" onclick="filterQueries('resolved')">&#x2705; Resolved</button>
+        <button class="qry-filter-btn" onclick="filterQueries('all')">&#x1F4CB; All</button>
+      </div>
+      <div id="qryAdminList"></div>
+      <!-- Inline response panel — shown below the card -->
+      <div id="qryInlineRespond" style="display:none;margin-top:0.8rem;background:#f8f9ff;border:1px solid rgba(201,162,51,0.3);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;padding:1rem;">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.8rem;">
+          <span style="font-size:0.75rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold);">Responding to Query</span>
+          <button onclick="closeInlineRespond()" style="background:none;border:none;color:#aab;font-size:1.1rem;cursor:pointer;line-height:1;">&#x2715;</button>
+        </div>
+        <div id="qryInlineDetails" style="font-size:0.82rem;color:#3a4f7a;line-height:1.7;margin-bottom:0.8rem;background:#fff;border:1px solid #e0e4f0;border-radius:6px;padding:0.8rem;"></div>
+        <div class="qf" style="margin-bottom:0.8rem;">
+          <label>Your Response *</label>
+          <textarea id="qryInlineNote" placeholder="Type your response&hellip;" style="min-height:90px;resize:vertical;"></textarea>
+        </div>
+        <div style="display:flex;gap:0.6rem;">
+          <button class="qry-submit" id="qryInlineResolveBtn" onclick="resolveQueryInline()" style="flex:1;padding:0.6rem;">&#x2705; Resolve</button>
+          <button class="qry-submit" id="qryInlineReplyBtn" onclick="replyQueryInline()" style="flex:1;padding:0.6rem;background:#112354;">&#x1F4AC; Reply Only</button>
+        </div>
+        <div id="qryInlineStatus" style="margin-top:0.5rem;text-align:center;font-size:0.82rem;"></div>
+      </div>
+    </div>
   </div>
 </div>
+
 
 <!-- Pay Maintenance -->
 <div class="pay-ov" id="payOv">
   <div class="pay-modal">
-    <div class="pay-header"><div><h3>Pay Maintenance</h3><div class="pay-header-sub">Signature 18 &middot; Association of Apartment Owners</div></div><button class="pay-close" onclick="closePay()">&#x2715;</button></div>
+    <div class="pay-header"><div><h3>Payment Information</h3><div class="pay-header-sub">UPI &middot; Bank Transfer &middot; NoBrokerHood</div></div><button class="pay-close" onclick="closePay()">&#x2715;</button></div>
     <div id="payFormWrap"><div class="pay-body">
       <p class="pay-sec">Payment Options</p>
       <div class="pay-upi-box"><img src="upi_qr.jpg?v=2" alt="UPI QR Code" class="pay-qr"/><div><div style="font-size:0.65rem;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold);font-weight:600;margin-bottom:0.4rem;">Scan &amp; Pay</div><div class="pay-upi-id">signature18@sbi</div><div class="pay-upi-sub">Scan with any UPI app<br/>GPay &middot; PhonePe &middot; Paytm &middot; BHIM &middot; WhatsApp Pay</div><button class="pay-upi-copy" onclick="copyUPI()">&#x1F4CB; Copy UPI ID</button></div></div>
+      <div style="background:#fce4e4;border:1px solid #f5c6c6;border-left:3px solid #c0392b;border-radius:0 6px 6px 0;padding:0.7rem 1rem;margin-bottom:0.8rem;font-size:0.8rem;color:#a93226;">&#x26A0;&#xFE0F; <strong>Cash payment is strictly discouraged.</strong> All maintenance payments must be made via bank transfer, UPI or NoBrokerHood only.</div>
       <div class="pay-bank-box"><div class="pay-bank-row"><span>Account Name</span><span>Signature Eighteen Association of Apartment Owners</span></div><div class="pay-bank-row"><span>Bank</span><span>State Bank of India (SBI)</span></div><div class="pay-bank-row"><span>Branch</span><span>Kasba, Kolkata</span></div><div class="pay-bank-row"><span>Account Number</span><span>44455065848</span></div><div class="pay-bank-row"><span>IFSC Code</span><span>SBIN0001486</span></div><div class="pay-bank-row"><span>MICR Code</span><span>700002055</span></div></div>
       <a class="pay-nbh" href="https://www.nobrokerHood.com" target="_blank"><span class="pay-nbh-icon">&#x1F3E0;</span><span class="pay-nbh-text"><strong>Pay via NoBrokerHood</strong><span>nobrokerHood.com</span></span><span class="pay-nbh-arrow">&rarr;</span></a>
-      <p class="pay-sec">Submit Payment Receipt</p>
-      <div class="pay-row"><div class="pf"><label>Flat Number *</label><select id="payFlat"><option value="">Select flat&hellip;</option></select></div><div class="pf"><label>Payment Mode *</label><select id="payMode"><option value="">Select&hellip;</option><option>UPI</option><option>Net Banking</option><option>NoBrokerHood</option><option>NEFT / RTGS</option><option>Cheque</option></select></div></div>
-      <div class="pay-row"><div class="pf"><label>Transaction ID *</label><input type="text" id="payTxn" placeholder="e.g. TXN123456"/></div><div class="pf"><label>Amount Paid (Rs.) *</label><input type="number" id="payAmt" placeholder="e.g. 3500"/></div></div>
-      <div class="pay-row full"><div class="pf"><label>Months Paid For *</label><div class="pay-months-grid" id="payMonthsGrid"><label class='pay-month-cb'><input type='checkbox' name='month' value='January 2026'/> January 2026</label>
-<label class='pay-month-cb'><input type='checkbox' name='month' value='February 2026'/> February 2026</label>
-<label class='pay-month-cb'><input type='checkbox' name='month' value='March 2026'/> March 2026</label>
-<label class='pay-month-cb'><input type='checkbox' name='month' value='April 2026'/> April 2026</label>
-<label class='pay-month-cb'><input type='checkbox' name='month' value='May 2026'/> May 2026</label>
-<label class='pay-month-cb'><input type='checkbox' name='month' value='June 2026'/> June 2026</label>
-<label class='pay-month-cb'><input type='checkbox' name='month' value='July 2026'/> July 2026</label>
-<label class='pay-month-cb'><input type='checkbox' name='month' value='August 2026'/> August 2026</label>
-<label class='pay-month-cb'><input type='checkbox' name='month' value='September 2026'/> September 2026</label>
-<label class='pay-month-cb'><input type='checkbox' name='month' value='October 2026'/> October 2026</label>
-<label class='pay-month-cb'><input type='checkbox' name='month' value='November 2026'/> November 2026</label>
-<label class='pay-month-cb'><input type='checkbox' name='month' value='December 2026'/> December 2026</label>
-<label class='pay-month-cb'><input type='checkbox' name='month' value='January 2027'/> January 2027</label>
-<label class='pay-month-cb'><input type='checkbox' name='month' value='February 2027'/> February 2027</label>
-<label class='pay-month-cb'><input type='checkbox' name='month' value='March 2027'/> March 2027</label></div><span class="pay-amount-note">&#x1F4A1; Common area maintenance charge: Rs.4.50 per sq.ft of carpet area</span></div></div>
-      <div class="pay-row full"><div class="pf"><label>Upload Payment Receipt *</label><input type="file" id="payReceipt" accept="image/*,.pdf"/><span class="pay-file-hint">JPG, PNG or PDF &middot; Max 5MB</span></div></div>
-      <button class="pay-submit" id="paySubmitBtn" disabled>&#x1F512; Submissions Opening Soon</button>
-      <div class="pay-status" id="payStatus"></div>
+      <p style="font-size:0.8rem;color:#7a8aaa;margin-top:1rem;text-align:center;">&#x1F4A1; Common area maintenance charge: <strong>Rs. 4.50 per sq.ft of net carpet area</strong></p>
     </div></div>
-    <div id="paySuccess" style="display:none;" class="pay-success"><div class="pay-success-icon">&#x2705;</div><h4>Receipt Submitted!</h4><p>Your receipt has been sent. Payment will be confirmed within 1&ndash;2 working days.</p><button class="pay-new-btn" onclick="resetPay()">Submit Another</button></div>
   </div>
 </div>
 
 <!-- Rules & Bylaws -->
 <div class="byl-ov" id="bylOv">
   <div class="byl-modal">
-    <div class="byl-header"><div><h3>Bylaws &amp; Guidelines</h3><div class="byl-header-sub">Signature 18 &middot; Resident Guidelines</div></div><button class="byl-close" onclick="closeBylaws()">&#x2715;</button></div>
+    <div class="byl-header"><div><h3>Bylaws &amp; Guidelines</h3><div class="byl-header-sub">Rules &amp; policies for all residents</div></div><button class="byl-close" onclick="closeBylaws()">&#x2715;</button></div>
     <div class="byl-body">
       <p class="byl-sec">Bylaws &amp; Handbooks</p>
       <a class="byl-item" href="docs/bylaws.pdf" target="_blank"><div class="byl-item-icon">&#x1F3DB;&#xFE0F;</div><div class="byl-item-text"><div class="byl-item-title">Association Bylaws</div><div class="byl-item-desc">Governing rules of Signature 18 AAO</div></div><span class="byl-item-arrow">&rarr;</span></a>
@@ -350,23 +415,8 @@
 <div class="emg-ov" id="emgOv">
   <div class="emg-modal">
     <div class="emg-header"><div><h3>Emergency Contacts</h3><div class="emg-header-sub">Keep these handy &mdash; just in case</div></div><button class="emg-close" onclick="closeEmg()">&#x2715;</button></div>
-    <div class="emg-body">
-      <p class="emg-sec">&#x1F3E2; Building Contacts</p>
-      <div class="emg-item"><div class="emg-icon">&#x1F477;</div><div class="emg-info"><div class="emg-name">Facility Manager</div><div class="emg-desc">Building operations &amp; maintenance</div></div><a class="emg-call" href="tel:+917980412140">&#x1F4DE; Call</a></div>
-      <p class="emg-sec">&#x260E;&#xFE0F; Intercom Numbers</p>
-      <div class="emg-item"><div class="emg-icon">&#x1F4DE;</div><div class="emg-info"><div class="emg-name">Reception</div><div class="emg-desc">Intercom from your flat</div></div><span class="emg-call">10</span></div>
-      <div class="emg-item"><div class="emg-icon">&#x1F6AA;</div><div class="emg-info"><div class="emg-name">Security &ndash; Entry Gate</div><div class="emg-desc">Intercom from your flat</div></div><span class="emg-call">11</span></div>
-      <div class="emg-item"><div class="emg-icon">&#x1F6AA;</div><div class="emg-info"><div class="emg-name">Security &ndash; Exit Gate</div><div class="emg-desc">Intercom from your flat</div></div><span class="emg-call">12</span></div>
-      <p class="emg-sec">&#x1F527; Service Contacts</p>
-      <div class="emg-item"><div class="emg-icon">&#x1F4A7;</div><div class="emg-info"><div class="emg-name">Plumber</div><div class="emg-desc">Water &amp; pipe emergencies</div></div><a class="emg-call" href="tel:XXXXXXXXXX">&#x1F4DE; Call</a></div>
-      <div class="emg-item"><div class="emg-icon">&#x26A1;</div><div class="emg-info"><div class="emg-name">Electrician</div><div class="emg-desc">Electrical faults &amp; power issues</div></div><a class="emg-call" href="tel:XXXXXXXXXX">&#x1F4DE; Call</a></div>
-      <div class="emg-item"><div class="emg-icon">&#x1F6D7;</div><div class="emg-info"><div class="emg-name">Lift Maintenance</div><div class="emg-desc">Elevator breakdowns</div></div><a class="emg-call" href="tel:XXXXXXXXXX">&#x1F4DE; Call</a></div>
-      <p class="emg-sec">&#x1F6A8; Emergency Services</p>
-      <div class="emg-item"><div class="emg-icon red">&#x1F691;</div><div class="emg-info"><div class="emg-name">Ambulance</div><div class="emg-desc">Medical emergency</div></div><a class="emg-call red" href="tel:102">&#x1F4DE; 102</a></div>
-      <div class="emg-item"><div class="emg-icon red">&#x1F692;</div><div class="emg-info"><div class="emg-name">Fire Brigade</div><div class="emg-desc">Fire emergency</div></div><a class="emg-call red" href="tel:101">&#x1F4DE; 101</a></div>
-      <div class="emg-item"><div class="emg-icon red">&#x1F46E;</div><div class="emg-info"><div class="emg-name">Police</div><div class="emg-desc">Law &amp; order emergency</div></div><a class="emg-call red" href="tel:100">&#x1F4DE; 100</a></div>
-      <div class="emg-item"><div class="emg-icon red">&#x1F198;</div><div class="emg-info"><div class="emg-name">National Emergency</div><div class="emg-desc">All emergencies</div></div><a class="emg-call red" href="tel:112">&#x1F4DE; 112</a></div>
-      <p class="emg-note">&#x1F4CB; Replace XXXXXXXXXX with actual numbers before going live.</p>
+    <div class="emg-body" id="emgBody">
+      <div id="emgContactList"><p style="color:#aab;font-size:0.82rem;text-align:center;padding:1rem;">Loading contacts&hellip;</p></div>
     </div>
   </div>
 </div>
@@ -388,22 +438,23 @@
   <div class="ft-top">
     <div class="ft-brand"><div style="display:flex;align-items:center;gap:0.75rem;"><img src="logo.png" alt="Signature 18" style="height:60px;width:auto;border-radius:4px;"/><div style="display:flex;flex-direction:column;"><span style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:600;color:#fff;line-height:1.2;">Signature 18</span><span style="font-size:0.6rem;letter-spacing:0.16em;text-transform:uppercase;color:#c9a233;">Association of Apartment Owners</span></div></div><p>Together we build a better community.</p></div>
     <div class="ft-col"><h5>Quick Links</h5><ul><li><a href="#about">About Us</a></li><li><a href="#news">Notice Board</a></li><li><a href="#members">For Members</a></li><li><a href="#events">Events</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#committee">Working Committee</a></li><li><a href="#contact">Contact</a></li></ul></div>
-<div class="ft-col"><h5>Explore</h5><div class="ft-icons"><a href="https://www.youtube.com/watch?v=_l8ESQoyBrs" target="_blank" class="ft-btn"><span class="ft-ic">&#x25B6;</span><span>Building Tour</span></a><a href="https://maps.app.goo.gl/zzAVXrAiWkUoHsoq8" target="_blank" class="ft-btn"><span class="ft-ic">&#x1F4CD;</span><span>View on Map</span></a><a href="user-guide.pdf" target="_blank" class="ft-btn"><span class="ft-ic">&#x1F4D6;</span><span>User Guide</span></a><div class="ft-rera"><span class="rl">Registration No.</span><span class="ri">008872025 of year 2025</span></div></div></div>
+<div class="ft-col"><h5>Explore</h5><div class="ft-icons"><a href="https://www.youtube.com/watch?v=_l8ESQoyBrs" target="_blank" class="ft-btn"><span class="ft-ic">&#x25B6;</span><span>Building Tour</span></a><a href="https://maps.app.goo.gl/zzAVXrAiWkUoHsoq8" target="_blank" class="ft-btn"><span class="ft-ic">&#x1F4CD;</span><span>View on Map</span></a><a href="user-guide.pdf" target="_blank" class="ft-btn"><span class="ft-ic">&#x1F4D6;</span><span>User Guide</span></a><div class="ft-rera"><span class="rl">Registration No.</span><a class="ri" href="docs/certificate.pdf" target="_blank" style="color:var(--gold);text-decoration:underline;text-underline-offset:2px;cursor:pointer;">008872025 of year 2025 &#x1F4CE;</a></div></div></div>
   </div>
   <div class="ft-bot"><span>&copy; 2026 Signature 18 Association of Apartment Owners, Kasba, Kolkata. All rights reserved.</span><span class="vtag">v1.0</span></div>
 </footer>
 
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-app-compat.js"></script>
 <script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-auth-compat.js"></script>
-<script src="app.js?v=1.5"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore-compat.js"></script>
+<script src="app.js?v=2.0"></script>
 
 <!-- Rent Declaration Modal -->
 <div class="qry-ov" id="rentOv">
   <div class="qry-modal">
     <div class="qry-header">
       <div>
-        <h3>Rent Declaration</h3>
-        <div class="qry-header-sub">Signature 18 &middot; Tenant Intimation Form</div>
+        <h3 id="rentModalTitle">Rent Declaration</h3>
+        <div class="qry-header-sub" id="rentHeaderSub">Mandatory intimation to Association</div>
       </div>
       <button class="qry-close" onclick="closeRent()">&#x2715;</button>
     </div>
@@ -424,7 +475,7 @@
       </div>
       <div class="qry-row">
         <div class="qf"><label>Tenant Email</label><input type="email" id="rentTenantEmail" placeholder="tenant@email.com"/></div>
-        <div class="qf"><label>Tenant Type *</label><select id="rentTenantType"><option value="">Select&hellip;</option><option>Family</option><option>Bachelor (Male)</option><option>Bachelor (Female)</option><option>Working Professionals</option><option>Corporate / Company</option></select></div>
+        
       </div>
       <div class="qry-row">
         <div class="qf"><label>No. of Members *</label><input type="number" id="rentMembers" placeholder="e.g. 3" min="1"/></div>
@@ -474,7 +525,7 @@
           </div>
         </div>
       </div>
-      <button class="qry-submit" id="rentSubmitBtn" disabled>&#x1F512; Submissions Opening Soon</button>
+      <button class="qry-submit" id="rentSubmitBtn" onclick="submitRent()">Submit Declaration</button>
       <div class="qry-status" id="rentStatus"></div>
     </div></div>
     <div id="rentSuccess" style="display:none;" class="qry-success">
@@ -482,6 +533,269 @@
       <h4>Declaration Submitted!</h4>
       <p>Your rent declaration has been sent to the Association.<br/>We will get in touch within 2&ndash;3 working days.</p>
       <button class="qry-new-btn" onclick="resetRent()">Submit Another</button>
+    </div>
+    <!-- ADMIN: Declarations panel -->
+    <div id="rentAdminPanel" style="display:none;" class="qry-body">
+      <div style="display:flex;gap:0.5rem;margin-bottom:1rem;flex-wrap:wrap;">
+        <button class="qry-filter-btn active" onclick="filterRent('pending')">&#x23F3; Pending</button>
+        <button class="qry-filter-btn" onclick="filterRent('acknowledged')">&#x2705; Acknowledged</button>
+        <button class="qry-filter-btn" onclick="filterRent('all')">&#x1F4CB; All</button>
+      </div>
+      <div id="rentAdminList"></div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit Resident Modal (Admin only) -->
+<div class="qry-ov" id="editResOv">
+  <div class="qry-modal">
+    <div class="qry-header" style="background:#0a1a3b;">
+      <div>
+        <h3>Edit Resident</h3>
+        <div class="qry-header-sub">Flat <strong id="editFlat" style="color:var(--gold);"></strong> &mdash; Admin Only</div>
+      </div>
+      <button class="qry-close" onclick="closeEditResident()">&#x2715;</button>
+    </div>
+    <div class="qry-body">
+      <div class="qry-row">
+        <div class="qf"><label>Full Name *</label><input type="text" id="editName" placeholder="Owner name(s)"/></div>
+        <div class="qf"><label>Phone</label><input type="tel" id="editPhone" placeholder="Phone number(s)"/></div>
+      </div>
+      <div class="qry-row">
+        <div class="qf"><label>Email</label><input type="email" id="editEmail" placeholder="email@example.com"/></div>
+        <div class="qf"><label>Intercom</label><input type="text" id="editIntercom" placeholder="e.g. 216"/></div>
+      </div>
+      <div class="qry-row full">
+        <div class="qf"><label>Parking Slot</label><input type="text" id="editParking" placeholder="e.g. Covered - C27"/></div>
+      </div>
+      <div style="margin-top:0.5rem;padding:0.8rem 1rem;background:#fff8e1;border:1px solid #ffe082;border-radius:6px;font-size:0.78rem;color:#7a4f00;">
+        &#x26A0;&#xFE0F; Changes are saved directly to Firestore and reflect immediately for all members.
+      </div>
+      <button class="qry-submit" id="editSaveBtn" onclick="saveResident()" style="background:#0a1a3b;margin-top:1rem;">Save Changes</button>
+      <div class="qry-status" id="editStatus" style="margin-top:0.6rem;text-align:center;font-size:0.85rem;"></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Admin: Manage Notice Board -->
+<div class="qry-ov" id="manageNoticesOv">
+  <div class="qry-modal" style="max-width:680px;">
+    <div class="qry-header">
+      <div><h3>Manage Notice Board</h3><div class="qry-header-sub">Add, edit &amp; remove notices</div></div>
+      <button class="qry-close" onclick="closeManageNotices()">&#x2715;</button>
+    </div>
+    <div class="qry-body">
+      <!-- Add / Edit Form -->
+      <div id="noticeFormBox" style="background:#f8f9ff;border:1px solid #e0e4f0;border-radius:8px;padding:1.2rem;margin-bottom:1.2rem;">
+        <p class="qry-sec" style="margin-top:0;" id="noticeFormTitle">&#x2795; Add New Notice</p>
+        <input type="hidden" id="noticeEditId"/>
+        <div class="qry-row">
+          <div class="qf"><label>Type / Category *</label>
+          <select id="noticeType">
+            <option value="">Select category&hellip;</option>
+            <option value="&#x1F4CB; Governance">&#x1F4CB; Governance</option>
+            <option value="&#x1F6BF; Maintenance Advisory">&#x1F6BF; Maintenance Advisory</option>
+            <option value="&#x1F4B0; Finance Reminder">&#x1F4B0; Finance Reminder</option>
+            <option value="&#x1F6E1;&#xFE0F; Security Notice">&#x1F6E1;&#xFE0F; Security Notice</option>
+            <option value="&#x1F333; Community Update">&#x1F333; Community Update</option>
+            <option value="&#x1F3DB;&#xFE0F; Facility Update">&#x1F3DB;&#xFE0F; Facility Update</option>
+            <option value="&#x26A0;&#xFE0F; Important Notice">&#x26A0;&#xFE0F; Important Notice</option>
+          </select></div>
+          <div class="qf"><label>Badge</label>
+          <select id="noticeBadge">
+            <option value="">None</option>
+            <option value="Advisory">Advisory</option>
+            <option value="Urgent">Urgent</option>
+            <option value="Reminder">Reminder</option>
+            <option value="Notice">Notice</option>
+            <option value="Update">Update</option>
+          </select></div>
+        </div>
+        <div class="qry-row full"><div class="qf"><label>Title *</label><input type="text" id="noticeTitle" placeholder="Notice heading"/></div></div>
+        <div class="qry-row full"><div class="qf"><label>Body *</label><textarea id="noticeBody" rows="3" placeholder="Notice content (HTML allowed for bold etc.)"></textarea></div></div>
+        <div class="qry-row">
+          <div class="qf"><label>Date</label><input type="text" id="noticeDate" placeholder="e.g. April 1, 2026"/></div>
+          <div class="qf"><label>Urgent?</label>
+            <div style="display:flex;gap:1.5rem;margin-top:0.4rem;">
+              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.88rem;cursor:pointer;"><input type="radio" name="noticeUrgent" value="true" style="accent-color:var(--gold);"/> Yes</label>
+              <label style="display:flex;align-items:center;gap:0.4rem;font-size:0.88rem;cursor:pointer;"><input type="radio" name="noticeUrgent" value="false" checked style="accent-color:var(--gold);"/> No</label>
+            </div>
+          </div>
+        </div>
+        <div style="display:flex;gap:0.8rem;margin-top:0.5rem;">
+          <button class="qry-submit" onclick="saveNotice()" id="noticeSaveBtn" style="flex:1;">Save Notice</button>
+          <button onclick="resetNoticeForm()" style="background:none;border:1px solid #e0e4f0;border-radius:6px;padding:0.6rem 1rem;font-size:0.85rem;cursor:pointer;color:#7a8aaa;">Clear</button>
+        </div>
+        <div id="noticeFormStatus" style="font-size:0.82rem;margin-top:0.5rem;text-align:center;"></div>
+      </div>
+      <!-- Existing Notices List -->
+      <p class="qry-sec">&#x1F4CB; Current Notices</p>
+      <div id="adminNoticeList"><p style="color:#aab;font-size:0.82rem;">Loading&hellip;</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Admin: Manage Events -->
+<div class="qry-ov" id="manageEventsOv">
+  <div class="qry-modal" style="max-width:680px;">
+    <div class="qry-header">
+      <div><h3>Manage Events</h3><div class="qry-header-sub">Add, edit &amp; remove upcoming events</div></div>
+      <button class="qry-close" onclick="closeManageEvents()">&#x2715;</button>
+    </div>
+    <div class="qry-body">
+      <!-- Add / Edit Form -->
+      <div id="eventFormBox" style="background:#f8f9ff;border:1px solid #e0e4f0;border-radius:8px;padding:1.2rem;margin-bottom:1.2rem;">
+        <p class="qry-sec" style="margin-top:0;" id="eventFormTitle">&#x2795; Add New Event</p>
+        <input type="hidden" id="eventEditId"/>
+        <div class="qry-row">
+          <div class="qf"><label>Day *</label><input type="text" id="eventDay" placeholder="e.g. 14" maxlength="2"/></div>
+          <div class="qf"><label>Month *</label><input type="text" id="eventMonth" placeholder="e.g. Apr" maxlength="3"/></div>
+        </div>
+        <div class="qry-row full"><div class="qf"><label>Title *</label><input type="text" id="eventTitle" placeholder="e.g. &#x1F389; Poila Boisakh Celebration"/></div></div>
+        <div class="qry-row full"><div class="qf"><label>Description</label><input type="text" id="eventDesc" placeholder="e.g. 5:00 PM onwards &middot; Rooftop"/></div></div>
+        <div class="qry-row">
+          <div class="qf"><label>Tag</label>
+            <select id="eventTag"><option value="t-soc">Community (green)</option><option value="t-fest">Festival (orange)</option><option value="t-meet">Meeting (blue)</option><option value="t-main">Maintenance (red)</option></select>
+          </div>
+          <div class="qf"><label>Label</label>
+          <select id="eventLabel">
+            <option value="Community">Community</option>
+            <option value="Festival">Festival</option>
+            <option value="Meeting">Meeting</option>
+            <option value="Maintenance">Maintenance</option>
+          </select></div>
+        </div>
+        <div style="display:flex;gap:0.8rem;margin-top:0.5rem;">
+          <button class="qry-submit" onclick="saveEvent()" id="eventSaveBtn" style="flex:1;">Save Event</button>
+          <button onclick="resetEventForm()" style="background:none;border:1px solid #e0e4f0;border-radius:6px;padding:0.6rem 1rem;font-size:0.85rem;cursor:pointer;color:#7a8aaa;">Clear</button>
+        </div>
+        <div id="eventFormStatus" style="font-size:0.82rem;margin-top:0.5rem;text-align:center;"></div>
+      </div>
+      <!-- Existing Events List -->
+      <p class="qry-sec">&#x1F4C5; Current Events</p>
+      <div id="adminEventList"><p style="color:#aab;font-size:0.82rem;">Loading&hellip;</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- Member: My Consents -->
+<div class="qry-ov" id="consentsOv">
+  <div class="qry-modal" style="max-width:620px;">
+    <div class="qry-header">
+      <div><h3>My Consents</h3><div class="qry-header-sub">Acknowledge society policies &amp; guidelines</div></div>
+      <button class="qry-close" onclick="closeConsents()">&#x2715;</button>
+    </div>
+    <div id="consentsBodyWrap" style="display:flex;flex-direction:column;flex:1;min-height:0;overflow:hidden;">
+      <div class="qry-body" id="consentsBody">
+        <p style="color:#aab;font-size:0.82rem;text-align:center;padding:1rem;">Loading&hellip;</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Admin: Manage Consents -->
+<div class="qry-ov" id="manageConsentsOv">
+  <div class="qry-modal" style="max-width:680px;">
+    <div class="qry-header">
+      <div><h3>Manage Consents</h3><div class="qry-header-sub">Create topics &amp; view acknowledgements</div></div>
+      <button class="qry-close" onclick="closeManageConsents()">&#x2715;</button>
+    </div>
+    <div class="qry-body">
+      <!-- Add Topic Form -->
+      <div style="background:#f8f9ff;border:1px solid #e0e4f0;border-radius:8px;padding:1.2rem;margin-bottom:1.2rem;">
+        <p class="qry-sec" style="margin-top:0;" id="consentFormTitle">&#x2795; Add New Consent Topic</p>
+        <input type="hidden" id="consentEditId"/>
+        <div class="qry-row full"><div class="qf"><label>Title *</label><input type="text" id="consentTopicTitle" placeholder="e.g. Swimming Pool Usage Without Lifeguard"/></div></div>
+        <div class="qry-row full"><div class="qf"><label>Description *</label><textarea id="consentTopicDesc" rows="3" placeholder="Full text of the consent / acknowledgement that members will read and sign&hellip;"></textarea></div></div>
+        <div style="display:flex;gap:0.8rem;margin-top:0.5rem;">
+          <button class="qry-submit" onclick="saveConsentTopic()" id="consentSaveBtn" style="flex:1;">Save Topic</button>
+          <button onclick="resetConsentForm()" style="background:none;border:1px solid #e0e4f0;border-radius:6px;padding:0.6rem 1rem;font-size:0.85rem;cursor:pointer;color:#7a8aaa;">Clear</button>
+        </div>
+        <div id="consentFormStatus" style="font-size:0.82rem;margin-top:0.5rem;text-align:center;"></div>
+      </div>
+      <!-- Topics List -->
+      <p class="qry-sec">&#x1F4CB; All Consent Topics</p>
+      <div id="adminConsentList"><p style="color:#aab;font-size:0.82rem;">Loading&hellip;</p></div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Pet Registration Modal -->
+<div class="qry-ov" id="petRegOv">
+  <div class="qry-modal" style="max-width:620px;">
+    <div class="qry-header">
+      <div><h3>Pet Registration</h3><div class="qry-header-sub">Mandatory registration with the Association</div></div>
+      <button class="qry-close" onclick="closePetReg()">&#x2715;</button>
+    </div>
+    <div id="petRegFormWrap" style="display:flex;flex-direction:column;flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;"><div class="qry-body" style="overflow:visible;">
+      <p class="qry-sec">Owner Details</p>
+      <div class="qry-row">
+        <div class="qf"><label>Flat Number *</label><select id="petFlat"><option value="">Select flat&hellip;</option></select></div>
+        <div class="qf"><label>Owner Name *</label><input type="text" id="petOwnerName" placeholder="Full name"/></div>
+      </div>
+      <div class="qry-row">
+        <div class="qf"><label>Contact Number *</label><input type="tel" id="petOwnerPhone" placeholder="+91 XXXXX XXXXX"/></div>
+        <div class="qf"><label>Email Address *</label><input type="email" id="petOwnerEmail" placeholder="your@email.com"/></div>
+      </div>
+      <p class="qry-sec">Pet Details</p>
+      <div class="qry-row">
+        <div class="qf"><label>Species *</label>
+          <select id="petSpecies">
+            <option value="">Select&hellip;</option>
+            <option>Dog</option>
+            <option>Cat</option>
+          </select>
+        </div>
+        <div class="qf"><label>Breed</label><input type="text" id="petBreed" placeholder="e.g. Labrador"/></div>
+      </div>
+      <p class="qry-sec">Vaccination &amp; Documentation</p>
+      <div class="qry-row">
+        <div class="qf"><label>Last Vaccination Date</label><input type="date" id="petVaccDate"/></div>
+      </div>
+      <div class="qry-row full">
+        <div class="qf">
+          <label>Upload Vaccination Certificate *</label>
+          <input type="file" id="petVaccFile" accept="image/*,.pdf"/>
+          <span style="font-size:0.68rem;color:#aab;margin-top:0.2rem;display:block;">JPG, PNG or PDF &middot; Max 5MB</span>
+        </div>
+      </div>
+      <div class="qry-row full">
+        <div class="qf"><label>Additional Notes</label><textarea id="petNotes" placeholder="Any other details the Association should know&hellip;"></textarea></div>
+      </div>
+      <div class="qry-row full">
+        <div class="qf">
+          <div style="background:rgba(201,162,51,0.08);border:1px solid rgba(201,162,51,0.35);border-radius:6px;padding:1rem 1.1rem;">
+            <p style="font-size:0.78rem;color:#3a4f7a;line-height:1.7;margin-bottom:0.8rem;">I confirm that my pet is vaccinated, well-behaved and will be kept under control in all common areas. I accept responsibility for any damage or nuisance caused by my pet and agree to abide by the pet policy of Signature 18.</p>
+            <label style="display:flex;align-items:flex-start;gap:0.6rem;cursor:pointer;">
+              <input type="checkbox" id="petAck" style="width:16px;height:16px;accent-color:var(--gold);flex-shrink:0;margin-top:2px;"/>
+              <span style="font-size:0.78rem;color:#0a1a3b;font-weight:600;">I confirm the above and take responsibility for my pet&rsquo;s conduct.</span>
+            </label>
+          </div>
+        </div>
+      </div>
+      <button class="qry-submit" id="petSubmitBtn" onclick="submitPetReg()">Register Pet</button>
+      <div class="qry-status" id="petStatus"></div>
+    </div></div>
+    <div id="petRegSuccess" style="display:none;" class="qry-success">
+      <div class="qry-success-icon">&#x1F436;</div>
+      <h4>Pet Registered!</h4>
+      <p>Your pet has been registered with the Association.<br/>We will review the details within 2&ndash;3 working days.</p>
+      <button class="qry-new-btn" onclick="resetPetReg()">Register Another</button>
+    </div>
+  </div>
+</div>
+
+<!-- Admin: Manage Pets -->
+<div class="qry-ov" id="managePetsOv">
+  <div class="qry-modal" style="max-width:680px;">
+    <div class="qry-header">
+      <div><h3>Manage Pet Registrations</h3><div class="qry-header-sub">All registered pets in Signature 18</div></div>
+      <button class="qry-close" onclick="closeManagePets()">&#x2715;</button>
+    </div>
+    <div class="qry-body" style="overflow-y:auto;overflow-x:hidden;flex:1;min-height:0;-webkit-overflow-scrolling:touch;">
+      <div id="adminPetList"><p style="color:#aab;font-size:0.82rem;">Loading&hellip;</p></div>
     </div>
   </div>
 </div>
